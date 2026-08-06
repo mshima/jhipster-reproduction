@@ -1,0 +1,8 @@
+application {
+  config {
+    testFrameworks [cypress]
+    buildTool gradle
+    graalvmSupport true
+  }
+}
+

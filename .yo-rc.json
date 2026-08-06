@@ -1,0 +1,16 @@
+{
+  "generator-jhipster": {
+    "baseName": "jhipster",
+    "buildTool": "gradle",
+    "cacheProvider": "no",
+    "creationTimestamp": 1703451113582,
+    "entities": [],
+    "graalvmSupport": true,
+    "jhipsterVersion": "9.2.0",
+    "jwtSecretKey": "NjVmNjczMzdiN2NhMjAwNjgxMDg4ZWM4MThjOGJkNjYzYjM4ODEyM2NmN2Y0N2M0YWE5ZjdhNTQzZDQ0ODBkMDI2Y2NjYzE5ZmFiNTFiZDc1MTM0NmUxOTFhY2JkZjQyM2JmMGMyNjM5M2JiYWU1MzMyNGEzMjU0NGU2ZGNjM2Y=",
+    "languages": ["en"],
+    "nativeLanguage": "en",
+    "skipJhipsterDependencies": true,
+    "testFrameworks": ["cypress"]
+  }
+}
