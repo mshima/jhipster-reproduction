@@ -15,7 +15,7 @@ graalvmNative {
   binaries.all {
     verbose = true
     jvmArgs.add('-Xms4g')
-    jvmArgs.add('-Xmx10g')
+    jvmArgs.add('-Xmx6g')
   }
   metadataRepository {
     enabled = true
