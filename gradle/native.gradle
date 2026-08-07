@@ -8,14 +8,14 @@ graalvmNative {
       //  languageVersion = JavaLanguageVersion.of(19)
       //  vendor = JvmVendorSpec.matching("GraalVM Community")
       //}
+      verbose = true
       buildArgs.add("-Duser.language=en")
       buildArgs.add("-H:IncludeLocales=en")
+      buildArgs.add('-J-Xms2g')
+      buildArgs.add('-J-Xmx3g')
+      buildArgs.add('--parallelism=2')
+      buildArgs.add('-O1')
     }
-  }
-  binaries.all {
-    verbose = true
-    jvmArgs.add('-Xms4g')
-    jvmArgs.add('-Xmx6g')
   }
   metadataRepository {
     enabled = true
