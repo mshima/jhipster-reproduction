@@ -54,3 +54,6 @@ def integrationTest = tasks.register('integrationTest', Test) {
     reports.html.required = false
     dependsOn(tasks.named('test'))
 }
+
+tasks.named('processResources').configure { dependsOn(webapp) }
+tasks.named('bootJar').configure { dependsOn(tasks.named('processResources')) }
