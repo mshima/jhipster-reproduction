@@ -56,8 +56,6 @@ def integrationTest = tasks.register('integrationTest', Test) {
     description = "Execute integration tests."
     group = "verification"
     include "**/*IT*", "**/*IntTest*"
-    testClassesDirs = sourceSets.test.output.classesDirs
-    classpath = sourceSets.test.runtimeClasspath
     testLogging {
         events = ['FAILED', 'SKIPPED']
         exceptionFormat = "full"

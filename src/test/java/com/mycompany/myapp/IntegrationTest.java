@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
+import org.springframework.boot.testcontainers.context.ImportTestcontainers;
 
 /**
  * Base composite annotation for integration tests.
@@ -23,5 +23,5 @@ import org.springframework.context.annotation.Import;
         com.mycompany.myapp.config.JacksonHibernateConfiguration.class,
     }
 )
-@Import(DatabaseTestcontainer.class)
+@ImportTestcontainers(DatabaseTestcontainer.class)
 public @interface IntegrationTest {}

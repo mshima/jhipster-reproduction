@@ -1,5 +1,14 @@
 package com.mycompany.myapp.config;
 
+import com.fasterxml.jackson.core.JsonGenerator;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.SerializerProvider;
+import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.fasterxml.jackson.databind.ser.BeanPropertyWriter;
+import com.fasterxml.jackson.databind.ser.PropertyFilter;
+import com.fasterxml.jackson.databind.ser.PropertyWriter;
+import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import jakarta.persistence.Basic;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.FetchType;
@@ -8,16 +17,9 @@ import jakarta.persistence.OneToMany;
 import java.lang.annotation.Annotation;
 import java.util.function.Function;
 import org.hibernate.Hibernate;
-import org.springframework.boot.jackson.autoconfigure.JsonMapperBuilderCustomizer;
+import org.springframework.boot.jackson2.autoconfigure.Jackson2ObjectMapperBuilderCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import tools.jackson.core.JsonGenerator;
-import tools.jackson.databind.SerializationContext;
-import tools.jackson.databind.jsonFormatVisitors.JsonObjectFormatVisitor;
-import tools.jackson.databind.ser.BeanPropertyWriter;
-import tools.jackson.databind.ser.PropertyFilter;
-import tools.jackson.databind.ser.PropertyWriter;
-import tools.jackson.databind.ser.std.SimpleFilterProvider;
 
 @Configuration
 public class JacksonNativeConfiguration {
@@ -27,14 +29,14 @@ public class JacksonNativeConfiguration {
      * see: https://github.com/FasterXML/jackson-datatype-hibernate/issues/148#issuecomment-1383923857
      */
     @Bean
-    public JsonMapperBuilderCustomizer customizeJackson() {
+    public Jackson2ObjectMapperBuilderCustomizer customizeJackson() {
         return builder -> {
             String filterName = "lazyPropertyFilter";
-            builder.filterProvider(new SimpleFilterProvider().addFilter(filterName, new LazyPropertyFilter()));
+            builder.filters(new SimpleFilterProvider().addFilter(filterName, new LazyPropertyFilter()));
         };
     }
 
-    private static class LazyPropertyFilter implements PropertyFilter {
+    private class LazyPropertyFilter implements PropertyFilter {
 
         public static boolean isPropertyInitialized(BeanPropertyWriter prop, Object bean) throws Exception {
             return (
@@ -65,32 +67,32 @@ public class JacksonNativeConfiguration {
         }
 
         @Override
-        public void serializeAsProperty(Object pojo, JsonGenerator gen, SerializationContext ctx, PropertyWriter writer) throws Exception {
-            if (writer instanceof BeanPropertyWriter bpw) {
-                var initialized = isPropertyInitialized(bpw, pojo);
-                if (initialized) {
-                    writer.serializeAsProperty(pojo, gen, ctx);
-                } else if (!gen.canOmitProperties()) {
-                    writer.serializeAsOmittedProperty(pojo, gen, ctx);
-                }
-            } else {
-                writer.serializeAsProperty(pojo, gen, ctx);
+        public void serializeAsField(Object pojo, JsonGenerator gen, SerializerProvider prov, PropertyWriter writer) throws Exception {
+            var initialized = isPropertyInitialized((BeanPropertyWriter) writer, pojo);
+            if (initialized) {
+                writer.serializeAsField(pojo, gen, prov);
+            } else if (!gen.canOmitFields()) {
+                // since 2.3
+                writer.serializeAsOmittedField(pojo, gen, prov);
             }
         }
 
         @Override
-        public void serializeAsElement(Object elementValue, JsonGenerator gen, SerializationContext ctx, PropertyWriter writer) {
+        public void serializeAsElement(Object elementValue, JsonGenerator gen, SerializerProvider prov, PropertyWriter writer) {
             throw new RuntimeException("LazyPropertyFilter.serializeAsElement() currently unsupported");
         }
 
+        @SuppressWarnings("deprecation")
         @Override
-        public void depositSchemaProperty(PropertyWriter writer, JsonObjectFormatVisitor objectVisitor, SerializationContext ctx) {
-            writer.depositSchemaProperty(objectVisitor, ctx);
+        public void depositSchemaProperty(PropertyWriter writer, ObjectNode propertiesNode, SerializerProvider provider)
+            throws JsonMappingException {
+            writer.depositSchemaProperty(propertiesNode, provider);
         }
 
         @Override
-        public PropertyFilter snapshot() {
-            return this;
+        public void depositSchemaProperty(PropertyWriter writer, JsonObjectFormatVisitor objectVisitor, SerializerProvider provider)
+            throws JsonMappingException {
+            writer.depositSchemaProperty(objectVisitor, provider);
         }
     }
 }

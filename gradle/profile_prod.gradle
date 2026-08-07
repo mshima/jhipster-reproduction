@@ -41,8 +41,6 @@ def integrationTest = tasks.register('integrationTest', Test) {
     description = "Execute integration tests."
     group = "verification"
     include "**/*IT*", "**/*IntTest*"
-    testClassesDirs = sourceSets.test.output.classesDirs
-    classpath = sourceSets.test.runtimeClasspath
     testLogging {
         events = ['FAILED', 'SKIPPED']
         exceptionFormat = "full"
@@ -54,3 +52,6 @@ def integrationTest = tasks.register('integrationTest', Test) {
     reports.html.required = false
     dependsOn(tasks.named('test'))
 }
+
+tasks.named('processResources').configure { dependsOn(webapp) }
+tasks.named('bootJar').configure { dependsOn(tasks.named('processResources')) }
