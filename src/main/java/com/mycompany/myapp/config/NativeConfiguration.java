@@ -10,6 +10,7 @@ public class NativeConfiguration {
 
         @Override
         public void registerHints(RuntimeHints hints, ClassLoader classLoader) {
+            hints.resources().registerPattern("static/**");
             hints.resources().registerPattern("i18n/**");
             hints.reflection().registerType(java.util.Locale.class, hint -> hint.withMembers(MemberCategory.INVOKE_PUBLIC_METHODS));
             hints.reflection().registerType(java.util.Calendar[].class, hint -> hint.withMembers(MemberCategory.INVOKE_PUBLIC_METHODS));

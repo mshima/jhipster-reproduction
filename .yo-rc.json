@@ -4,6 +4,7 @@
     "buildTool": "gradle",
     "cacheProvider": "no",
     "creationTimestamp": 1703451113582,
+    "defaultCommand": "app",
     "entities": [],
     "graalvmSupport": true,
     "jhipsterVersion": "9.2.0",
