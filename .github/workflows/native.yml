@@ -30,7 +30,7 @@ jobs:
           - os: macos-latest
             executable-suffix: ''
             e2e: false
-            native-build-args: --verbose -J-Xmx13g
+            native-build-args: --verbose -J-Xmx6g
           - os: windows-latest
             executable-suffix: '.exe'
             # e2e is disabled due to unstable docker step
