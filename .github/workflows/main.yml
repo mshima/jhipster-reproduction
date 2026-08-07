@@ -1,12 +1,6 @@
 name: Application CI
 on: [push, pull_request]
 jobs:
-  validation:
-    name: 'Gradle Wrapper Validation'
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v7
-      - uses: gradle/wrapper-validation-action@v1
   pipeline:
     name: jhipster pipeline
     runs-on: ubuntu-latest
@@ -30,9 +24,7 @@ jobs:
       - name: Install Node.js packages
         run: npm install
       - name: Run backend test
-        run: |
-          chmod +x gradlew
-          npm run ci:backend:test
+        run: npm run ci:backend:test
       - name: Run frontend test
         run: npm run ci:frontend:test
       - name: Package application

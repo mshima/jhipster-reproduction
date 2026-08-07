@@ -22,7 +22,7 @@
           "options": {
             "plugins": ["build-plugins/i18n-esbuild.ts", "build-plugins/define-esbuild.ts"],
             "outputPath": {
-              "base": "build/resources/main/static/",
+              "base": "target/classes/static/",
               "browser": "",
               "server": "node-server",
               "media": "resources"
@@ -110,7 +110,7 @@
               [
                 "vitest-sonar-reporter",
                 {
-                  "outputFile": "./build/test-results/TESTS-results-sonar-vitest.xml"
+                  "outputFile": "./target/test-results/TESTS-results-sonar-vitest.xml"
                 }
               ]
             ],
@@ -153,7 +153,7 @@
   "cli": {
     "cache": {
       "enabled": true,
-      "path": "./build/angular/",
+      "path": "./target/angular/",
       "environment": "all"
     },
     "packageManager": "npm"

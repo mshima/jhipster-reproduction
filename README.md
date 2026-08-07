@@ -113,14 +113,14 @@ update src/main/webapp/app/app.config.ts
 To build the final jar and optimize the jhipster application for production, run:
 
 ```bash
-./gradlew -Pprod clean bootJar
+./mvnw -Pprod clean verify
 ```
 
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
 To ensure everything worked, run:
 
 ```bash
-java -jar build/libs/*.jar
+java -jar target/*.jar
 ```
 
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
@@ -132,7 +132,7 @@ Refer to [Using JHipster in production][] for more details.
 To package your application as a war in order to deploy it to an application server, run:
 
 ```bash
-./gradlew -Pprod -Pwar clean bootWar
+./mvnw -Pprod,war clean verify
 ```
 
 ### JHipster Control Center
@@ -150,7 +150,7 @@ docker compose -f src/main/docker/jhipster-control-center.yml up
 To launch your application's tests, run:
 
 ```bash
-./gradlew test integrationTest jacocoTestReport
+./mvnw verify
 ```
 
 ### Client tests
@@ -181,7 +181,7 @@ You can execute automated [Lighthouse audits](https://developer.chrome.com/docs/
 
 You should only run the audits when your application is packaged with the production profile.
 
-The Lighthouse report is created in `build/cypress/lhreport.html`.
+The Lighthouse report is created in `target/cypress/lhreport.html`.
 
 ## Others
 
@@ -195,12 +195,18 @@ docker compose -f src/main/docker/sonar.yml up -d
 
 Note: we have turned off forced authentication redirect for UI in [src/main/docker/sonar.yml](src/main/docker/sonar.yml) for out of the box experience while trying out SonarQube, for real use cases turn it back on.
 
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the gradle plugin.
+You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
 
 Then, run a Sonar analysis:
 
 ```bash
-./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.login=admin -Dsonar.password=admin
+./mvnw -Pprod clean verify sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
+```
+
+If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
+
+```bash
+./mvnw initialize sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
 ```
 
 Additionally, Instead of passing `sonar.password` and `sonar.login` as CLI arguments, these parameters can be configured from [sonar-project.properties](sonar-project.properties) as shown below:
@@ -279,7 +285,7 @@ To build a native image, execute the following command:
 
 ```bash
 npm run native-package
-# ./gradlew nativeCompile -Pnative -Pprod -x test -x integrationTest
+# ./mvnw package -B -ntp -Pnative,prod -DskipTests
 ```
 
 After that, set up peripheral services like PostgreSQL using `npm run services:up`() and ensure everything is ready.
@@ -288,7 +294,7 @@ Lastly, run the Native image and experience its fast startup 😊.
 
 ```bash
 npm run native-start
-# ./build/native/nativeCompile/native-executable --spring.profiles.active=e2e,secret-samples,prod
+# ./target/native-executable --spring.profiles.active=e2e,secret-samples,prod
 ```
 
 If you've enabled e2e testing with Cypress, you can verify its operation using the following command:

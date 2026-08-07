@@ -1,7 +1,7 @@
 {
   "generator-jhipster": {
     "baseName": "jhipster",
-    "buildTool": "gradle",
+    "buildTool": "maven",
     "cacheProvider": "no",
     "creationTimestamp": 1703451113582,
     "defaultCommand": "app",
