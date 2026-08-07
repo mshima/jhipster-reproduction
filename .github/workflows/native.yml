@@ -41,6 +41,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 24.18.0
+      # Make sure that the script-shell is set to bash, otherwise npm scripts will fail on Windows runners
+      - run: npm config -L project set script-shell=bash
       - name: Set up GraalVM (Java ${{ matrix.java-version }})
         uses: graalvm/setup-graalvm@v1
         with:
