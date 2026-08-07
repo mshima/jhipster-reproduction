@@ -3,7 +3,7 @@ mapstruct = "1.6.3"
 archunit-junit5 = "1.4.2"
 checkstyle = "13.9.0"
 jacoco = "0.8.15"
-hibernate = "7.2.19.Final"
+hibernate = "7.4.1.Final"
 # jhipster-needle-gradle-dependency-catalog-version - JHipster will add additional versions for convention plugins here
 
 [libraries]
@@ -17,7 +17,7 @@ mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.re
 
 [plugins]
 gradle-git-properties = { id = "com.gorylenko.gradle-git-properties", version = "4.0.1" }
-spring-boot = { id = "org.springframework.boot", version = "4.0.7" }
+spring-boot = { id = "org.springframework.boot", version = "4.1.0" }
 graalvm = { id = "org.graalvm.buildtools.native", version = "1.1.7" }
 hibernate = { id = "org.hibernate.orm", version.ref = "hibernate" }
 # jhipster-needle-gradle-dependency-catalog-plugins - JHipster will add additional plugins versions
