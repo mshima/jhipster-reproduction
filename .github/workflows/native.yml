@@ -60,8 +60,8 @@ jobs:
       - name: 'E2E: Package'
         run: npm run native-package -- "-Dnative-build-args=${{ matrix.native-build-args }}"
       - name: 'E2E: Prepare'
-        if: matrix.e2e != 'false'
+        if: matrix.e2e != false
         run: npm run ci:e2e:prepare
       - name: 'E2E: Run'
-        if: matrix.e2e != 'false'
+        if: matrix.e2e != false
         run: npm run native-e2e
