@@ -59,6 +59,11 @@ jobs:
         run: npm install
       - name: 'E2E: Package'
         run: npm run native-package -- "-Dnative-build-args=${{ matrix.native-build-args }}"
+      - name: Archive binary
+        uses: actions/upload-artifact@v4
+        with:
+          name: native-executable${{ matrix.executable-suffix }}
+          path: build/native/nativeCompile/native-executable${{ matrix.executable-suffix }}
       - name: 'E2E: Prepare'
         if: runner.os == 'Linux'
         run: npm run ci:e2e:prepare
