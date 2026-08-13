@@ -146,7 +146,7 @@ describe('MetricsModalThreads', () => {
       expect(badgeClass).toEqual('bg-info');
     });
 
-    it('should return a warning badge class for time waiting thread state', () => {
+    it('should return a warning badge class for timed waiting thread state', () => {
       // GIVEN
       const threadState = ThreadState.TimedWaiting;
 
