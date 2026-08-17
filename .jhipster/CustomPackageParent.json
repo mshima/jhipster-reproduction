@@ -1,0 +1,26 @@
+{
+  "annotations": {
+    "changelogDate": 20200804035400,
+    "entityPackage": "app.custom"
+  },
+  "applications": ["jhipster"],
+  "dto": "mapstruct",
+  "fields": [
+    {
+      "fieldName": "parentName",
+      "fieldType": "String"
+    }
+  ],
+  "name": "CustomPackageParent",
+  "relationships": [
+    {
+      "otherEntityName": "customPackageChild",
+      "otherEntityRelationshipName": "customPackageParent",
+      "relationshipName": "customPackageChild",
+      "relationshipSide": "left",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "searchEngine": "no",
+  "service": "serviceClass"
+}

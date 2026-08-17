@@ -1,0 +1,116 @@
+<div>
+  <h2 id="page-heading" data-cy="CustomPackageChildHeading">
+    <span jhiTranslate="jhipsterApp.customPackageChild.home.title">Custom Package Children</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="jhipsterApp.customPackageChild.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-custom-package-child"
+        [routerLink]="['/custom-package-child/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="jhipsterApp.customPackageChild.home.createLabel">Create a new Custom Package Child</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (customPackageChildren().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="jhipsterApp.customPackageChild.home.notFound">No Custom Package Children found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="childName">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterApp.customPackageChild.childName">Child Name</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="user.id">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterApp.customPackageChild.user">User</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="customPackageParent.id">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterApp.customPackageChild.customPackageParent">Custom Package Parent</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (customPackageChild of customPackageChildren(); track trackId(customPackageChild)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/custom-package-child', customPackageChild.id, 'view']">{{ customPackageChild.id }}</a>
+              </td>
+              <td>{{ customPackageChild.childName }}</td>
+              <td>
+                {{ customPackageChild.user?.id }}
+              </td>
+              <td>
+                @if (customPackageChild.customPackageParent) {
+                  <div>
+                    <a [routerLink]="['/custom-package-parent', customPackageChild.customPackageParent.id, 'view']">{{
+                      customPackageChild.customPackageParent.id
+                    }}</a>
+                  </div>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/custom-package-child', customPackageChild.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/custom-package-child', customPackageChild.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(customPackageChild)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

@@ -1,0 +1,32 @@
+import { Component, inject } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap/modal';
+
+import { ITEM_DELETED_EVENT } from 'app/config/navigation.constants';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
+import { ICustomPackageChild } from '../custom-package-child.model';
+import { CustomPackageChildService } from '../service/custom-package-child.service';
+
+@Component({
+  templateUrl: './custom-package-child-delete-dialog.html',
+  imports: [TranslateDirective, FormsModule, FontAwesomeModule, AlertError],
+})
+export class CustomPackageChildDeleteDialog {
+  customPackageChild?: ICustomPackageChild;
+
+  protected readonly customPackageChildService = inject(CustomPackageChildService);
+  protected readonly activeModal = inject(NgbActiveModal);
+
+  cancel(): void {
+    this.activeModal.dismiss();
+  }
+
+  confirmDelete(id: number): void {
+    this.customPackageChildService.delete(id).subscribe(() => {
+      this.activeModal.close(ITEM_DELETED_EVENT);
+    });
+  }
+}

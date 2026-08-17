@@ -1,0 +1,25 @@
+{
+  "jhipsterApp": {
+    "customPackageParent": {
+      "home": {
+        "title": "Custom Package Parents",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Custom Package Parent",
+        "createOrEditLabel": "Create or edit a Custom Package Parent",
+        "notFound": "No Custom Package Parents found"
+      },
+      "created": "A new Custom Package Parent is created with identifier {{ param }}",
+      "updated": "A Custom Package Parent is updated with identifier {{ param }}",
+      "deleted": "A Custom Package Parent is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Custom Package Parent {{ id }}?"
+      },
+      "detail": {
+        "title": "Custom Package Parent"
+      },
+      "id": "ID",
+      "parentName": "Parent Name",
+      "customPackageChild": "Custom Package Child"
+    }
+  }
+}

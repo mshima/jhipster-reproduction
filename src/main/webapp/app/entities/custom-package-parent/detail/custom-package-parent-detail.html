@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (customPackageParent(); as customPackageParentRef) {
+      <div>
+        <h2 data-cy="customPackageParentDetailsHeading">
+          <span jhiTranslate="jhipsterApp.customPackageParent.detail.title">Custom Package Parent</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ customPackageParentRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterApp.customPackageParent.parentName">Parent Name</span></dt>
+          <dd>
+            <span>{{ customPackageParentRef.parentName }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/custom-package-parent', customPackageParentRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
