@@ -38,7 +38,7 @@ public class LoggingAspect {
         """
     )
     public void springBeanPointcut() {
-        // Method is empty as this is just a Pointcut, the implementations are in the advices.
+        // Method is empty as this is just a Pointcut, the implementations are in the advice methods.
     }
 
     /**
@@ -52,7 +52,7 @@ public class LoggingAspect {
         """
     )
     public void applicationPackagePointcut() {
-        // Method is empty as this is just a Pointcut, the implementations are in the advices.
+        // Method is empty as this is just a Pointcut, the implementations are in the advice methods.
     }
 
     /**

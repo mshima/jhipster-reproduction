@@ -25,7 +25,7 @@ describe('Metrics', () => {
     service = TestBed.inject(MetricsService);
   });
 
-  describe('refresh', () => {
+  describe('ngOnInit', () => {
     it('should call refresh on init', () => {
       // GIVEN
       const metrics = {
