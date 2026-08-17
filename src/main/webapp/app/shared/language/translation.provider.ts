@@ -1,17 +1,17 @@
 import { EnvironmentProviders, Provider, inject, provideAppInitializer } from '@angular/core';
 
-import { MissingTranslationHandler, TranslateLoader, TranslateService, provideTranslateService } from '@ngx-translate/core';
+import { MissingTranslationHandler, TranslateService, provideTranslateService } from '@ngx-translate/core';
+import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { missingTranslationHandler, translatePartialLoader } from 'app/config/translation.config';
+import { missingTranslationHandler } from 'app/config/translation.config';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 
 export function provideTranslation(): (Provider | EnvironmentProviders)[] {
   return [
     provideTranslateService({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: translatePartialLoader,
-      },
+      loader: provideTranslateHttpLoader({
+        resources: [{ prefix: './i18n/', suffix: `.json?_=${I18N_HASH}` }],
+      }),
       missingTranslationHandler: {
         provide: MissingTranslationHandler,
         useFactory: missingTranslationHandler,

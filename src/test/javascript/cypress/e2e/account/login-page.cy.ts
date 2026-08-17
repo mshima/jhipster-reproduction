@@ -22,7 +22,7 @@ describe('login page', () => {
   });
 
   beforeEach(() => {
-    cy.intercept('POST', '/api/authenticate').as('authenticate');
+    cy.intercept('POST', '/api/authentication').as('authenticate');
   });
 
   it('greets with signin', () => {
@@ -37,7 +37,7 @@ describe('login page', () => {
   it('requires username', () => {
     cy.get(passwordLoginSelector).should('be.visible').type('a-password');
     cy.get(submitLoginSelector).click();
-    cy.wait('@authenticate').then(({ response }) => expect(response?.statusCode).to.equal(400));
+    cy.wait('@authenticate').then(({ response }) => expect(response?.statusCode).to.equal(401));
     // login page should stay open when login fails
     cy.get(titleLoginSelector).should('be.visible');
   });
@@ -45,7 +45,7 @@ describe('login page', () => {
   it('requires password', () => {
     cy.get(usernameLoginSelector).should('be.visible').type('a-login');
     cy.get(submitLoginSelector).click();
-    cy.wait('@authenticate').then(({ response }) => expect(response?.statusCode).to.equal(400));
+    cy.wait('@authenticate').then(({ response }) => expect(response?.statusCode).to.equal(401));
     cy.get(errorLoginSelector).should('be.visible');
   });
 

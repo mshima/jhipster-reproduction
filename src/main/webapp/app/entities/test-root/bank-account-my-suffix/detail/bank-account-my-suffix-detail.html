@@ -1,0 +1,101 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (bankAccount(); as bankAccountRef) {
+      <div>
+        <h2 data-cy="bankAccountDetailsHeading">
+          <span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.detail.title">Bank Account</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.name">Name</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.guid">Guid</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.guid }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.bankNumber">Bank Number</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.bankNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.agencyNumber">Agency Number</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.agencyNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.lastOperationDuration">Last Operation Duration</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.lastOperationDuration }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.meanOperationDuration">Mean Operation Duration</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.meanOperationDuration }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.meanQueueDuration">Mean Queue Duration</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.meanQueueDuration | duration }} ({{ bankAccountRef.meanQueueDuration }})</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.balance">Balance</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.balance }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.openingDay">Opening Day</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.openingDay | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.lastOperationDate">Last Operation Date</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.lastOperationDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.active">Active</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.accountType">Account Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxH2MemApp.BankAccountType.' + (bankAccountRef.accountType ?? 'null')">{{
+              { null: '', CHECKING: 'CHECKING', SAVINGS: 'SAVINGS', LOAN: 'LOAN' }[bankAccountRef.accountType ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.attachment">Attachment</span></dt>
+          <dd>
+            @if (bankAccountRef.attachment) {
+              <div>
+                <a (click)="openFile(bankAccountRef.attachment, bankAccountRef.attachmentContentType)" jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ bankAccountRef.attachmentContentType }}, {{ byteSize(bankAccountRef.attachment) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.description">Description</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.testRootBankAccount.user">User</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.user?.login }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/bank-account-my-suffix', bankAccountRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

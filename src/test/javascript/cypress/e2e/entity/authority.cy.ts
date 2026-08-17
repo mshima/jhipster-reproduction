@@ -13,7 +13,7 @@ describe('Authority e2e test', () => {
   const authorityPageUrl = '/authority';
   let username: string;
   let password: string;
-  const authoritySample = { name: 'fb3bcd29-240d-448a-aae1-2d1c658bfe13' };
+  const authoritySample = { name: 'a1229afa-1b76-4ff3-852b-e62b7e15370e' };
 
   let authority;
 
@@ -61,7 +61,7 @@ describe('Authority e2e test', () => {
   describe('Authority page', () => {
     it('should have translated page title', () => {
       cy.visit(authorityPageUrl);
-      cy.getEntityHeading('Authority').should('not.contain', 'jhipsterApp.adminAuthority.home.title');
+      cy.getEntityHeading('Authority').should('not.contain', 'sampleWebfluxH2MemApp.adminAuthority.home.title');
     });
 
     describe('create button click', () => {
@@ -145,8 +145,8 @@ describe('Authority e2e test', () => {
     });
 
     it('should create an instance of Authority', () => {
-      cy.get(`[data-cy="name"]`).type('bf3dc52c-2b5d-49dc-9650-a31c80686e42');
-      cy.get(`[data-cy="name"]`).should('have.value', 'bf3dc52c-2b5d-49dc-9650-a31c80686e42');
+      cy.get(`[data-cy="name"]`).type('42af863e-45fd-49ea-bf52-866fc3c1cc96');
+      cy.get(`[data-cy="name"]`).should('have.value', '42af863e-45fd-49ea-bf52-866fc3c1cc96');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

@@ -1,6 +1,6 @@
 export type HealthStatus = 'UP' | 'DOWN' | 'UNKNOWN' | 'OUT_OF_SERVICE';
 
-export type HealthKey = 'diskSpace' | 'ssl' | 'mail' | 'ping' | 'livenessState' | 'readinessState' | 'r2dbc';
+export type HealthKey = 'diskSpace' | 'ssl' | 'mail' | 'ping' | 'livenessState' | 'readinessState' | 'elasticsearch' | 'r2dbc';
 
 export interface HealthModel {
   status: HealthStatus;

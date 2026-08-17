@@ -1,4 +1,4 @@
-# jhipster
+# sampleWebfluxH2mem
 
 This application was generated using JHipster 9.2.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v9.2.0](https://www.jhipster.tech/documentation-archive/v9.2.0).
 
@@ -22,6 +22,19 @@ In the project root, JHipster generates configuration files for tools like git, 
 
 ## Development
 
+### Doing API-First development using openapi-generator-cli
+
+[OpenAPI-Generator](https://openapi-generator.tech) is configured for this application. You can generate API code from the `src/main/resources/swagger/api.yml` definition file by running:
+
+```bash
+./gradlew openApiGenerate
+```
+
+Then implements the generated delegate classes with `@Service` classes.
+
+To edit the `api.yml` definition file, you can use a tool such as [Swagger-Editor](<>). Start a local instance of the swagger-editor using docker by running: `docker compose -f src/main/docker/swagger-editor.yml up -d`. The editor will then be reachable at [http://localhost:7742](http://localhost:7742).
+
+Refer to [Doing API-First development](https://www.jhipster.tech/documentation-archive/v9.2.0/doing-api-first-development/) for more details.
 The build system will install automatically the recommended version of Node and npm.
 
 We provide a wrapper to launch npm.
@@ -31,7 +44,7 @@ You will only need to run this command when dependencies change in [package.json
 ./npmw install
 ```
 
-We use npm scripts and [Angular CLI](https://angular.dev/tools/cli) with esbuild as our build system.
+We use npm scripts and [Angular CLI](https://angular.dev/tools/cli) with Webpack as our build system.
 
 Run the following commands in two separate terminals to create a blissful development experience where your browser
 auto-refreshes when files change on your hard drive.
@@ -71,7 +84,7 @@ To benefit from TypeScript type definitions from [DefinitelyTyped](https://defin
 ./npmw install --save-dev --save-exact @types/leaflet
 ```
 
-Then you would import the JS and CSS files specified in library's installation instructions so that [esbuild][] knows about them:
+Then you would import the JS and CSS files specified in library's installation instructions so that [Webpack][] knows about them:
 Edit [src/main/webapp/app/app.config.ts](src/main/webapp/app/app.config.ts) file:
 
 ```typescript
@@ -110,17 +123,17 @@ update src/main/webapp/app/app.config.ts
 
 ### Packaging as jar
 
-To build the final jar and optimize the jhipster application for production, run:
+To build the final jar and optimize the sampleWebfluxH2mem application for production, run:
 
 ```bash
-./mvnw -Pprod clean verify
+./gradlew -Pprod clean bootJar
 ```
 
 This will concatenate and minify the client CSS and JavaScript files. It will also modify `index.html` so it references these new files.
 To ensure everything worked, run:
 
 ```bash
-java -jar target/*.jar
+java -jar build/libs/*.jar
 ```
 
 Then navigate to [http://localhost:8080](http://localhost:8080) in your browser.
@@ -132,7 +145,7 @@ Refer to [Using JHipster in production][] for more details.
 To package your application as a war in order to deploy it to an application server, run:
 
 ```bash
-./mvnw -Pprod,war clean verify
+./gradlew -Pprod -Pwar clean bootWar
 ```
 
 ### JHipster Control Center
@@ -150,7 +163,17 @@ docker compose -f src/main/docker/jhipster-control-center.yml up
 To launch your application's tests, run:
 
 ```bash
-./mvnw verify
+./gradlew test integrationTest jacocoTestReport
+```
+
+### Gatling
+
+Performance tests are run by [Gatling](https://gatling.io/) and written in Scala. They're located in [src/test/java/gatling/simulations](src/test/java/gatling/simulations).
+
+You can execute all Gatling tests with
+
+```bash
+./gradlew gatlingRun
 ```
 
 ### Client tests
@@ -181,7 +204,7 @@ You can execute automated [Lighthouse audits](https://developer.chrome.com/docs/
 
 You should only run the audits when your application is packaged with the production profile.
 
-The Lighthouse report is created in `target/cypress/lhreport.html`.
+The Lighthouse report is created in `build/cypress/lhreport.html`.
 
 ## Others
 
@@ -195,18 +218,12 @@ docker compose -f src/main/docker/sonar.yml up -d
 
 Note: we have turned off forced authentication redirect for UI in [src/main/docker/sonar.yml](src/main/docker/sonar.yml) for out of the box experience while trying out SonarQube, for real use cases turn it back on.
 
-You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the maven plugin.
+You can run a Sonar analysis with using the [sonar-scanner](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner) or by using the gradle plugin.
 
 Then, run a Sonar analysis:
 
 ```bash
-./mvnw -Pprod clean verify sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
-```
-
-If you need to re-run the Sonar phase, please be sure to specify at least the `initialize` phase since Sonar properties are loaded from the sonar-project.properties file.
-
-```bash
-./mvnw initialize sonar:sonar -Dsonar.login=admin -Dsonar.password=admin
+./gradlew -Pprod clean check jacocoTestReport sonarqube -Dsonar.login=admin -Dsonar.password=admin
 ```
 
 Additionally, Instead of passing `sonar.password` and `sonar.login` as CLI arguments, these parameters can be configured from [sonar-project.properties](sonar-project.properties) as shown below:
@@ -281,6 +298,11 @@ To configure CI for your project, run the ci-cd sub-generator (`jhipster ci-cd`)
 - [Setting up Continuous Integration](https://www.jhipster.tech/documentation-archive/v9.2.0/setting-up-ci/)
 - [Node.js](https://nodejs.org/)
 - [NPM](https://www.npmjs.com/)
+- [OpenAPI-Generator](https://openapi-generator.tech)
+- [Swagger-Editor](https://editor.swagger.io)
+- [Doing API-First development](https://www.jhipster.tech/documentation-archive/v9.2.0/doing-api-first-development/)
+- [Gatling](https://gatling.io/)
+- [Webpack](https://webpack.js.org/)
 - [BrowserSync](https://www.browsersync.io/)
 - [Jest](https://jestjs.io)
 - [Leaflet](https://leafletjs.com/)

@@ -4,17 +4,27 @@ import { Observable, mergeMap } from 'rxjs';
 
 import { Account } from 'app/core/auth/account.model';
 import { AccountService } from 'app/core/auth/account.service';
-import { AuthServerProvider } from 'app/core/auth/auth-jwt.service';
+import { AuthServerProvider } from 'app/core/auth/auth-session.service';
+import { ApplicationConfigService } from 'app/core/config/application-config.service';
 
 import { Login } from './login.model';
 
 @Service()
 export class LoginService {
+  private readonly applicationConfigService = inject(ApplicationConfigService);
   private readonly accountService = inject(AccountService);
   private readonly authServerProvider = inject(AuthServerProvider);
 
   login(credentials: Login): Observable<Account | null> {
     return this.authServerProvider.login(credentials).pipe(mergeMap(() => this.accountService.identity(true)));
+  }
+
+  logoutUrl(): string {
+    return this.applicationConfigService.getEndpointFor('api/logout');
+  }
+
+  logoutInClient(): void {
+    this.accountService.authenticate(null);
   }
 
   logout(): void {

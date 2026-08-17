@@ -3,9 +3,9 @@ import { defineConfig } from 'cypress';
 export default defineConfig({
   video: false,
   fixturesFolder: 'src/test/javascript/cypress/fixtures',
-  screenshotsFolder: 'target/cypress/screenshots',
-  downloadsFolder: 'target/cypress/downloads',
-  videosFolder: 'target/cypress/videos',
+  screenshotsFolder: 'build/cypress/screenshots',
+  downloadsFolder: 'build/cypress/downloads',
+  videosFolder: 'build/cypress/videos',
   chromeWebSecurity: true,
   viewportWidth: 1200,
   viewportHeight: 720,
@@ -16,8 +16,7 @@ export default defineConfig({
     adminPassword: 'admin',
     username: 'user',
     password: 'user',
-    authenticationUrl: '/api/authenticate',
-    jwtStorageName: 'jhi-authenticationToken',
+    authenticationUrl: '/api/authentication',
   },
   e2e: {
     // We've imported your old cypress plugins here.

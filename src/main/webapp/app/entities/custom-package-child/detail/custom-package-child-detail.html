@@ -3,7 +3,7 @@
     @if (customPackageChild(); as customPackageChildRef) {
       <div>
         <h2 data-cy="customPackageChildDetailsHeading">
-          <span jhiTranslate="jhipsterApp.customPackageChild.detail.title">Custom Package Child</span>
+          <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.detail.title">Custom Package Child</span>
         </h2>
 
         <hr />
@@ -17,15 +17,15 @@
           <dd>
             <span>{{ customPackageChildRef.id }}</span>
           </dd>
-          <dt><span jhiTranslate="jhipsterApp.customPackageChild.childName">Child Name</span></dt>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.childName">Child Name</span></dt>
           <dd>
             <span>{{ customPackageChildRef.childName }}</span>
           </dd>
-          <dt><span jhiTranslate="jhipsterApp.customPackageChild.user">User</span></dt>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.user">User</span></dt>
           <dd>
             <span>{{ customPackageChildRef.user?.id }}</span>
           </dd>
-          <dt><span jhiTranslate="jhipsterApp.customPackageChild.customPackageParent">Custom Package Parent</span></dt>
+          <dt><span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.customPackageParent">Custom Package Parent</span></dt>
           <dd>
             @if (customPackageChild()!.customPackageParent) {
               <div>

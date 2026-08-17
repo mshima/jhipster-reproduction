@@ -1,0 +1,51 @@
+configurations {
+    liquibaseRuntime.extendsFrom sourceSets.main.compileClasspath
+}
+
+dependencies {
+  implementation "org.liquibase:liquibase-core"
+  liquibaseRuntime "org.liquibase:liquibase-core"
+  // Dependency required to parse options. Refer to https://github.com/liquibase/liquibase-gradle-plugin/tree/Release_2.2.0#news.
+  liquibaseRuntime "info.picocli:picocli:4.7.7"
+  if (project.hasProperty("prod") || project.hasProperty("gae")) {
+  liquibaseRuntime "org.postgresql:postgresql"
+  }
+  // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
+}
+
+project.ext.diffChangelogFile = "src/main/resources/config/liquibase/changelog/" + new Date().format("yyyyMMddHHmmss") + "_changelog.xml"
+if (!project.hasProperty("runList")) {
+ project.ext.runList = "main"
+}
+
+liquibase {
+  activities {
+    main {
+      driver "org.h2.Driver"
+      url "jdbc:h2:tcp://localhost:18080/mem:sampleWebfluxH2mem"
+      username "sampleWebfluxH2mem"
+      changelogFile "src/main/resources/config/liquibase/master.xml"
+      logLevel "debug"
+      classpath "src/main/resources/"
+    }
+    diffLog {
+      driver "org.h2.Driver"
+      url "jdbc:h2:tcp://localhost:18080/mem:sampleWebfluxH2mem"
+      username "sampleWebfluxH2mem"
+      changelogFile project.ext.diffChangelogFile
+      logLevel "debug"
+      classpath layout.buildDirectory.dir("classes/java/main").get().asFile.absolutePath
+    }
+  }
+
+  runList = project.ext.runList
+}
+
+tasks.named('liquibaseDiff').configure { dependsOn(tasks.named('compileJava')) }
+tasks.named('liquibaseDiffChangelog').configure { dependsOn(tasks.named('compileJava')) }
+
+ext {
+  if (project.hasProperty("no-liquibase")) {
+    springProfiles += ",no-liquibase"
+  }
+}

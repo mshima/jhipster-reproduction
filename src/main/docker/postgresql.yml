@@ -1,12 +1,12 @@
 # This configuration is intended for development purpose, it's **your** responsibility to harden it for production
-name: jhipster
+name: samplewebfluxh2mem
 services:
   postgresql:
     image: postgres:18.6
     # volumes:
-    #   - ~/volumes/jhipster/jhipster/postgresql/:/var/lib/postgresql/data/
+    #   - ~/volumes/jhipster/sampleWebfluxH2mem/postgresql/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=jhipster
+      - POSTGRES_USER=sampleWebfluxH2mem
       - POSTGRES_HOST_AUTH_METHOD=trust
     healthcheck:
       test: ['CMD-SHELL', 'pg_isready -U $${POSTGRES_USER}']

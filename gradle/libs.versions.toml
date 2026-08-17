@@ -1,0 +1,29 @@
+[versions]
+mapstruct = "1.6.3"
+archunit-junit5 = "1.5.0"
+blockhound-junit-platform = "1.0.17.RELEASE"
+micrometer-context-propagation = "1.2.1"
+checkstyle = "13.10.0"
+jacoco = "0.8.15"
+gatling-plugin = "3.15.1.2"
+gatling-highcharts = "3.15.1"
+# jhipster-needle-gradle-dependency-catalog-version - JHipster will add additional versions for convention plugins here
+
+[libraries]
+jhipster-framework = { module = "tech.jhipster:jhipster-framework", version = "9.1.0" }
+springdoc-openapi-starter-webflux-api = { module = "org.springdoc:springdoc-openapi-starter-webflux-api", version = "3.1.0" }
+archunit-junit5-api = { module = "com.tngtech.archunit:archunit-junit5-api", version.ref = "archunit-junit5" }
+archunit-junit5-engine = { module = "com.tngtech.archunit:archunit-junit5-engine", version.ref = "archunit-junit5" }
+mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
+mapstruct-processor = { module = "org.mapstruct:mapstruct-processor", version.ref = "mapstruct" }
+blockhound-junit-platform = { module = "io.projectreactor.tools:blockhound-junit-platform", version.ref = "blockhound-junit-platform" }
+context-propagation = { module = "io.micrometer:context-propagation", version.ref = "micrometer-context-propagation" }
+jackson-databind-nullable = { module = "org.openapitools:jackson-databind-nullable", version = "0.2.11" }
+cucumber-bom = { module = "io.cucumber:cucumber-bom", version = "7.34.6" }
+commons-beanutils = { module = "commons-beanutils:commons-beanutils", version = "1.11.0" }
+# jhipster-needle-gradle-dependency-catalog-libraries - JHipster will add additional libraries versions
+
+[plugins]
+gradle-git-properties = { id = "com.gorylenko.gradle-git-properties", version = "4.0.1" }
+spring-boot = { id = "org.springframework.boot", version = "4.1.0" }
+# jhipster-needle-gradle-dependency-catalog-plugins - JHipster will add additional plugins versions

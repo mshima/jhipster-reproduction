@@ -3,7 +3,7 @@
     "paths": {
       "*": ["./src/main/webapp/*"]
     },
-    "outDir": "./target/out-tsc/root",
+    "outDir": "./build/out-tsc/root",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "strictNullChecks": true,

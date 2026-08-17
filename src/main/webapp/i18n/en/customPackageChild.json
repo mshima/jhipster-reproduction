@@ -1,5 +1,5 @@
 {
-  "jhipsterApp": {
+  "sampleWebfluxH2MemApp": {
     "customPackageChild": {
       "home": {
         "title": "Custom Package Children",

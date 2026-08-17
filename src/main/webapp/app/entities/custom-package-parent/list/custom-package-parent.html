@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="CustomPackageParentHeading">
-    <span jhiTranslate="jhipsterApp.customPackageParent.home.title">Custom Package Parents</span>
+    <span jhiTranslate="sampleWebfluxH2MemApp.customPackageParent.home.title">Custom Package Parents</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
         <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
-        <span jhiTranslate="jhipsterApp.customPackageParent.home.refreshListLabel">Refresh list</span>
+        <span jhiTranslate="sampleWebfluxH2MemApp.customPackageParent.home.refreshListLabel">Refresh list</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/custom-package-parent/new']"
       >
         <fa-icon icon="plus" />
-        <span jhiTranslate="jhipsterApp.customPackageParent.home.createLabel">Create a new Custom Package Parent</span>
+        <span jhiTranslate="sampleWebfluxH2MemApp.customPackageParent.home.createLabel">Create a new Custom Package Parent</span>
       </button>
     </div>
   </h2>
@@ -26,7 +26,7 @@
 
   @if (customPackageParents().length === 0) {
     <div class="alert alert-warning" id="no-result">
-      <span jhiTranslate="jhipsterApp.customPackageParent.home.notFound">No Custom Package Parents found</span>
+      <span jhiTranslate="sampleWebfluxH2MemApp.customPackageParent.home.notFound">No Custom Package Parents found</span>
     </div>
   } @else {
     <div class="table-responsive table-entities" id="entities">
@@ -42,7 +42,7 @@
             </th>
             <th scope="col" jhiSortBy="parentName">
               <div class="d-flex">
-                <span jhiTranslate="jhipsterApp.customPackageParent.parentName">Parent Name</span>
+                <span jhiTranslate="sampleWebfluxH2MemApp.customPackageParent.parentName">Parent Name</span>
 
                 <fa-icon class="p-1" icon="sort" />
               </div>
