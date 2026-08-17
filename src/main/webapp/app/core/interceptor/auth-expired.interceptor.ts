@@ -16,6 +16,10 @@ export const authExpiredInterceptor: HttpInterceptorFn = (req, next) => {
     tap({
       error(err: HttpErrorResponse) {
         if (err.status === 401 && err.url && !err.url.includes('api/account')) {
+          if (err.url.includes(loginService.logoutUrl())) {
+            loginService.logoutInClient();
+            return;
+          }
           stateStorageService.storeUrl(router.routerState.snapshot.url);
           loginService.logout();
           router.navigate(['/login']);

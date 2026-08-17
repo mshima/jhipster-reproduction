@@ -1,10 +1,11 @@
 import { HttpClient, HttpResponse, httpResource } from '@angular/common/http';
 import { Service, computed, inject, signal } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable, asapScheduler, catchError, scheduled } from 'rxjs';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';
+import { SearchWithPagination } from 'app/core/request/request.model';
 import { IUser } from '../user.model';
 
 @Service()
@@ -15,7 +16,7 @@ export class UsersService {
     if (!params) {
       return undefined;
     }
-    return { url: this.resourceUrl, params };
+    return { url: params.query ? this.resourceSearchUrl : this.resourceUrl, params };
   });
   /**
    * This signal holds the list of user that have been fetched. It is updated when the usersResource emits a new value.
@@ -24,6 +25,7 @@ export class UsersService {
   readonly users = computed(() => (this.usersResource.hasValue() ? this.usersResource.value() : []));
   protected readonly applicationConfigService = inject(ApplicationConfigService);
   protected readonly resourceUrl = this.applicationConfigService.getEndpointFor('api/users');
+  protected readonly resourceSearchUrl = this.applicationConfigService.getEndpointFor('api/users/_search');
 }
 
 @Service()
@@ -37,6 +39,11 @@ export class UserService extends UsersService {
   query(req?: any): Observable<HttpResponse<IUser[]>> {
     const options = createRequestOption(req);
     return this.http.get<IUser[]>(this.resourceUrl, { params: options, observe: 'response' });
+  }
+
+  search(req: SearchWithPagination): Observable<IUser[]> {
+    const options = createRequestOption(req);
+    return this.http.get<IUser[]>(this.resourceSearchUrl, { params: options }).pipe(catchError(() => scheduled([], asapScheduler)));
   }
 
   getUserIdentifier(user: Pick<IUser, 'id'>): number {

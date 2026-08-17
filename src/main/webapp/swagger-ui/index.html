@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>jhipster - Swagger UI</title>
+    <title>sampleWebfluxH2mem - Swagger UI</title>
     <base href="/swagger-ui/" />
     <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
     <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
@@ -25,20 +25,21 @@
         };
       };
 
-      const getBearerToken = () => {
-        let authToken = localStorage.getItem('jhi-authenticationToken') || sessionStorage.getItem('jhi-authenticationToken');
-        if (authToken) {
-          authToken = JSON.parse(authToken);
-          return `Bearer ${authToken}`;
+      function getCSRF() {
+        const name = 'XSRF-TOKEN=';
+        const ca = document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') c = c.substring(1);
+          if (c.includes(name)) return c.substring(name.length, c.length);
         }
-        return null;
-      };
+        return '';
+      }
 
       function createAxiosConfig(serverBaseUri) {
         return {
           timeout: 5000,
           baseURL: serverBaseUri,
-          headers: { Authorization: getBearerToken() },
         };
       }
 
@@ -90,7 +91,7 @@
           plugins: [SwaggerUIBundle.plugins.DownloadUrl, AlwaysEnableTryItOutPlugin],
           tryItOutEnabled: true,
           requestInterceptor(req) {
-            req.headers['Authorization'] = getBearerToken();
+            req.headers['X-XSRF-TOKEN'] = getCSRF();
             // Remove the sample Swagger UI request body if present
             if (req.method === 'GET' && req.body === '{"additionalProp1":"string","additionalProp2":"string","additionalProp3":"string"}') {
               req.body = undefined;

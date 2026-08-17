@@ -1,11 +1,11 @@
 <div>
   <h2 id="page-heading" data-cy="CustomPackageChildHeading">
-    <span jhiTranslate="jhipsterApp.customPackageChild.home.title">Custom Package Children</span>
+    <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.home.title">Custom Package Children</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
         <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
-        <span jhiTranslate="jhipsterApp.customPackageChild.home.refreshListLabel">Refresh list</span>
+        <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.home.refreshListLabel">Refresh list</span>
       </button>
 
       <button
@@ -15,7 +15,7 @@
         [routerLink]="['/custom-package-child/new']"
       >
         <fa-icon icon="plus" />
-        <span jhiTranslate="jhipsterApp.customPackageChild.home.createLabel">Create a new Custom Package Child</span>
+        <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.home.createLabel">Create a new Custom Package Child</span>
       </button>
     </div>
   </h2>
@@ -26,7 +26,7 @@
 
   @if (customPackageChildren().length === 0) {
     <div class="alert alert-warning" id="no-result">
-      <span jhiTranslate="jhipsterApp.customPackageChild.home.notFound">No Custom Package Children found</span>
+      <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.home.notFound">No Custom Package Children found</span>
     </div>
   } @else {
     <div class="table-responsive table-entities" id="entities">
@@ -42,20 +42,20 @@
             </th>
             <th scope="col" jhiSortBy="childName">
               <div class="d-flex">
-                <span jhiTranslate="jhipsterApp.customPackageChild.childName">Child Name</span>
+                <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.childName">Child Name</span>
 
                 <fa-icon class="p-1" icon="sort" />
               </div>
             </th>
             <th scope="col" jhiSortBy="user.id">
               <div class="d-flex">
-                <span jhiTranslate="jhipsterApp.customPackageChild.user">User</span>
+                <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.user">User</span>
                 <fa-icon class="p-1" icon="sort" />
               </div>
             </th>
             <th scope="col" jhiSortBy="customPackageParent.id">
               <div class="d-flex">
-                <span jhiTranslate="jhipsterApp.customPackageChild.customPackageParent">Custom Package Parent</span>
+                <span jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.customPackageParent">Custom Package Parent</span>
                 <fa-icon class="p-1" icon="sort" />
               </div>
             </th>

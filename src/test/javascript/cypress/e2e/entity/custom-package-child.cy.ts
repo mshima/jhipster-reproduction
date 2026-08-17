@@ -14,7 +14,7 @@ describe('CustomPackageChild e2e test', () => {
   const customPackageChildPageUrl = '/custom-package-child';
   let username: string;
   let password: string;
-  const customPackageChildSample = { childName: 'during hmph upliftingly' };
+  const customPackageChildSample = { childName: 'absent instead weighty' };
 
   let customPackageChild;
 
@@ -62,7 +62,7 @@ describe('CustomPackageChild e2e test', () => {
   describe('CustomPackageChild page', () => {
     it('should have translated page title', () => {
       cy.visit(customPackageChildPageUrl);
-      cy.getEntityHeading('CustomPackageChild').should('not.contain', 'jhipsterApp.customPackageChild.home.title');
+      cy.getEntityHeading('CustomPackageChild').should('not.contain', 'sampleWebfluxH2MemApp.customPackageChild.home.title');
     });
 
     describe('create button click', () => {
@@ -167,8 +167,8 @@ describe('CustomPackageChild e2e test', () => {
     });
 
     it('should create an instance of CustomPackageChild', () => {
-      cy.get(`[data-cy="childName"]`).type('hence');
-      cy.get(`[data-cy="childName"]`).should('have.value', 'hence');
+      cy.get(`[data-cy="childName"]`).type('gastropod');
+      cy.get(`[data-cy="childName"]`).should('have.value', 'gastropod');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

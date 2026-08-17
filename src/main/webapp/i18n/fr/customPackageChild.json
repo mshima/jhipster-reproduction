@@ -1,0 +1,26 @@
+{
+  "sampleWebfluxH2MemApp": {
+    "customPackageChild": {
+      "home": {
+        "title": "CustomPackageChildren",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Custom Package Child",
+        "createOrEditLabel": "Créer ou éditer un Custom Package Child",
+        "notFound": "Aucun Custom Package Child trouvé"
+      },
+      "created": "Un nouveau Custom Package Child a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Custom Package Child avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Custom Package Child avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Custom Package Child {{ id }} ?"
+      },
+      "detail": {
+        "title": "Custom Package Child"
+      },
+      "id": "ID",
+      "childName": "Child Name",
+      "user": "User",
+      "customPackageParent": "Custom Package Parent"
+    }
+  }
+}

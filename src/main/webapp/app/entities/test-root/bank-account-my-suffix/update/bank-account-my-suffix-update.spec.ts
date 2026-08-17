@@ -1,0 +1,164 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { HttpResponse } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+
+import { provideTranslateService } from '@ngx-translate/core';
+import { Subject, from, of } from 'rxjs';
+
+import { UserService } from 'app/entities/user/service/user.service';
+import { IUser } from 'app/entities/user/user.model';
+import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
+import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';
+
+import { BankAccountMySuffixFormService } from './bank-account-my-suffix-form.service';
+import { BankAccountMySuffixUpdate } from './bank-account-my-suffix-update';
+
+describe('BankAccountMySuffix Management Update Component', () => {
+  let comp: BankAccountMySuffixUpdate;
+  let fixture: ComponentFixture<BankAccountMySuffixUpdate>;
+  let activatedRoute: ActivatedRoute;
+  let bankAccountFormService: BankAccountMySuffixFormService;
+  let bankAccountService: BankAccountMySuffixService;
+  let userService: UserService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideTranslateService(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: from([{}]),
+          },
+        },
+      ],
+    });
+
+    fixture = TestBed.createComponent(BankAccountMySuffixUpdate);
+    activatedRoute = TestBed.inject(ActivatedRoute);
+    bankAccountFormService = TestBed.inject(BankAccountMySuffixFormService);
+    bankAccountService = TestBed.inject(BankAccountMySuffixService);
+    userService = TestBed.inject(UserService);
+
+    comp = fixture.componentInstance;
+  });
+
+  describe('ngOnInit', () => {
+    it('should call User query and add missing value', () => {
+      const bankAccount: IBankAccountMySuffix = { id: 22583 };
+      const user: IUser = { id: 3944 };
+      bankAccount.user = user;
+
+      const userCollection: IUser[] = [{ id: 3944 }];
+      vi.spyOn(userService, 'query').mockReturnValue(of(new HttpResponse({ body: userCollection })));
+      const additionalUsers = [user];
+      const expectedCollection: IUser[] = [...additionalUsers, ...userCollection];
+      vi.spyOn(userService, 'addUserToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ bankAccount });
+      comp.ngOnInit();
+
+      expect(userService.query).toHaveBeenCalled();
+      expect(userService.addUserToCollectionIfMissing).toHaveBeenCalledWith(
+        userCollection,
+        ...additionalUsers.map(i => expect.objectContaining(i) as typeof i),
+      );
+      expect(comp.usersSharedCollection()).toEqual(expectedCollection);
+    });
+
+    it('should update editForm', () => {
+      const bankAccount: IBankAccountMySuffix = { id: 22583 };
+      const user: IUser = { id: 3944 };
+      bankAccount.user = user;
+
+      activatedRoute.data = of({ bankAccount });
+      comp.ngOnInit();
+
+      expect(comp.usersSharedCollection()).toContainEqual(user);
+      expect(comp.bankAccount).toEqual(bankAccount);
+    });
+  });
+
+  describe('save', () => {
+    it('should call update service on save for existing entity', () => {
+      // GIVEN
+      const saveSubject = new Subject<IBankAccountMySuffix>();
+      const bankAccount = { id: 22720 };
+      vi.spyOn(bankAccountFormService, 'getBankAccountMySuffix').mockReturnValue(bankAccount);
+      vi.spyOn(bankAccountService, 'update').mockReturnValue(saveSubject);
+      vi.spyOn(comp, 'previousState');
+      activatedRoute.data = of({ bankAccount });
+      comp.ngOnInit();
+
+      // WHEN
+      comp.save();
+      expect(comp.isSaving()).toEqual(true);
+      saveSubject.next(bankAccount);
+      saveSubject.complete();
+
+      // THEN
+      expect(bankAccountFormService.getBankAccountMySuffix).toHaveBeenCalled();
+      expect(comp.previousState).toHaveBeenCalled();
+      expect(bankAccountService.update).toHaveBeenCalledWith(expect.objectContaining(bankAccount));
+      expect(comp.isSaving()).toEqual(false);
+    });
+
+    it('should call create service on save for new entity', () => {
+      // GIVEN
+      const saveSubject = new Subject<IBankAccountMySuffix>();
+      const bankAccount = { id: 22720 };
+      vi.spyOn(bankAccountFormService, 'getBankAccountMySuffix').mockReturnValue({ id: null });
+      vi.spyOn(bankAccountService, 'create').mockReturnValue(saveSubject);
+      vi.spyOn(comp, 'previousState');
+      activatedRoute.data = of({ bankAccount: null });
+      comp.ngOnInit();
+
+      // WHEN
+      comp.save();
+      expect(comp.isSaving()).toEqual(true);
+      saveSubject.next(bankAccount);
+      saveSubject.complete();
+
+      // THEN
+      expect(bankAccountFormService.getBankAccountMySuffix).toHaveBeenCalled();
+      expect(bankAccountService.create).toHaveBeenCalled();
+      expect(comp.isSaving()).toEqual(false);
+      expect(comp.previousState).toHaveBeenCalled();
+    });
+
+    it('should set isSaving to false on error', () => {
+      // GIVEN
+      const saveSubject = new Subject<IBankAccountMySuffix>();
+      const bankAccount = { id: 22720 };
+      vi.spyOn(bankAccountService, 'update').mockReturnValue(saveSubject);
+      vi.spyOn(comp, 'previousState');
+      activatedRoute.data = of({ bankAccount });
+      comp.ngOnInit();
+
+      // WHEN
+      comp.save();
+      expect(comp.isSaving()).toEqual(true);
+      saveSubject.error('This is an error!');
+
+      // THEN
+      expect(bankAccountService.update).toHaveBeenCalled();
+      expect(comp.isSaving()).toEqual(false);
+      expect(comp.previousState).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Compare relationships', () => {
+    describe('compareUser', () => {
+      it('should forward to userService', () => {
+        const entity = { id: 3944 };
+        const entity2 = { id: 6275 };
+        vi.spyOn(userService, 'compareUser');
+        comp.compareUser(entity, entity2);
+        expect(userService.compareUser).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+  });
+});

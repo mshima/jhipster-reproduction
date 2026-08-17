@@ -17,7 +17,7 @@ logging:
   level:
     ROOT: INFO
     tech.jhipster: INFO
-    com.mycompany.myapp: INFO
+    tech.jhipster.sample: INFO
 
 management:
   prometheus:
@@ -31,21 +31,23 @@ spring:
       enabled: false
     livereload:
       enabled: false
+  elasticsearch:
+    uris: http://localhost:9200
   # Replace by 'prod, faker' to add the faker context and have sample data loaded in production
   liquibase:
     contexts: prod
-    url: jdbc:postgresql://localhost:5432/jhipster
+    url: jdbc:postgresql://localhost:5432/sampleWebfluxH2mem
   mail:
     host: localhost
     port: 25
   r2dbc:
-    url: r2dbc:postgresql://localhost:5432/jhipster
+    url: r2dbc:postgresql://localhost:5432/sampleWebfluxH2mem
   thymeleaf:
     cache: true
 
 # ===================================================================
 # To enable TLS in production, generate a certificate using:
-# keytool -genkey -alias jhipster -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
+# keytool -genkey -alias samplewebfluxh2mem -storetype PKCS12 -keyalg RSA -keysize 2048 -keystore keystore.p12 -validity 3650
 #
 # You can also use Let's Encrypt:
 # See details in topic "Create a Java Keystore (.JKS) from Let's Encrypt Certificates" on https://maximilian-boehm.com/en-gb/blog
@@ -80,12 +82,6 @@ jhipster:
   http:
     cache: # Used by the CachingHttpHeadersFilter
       timeToLiveInDays: 1461
-  security:
-    authentication:
-      jwt:
-        # Token is valid 24 hours
-        token-validity-in-seconds: 86400
-        token-validity-in-seconds-for-remember-me: 2592000
   mail: # specific JHipster mail property, for standard properties see MailProperties
     base-url: http://my-server-url-to-change # Modify according to your server's URL
   logging:

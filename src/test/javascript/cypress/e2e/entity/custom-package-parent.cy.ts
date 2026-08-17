@@ -14,7 +14,7 @@ describe('CustomPackageParent e2e test', () => {
   const customPackageParentPageUrl = '/custom-package-parent';
   let username: string;
   let password: string;
-  const customPackageParentSample = { parentName: 'across spellcheck' };
+  const customPackageParentSample = { parentName: 'vivaciously' };
 
   let customPackageParent;
 
@@ -62,7 +62,7 @@ describe('CustomPackageParent e2e test', () => {
   describe('CustomPackageParent page', () => {
     it('should have translated page title', () => {
       cy.visit(customPackageParentPageUrl);
-      cy.getEntityHeading('CustomPackageParent').should('not.contain', 'jhipsterApp.customPackageParent.home.title');
+      cy.getEntityHeading('CustomPackageParent').should('not.contain', 'sampleWebfluxH2MemApp.customPackageParent.home.title');
     });
 
     describe('create button click', () => {
@@ -167,8 +167,8 @@ describe('CustomPackageParent e2e test', () => {
     });
 
     it('should create an instance of CustomPackageParent', () => {
-      cy.get(`[data-cy="parentName"]`).type('irritably amid wasteful');
-      cy.get(`[data-cy="parentName"]`).should('have.value', 'irritably amid wasteful');
+      cy.get(`[data-cy="parentName"]`).type('midst foolishly');
+      cy.get(`[data-cy="parentName"]`).should('have.value', 'midst foolishly');
 
       cy.get(entityCreateSaveButtonSelector).click();
 

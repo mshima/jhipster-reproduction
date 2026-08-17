@@ -4,7 +4,7 @@
       <h2
         id="jhi-custom-package-child-heading"
         data-cy="CustomPackageChildCreateUpdateHeading"
-        jhiTranslate="jhipsterApp.customPackageChild.home.createOrEditLabel"
+        jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.home.createOrEditLabel"
       >
         Create or edit a Custom Package Child
       </h2>
@@ -20,12 +20,14 @@
         }
 
         <div class="mb-3">
-          <label class="form-label" for="field_childName" jhiTranslate="jhipsterApp.customPackageChild.childName">Child Name</label>
+          <label class="form-label" for="field_childName" jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.childName"
+            >Child Name</label
+          >
           <input type="text" class="form-control" name="childName" id="field_childName" data-cy="childName" formControlName="childName" />
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_user" jhiTranslate="jhipsterApp.customPackageChild.user">User</label>
+          <label class="form-label" for="field_user" jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.user">User</label>
           <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user" [compareWith]="compareUser">
             <option [ngValue]="null"></option>
             @for (userOption of usersSharedCollection(); track $index) {
@@ -35,7 +37,10 @@
         </div>
 
         <div class="mb-3">
-          <label class="form-label" for="field_customPackageParent" jhiTranslate="jhipsterApp.customPackageChild.customPackageParent"
+          <label
+            class="form-label"
+            for="field_customPackageParent"
+            jhiTranslate="sampleWebfluxH2MemApp.customPackageChild.customPackageParent"
             >Custom Package Parent</label
           >
           <select
