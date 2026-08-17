@@ -59,6 +59,7 @@ class AccountResourceIT {
 
     @AfterEach
     void cleanupAndCheck() {
+        userRepository.deleteAllUserAuthorities().block();
         userRepository.deleteAll().block();
     }
 
