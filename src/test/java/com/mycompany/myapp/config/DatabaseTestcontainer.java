@@ -1,42 +1,25 @@
 package com.mycompany.myapp.config;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-import org.testcontainers.containers.JdbcDatabaseContainer;
-import org.testcontainers.containers.PostgreSQLContainer;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.output.Slf4jLogConsumer;
+import org.testcontainers.junit.jupiter.Container;
+import org.testcontainers.postgresql.PostgreSQLContainer;
 
-public class DatabaseTestcontainer implements SqlTestContainer, InitializingBean, DisposableBean {
+public interface DatabaseTestcontainer {
+    @Container
+    PostgreSQLContainer databaseContainer = new PostgreSQLContainer("postgres:18.6")
+        .withDatabaseName("jhipster")
 
-    private static final Logger LOG = LoggerFactory.getLogger(DatabaseTestcontainer.class);
+        .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger(DatabaseTestcontainer.class)))
+        .withReuse(true);
 
-    private PostgreSQLContainer<?> databaseContainer;
-
-    @Override
-    public void destroy() {
-        if (null != databaseContainer && databaseContainer.isRunning()) {
-            databaseContainer.stop();
-        }
-    }
-
-    @Override
-    public void afterPropertiesSet() {
-        if (null == databaseContainer) {
-            databaseContainer = (PostgreSQLContainer) new PostgreSQLContainer<>("postgres:18.6")
-                .withDatabaseName("jhipster")
-
-                .withLogConsumer(new Slf4jLogConsumer(LOG))
-                .withReuse(true);
-        }
-        if (!databaseContainer.isRunning()) {
-            databaseContainer.start();
-        }
-    }
-
-    @Override
-    public JdbcDatabaseContainer<?> getTestContainer() {
-        return databaseContainer;
+    @DynamicPropertySource
+    static void registerProperties(DynamicPropertyRegistry registry) {
+        registry.add("spring.r2dbc.url", () -> databaseContainer.getJdbcUrl().replace("jdbc", "r2dbc") + "");
+        registry.add("spring.r2dbc.username", databaseContainer::getUsername);
+        registry.add("spring.r2dbc.password", databaseContainer::getPassword);
+        registry.add("spring.liquibase.url", databaseContainer::getJdbcUrl);
     }
 }
