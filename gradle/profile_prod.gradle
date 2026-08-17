@@ -17,13 +17,11 @@ bootRun {
 }
 
 def webapp = tasks.register('webapp', NpmTask) {
+    dependsOn(npmInstall)
+
     outputs.dir(layout.buildDirectory.dir("generated/webapp/"))
         .withPropertyName("webapp-build-dir")
-    outputs.upToDateWhen {
-        !project.gradle.taskGraph.hasTask(it)
-    }
-
-    dependsOn(npmInstall)
+    outputs.upToDateWhen { false }
 
     args = ["run", "webapp:prod"]
     environment = [APP_VERSION: project.version]
@@ -52,6 +50,8 @@ def integrationTest = tasks.register('integrationTest', Test) {
     description = "Execute integration tests."
     group = "verification"
     include "**/*IT*", "**/*IntTest*"
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
     testLogging {
         events = ['FAILED', 'SKIPPED']
         exceptionFormat = "full"

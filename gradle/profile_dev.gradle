@@ -30,9 +30,6 @@ def webapp = tasks.register('webapp', NpmTask) {
 
     outputs.dir(layout.buildDirectory.dir("generated/webapp/"))
         .withPropertyName("webapp-build-dir")
-    outputs.upToDateWhen {
-        !project.gradle.taskGraph.hasTask(it)
-    }
 
     dependsOn(npmInstall)
 
@@ -63,6 +60,8 @@ def integrationTest = tasks.register('integrationTest', Test) {
     description = "Execute integration tests."
     group = "verification"
     include "**/*IT*", "**/*IntTest*"
+    testClassesDirs = sourceSets.test.output.classesDirs
+    classpath = sourceSets.test.runtimeClasspath
     testLogging {
         events = ['FAILED', 'SKIPPED']
         exceptionFormat = "full"

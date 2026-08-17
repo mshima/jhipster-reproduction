@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ElementRef, signal } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, Navigation, Router } from '@angular/router';
 
@@ -93,7 +93,7 @@ describe('Login', () => {
       const node = {
         focus: vi.fn(),
       };
-      comp.username = signal(new ElementRef(node));
+      vi.spyOn(comp, 'username').mockReturnValue(new ElementRef(node));
 
       // WHEN
       comp.ngAfterViewInit();

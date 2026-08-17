@@ -14,7 +14,7 @@ import HasAnyAuthorityDirective from './has-any-authority.directive';
   template: `<div *jhiHasAnyAuthority="'ROLE_ADMIN'" #content></div>`,
 })
 class TestHasAnyAuthorityDirective {
-  content = viewChild<ElementRef>('content');
+  readonly content = viewChild<ElementRef>('content');
 }
 
 describe('HasAnyAuthorityDirective tests', () => {

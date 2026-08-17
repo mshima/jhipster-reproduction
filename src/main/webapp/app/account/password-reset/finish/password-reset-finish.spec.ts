@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ElementRef, signal } from '@angular/core';
+import { ElementRef } from '@angular/core';
 import { ComponentFixture, TestBed, inject } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
 
@@ -40,7 +40,7 @@ describe('PasswordResetFinish', () => {
     const node = {
       focus: vi.fn(),
     };
-    comp.newPassword = signal(new ElementRef(node));
+    vi.spyOn(comp, 'newPassword').mockReturnValue(new ElementRef(node));
 
     comp.ngAfterViewInit();
 
