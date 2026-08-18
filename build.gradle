@@ -71,12 +71,15 @@ dependencies {
     implementation libs.jhipster.framework
     implementation libs.mapstruct
     implementation libs.springdoc.openapi.starter.webflux.api
-    implementation "org.springframework.boot:spring-boot-loader-tools"
+    implementation "org.springframework.boot:spring-boot-h2console"
+    implementation "org.springframework.boot:spring-boot-jackson2"
     implementation "org.springframework.boot:spring-boot-starter"
     implementation "org.springframework.boot:spring-boot-starter-actuator"
-    implementation "org.springframework.boot:spring-boot-starter-aop"
+    implementation "org.springframework.boot:spring-boot-starter-aspectj"
     implementation "org.springframework.boot:spring-boot-starter-data-elasticsearch"
     implementation "org.springframework.boot:spring-boot-starter-data-r2dbc"
+    implementation "org.springframework.boot:spring-boot-starter-jackson"
+    implementation "org.springframework.boot:spring-boot-starter-liquibase"
     implementation "org.springframework.boot:spring-boot-starter-mail"
     implementation "org.springframework.boot:spring-boot-starter-security"
     implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
@@ -86,17 +89,20 @@ dependencies {
     implementation "org.springframework.data:spring-data-commons"
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-hppc"
     implementation "com.fasterxml.jackson.datatype:jackson-datatype-jsr310"
-    implementation "com.fasterxml.jackson.module:jackson-module-jaxb-annotations"
     implementation "com.zaxxer:HikariCP"
     implementation "io.micrometer:micrometer-registry-prometheus"
     implementation "jakarta.persistence:jakarta.persistence-api"
     implementation "org.apache.commons:commons-lang3"
+    implementation "tools.jackson.module:jackson-module-jaxb-annotations"
     runtimeOnly "io.netty:netty-tcnative-boringssl-static"
     testImplementation(libs.archunit.junit5.api) {
         exclude group: 'org.slf4j', module: 'slf4j-api'
     }
     testImplementation libs.blockhound.junit.platform
+    testImplementation "org.springframework.boot:spring-boot-starter-jackson-test"
+    testImplementation "org.springframework.boot:spring-boot-starter-security-test"
     testImplementation "org.springframework.boot:spring-boot-starter-test"
+    testImplementation "org.springframework.boot:spring-boot-starter-webflux-test"
     testImplementation "org.springframework.boot:spring-boot-test"
     testImplementation "org.springframework.boot:spring-boot-testcontainers"
     testImplementation "org.springframework.security:spring-security-test"
@@ -107,10 +113,11 @@ dependencies {
     testImplementation "org.junit.platform:junit-platform-suite"
     testImplementation "org.testcontainers:testcontainers"
     testImplementation "org.testcontainers:testcontainers"
-    testImplementation "org.testcontainers:elasticsearch"
-    testImplementation "org.testcontainers:jdbc"
-    testImplementation "org.testcontainers:junit-jupiter"
-    testImplementation "org.testcontainers:junit-jupiter"
+    testImplementation "org.testcontainers:testcontainers-elasticsearch"
+    testImplementation "org.testcontainers:testcontainers-jdbc"
+    testImplementation "org.testcontainers:testcontainers-junit-jupiter"
+    testImplementation "org.testcontainers:testcontainers-junit-jupiter"
+    testImplementation "org.testcontainers:testcontainers-r2dbc"
     testRuntimeOnly(libs.archunit.junit5.engine) {
         exclude group: 'org.slf4j', module: 'slf4j-api'
     }
