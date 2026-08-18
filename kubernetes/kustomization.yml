@@ -1,0 +1,22 @@
+commonLabels:
+  app.kubernetes.io/genereted-by: JHipster
+
+resources:
+  # Individual apps
+  - gateway-k8s/gateway-deployment.yml
+  - gateway-k8s/gateway-service.yml
+  - gateway-k8s/gateway-mariadb.yml
+  - store-k8s/store-deployment.yml
+  - store-k8s/store-service.yml
+  - store-k8s/store-mariadb.yml
+  - blog-k8s/blog-deployment.yml
+  - blog-k8s/blog-service.yml
+  - blog-k8s/blog-mariadb.yml
+  - notification-k8s/notification-deployment.yml
+  - notification-k8s/notification-service.yml
+  - notification-k8s/notification-mariadb.yml
+  # service discovery eureka/consul
+  - registry-k8s/jhipster-registry.yml
+  - registry-k8s/application-configmap.yml
+
+patchesJson6902:

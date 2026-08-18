@@ -1,0 +1,14 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["gateway", "blog", "store", "notification"],
+    "baseName": "workspaces",
+    "defaultCommand": "workspaces",
+    "deploymentType": "none",
+    "dockerCompose": true,
+    "entities": [],
+    "jhipsterVersion": "9.2.0",
+    "monorepository": true,
+    "nodePackageManager": "npm",
+    "skipJhipsterDependencies": true
+  }
+}
