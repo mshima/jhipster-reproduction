@@ -9,15 +9,21 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.testcontainers.context.ImportTestcontainers;
 
 /**
  * Base composite annotation for integration tests.
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@SpringBootTest(classes = { GatewayApp.class, JacksonConfiguration.class, AsyncSyncConfiguration.class, TestSecurityConfiguration.class })
-@ImportTestcontainers(DatabaseTestcontainer.class)
+@SpringBootTest(
+    classes = {
+        GatewayApp.class,
+        JacksonConfiguration.class,
+        AsyncSyncConfiguration.class,
+        TestSecurityConfiguration.class,
+        DatabaseTestcontainer.class,
+    }
+)
 public @interface IntegrationTest {
     // 5s is Spring's default https://github.com/spring-projects/spring-framework/blob/main/spring-test/src/main/java/org/springframework/test/web/reactive/server/DefaultWebTestClient.java#L106
     String DEFAULT_TIMEOUT = "PT5S";
