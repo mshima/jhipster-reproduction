@@ -1,0 +1,27 @@
+{
+  "generator-jhipster": {
+    "applicationIndex": 1,
+    "applicationType": "microservice",
+    "authenticationType": "oauth2",
+    "baseName": "blog",
+    "buildTool": "maven",
+    "cacheProvider": "infinispan",
+    "clientFramework": "react",
+    "creationTimestamp": 1617901618887,
+    "devServerPort": null,
+    "entities": ["Blog", "Post", "Tag"],
+    "jhipsterVersion": "9.2.0",
+    "jwtSecretKey": "ZjY4MTM4YjI5YzMwZjhjYjI2OTNkNTRjMWQ5Y2Q0Y2YwOWNmZTE2NzRmYzU3NTMwM2NjOTE3MTllOTM3MWRkMzcyYTljMjVmNmQ0Y2MxOTUzODc0MDhhMTlkMDIxMzI2YzQzZDM2ZDE3MmQ3NjVkODk3OTVmYzljYTQyZDNmMTQ=",
+    "languages": ["en"],
+    "monorepository": true,
+    "nativeLanguage": "en",
+    "packageName": "com.okta.developer.blog",
+    "prodDatabaseType": "mariadb",
+    "projectVersion": "9.2.0-git",
+    "serverPort": "8081",
+    "serviceDiscoveryType": "eureka",
+    "skipCommitHook": true,
+    "skipJhipsterDependencies": true,
+    "testFrameworks": ["cypress"]
+  }
+}
