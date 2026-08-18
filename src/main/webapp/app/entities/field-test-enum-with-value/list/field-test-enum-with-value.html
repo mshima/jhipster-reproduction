@@ -1,0 +1,134 @@
+<div>
+  <h2 id="page-heading" data-cy="FieldTestEnumWithValueHeading">
+    <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.home.title">Field Test Enum With Values</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-field-test-enum-with-value"
+        [routerLink]="['/field-test-enum-with-value/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.home.createLabel">Create a new Field Test Enum With Value</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (fieldTestEnumWithValues().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.home.notFound">No Field Test Enum With Values found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="myFieldA">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldA">My Field A</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="myFieldB">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldB">My Field B</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="myFieldC">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldC">My Field C</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="myFieldD">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldD">My Field D</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="myFieldE">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldE">My Field E</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (fieldTestEnumWithValue of fieldTestEnumWithValues(); track trackId(fieldTestEnumWithValue)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/field-test-enum-with-value', fieldTestEnumWithValue.id, 'view']">{{ fieldTestEnumWithValue.id }}</a>
+              </td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumA.' + (fieldTestEnumWithValue.myFieldA ?? 'null')">
+                {{ { null: '', AAA: 'AAA', BBB: 'BBB' }[fieldTestEnumWithValue.myFieldA ?? 'null'] }}
+              </td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumB.' + (fieldTestEnumWithValue.myFieldB ?? 'null')">
+                {{ { null: '', AAA: 'aaa_aaa', BBB: 'BBB' }[fieldTestEnumWithValue.myFieldB ?? 'null'] }}
+              </td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumC.' + (fieldTestEnumWithValue.myFieldC ?? 'null')">
+                {{ { null: '', AAA: 'aaa_aaa', BBB: 'b and b' }[fieldTestEnumWithValue.myFieldC ?? 'null'] }}
+              </td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumD.' + (fieldTestEnumWithValue.myFieldD ?? 'null')">
+                {{ { null: '', AAA: 'AAA', BBB: 'BBB' }[fieldTestEnumWithValue.myFieldD ?? 'null'] }}
+              </td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumE.' + (fieldTestEnumWithValue.myFieldE ?? 'null')">
+                {{ { null: '', AAA: 'aaa_aaa', BBB: 'BBB' }[fieldTestEnumWithValue.myFieldE ?? 'null'] }}
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/field-test-enum-with-value', fieldTestEnumWithValue.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/field-test-enum-with-value', fieldTestEnumWithValue.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(fieldTestEnumWithValue)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

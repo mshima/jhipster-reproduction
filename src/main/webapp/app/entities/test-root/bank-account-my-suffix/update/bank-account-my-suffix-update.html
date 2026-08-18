@@ -1,0 +1,276 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-bank-account-my-suffix-heading"
+        data-cy="BankAccountCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.home.createOrEditLabel"
+      >
+        Create or edit a Bank Account
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let nameRef = editForm.get('name')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_name" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          @if (nameRef.invalid && (nameRef.dirty || nameRef.touched)) {
+            <div>
+              @if (nameRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_guid" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.guid">Guid</label>
+          <input type="text" class="form-control" name="guid" id="field_guid" data-cy="guid" formControlName="guid" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_bankNumber" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.bankNumber"
+            >Bank Number</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bankNumber"
+            id="field_bankNumber"
+            data-cy="bankNumber"
+            formControlName="bankNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_agencyNumber" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.agencyNumber"
+            >Agency Number</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="agencyNumber"
+            id="field_agencyNumber"
+            data-cy="agencyNumber"
+            formControlName="agencyNumber"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_lastOperationDuration"
+            jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.lastOperationDuration"
+            >Last Operation Duration</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="lastOperationDuration"
+            id="field_lastOperationDuration"
+            data-cy="lastOperationDuration"
+            formControlName="lastOperationDuration"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_meanOperationDuration"
+            jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.meanOperationDuration"
+            >Mean Operation Duration</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="meanOperationDuration"
+            id="field_meanOperationDuration"
+            data-cy="meanOperationDuration"
+            formControlName="meanOperationDuration"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_meanQueueDuration" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.meanQueueDuration"
+            >Mean Queue Duration</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="meanQueueDuration"
+            id="field_meanQueueDuration"
+            data-cy="meanQueueDuration"
+            formControlName="meanQueueDuration"
+          />
+        </div>
+
+        @let balanceRef = editForm.get('balance')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_balance" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.balance">Balance</label>
+          <input type="number" class="form-control" name="balance" id="field_balance" data-cy="balance" formControlName="balance" />
+          @if (balanceRef.invalid && (balanceRef.dirty || balanceRef.touched)) {
+            <div>
+              @if (balanceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!balanceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_openingDay" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.openingDay"
+            >Opening Day</label
+          >
+          <div class="input-group">
+            <input
+              id="field_openingDay"
+              data-cy="openingDay"
+              type="text"
+              class="form-control"
+              name="openingDay"
+              ngbDatepicker
+              #openingDayDp="ngbDatepicker"
+              formControlName="openingDay"
+            />
+            <button type="button" class="btn btn-secondary" (click)="openingDayDp.toggle()"><fa-icon icon="calendar-alt" /></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_lastOperationDate" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.lastOperationDate"
+            >Last Operation Date</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_lastOperationDate"
+              data-cy="lastOperationDate"
+              type="datetime-local"
+              class="form-control"
+              name="lastOperationDate"
+              formControlName="lastOperationDate"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_active" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.active">Active</label>
+          <input type="checkbox" class="form-check" name="active" id="field_active" data-cy="active" formControlName="active" />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_accountType" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.accountType"
+            >Account Type</label
+          >
+          <select class="form-control" name="accountType" formControlName="accountType" id="field_accountType" data-cy="accountType">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.BankAccountType.null' | translate }}</option>
+            @for (bankAccountType of bankAccountTypeValues; track $index) {
+              <option [value]="bankAccountType">{{ 'sampleWebfluxPsqlApp.BankAccountType.' + bankAccountType | translate }}</option>
+            }
+          </select>
+        </div>
+
+        @let attachmentRef = editForm.get('attachment')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_attachment" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.attachment"
+            >Attachment</label
+          >
+          <div>
+            @if (attachmentRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(attachmentRef.value!, editForm.get('attachmentContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start">{{ editForm.get('attachmentContentType')!.value }}, {{ byteSize(attachmentRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ attachment: undefined, attachmentContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_attachment"
+              data-cy="attachment"
+              (change)="setFileData($event, 'attachment', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Attachment"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachment"
+            id="field_attachment"
+            data-cy="attachment"
+            formControlName="attachment"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="attachmentContentType"
+            id="field_attachmentContentType"
+            formControlName="attachmentContentType"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_description" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.description"
+            >Description</label
+          >
+          <textarea
+            class="form-control"
+            name="description"
+            id="field_description"
+            data-cy="description"
+            formControlName="description"
+          ></textarea>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_user" jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.user">User</label>
+          <select class="form-control" id="field_user" data-cy="user" name="user" formControlName="user" [compareWith]="compareUser">
+            <option [ngValue]="null"></option>
+            @for (userOption of usersSharedCollection(); track $index) {
+              <option [ngValue]="userOption">{{ userOption.login }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

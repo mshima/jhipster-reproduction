@@ -1,0 +1,728 @@
+<div>
+  <h2 id="page-heading" data-cy="FieldTestMapstructAndServiceClassEntityHeading">
+    <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.home.title"
+      >Field Test Mapstruct And Service Class Entities</span
+    >
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-field-test-mapstruct-and-service-class-entity"
+        [routerLink]="['/field-test-mapstruct-and-service-class-entity/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.home.createLabel"
+          >Create a new Field Test Mapstruct And Service Class Entity</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (fieldTestMapstructAndServiceClassEntities().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.home.notFound"
+        >No Field Test Mapstruct And Service Class Entities found</span
+      >
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringEva">String Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringRequiredEva"
+                  >String Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringMinlengthEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringMinlengthEva"
+                  >String Minlength Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringMaxlengthEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringMaxlengthEva"
+                  >String Maxlength Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringPatternEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringPatternEva">String Pattern Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerEva">Integer Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerRequiredEva"
+                  >Integer Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerMinEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerMinEva">Integer Min Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerMaxEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerMaxEva">Integer Max Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longEva">Long Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longRequiredEva">Long Required Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longMinEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longMinEva">Long Min Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longMaxEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longMaxEva">Long Max Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatEva">Float Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatRequiredEva">Float Required Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatMinEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatMinEva">Float Min Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatMaxEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatMaxEva">Float Max Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="doubleRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleRequiredEva"
+                  >Double Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="doubleMinEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleMinEva">Double Min Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="doubleMaxEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleMaxEva">Double Max Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bigDecimalRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalRequiredEva"
+                  >Big Decimal Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bigDecimalMinEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalMinEva"
+                  >Big Decimal Min Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bigDecimalMaxEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalMaxEva"
+                  >Big Decimal Max Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localDateEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localDateEva">Local Date Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localDateRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localDateRequiredEva"
+                  >Local Date Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="instantEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.instantEva">Instant Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="instanteRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.instanteRequiredEva"
+                  >Instante Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="zonedDateTimeEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.zonedDateTimeEva"
+                  >Zoned Date Time Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="zonedDateTimeRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.zonedDateTimeRequiredEva"
+                  >Zoned Date Time Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localTimeEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localTimeEva">Local Time Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localTimeRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localTimeRequiredEva"
+                  >Local Time Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="durationEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.durationEva">Duration Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="durationRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.durationRequiredEva"
+                  >Duration Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="booleanEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.booleanEva">Boolean Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="booleanRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.booleanRequiredEva"
+                  >Boolean Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="enumEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.enumEva">Enum Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="enumRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.enumRequiredEva">Enum Required Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="uuidEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.uuidEva">Uuid Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="uuidRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.uuidRequiredEva">Uuid Required Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageEva">Byte Image Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva"
+                  >Byte Image Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageMinbytesEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva"
+                  >Byte Image Minbytes Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageMaxbytesEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva"
+                  >Byte Image Maxbytes Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyEva">Byte Any Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva"
+                  >Byte Any Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyMinbytesEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva"
+                  >Byte Any Minbytes Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyMaxbytesEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva"
+                  >Byte Any Maxbytes Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteTextEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteTextEva">Byte Text Eva</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteTextRequiredEva">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteTextRequiredEva"
+                  >Byte Text Required Eva</span
+                >
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (
+            fieldTestMapstructAndServiceClassEntity of fieldTestMapstructAndServiceClassEntities();
+            track trackId(fieldTestMapstructAndServiceClassEntity)
+          ) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/field-test-mapstruct-and-service-class-entity', fieldTestMapstructAndServiceClassEntity.id, 'view']">{{
+                  fieldTestMapstructAndServiceClassEntity.id
+                }}</a>
+              </td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.stringEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.stringRequiredEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.stringMinlengthEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.stringMaxlengthEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.stringPatternEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.integerEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.integerRequiredEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.integerMinEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.integerMaxEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.longEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.longRequiredEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.longMinEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.longMaxEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.floatEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.floatRequiredEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.floatMinEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.floatMaxEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.doubleRequiredEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.doubleMinEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.doubleMaxEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.bigDecimalRequiredEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.bigDecimalMinEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.bigDecimalMaxEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.localDateEva | formatMediumDate }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.localDateRequiredEva | formatMediumDate }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.instantEva | formatMediumDatetime }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.instanteRequiredEva | formatMediumDatetime }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.zonedDateTimeEva | formatMediumDatetime }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.zonedDateTimeRequiredEva | formatMediumDatetime }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.localTimeEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.localTimeRequiredEva }}</td>
+              <td title="{{ fieldTestMapstructAndServiceClassEntity.durationEva }}">
+                {{ fieldTestMapstructAndServiceClassEntity.durationEva | duration }}
+              </td>
+              <td title="{{ fieldTestMapstructAndServiceClassEntity.durationRequiredEva }}">
+                {{ fieldTestMapstructAndServiceClassEntity.durationRequiredEva | duration }}
+              </td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.booleanEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.booleanRequiredEva }}</td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestMapstructAndServiceClassEntity.enumEva ?? 'null')">
+                {{
+                  { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                    fieldTestMapstructAndServiceClassEntity.enumEva ?? 'null'
+                  ]
+                }}
+              </td>
+              <td
+                [jhiTranslate]="
+                  'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestMapstructAndServiceClassEntity.enumRequiredEva ?? 'null')
+                "
+              >
+                {{
+                  { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                    fieldTestMapstructAndServiceClassEntity.enumRequiredEva ?? 'null'
+                  ]
+                }}
+              </td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.uuidEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.uuidRequiredEva }}</td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteImageEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteImageEva,
+                        fieldTestMapstructAndServiceClassEntity.byteImageEvaContentType
+                      )
+                    "
+                  >
+                    <img
+                      [src]="
+                        'data:' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageEvaContentType +
+                        ';base64,' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageEva
+                      "
+                      style="max-height: 30px"
+                      alt="fieldTestMapstructAndServiceClassEntity"
+                    />
+                  </a>
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteImageEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageEva) }}</span
+                  >
+                }
+              </td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva,
+                        fieldTestMapstructAndServiceClassEntity.byteImageRequiredEvaContentType
+                      )
+                    "
+                  >
+                    <img
+                      [src]="
+                        'data:' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageRequiredEvaContentType +
+                        ';base64,' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva
+                      "
+                      style="max-height: 30px"
+                      alt="fieldTestMapstructAndServiceClassEntity"
+                    />
+                  </a>
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteImageRequiredEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva) }}</span
+                  >
+                }
+              </td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva,
+                        fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEvaContentType
+                      )
+                    "
+                  >
+                    <img
+                      [src]="
+                        'data:' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEvaContentType +
+                        ';base64,' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva
+                      "
+                      style="max-height: 30px"
+                      alt="fieldTestMapstructAndServiceClassEntity"
+                    />
+                  </a>
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva) }}</span
+                  >
+                }
+              </td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva,
+                        fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEvaContentType
+                      )
+                    "
+                  >
+                    <img
+                      [src]="
+                        'data:' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEvaContentType +
+                        ';base64,' +
+                        fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva
+                      "
+                      style="max-height: 30px"
+                      alt="fieldTestMapstructAndServiceClassEntity"
+                    />
+                  </a>
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva) }}</span
+                  >
+                }
+              </td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteAnyEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteAnyEva,
+                        fieldTestMapstructAndServiceClassEntity.byteAnyEvaContentType
+                      )
+                    "
+                    jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteAnyEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyEva) }}</span
+                  >
+                }
+              </td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva,
+                        fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEvaContentType
+                      )
+                    "
+                    jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva) }}</span
+                  >
+                }
+              </td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva,
+                        fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEvaContentType
+                      )
+                    "
+                    jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva) }}</span
+                  >
+                }
+              </td>
+              <td>
+                @if (fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva) {
+                  <a
+                    (click)="
+                      openFile(
+                        fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva,
+                        fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEvaContentType
+                      )
+                    "
+                    jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span
+                    >{{ fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEvaContentType }},
+                    {{ byteSize(fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva) }}</span
+                  >
+                }
+              </td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.byteTextEva }}</td>
+              <td>{{ fieldTestMapstructAndServiceClassEntity.byteTextRequiredEva }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/field-test-mapstruct-and-service-class-entity', fieldTestMapstructAndServiceClassEntity.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/field-test-mapstruct-and-service-class-entity', fieldTestMapstructAndServiceClassEntity.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button
+                    type="submit"
+                    (click)="delete(fieldTestMapstructAndServiceClassEntity)"
+                    class="btn btn-danger btn-sm"
+                    data-cy="entityDeleteButton"
+                  >
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

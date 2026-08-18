@@ -1,0 +1,30 @@
+@if (fieldTestPaginationEntity) {
+  <form name="deleteForm" (ngSubmit)="confirmDelete(fieldTestPaginationEntity.id!)">
+    <div class="modal-header">
+      <h4 class="modal-title" data-cy="fieldTestPaginationEntityDeleteDialogHeading" jhiTranslate="entity.delete.title">
+        Confirm delete operation
+      </h4>
+    </div>
+
+    <div class="modal-body">
+      <jhi-alert-error />
+      <p
+        id="jhi-delete-fieldTestPaginationEntity-heading"
+        jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.delete.question"
+        [translateValues]="{ id: fieldTestPaginationEntity.id }"
+      >
+        Are you sure you want to delete Field Test Pagination Entity {{ fieldTestPaginationEntity.id }}?
+      </p>
+    </div>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+        <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+      </button>
+
+      <button id="jhi-confirm-delete-fieldTestPaginationEntity" data-cy="entityConfirmDeleteButton" type="submit" class="btn btn-danger">
+        <fa-icon icon="times" />&nbsp;<span jhiTranslate="entity.action.delete">Delete</span>
+      </button>
+    </div>
+  </form>
+}

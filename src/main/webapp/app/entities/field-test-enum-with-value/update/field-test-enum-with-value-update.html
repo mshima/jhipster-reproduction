@@ -1,0 +1,100 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-enum-with-value-heading"
+        data-cy="FieldTestEnumWithValueCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Enum With Value
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_myFieldA" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldA"
+            >My Field A</label
+          >
+          <select class="form-control" name="myFieldA" formControlName="myFieldA" id="field_myFieldA" data-cy="myFieldA">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.MyEnumA.null' | translate }}</option>
+            @for (myEnumA of myEnumAValues; track $index) {
+              <option [value]="myEnumA">{{ 'sampleWebfluxPsqlApp.MyEnumA.' + myEnumA | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_myFieldB" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldB"
+            >My Field B</label
+          >
+          <select class="form-control" name="myFieldB" formControlName="myFieldB" id="field_myFieldB" data-cy="myFieldB">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.MyEnumB.null' | translate }}</option>
+            @for (myEnumB of myEnumBValues; track $index) {
+              <option [value]="myEnumB">{{ 'sampleWebfluxPsqlApp.MyEnumB.' + myEnumB | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_myFieldC" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldC"
+            >My Field C</label
+          >
+          <select class="form-control" name="myFieldC" formControlName="myFieldC" id="field_myFieldC" data-cy="myFieldC">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.MyEnumC.null' | translate }}</option>
+            @for (myEnumC of myEnumCValues; track $index) {
+              <option [value]="myEnumC">{{ 'sampleWebfluxPsqlApp.MyEnumC.' + myEnumC | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_myFieldD" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldD"
+            >My Field D</label
+          >
+          <select class="form-control" name="myFieldD" formControlName="myFieldD" id="field_myFieldD" data-cy="myFieldD">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.MyEnumD.null' | translate }}</option>
+            @for (myEnumD of myEnumDValues; track $index) {
+              <option [value]="myEnumD">{{ 'sampleWebfluxPsqlApp.MyEnumD.' + myEnumD | translate }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_myFieldE" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldE"
+            >My Field E</label
+          >
+          <select class="form-control" name="myFieldE" formControlName="myFieldE" id="field_myFieldE" data-cy="myFieldE">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.MyEnumE.null' | translate }}</option>
+            @for (myEnumE of myEnumEValues; track $index) {
+              <option [value]="myEnumE">{{ 'sampleWebfluxPsqlApp.MyEnumE.' + myEnumE | translate }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

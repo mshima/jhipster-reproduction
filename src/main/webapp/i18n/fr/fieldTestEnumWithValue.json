@@ -1,0 +1,28 @@
+{
+  "sampleWebfluxPsqlApp": {
+    "fieldTestEnumWithValue": {
+      "home": {
+        "title": "FieldTestEnumWithValues",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Field Test Enum With Value",
+        "createOrEditLabel": "Créer ou éditer un Field Test Enum With Value",
+        "notFound": "Aucun Field Test Enum With Value trouvé"
+      },
+      "created": "Un nouveau Field Test Enum With Value a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Field Test Enum With Value avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Field Test Enum With Value avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Field Test Enum With Value {{ id }} ?"
+      },
+      "detail": {
+        "title": "Field Test Enum With Value"
+      },
+      "id": "ID",
+      "myFieldA": "My Field A",
+      "myFieldB": "My Field B",
+      "myFieldC": "My Field C",
+      "myFieldD": "My Field D",
+      "myFieldE": "My Field E"
+    }
+  }
+}

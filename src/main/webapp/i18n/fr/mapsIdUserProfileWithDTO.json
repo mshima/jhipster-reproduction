@@ -1,0 +1,25 @@
+{
+  "sampleWebfluxPsqlApp": {
+    "mapsIdUserProfileWithDTO": {
+      "home": {
+        "title": "MapsIdUserProfileWithDTOS",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Maps Id User Profile With DTO",
+        "createOrEditLabel": "Créer ou éditer un Maps Id User Profile With DTO",
+        "notFound": "Aucun Maps Id User Profile With DTO trouvé"
+      },
+      "created": "Un nouveau Maps Id User Profile With DTO a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Maps Id User Profile With DTO avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Maps Id User Profile With DTO avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Maps Id User Profile With DTO {{ id }} ?"
+      },
+      "detail": {
+        "title": "Maps Id User Profile With DTO"
+      },
+      "id": "ID",
+      "dateOfBirth": "Date Of Birth",
+      "user": "User"
+    }
+  }
+}

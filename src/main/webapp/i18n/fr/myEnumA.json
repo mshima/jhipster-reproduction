@@ -1,0 +1,9 @@
+{
+  "sampleWebfluxPsqlApp": {
+    "MyEnumA": {
+      "null": "",
+      "AAA": "AAA",
+      "BBB": "BBB"
+    }
+  }
+}

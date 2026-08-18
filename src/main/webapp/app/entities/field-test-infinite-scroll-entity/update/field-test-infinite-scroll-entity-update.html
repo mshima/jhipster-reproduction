@@ -1,0 +1,1488 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-infinite-scroll-entity-heading"
+        data-cy="FieldTestInfiniteScrollEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Infinite Scroll Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_stringHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringHugo"
+            >String Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringHugo"
+            id="field_stringHugo"
+            data-cy="stringHugo"
+            formControlName="stringHugo"
+          />
+        </div>
+
+        @let stringRequiredHugoRef = editForm.get('stringRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringRequiredHugo"
+            >String Required Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredHugo"
+            id="field_stringRequiredHugo"
+            data-cy="stringRequiredHugo"
+            formControlName="stringRequiredHugo"
+          />
+          @if (stringRequiredHugoRef.invalid && (stringRequiredHugoRef.dirty || stringRequiredHugoRef.touched)) {
+            <div>
+              @if (stringRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMinlengthHugoRef = editForm.get('stringMinlengthHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMinlengthHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringMinlengthHugo"
+            >String Minlength Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthHugo"
+            id="field_stringMinlengthHugo"
+            data-cy="stringMinlengthHugo"
+            formControlName="stringMinlengthHugo"
+          />
+          @if (stringMinlengthHugoRef.invalid && (stringMinlengthHugoRef.dirty || stringMinlengthHugoRef.touched)) {
+            <div>
+              @if (stringMinlengthHugoRef.errors?.minlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: '0' }"
+                  >This field is required to be at least 0 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMaxlengthHugoRef = editForm.get('stringMaxlengthHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMaxlengthHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringMaxlengthHugo"
+            >String Maxlength Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthHugo"
+            id="field_stringMaxlengthHugo"
+            data-cy="stringMaxlengthHugo"
+            formControlName="stringMaxlengthHugo"
+          />
+          @if (stringMaxlengthHugoRef.invalid && (stringMaxlengthHugoRef.dirty || stringMaxlengthHugoRef.touched)) {
+            <div>
+              @if (stringMaxlengthHugoRef.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >This field cannot be longer than 20 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringPatternHugoRef = editForm.get('stringPatternHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringPatternHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringPatternHugo"
+            >String Pattern Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternHugo"
+            id="field_stringPatternHugo"
+            data-cy="stringPatternHugo"
+            formControlName="stringPatternHugo"
+          />
+          @if (stringPatternHugoRef.invalid && (stringPatternHugoRef.dirty || stringPatternHugoRef.touched)) {
+            <div>
+              @if (stringPatternHugoRef.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'String Pattern Hugo' }"
+                  >This field should follow pattern for String Pattern Hugo.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_integerHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerHugo"
+            >Integer Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerHugo"
+            id="field_integerHugo"
+            data-cy="integerHugo"
+            formControlName="integerHugo"
+          />
+        </div>
+
+        @let integerRequiredHugoRef = editForm.get('integerRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerRequiredHugo"
+            >Integer Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredHugo"
+            id="field_integerRequiredHugo"
+            data-cy="integerRequiredHugo"
+            formControlName="integerRequiredHugo"
+          />
+          @if (integerRequiredHugoRef.invalid && (integerRequiredHugoRef.dirty || integerRequiredHugoRef.touched)) {
+            <div>
+              @if (integerRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!integerRequiredHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMinHugoRef = editForm.get('integerMinHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMinHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerMinHugo"
+            >Integer Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinHugo"
+            id="field_integerMinHugo"
+            data-cy="integerMinHugo"
+            formControlName="integerMinHugo"
+          />
+          @if (integerMinHugoRef.invalid && (integerMinHugoRef.dirty || integerMinHugoRef.touched)) {
+            <div>
+              @if (integerMinHugoRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMinHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMaxHugoRef = editForm.get('integerMaxHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMaxHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerMaxHugo"
+            >Integer Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxHugo"
+            id="field_integerMaxHugo"
+            data-cy="integerMaxHugo"
+            formControlName="integerMaxHugo"
+          />
+          @if (integerMaxHugoRef.invalid && (integerMaxHugoRef.dirty || integerMaxHugoRef.touched)) {
+            <div>
+              @if (integerMaxHugoRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMaxHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_longHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longHugo"
+            >Long Hugo</label
+          >
+          <input type="number" class="form-control" name="longHugo" id="field_longHugo" data-cy="longHugo" formControlName="longHugo" />
+        </div>
+
+        @let longRequiredHugoRef = editForm.get('longRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longRequiredHugo"
+            >Long Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredHugo"
+            id="field_longRequiredHugo"
+            data-cy="longRequiredHugo"
+            formControlName="longRequiredHugo"
+          />
+          @if (longRequiredHugoRef.invalid && (longRequiredHugoRef.dirty || longRequiredHugoRef.touched)) {
+            <div>
+              @if (longRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!longRequiredHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMinHugoRef = editForm.get('longMinHugo')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_longMinHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longMinHugo"
+            >Long Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinHugo"
+            id="field_longMinHugo"
+            data-cy="longMinHugo"
+            formControlName="longMinHugo"
+          />
+          @if (longMinHugoRef.invalid && (longMinHugoRef.dirty || longMinHugoRef.touched)) {
+            <div>
+              @if (longMinHugoRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMinHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMaxHugoRef = editForm.get('longMaxHugo')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_longMaxHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longMaxHugo"
+            >Long Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxHugo"
+            id="field_longMaxHugo"
+            data-cy="longMaxHugo"
+            formControlName="longMaxHugo"
+          />
+          @if (longMaxHugoRef.invalid && (longMaxHugoRef.dirty || longMaxHugoRef.touched)) {
+            <div>
+              @if (longMaxHugoRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMaxHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_floatHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatHugo"
+            >Float Hugo</label
+          >
+          <input type="number" class="form-control" name="floatHugo" id="field_floatHugo" data-cy="floatHugo" formControlName="floatHugo" />
+        </div>
+
+        @let floatRequiredHugoRef = editForm.get('floatRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatRequiredHugo"
+            >Float Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredHugo"
+            id="field_floatRequiredHugo"
+            data-cy="floatRequiredHugo"
+            formControlName="floatRequiredHugo"
+          />
+          @if (floatRequiredHugoRef.invalid && (floatRequiredHugoRef.dirty || floatRequiredHugoRef.touched)) {
+            <div>
+              @if (floatRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!floatRequiredHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMinHugoRef = editForm.get('floatMinHugo')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_floatMinHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatMinHugo"
+            >Float Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinHugo"
+            id="field_floatMinHugo"
+            data-cy="floatMinHugo"
+            formControlName="floatMinHugo"
+          />
+          @if (floatMinHugoRef.invalid && (floatMinHugoRef.dirty || floatMinHugoRef.touched)) {
+            <div>
+              @if (floatMinHugoRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMinHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMaxHugoRef = editForm.get('floatMaxHugo')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_floatMaxHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatMaxHugo"
+            >Float Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxHugo"
+            id="field_floatMaxHugo"
+            data-cy="floatMaxHugo"
+            formControlName="floatMaxHugo"
+          />
+          @if (floatMaxHugoRef.invalid && (floatMaxHugoRef.dirty || floatMaxHugoRef.touched)) {
+            <div>
+              @if (floatMaxHugoRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMaxHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleRequiredHugoRef = editForm.get('doubleRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.doubleRequiredHugo"
+            >Double Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredHugo"
+            id="field_doubleRequiredHugo"
+            data-cy="doubleRequiredHugo"
+            formControlName="doubleRequiredHugo"
+          />
+          @if (doubleRequiredHugoRef.invalid && (doubleRequiredHugoRef.dirty || doubleRequiredHugoRef.touched)) {
+            <div>
+              @if (doubleRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!doubleRequiredHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMinHugoRef = editForm.get('doubleMinHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleMinHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.doubleMinHugo"
+            >Double Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinHugo"
+            id="field_doubleMinHugo"
+            data-cy="doubleMinHugo"
+            formControlName="doubleMinHugo"
+          />
+          @if (doubleMinHugoRef.invalid && (doubleMinHugoRef.dirty || doubleMinHugoRef.touched)) {
+            <div>
+              @if (doubleMinHugoRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMinHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMaxHugoRef = editForm.get('doubleMaxHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleMaxHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.doubleMaxHugo"
+            >Double Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxHugo"
+            id="field_doubleMaxHugo"
+            data-cy="doubleMaxHugo"
+            formControlName="doubleMaxHugo"
+          />
+          @if (doubleMaxHugoRef.invalid && (doubleMaxHugoRef.dirty || doubleMaxHugoRef.touched)) {
+            <div>
+              @if (doubleMaxHugoRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMaxHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalRequiredHugoRef = editForm.get('bigDecimalRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.bigDecimalRequiredHugo"
+            >Big Decimal Required Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredHugo"
+            id="field_bigDecimalRequiredHugo"
+            data-cy="bigDecimalRequiredHugo"
+            formControlName="bigDecimalRequiredHugo"
+          />
+          @if (bigDecimalRequiredHugoRef.invalid && (bigDecimalRequiredHugoRef.dirty || bigDecimalRequiredHugoRef.touched)) {
+            <div>
+              @if (bigDecimalRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!bigDecimalRequiredHugoRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMinHugoRef = editForm.get('bigDecimalMinHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMinHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.bigDecimalMinHugo"
+            >Big Decimal Min Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinHugo"
+            id="field_bigDecimalMinHugo"
+            data-cy="bigDecimalMinHugo"
+            formControlName="bigDecimalMinHugo"
+          />
+          @if (bigDecimalMinHugoRef.invalid && (bigDecimalMinHugoRef.dirty || bigDecimalMinHugoRef.touched)) {
+            <div>
+              @if (bigDecimalMinHugoRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMinHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMaxHugoRef = editForm.get('bigDecimalMaxHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMaxHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.bigDecimalMaxHugo"
+            >Big Decimal Max Hugo</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxHugo"
+            id="field_bigDecimalMaxHugo"
+            data-cy="bigDecimalMaxHugo"
+            formControlName="bigDecimalMaxHugo"
+          />
+          @if (bigDecimalMaxHugoRef.invalid && (bigDecimalMaxHugoRef.dirty || bigDecimalMaxHugoRef.touched)) {
+            <div>
+              @if (bigDecimalMaxHugoRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMaxHugoRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localDateHugo"
+            >Local Date Hugo</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateHugo"
+              data-cy="localDateHugo"
+              type="text"
+              class="form-control"
+              name="localDateHugo"
+              ngbDatepicker
+              #localDateHugoDp="ngbDatepicker"
+              formControlName="localDateHugo"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateHugoDp.toggle()"><fa-icon icon="calendar-alt" /></button>
+          </div>
+        </div>
+
+        @let localDateRequiredHugoRef = editForm.get('localDateRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localDateRequiredHugo"
+            >Local Date Required Hugo</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredHugo"
+              data-cy="localDateRequiredHugo"
+              type="text"
+              class="form-control"
+              name="localDateRequiredHugo"
+              ngbDatepicker
+              #localDateRequiredHugoDp="ngbDatepicker"
+              formControlName="localDateRequiredHugo"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredHugoDp.toggle()">
+              <fa-icon icon="calendar-alt" />
+            </button>
+          </div>
+          @if (localDateRequiredHugoRef.invalid && (localDateRequiredHugoRef.dirty || localDateRequiredHugoRef.touched)) {
+            <div>
+              @if (localDateRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_instantHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.instantHugo"
+            >Instant Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantHugo"
+              data-cy="instantHugo"
+              type="datetime-local"
+              class="form-control"
+              name="instantHugo"
+              formControlName="instantHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let instanteRequiredHugoRef = editForm.get('instanteRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_instanteRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.instanteRequiredHugo"
+            >Instante Required Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredHugo"
+              data-cy="instanteRequiredHugo"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredHugo"
+              formControlName="instanteRequiredHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (instanteRequiredHugoRef.invalid && (instanteRequiredHugoRef.dirty || instanteRequiredHugoRef.touched)) {
+            <div>
+              @if (instanteRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!instanteRequiredHugoRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.zonedDateTimeHugo"
+            >Zoned Date Time Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeHugo"
+              data-cy="zonedDateTimeHugo"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeHugo"
+              formControlName="zonedDateTimeHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let zonedDateTimeRequiredHugoRef = editForm.get('zonedDateTimeRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.zonedDateTimeRequiredHugo"
+            >Zoned Date Time Required Hugo</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredHugo"
+              data-cy="zonedDateTimeRequiredHugo"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredHugo"
+              formControlName="zonedDateTimeRequiredHugo"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (zonedDateTimeRequiredHugoRef.invalid && (zonedDateTimeRequiredHugoRef.dirty || zonedDateTimeRequiredHugoRef.touched)) {
+            <div>
+              @if (zonedDateTimeRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!zonedDateTimeRequiredHugoRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localTimeHugo"
+            >Local Time Hugo</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeHugo"
+            id="field_localTimeHugo"
+            data-cy="localTimeHugo"
+            formControlName="localTimeHugo"
+          />
+        </div>
+
+        @let localTimeRequiredHugoRef = editForm.get('localTimeRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localTimeRequiredHugo"
+            >Local Time Required Hugo</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeRequiredHugo"
+            id="field_localTimeRequiredHugo"
+            data-cy="localTimeRequiredHugo"
+            formControlName="localTimeRequiredHugo"
+          />
+          @if (localTimeRequiredHugoRef.invalid && (localTimeRequiredHugoRef.dirty || localTimeRequiredHugoRef.touched)) {
+            <div>
+              @if (localTimeRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_durationHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.durationHugo"
+            >Duration Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationHugo"
+            id="field_durationHugo"
+            data-cy="durationHugo"
+            formControlName="durationHugo"
+          />
+        </div>
+
+        @let durationRequiredHugoRef = editForm.get('durationRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_durationRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.durationRequiredHugo"
+            >Duration Required Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredHugo"
+            id="field_durationRequiredHugo"
+            data-cy="durationRequiredHugo"
+            formControlName="durationRequiredHugo"
+          />
+          @if (durationRequiredHugoRef.invalid && (durationRequiredHugoRef.dirty || durationRequiredHugoRef.touched)) {
+            <div>
+              @if (durationRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!durationRequiredHugoRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_booleanHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.booleanHugo"
+            >Boolean Hugo</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanHugo"
+            id="field_booleanHugo"
+            data-cy="booleanHugo"
+            formControlName="booleanHugo"
+          />
+        </div>
+
+        @let booleanRequiredHugoRef = editForm.get('booleanRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_booleanRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.booleanRequiredHugo"
+            >Boolean Required Hugo</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredHugo"
+            id="field_booleanRequiredHugo"
+            data-cy="booleanRequiredHugo"
+            formControlName="booleanRequiredHugo"
+          />
+          @if (booleanRequiredHugoRef.invalid && (booleanRequiredHugoRef.dirty || booleanRequiredHugoRef.touched)) {
+            <div>
+              @if (booleanRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_enumHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.enumHugo"
+            >Enum Hugo</label
+          >
+          <select class="form-control" name="enumHugo" formControlName="enumHugo" id="field_enumHugo" data-cy="enumHugo">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.null' | translate }}</option>
+            @for (enumFieldClass of enumFieldClassValues; track $index) {
+              <option [value]="enumFieldClass">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.' + enumFieldClass | translate }}</option>
+            }
+          </select>
+        </div>
+
+        @let enumRequiredHugoRef = editForm.get('enumRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_enumRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.enumRequiredHugo"
+            >Enum Required Hugo</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredHugo"
+            formControlName="enumRequiredHugo"
+            id="field_enumRequiredHugo"
+            data-cy="enumRequiredHugo"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.null' | translate }}</option>
+            @for (enumRequiredFieldClass of enumRequiredFieldClassValues; track $index) {
+              <option [value]="enumRequiredFieldClass">
+                {{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+              </option>
+            }
+          </select>
+          @if (enumRequiredHugoRef.invalid && (enumRequiredHugoRef.dirty || enumRequiredHugoRef.touched)) {
+            <div>
+              @if (enumRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_uuidHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.uuidHugo"
+            >Uuid Hugo</label
+          >
+          <input type="text" class="form-control" name="uuidHugo" id="field_uuidHugo" data-cy="uuidHugo" formControlName="uuidHugo" />
+        </div>
+
+        @let uuidRequiredHugoRef = editForm.get('uuidRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_uuidRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.uuidRequiredHugo"
+            >Uuid Required Hugo</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredHugo"
+            id="field_uuidRequiredHugo"
+            data-cy="uuidRequiredHugo"
+            formControlName="uuidRequiredHugo"
+          />
+          @if (uuidRequiredHugoRef.invalid && (uuidRequiredHugoRef.dirty || uuidRequiredHugoRef.touched)) {
+            <div>
+              @if (uuidRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageHugoRef = editForm.get('byteImageHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageHugo"
+            >Byte Image Hugo</label
+          >
+          <div>
+            @if (byteImageHugoRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageHugoContentType')!.value + ';base64,' + byteImageHugoRef.value"
+                style="max-height: 100px"
+                alt="fieldTestInfiniteScrollEntity"
+              />
+            }
+            @if (byteImageHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageHugoContentType')!.value }}, {{ byteSize(byteImageHugoRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageHugo', 'byteImageHugoContentType', 'file_byteImageHugo')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageHugo"
+              data-cy="byteImageHugo"
+              (change)="setFileData($event, 'byteImageHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageHugo"
+            id="field_byteImageHugo"
+            data-cy="byteImageHugo"
+            formControlName="byteImageHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageHugoContentType"
+            id="field_byteImageHugoContentType"
+            formControlName="byteImageHugoContentType"
+          />
+        </div>
+
+        @let byteImageRequiredHugoRef = editForm.get('byteImageRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageRequiredHugo"
+            >Byte Image Required Hugo</label
+          >
+          <div>
+            @if (byteImageRequiredHugoRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageRequiredHugoContentType')!.value + ';base64,' + byteImageRequiredHugoRef.value"
+                style="max-height: 100px"
+                alt="fieldTestInfiniteScrollEntity"
+              />
+            }
+            @if (byteImageRequiredHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageRequiredHugoContentType')!.value }}, {{ byteSize(byteImageRequiredHugoRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageRequiredHugo', 'byteImageRequiredHugoContentType', 'file_byteImageRequiredHugo')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageRequiredHugo"
+              data-cy="byteImageRequiredHugo"
+              (change)="setFileData($event, 'byteImageRequiredHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Required Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredHugo"
+            id="field_byteImageRequiredHugo"
+            data-cy="byteImageRequiredHugo"
+            formControlName="byteImageRequiredHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredHugoContentType"
+            id="field_byteImageRequiredHugoContentType"
+            formControlName="byteImageRequiredHugoContentType"
+          />
+          @if (byteImageRequiredHugoRef.invalid && (byteImageRequiredHugoRef.dirty || byteImageRequiredHugoRef.touched)) {
+            <div>
+              @if (byteImageRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageMinbytesHugoRef = editForm.get('byteImageMinbytesHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMinbytesHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageMinbytesHugo"
+            >Byte Image Minbytes Hugo</label
+          >
+          <div>
+            @if (byteImageMinbytesHugoRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMinbytesHugoContentType')!.value + ';base64,' + byteImageMinbytesHugoRef.value"
+                style="max-height: 100px"
+                alt="fieldTestInfiniteScrollEntity"
+              />
+            }
+            @if (byteImageMinbytesHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMinbytesHugoContentType')!.value }}, {{ byteSize(byteImageMinbytesHugoRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMinbytesHugo', 'byteImageMinbytesHugoContentType', 'file_byteImageMinbytesHugo')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMinbytesHugo"
+              data-cy="byteImageMinbytesHugo"
+              (change)="setFileData($event, 'byteImageMinbytesHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Minbytes Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesHugo"
+            id="field_byteImageMinbytesHugo"
+            data-cy="byteImageMinbytesHugo"
+            formControlName="byteImageMinbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesHugoContentType"
+            id="field_byteImageMinbytesHugoContentType"
+            formControlName="byteImageMinbytesHugoContentType"
+          />
+          @if (byteImageMinbytesHugoRef.invalid && (byteImageMinbytesHugoRef.dirty || byteImageMinbytesHugoRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteImageMaxbytesHugoRef = editForm.get('byteImageMaxbytesHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMaxbytesHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo"
+            >Byte Image Maxbytes Hugo</label
+          >
+          <div>
+            @if (byteImageMaxbytesHugoRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMaxbytesHugoContentType')!.value + ';base64,' + byteImageMaxbytesHugoRef.value"
+                style="max-height: 100px"
+                alt="fieldTestInfiniteScrollEntity"
+              />
+            }
+            @if (byteImageMaxbytesHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMaxbytesHugoContentType')!.value }}, {{ byteSize(byteImageMaxbytesHugoRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMaxbytesHugo', 'byteImageMaxbytesHugoContentType', 'file_byteImageMaxbytesHugo')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMaxbytesHugo"
+              data-cy="byteImageMaxbytesHugo"
+              (change)="setFileData($event, 'byteImageMaxbytesHugo', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Maxbytes Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesHugo"
+            id="field_byteImageMaxbytesHugo"
+            data-cy="byteImageMaxbytesHugo"
+            formControlName="byteImageMaxbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesHugoContentType"
+            id="field_byteImageMaxbytesHugoContentType"
+            formControlName="byteImageMaxbytesHugoContentType"
+          />
+          @if (byteImageMaxbytesHugoRef.invalid && (byteImageMaxbytesHugoRef.dirty || byteImageMaxbytesHugoRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyHugoRef = editForm.get('byteAnyHugo')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteAnyHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyHugo"
+            >Byte Any Hugo</label
+          >
+          <div>
+            @if (byteAnyHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyHugoRef.value!, editForm.get('byteAnyHugoContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start">{{ editForm.get('byteAnyHugoContentType')!.value }}, {{ byteSize(byteAnyHugoRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyHugo: undefined, byteAnyHugoContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyHugo"
+              data-cy="byteAnyHugo"
+              (change)="setFileData($event, 'byteAnyHugo', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyHugo"
+            id="field_byteAnyHugo"
+            data-cy="byteAnyHugo"
+            formControlName="byteAnyHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyHugoContentType"
+            id="field_byteAnyHugoContentType"
+            formControlName="byteAnyHugoContentType"
+          />
+        </div>
+
+        @let byteAnyRequiredHugoRef = editForm.get('byteAnyRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyRequiredHugo"
+            >Byte Any Required Hugo</label
+          >
+          <div>
+            @if (byteAnyRequiredHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyRequiredHugoRef.value!, editForm.get('byteAnyRequiredHugoContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyRequiredHugoContentType')!.value }}, {{ byteSize(byteAnyRequiredHugoRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyRequiredHugo: undefined, byteAnyRequiredHugoContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyRequiredHugo"
+              data-cy="byteAnyRequiredHugo"
+              (change)="setFileData($event, 'byteAnyRequiredHugo', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Required Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredHugo"
+            id="field_byteAnyRequiredHugo"
+            data-cy="byteAnyRequiredHugo"
+            formControlName="byteAnyRequiredHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredHugoContentType"
+            id="field_byteAnyRequiredHugoContentType"
+            formControlName="byteAnyRequiredHugoContentType"
+          />
+          @if (byteAnyRequiredHugoRef.invalid && (byteAnyRequiredHugoRef.dirty || byteAnyRequiredHugoRef.touched)) {
+            <div>
+              @if (byteAnyRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteAnyMinbytesHugoRef = editForm.get('byteAnyMinbytesHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMinbytesHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo"
+            >Byte Any Minbytes Hugo</label
+          >
+          <div>
+            @if (byteAnyMinbytesHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMinbytesHugoRef.value!, editForm.get('byteAnyMinbytesHugoContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMinbytesHugoContentType')!.value }}, {{ byteSize(byteAnyMinbytesHugoRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMinbytesHugo: undefined, byteAnyMinbytesHugoContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMinbytesHugo"
+              data-cy="byteAnyMinbytesHugo"
+              (change)="setFileData($event, 'byteAnyMinbytesHugo', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Minbytes Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesHugo"
+            id="field_byteAnyMinbytesHugo"
+            data-cy="byteAnyMinbytesHugo"
+            formControlName="byteAnyMinbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesHugoContentType"
+            id="field_byteAnyMinbytesHugoContentType"
+            formControlName="byteAnyMinbytesHugoContentType"
+          />
+          @if (byteAnyMinbytesHugoRef.invalid && (byteAnyMinbytesHugoRef.dirty || byteAnyMinbytesHugoRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyMaxbytesHugoRef = editForm.get('byteAnyMaxbytesHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMaxbytesHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo"
+            >Byte Any Maxbytes Hugo</label
+          >
+          <div>
+            @if (byteAnyMaxbytesHugoRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMaxbytesHugoRef.value!, editForm.get('byteAnyMaxbytesHugoContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMaxbytesHugoContentType')!.value }}, {{ byteSize(byteAnyMaxbytesHugoRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMaxbytesHugo: undefined, byteAnyMaxbytesHugoContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesHugo"
+              data-cy="byteAnyMaxbytesHugo"
+              (change)="setFileData($event, 'byteAnyMaxbytesHugo', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Maxbytes Hugo"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesHugo"
+            id="field_byteAnyMaxbytesHugo"
+            data-cy="byteAnyMaxbytesHugo"
+            formControlName="byteAnyMaxbytesHugo"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesHugoContentType"
+            id="field_byteAnyMaxbytesHugoContentType"
+            formControlName="byteAnyMaxbytesHugoContentType"
+          />
+          @if (byteAnyMaxbytesHugoRef.invalid && (byteAnyMaxbytesHugoRef.dirty || byteAnyMaxbytesHugoRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_byteTextHugo" jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteTextHugo"
+            >Byte Text Hugo</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextHugo"
+            id="field_byteTextHugo"
+            data-cy="byteTextHugo"
+            formControlName="byteTextHugo"
+          ></textarea>
+        </div>
+
+        @let byteTextRequiredHugoRef = editForm.get('byteTextRequiredHugo')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteTextRequiredHugo"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteTextRequiredHugo"
+            >Byte Text Required Hugo</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredHugo"
+            id="field_byteTextRequiredHugo"
+            data-cy="byteTextRequiredHugo"
+            formControlName="byteTextRequiredHugo"
+          ></textarea>
+          @if (byteTextRequiredHugoRef.invalid && (byteTextRequiredHugoRef.dirty || byteTextRequiredHugoRef.touched)) {
+            <div>
+              @if (byteTextRequiredHugoRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

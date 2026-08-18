@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (entityWithServiceImplPaginationAndDTO(); as entityWithServiceImplPaginationAndDTORef) {
+      <div>
+        <h2 data-cy="entityWithServiceImplPaginationAndDTODetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.entityWithServiceImplPaginationAndDTO.detail.title"
+            >Entity With Service Impl Pagination And DTO</span
+          >
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ entityWithServiceImplPaginationAndDTORef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.entityWithServiceImplPaginationAndDTO.theo">Theo</span></dt>
+          <dd>
+            <span>{{ entityWithServiceImplPaginationAndDTORef.theo }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/entity-with-service-impl-pagination-and-dto', entityWithServiceImplPaginationAndDTORef.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

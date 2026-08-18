@@ -1,0 +1,420 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fieldTestInfiniteScrollEntity(); as fieldTestInfiniteScrollEntityRef) {
+      <div>
+        <h2 data-cy="fieldTestInfiniteScrollEntityDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.detail.title">Field Test Infinite Scroll Entity</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringHugo">String Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.stringHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringRequiredHugo">String Required Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.stringRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringMinlengthHugo">String Minlength Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.stringMinlengthHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringMaxlengthHugo">String Maxlength Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.stringMaxlengthHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.stringPatternHugo">String Pattern Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.stringPatternHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerHugo">Integer Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.integerHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerRequiredHugo">Integer Required Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.integerRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerMinHugo">Integer Min Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.integerMinHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.integerMaxHugo">Integer Max Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.integerMaxHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longHugo">Long Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.longHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longRequiredHugo">Long Required Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.longRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longMinHugo">Long Min Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.longMinHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.longMaxHugo">Long Max Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.longMaxHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatHugo">Float Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.floatHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatRequiredHugo">Float Required Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.floatRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatMinHugo">Float Min Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.floatMinHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.floatMaxHugo">Float Max Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.floatMaxHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.doubleRequiredHugo">Double Required Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.doubleRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.doubleMinHugo">Double Min Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.doubleMinHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.doubleMaxHugo">Double Max Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.doubleMaxHugo }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.bigDecimalRequiredHugo">Big Decimal Required Hugo</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.bigDecimalRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.bigDecimalMinHugo">Big Decimal Min Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.bigDecimalMinHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.bigDecimalMaxHugo">Big Decimal Max Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.bigDecimalMaxHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localDateHugo">Local Date Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.localDateHugo | formatMediumDate }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localDateRequiredHugo">Local Date Required Hugo</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.localDateRequiredHugo | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.instantHugo">Instant Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.instantHugo | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.instanteRequiredHugo">Instante Required Hugo</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.instanteRequiredHugo | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.zonedDateTimeHugo">Zoned Date Time Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.zonedDateTimeHugo | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.zonedDateTimeRequiredHugo"
+              >Zoned Date Time Required Hugo</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.zonedDateTimeRequiredHugo | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localTimeHugo">Local Time Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.localTimeHugo }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.localTimeRequiredHugo">Local Time Required Hugo</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.localTimeRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.durationHugo">Duration Hugo</span></dt>
+          <dd>
+            <span
+              >{{ fieldTestInfiniteScrollEntityRef.durationHugo | duration }} ({{ fieldTestInfiniteScrollEntityRef.durationHugo }})</span
+            >
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.durationRequiredHugo">Duration Required Hugo</span>
+          </dt>
+          <dd>
+            <span
+              >{{ fieldTestInfiniteScrollEntityRef.durationRequiredHugo | duration }} ({{
+                fieldTestInfiniteScrollEntityRef.durationRequiredHugo
+              }})</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.booleanHugo">Boolean Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.booleanHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.booleanRequiredHugo">Boolean Required Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.booleanRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.enumHugo">Enum Hugo</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestInfiniteScrollEntityRef.enumHugo ?? 'null')">{{
+              { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                fieldTestInfiniteScrollEntityRef.enumHugo ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.enumRequiredHugo">Enum Required Hugo</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="
+                'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestInfiniteScrollEntityRef.enumRequiredHugo ?? 'null')
+              "
+              >{{
+                { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                  fieldTestInfiniteScrollEntityRef.enumRequiredHugo ?? 'null'
+                ]
+              }}</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.uuidHugo">Uuid Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.uuidHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.uuidRequiredHugo">Uuid Required Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.uuidRequiredHugo }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageHugo">Byte Image Hugo</span></dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteImageHugo) {
+              <div>
+                <a
+                  (click)="
+                    openFile(fieldTestInfiniteScrollEntityRef.byteImageHugo, fieldTestInfiniteScrollEntityRef.byteImageHugoContentType)
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestInfiniteScrollEntityRef.byteImageHugoContentType +
+                      ';base64,' +
+                      fieldTestInfiniteScrollEntityRef.byteImageHugo
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestInfiniteScrollEntity"
+                  />
+                </a>
+                {{ fieldTestInfiniteScrollEntityRef.byteImageHugoContentType }},
+                {{ byteSize(fieldTestInfiniteScrollEntityRef.byteImageHugo) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageRequiredHugo">Byte Image Required Hugo</span>
+          </dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteImageRequiredHugo) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestInfiniteScrollEntityRef.byteImageRequiredHugo,
+                      fieldTestInfiniteScrollEntityRef.byteImageRequiredHugoContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestInfiniteScrollEntityRef.byteImageRequiredHugoContentType +
+                      ';base64,' +
+                      fieldTestInfiniteScrollEntityRef.byteImageRequiredHugo
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestInfiniteScrollEntity"
+                  />
+                </a>
+                {{ fieldTestInfiniteScrollEntityRef.byteImageRequiredHugoContentType }},
+                {{ byteSize(fieldTestInfiniteScrollEntityRef.byteImageRequiredHugo) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageMinbytesHugo">Byte Image Minbytes Hugo</span>
+          </dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteImageMinbytesHugo) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestInfiniteScrollEntityRef.byteImageMinbytesHugo,
+                      fieldTestInfiniteScrollEntityRef.byteImageMinbytesHugoContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestInfiniteScrollEntityRef.byteImageMinbytesHugoContentType +
+                      ';base64,' +
+                      fieldTestInfiniteScrollEntityRef.byteImageMinbytesHugo
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestInfiniteScrollEntity"
+                  />
+                </a>
+                {{ fieldTestInfiniteScrollEntityRef.byteImageMinbytesHugoContentType }},
+                {{ byteSize(fieldTestInfiniteScrollEntityRef.byteImageMinbytesHugo) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteImageMaxbytesHugo">Byte Image Maxbytes Hugo</span>
+          </dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteImageMaxbytesHugo) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestInfiniteScrollEntityRef.byteImageMaxbytesHugo,
+                      fieldTestInfiniteScrollEntityRef.byteImageMaxbytesHugoContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestInfiniteScrollEntityRef.byteImageMaxbytesHugoContentType +
+                      ';base64,' +
+                      fieldTestInfiniteScrollEntityRef.byteImageMaxbytesHugo
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestInfiniteScrollEntity"
+                  />
+                </a>
+                {{ fieldTestInfiniteScrollEntityRef.byteImageMaxbytesHugoContentType }},
+                {{ byteSize(fieldTestInfiniteScrollEntityRef.byteImageMaxbytesHugo) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyHugo">Byte Any Hugo</span></dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteAnyHugo) {
+              <div>
+                <a
+                  (click)="openFile(fieldTestInfiniteScrollEntityRef.byteAnyHugo, fieldTestInfiniteScrollEntityRef.byteAnyHugoContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestInfiniteScrollEntityRef.byteAnyHugoContentType }}, {{ byteSize(fieldTestInfiniteScrollEntityRef.byteAnyHugo) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyRequiredHugo">Byte Any Required Hugo</span></dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteAnyRequiredHugo) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestInfiniteScrollEntityRef.byteAnyRequiredHugo,
+                      fieldTestInfiniteScrollEntityRef.byteAnyRequiredHugoContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestInfiniteScrollEntityRef.byteAnyRequiredHugoContentType }},
+                {{ byteSize(fieldTestInfiniteScrollEntityRef.byteAnyRequiredHugo) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyMinbytesHugo">Byte Any Minbytes Hugo</span></dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteAnyMinbytesHugo) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestInfiniteScrollEntityRef.byteAnyMinbytesHugo,
+                      fieldTestInfiniteScrollEntityRef.byteAnyMinbytesHugoContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestInfiniteScrollEntityRef.byteAnyMinbytesHugoContentType }},
+                {{ byteSize(fieldTestInfiniteScrollEntityRef.byteAnyMinbytesHugo) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteAnyMaxbytesHugo">Byte Any Maxbytes Hugo</span></dt>
+          <dd>
+            @if (fieldTestInfiniteScrollEntityRef.byteAnyMaxbytesHugo) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestInfiniteScrollEntityRef.byteAnyMaxbytesHugo,
+                      fieldTestInfiniteScrollEntityRef.byteAnyMaxbytesHugoContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestInfiniteScrollEntityRef.byteAnyMaxbytesHugoContentType }},
+                {{ byteSize(fieldTestInfiniteScrollEntityRef.byteAnyMaxbytesHugo) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteTextHugo">Byte Text Hugo</span></dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.byteTextHugo }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestInfiniteScrollEntity.byteTextRequiredHugo">Byte Text Required Hugo</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestInfiniteScrollEntityRef.byteTextRequiredHugo }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/field-test-infinite-scroll-entity', fieldTestInfiniteScrollEntityRef.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

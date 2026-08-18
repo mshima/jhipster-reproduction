@@ -1,0 +1,506 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fieldTestServiceClassAndJpaFilteringEntity(); as fieldTestServiceClassAndJpaFilteringEntityRef) {
+      <div>
+        <h2 data-cy="fieldTestServiceClassAndJpaFilteringEntityDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.detail.title"
+            >Field Test Service Class And Jpa Filtering Entity</span
+          >
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringBob">String Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.stringBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringRequiredBob"
+              >String Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.stringRequiredBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringMinlengthBob"
+              >String Minlength Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.stringMinlengthBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringMaxlengthBob"
+              >String Maxlength Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.stringMaxlengthBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringPatternBob">String Pattern Bob</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.stringPatternBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerBob">Integer Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.integerBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerRequiredBob"
+              >Integer Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.integerRequiredBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerMinBob">Integer Min Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.integerMinBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerMaxBob">Integer Max Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.integerMaxBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longBob">Long Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.longBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longRequiredBob">Long Required Bob</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.longRequiredBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longMinBob">Long Min Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.longMinBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longMaxBob">Long Max Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.longMaxBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatBob">Float Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.floatBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatRequiredBob">Float Required Bob</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.floatRequiredBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatMinBob">Float Min Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.floatMinBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatMaxBob">Float Max Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.floatMaxBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.doubleRequiredBob"
+              >Double Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.doubleRequiredBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.doubleMinBob">Double Min Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.doubleMinBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.doubleMaxBob">Double Max Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.doubleMaxBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalRequiredBob"
+              >Big Decimal Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.bigDecimalRequiredBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMinBob">Big Decimal Min Bob</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.bigDecimalMinBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMaxBob">Big Decimal Max Bob</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.bigDecimalMaxBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localDateBob">Local Date Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.localDateBob | formatMediumDate }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localDateRequiredBob"
+              >Local Date Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.localDateRequiredBob | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.instantBob">Instant Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.instantBob | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.instanteRequiredBob"
+              >Instante Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.instanteRequiredBob | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeBob">Zoned Date Time Bob</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.zonedDateTimeBob | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeRequiredBob"
+              >Zoned Date Time Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.zonedDateTimeRequiredBob | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localTimeBob">Local Time Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.localTimeBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localTimeRequiredBob"
+              >Local Time Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.localTimeRequiredBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.durationBob">Duration Bob</span></dt>
+          <dd>
+            <span
+              >{{ fieldTestServiceClassAndJpaFilteringEntityRef.durationBob | duration }} ({{
+                fieldTestServiceClassAndJpaFilteringEntityRef.durationBob
+              }})</span
+            >
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.durationRequiredBob"
+              >Duration Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span
+              >{{ fieldTestServiceClassAndJpaFilteringEntityRef.durationRequiredBob | duration }} ({{
+                fieldTestServiceClassAndJpaFilteringEntityRef.durationRequiredBob
+              }})</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.booleanBob">Boolean Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.booleanBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.booleanRequiredBob"
+              >Boolean Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.booleanRequiredBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.enumBob">Enum Bob</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestServiceClassAndJpaFilteringEntityRef.enumBob ?? 'null')"
+              >{{
+                { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                  fieldTestServiceClassAndJpaFilteringEntityRef.enumBob ?? 'null'
+                ]
+              }}</span
+            >
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.enumRequiredBob">Enum Required Bob</span>
+          </dt>
+          <dd>
+            <span
+              [jhiTranslate]="
+                'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestServiceClassAndJpaFilteringEntityRef.enumRequiredBob ?? 'null')
+              "
+              >{{
+                { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                  fieldTestServiceClassAndJpaFilteringEntityRef.enumRequiredBob ?? 'null'
+                ]
+              }}</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.uuidBob">Uuid Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.uuidBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.uuidRequiredBob">Uuid Required Bob</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.uuidRequiredBob }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageBob">Byte Image Bob</span></dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteImageBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageBobContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageBobContentType +
+                      ';base64,' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageBob
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceClassAndJpaFilteringEntity"
+                  />
+                </a>
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteImageBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteImageBob) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob"
+              >Byte Image Required Bob</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteImageRequiredBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageRequiredBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageRequiredBobContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageRequiredBobContentType +
+                      ';base64,' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageRequiredBob
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceClassAndJpaFilteringEntity"
+                  />
+                </a>
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteImageRequiredBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteImageRequiredBob) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob"
+              >Byte Image Minbytes Bob</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMinbytesBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMinbytesBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMinbytesBobContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMinbytesBobContentType +
+                      ';base64,' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMinbytesBob
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceClassAndJpaFilteringEntity"
+                  />
+                </a>
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMinbytesBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMinbytesBob) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob"
+              >Byte Image Maxbytes Bob</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMaxbytesBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMaxbytesBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMaxbytesBobContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMaxbytesBobContentType +
+                      ';base64,' +
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMaxbytesBob
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceClassAndJpaFilteringEntity"
+                  />
+                </a>
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMaxbytesBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteImageMaxbytesBob) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob">Byte Any Bob</span></dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyBobContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyBob) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob"
+              >Byte Any Required Bob</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyRequiredBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyRequiredBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyRequiredBobContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyRequiredBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyRequiredBob) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob"
+              >Byte Any Minbytes Bob</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMinbytesBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMinbytesBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMinbytesBobContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMinbytesBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMinbytesBob) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob"
+              >Byte Any Maxbytes Bob</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMaxbytesBob) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMaxbytesBob,
+                      fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMaxbytesBobContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMaxbytesBobContentType }},
+                {{ byteSize(fieldTestServiceClassAndJpaFilteringEntityRef.byteAnyMaxbytesBob) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteTextBob">Byte Text Bob</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.byteTextBob }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteTextRequiredBob"
+              >Byte Text Required Bob</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceClassAndJpaFilteringEntityRef.byteTextRequiredBob }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/field-test-service-class-and-jpa-filtering-entity', fieldTestServiceClassAndJpaFilteringEntityRef.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

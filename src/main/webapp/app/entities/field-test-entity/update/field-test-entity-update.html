@@ -1,0 +1,1445 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-entity-heading"
+        data-cy="FieldTestEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_stringTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringTom">String Tom</label>
+          <input type="text" class="form-control" name="stringTom" id="field_stringTom" data-cy="stringTom" formControlName="stringTom" />
+        </div>
+
+        @let stringRequiredTomRef = editForm.get('stringRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_stringRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringRequiredTom"
+            >String Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredTom"
+            id="field_stringRequiredTom"
+            data-cy="stringRequiredTom"
+            formControlName="stringRequiredTom"
+          />
+          @if (stringRequiredTomRef.invalid && (stringRequiredTomRef.dirty || stringRequiredTomRef.touched)) {
+            <div>
+              @if (stringRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMinlengthTomRef = editForm.get('stringMinlengthTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_stringMinlengthTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringMinlengthTom"
+            >String Minlength Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthTom"
+            id="field_stringMinlengthTom"
+            data-cy="stringMinlengthTom"
+            formControlName="stringMinlengthTom"
+          />
+          @if (stringMinlengthTomRef.invalid && (stringMinlengthTomRef.dirty || stringMinlengthTomRef.touched)) {
+            <div>
+              @if (stringMinlengthTomRef.errors?.minlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: '0' }"
+                  >This field is required to be at least 0 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMaxlengthTomRef = editForm.get('stringMaxlengthTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_stringMaxlengthTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringMaxlengthTom"
+            >String Maxlength Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthTom"
+            id="field_stringMaxlengthTom"
+            data-cy="stringMaxlengthTom"
+            formControlName="stringMaxlengthTom"
+          />
+          @if (stringMaxlengthTomRef.invalid && (stringMaxlengthTomRef.dirty || stringMaxlengthTomRef.touched)) {
+            <div>
+              @if (stringMaxlengthTomRef.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >This field cannot be longer than 20 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringPatternTomRef = editForm.get('stringPatternTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_stringPatternTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringPatternTom"
+            >String Pattern Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternTom"
+            id="field_stringPatternTom"
+            data-cy="stringPatternTom"
+            formControlName="stringPatternTom"
+          />
+          @if (stringPatternTomRef.invalid && (stringPatternTomRef.dirty || stringPatternTomRef.touched)) {
+            <div>
+              @if (stringPatternTomRef.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'String Pattern Tom' }"
+                  >This field should follow pattern for String Pattern Tom.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let numberPatternTomRef = editForm.get('numberPatternTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_numberPatternTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.numberPatternTom"
+            >Number Pattern Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numberPatternTom"
+            id="field_numberPatternTom"
+            data-cy="numberPatternTom"
+            formControlName="numberPatternTom"
+          />
+          @if (numberPatternTomRef.invalid && (numberPatternTomRef.dirty || numberPatternTomRef.touched)) {
+            <div>
+              @if (numberPatternTomRef.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'Number Pattern Tom' }"
+                  >This field should follow pattern for Number Pattern Tom.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let numberPatternRequiredTomRef = editForm.get('numberPatternRequiredTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_numberPatternRequiredTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.numberPatternRequiredTom"
+            >Number Pattern Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="numberPatternRequiredTom"
+            id="field_numberPatternRequiredTom"
+            data-cy="numberPatternRequiredTom"
+            formControlName="numberPatternRequiredTom"
+          />
+          @if (numberPatternRequiredTomRef.invalid && (numberPatternRequiredTomRef.dirty || numberPatternRequiredTomRef.touched)) {
+            <div>
+              @if (numberPatternRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              @if (numberPatternRequiredTomRef.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'Number Pattern Required Tom' }"
+                  >This field should follow pattern for Number Pattern Required Tom.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_integerTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerTom"
+            >Integer Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerTom"
+            id="field_integerTom"
+            data-cy="integerTom"
+            formControlName="integerTom"
+          />
+        </div>
+
+        @let integerRequiredTomRef = editForm.get('integerRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_integerRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerRequiredTom"
+            >Integer Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredTom"
+            id="field_integerRequiredTom"
+            data-cy="integerRequiredTom"
+            formControlName="integerRequiredTom"
+          />
+          @if (integerRequiredTomRef.invalid && (integerRequiredTomRef.dirty || integerRequiredTomRef.touched)) {
+            <div>
+              @if (integerRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!integerRequiredTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMinTomRef = editForm.get('integerMinTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_integerMinTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerMinTom"
+            >Integer Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinTom"
+            id="field_integerMinTom"
+            data-cy="integerMinTom"
+            formControlName="integerMinTom"
+          />
+          @if (integerMinTomRef.invalid && (integerMinTomRef.dirty || integerMinTomRef.touched)) {
+            <div>
+              @if (integerMinTomRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMinTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMaxTomRef = editForm.get('integerMaxTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_integerMaxTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerMaxTom"
+            >Integer Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxTom"
+            id="field_integerMaxTom"
+            data-cy="integerMaxTom"
+            formControlName="integerMaxTom"
+          />
+          @if (integerMaxTomRef.invalid && (integerMaxTomRef.dirty || integerMaxTomRef.touched)) {
+            <div>
+              @if (integerMaxTomRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMaxTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_longTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longTom">Long Tom</label>
+          <input type="number" class="form-control" name="longTom" id="field_longTom" data-cy="longTom" formControlName="longTom" />
+        </div>
+
+        @let longRequiredTomRef = editForm.get('longRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_longRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longRequiredTom"
+            >Long Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredTom"
+            id="field_longRequiredTom"
+            data-cy="longRequiredTom"
+            formControlName="longRequiredTom"
+          />
+          @if (longRequiredTomRef.invalid && (longRequiredTomRef.dirty || longRequiredTomRef.touched)) {
+            <div>
+              @if (longRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!longRequiredTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMinTomRef = editForm.get('longMinTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_longMinTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longMinTom"
+            >Long Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinTom"
+            id="field_longMinTom"
+            data-cy="longMinTom"
+            formControlName="longMinTom"
+          />
+          @if (longMinTomRef.invalid && (longMinTomRef.dirty || longMinTomRef.touched)) {
+            <div>
+              @if (longMinTomRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMinTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMaxTomRef = editForm.get('longMaxTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_longMaxTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longMaxTom"
+            >Long Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxTom"
+            id="field_longMaxTom"
+            data-cy="longMaxTom"
+            formControlName="longMaxTom"
+          />
+          @if (longMaxTomRef.invalid && (longMaxTomRef.dirty || longMaxTomRef.touched)) {
+            <div>
+              @if (longMaxTomRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMaxTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_floatTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatTom">Float Tom</label>
+          <input type="number" class="form-control" name="floatTom" id="field_floatTom" data-cy="floatTom" formControlName="floatTom" />
+        </div>
+
+        @let floatRequiredTomRef = editForm.get('floatRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_floatRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatRequiredTom"
+            >Float Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredTom"
+            id="field_floatRequiredTom"
+            data-cy="floatRequiredTom"
+            formControlName="floatRequiredTom"
+          />
+          @if (floatRequiredTomRef.invalid && (floatRequiredTomRef.dirty || floatRequiredTomRef.touched)) {
+            <div>
+              @if (floatRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!floatRequiredTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMinTomRef = editForm.get('floatMinTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_floatMinTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatMinTom"
+            >Float Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinTom"
+            id="field_floatMinTom"
+            data-cy="floatMinTom"
+            formControlName="floatMinTom"
+          />
+          @if (floatMinTomRef.invalid && (floatMinTomRef.dirty || floatMinTomRef.touched)) {
+            <div>
+              @if (floatMinTomRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMinTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMaxTomRef = editForm.get('floatMaxTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_floatMaxTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatMaxTom"
+            >Float Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxTom"
+            id="field_floatMaxTom"
+            data-cy="floatMaxTom"
+            formControlName="floatMaxTom"
+          />
+          @if (floatMaxTomRef.invalid && (floatMaxTomRef.dirty || floatMaxTomRef.touched)) {
+            <div>
+              @if (floatMaxTomRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMaxTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleRequiredTomRef = editForm.get('doubleRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_doubleRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleRequiredTom"
+            >Double Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredTom"
+            id="field_doubleRequiredTom"
+            data-cy="doubleRequiredTom"
+            formControlName="doubleRequiredTom"
+          />
+          @if (doubleRequiredTomRef.invalid && (doubleRequiredTomRef.dirty || doubleRequiredTomRef.touched)) {
+            <div>
+              @if (doubleRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!doubleRequiredTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMinTomRef = editForm.get('doubleMinTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_doubleMinTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleMinTom"
+            >Double Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinTom"
+            id="field_doubleMinTom"
+            data-cy="doubleMinTom"
+            formControlName="doubleMinTom"
+          />
+          @if (doubleMinTomRef.invalid && (doubleMinTomRef.dirty || doubleMinTomRef.touched)) {
+            <div>
+              @if (doubleMinTomRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMinTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMaxTomRef = editForm.get('doubleMaxTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_doubleMaxTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleMaxTom"
+            >Double Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxTom"
+            id="field_doubleMaxTom"
+            data-cy="doubleMaxTom"
+            formControlName="doubleMaxTom"
+          />
+          @if (doubleMaxTomRef.invalid && (doubleMaxTomRef.dirty || doubleMaxTomRef.touched)) {
+            <div>
+              @if (doubleMaxTomRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMaxTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalRequiredTomRef = editForm.get('bigDecimalRequiredTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalRequiredTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalRequiredTom"
+            >Big Decimal Required Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredTom"
+            id="field_bigDecimalRequiredTom"
+            data-cy="bigDecimalRequiredTom"
+            formControlName="bigDecimalRequiredTom"
+          />
+          @if (bigDecimalRequiredTomRef.invalid && (bigDecimalRequiredTomRef.dirty || bigDecimalRequiredTomRef.touched)) {
+            <div>
+              @if (bigDecimalRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!bigDecimalRequiredTomRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMinTomRef = editForm.get('bigDecimalMinTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_bigDecimalMinTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalMinTom"
+            >Big Decimal Min Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinTom"
+            id="field_bigDecimalMinTom"
+            data-cy="bigDecimalMinTom"
+            formControlName="bigDecimalMinTom"
+          />
+          @if (bigDecimalMinTomRef.invalid && (bigDecimalMinTomRef.dirty || bigDecimalMinTomRef.touched)) {
+            <div>
+              @if (bigDecimalMinTomRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMinTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMaxTomRef = editForm.get('bigDecimalMaxTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_bigDecimalMaxTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalMaxTom"
+            >Big Decimal Max Tom</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxTom"
+            id="field_bigDecimalMaxTom"
+            data-cy="bigDecimalMaxTom"
+            formControlName="bigDecimalMaxTom"
+          />
+          @if (bigDecimalMaxTomRef.invalid && (bigDecimalMaxTomRef.dirty || bigDecimalMaxTomRef.touched)) {
+            <div>
+              @if (bigDecimalMaxTomRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMaxTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_localDateTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localDateTom"
+            >Local Date Tom</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateTom"
+              data-cy="localDateTom"
+              type="text"
+              class="form-control"
+              name="localDateTom"
+              ngbDatepicker
+              #localDateTomDp="ngbDatepicker"
+              formControlName="localDateTom"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateTomDp.toggle()"><fa-icon icon="calendar-alt" /></button>
+          </div>
+        </div>
+
+        @let localDateRequiredTomRef = editForm.get('localDateRequiredTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateRequiredTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localDateRequiredTom"
+            >Local Date Required Tom</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredTom"
+              data-cy="localDateRequiredTom"
+              type="text"
+              class="form-control"
+              name="localDateRequiredTom"
+              ngbDatepicker
+              #localDateRequiredTomDp="ngbDatepicker"
+              formControlName="localDateRequiredTom"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredTomDp.toggle()">
+              <fa-icon icon="calendar-alt" />
+            </button>
+          </div>
+          @if (localDateRequiredTomRef.invalid && (localDateRequiredTomRef.dirty || localDateRequiredTomRef.touched)) {
+            <div>
+              @if (localDateRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_instantTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.instantTom"
+            >Instant Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantTom"
+              data-cy="instantTom"
+              type="datetime-local"
+              class="form-control"
+              name="instantTom"
+              formControlName="instantTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let instantRequiredTomRef = editForm.get('instantRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_instantRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.instantRequiredTom"
+            >Instant Required Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantRequiredTom"
+              data-cy="instantRequiredTom"
+              type="datetime-local"
+              class="form-control"
+              name="instantRequiredTom"
+              formControlName="instantRequiredTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (instantRequiredTomRef.invalid && (instantRequiredTomRef.dirty || instantRequiredTomRef.touched)) {
+            <div>
+              @if (instantRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!instantRequiredTomRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_zonedDateTimeTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.zonedDateTimeTom"
+            >Zoned Date Time Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeTom"
+              data-cy="zonedDateTimeTom"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeTom"
+              formControlName="zonedDateTimeTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let zonedDateTimeRequiredTomRef = editForm.get('zonedDateTimeRequiredTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeRequiredTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.zonedDateTimeRequiredTom"
+            >Zoned Date Time Required Tom</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredTom"
+              data-cy="zonedDateTimeRequiredTom"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredTom"
+              formControlName="zonedDateTimeRequiredTom"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (zonedDateTimeRequiredTomRef.invalid && (zonedDateTimeRequiredTomRef.dirty || zonedDateTimeRequiredTomRef.touched)) {
+            <div>
+              @if (zonedDateTimeRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!zonedDateTimeRequiredTomRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_localTimeTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localTimeTom"
+            >Local Time Tom</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeTom"
+            id="field_localTimeTom"
+            data-cy="localTimeTom"
+            formControlName="localTimeTom"
+          />
+        </div>
+
+        @let localTimeRequiredTomRef = editForm.get('localTimeRequiredTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeRequiredTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localTimeRequiredTom"
+            >Local Time Required Tom</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeRequiredTom"
+            id="field_localTimeRequiredTom"
+            data-cy="localTimeRequiredTom"
+            formControlName="localTimeRequiredTom"
+          />
+          @if (localTimeRequiredTomRef.invalid && (localTimeRequiredTomRef.dirty || localTimeRequiredTomRef.touched)) {
+            <div>
+              @if (localTimeRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_durationTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.durationTom"
+            >Duration Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationTom"
+            id="field_durationTom"
+            data-cy="durationTom"
+            formControlName="durationTom"
+          />
+        </div>
+
+        @let durationRequiredTomRef = editForm.get('durationRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_durationRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.durationRequiredTom"
+            >Duration Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredTom"
+            id="field_durationRequiredTom"
+            data-cy="durationRequiredTom"
+            formControlName="durationRequiredTom"
+          />
+          @if (durationRequiredTomRef.invalid && (durationRequiredTomRef.dirty || durationRequiredTomRef.touched)) {
+            <div>
+              @if (durationRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!durationRequiredTomRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_booleanTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.booleanTom"
+            >Boolean Tom</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanTom"
+            id="field_booleanTom"
+            data-cy="booleanTom"
+            formControlName="booleanTom"
+          />
+        </div>
+
+        @let booleanRequiredTomRef = editForm.get('booleanRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_booleanRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.booleanRequiredTom"
+            >Boolean Required Tom</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredTom"
+            id="field_booleanRequiredTom"
+            data-cy="booleanRequiredTom"
+            formControlName="booleanRequiredTom"
+          />
+          @if (booleanRequiredTomRef.invalid && (booleanRequiredTomRef.dirty || booleanRequiredTomRef.touched)) {
+            <div>
+              @if (booleanRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_enumTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.enumTom">Enum Tom</label>
+          <select class="form-control" name="enumTom" formControlName="enumTom" id="field_enumTom" data-cy="enumTom">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.null' | translate }}</option>
+            @for (enumFieldClass of enumFieldClassValues; track $index) {
+              <option [value]="enumFieldClass">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.' + enumFieldClass | translate }}</option>
+            }
+          </select>
+        </div>
+
+        @let enumRequiredTomRef = editForm.get('enumRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_enumRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.enumRequiredTom"
+            >Enum Required Tom</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredTom"
+            formControlName="enumRequiredTom"
+            id="field_enumRequiredTom"
+            data-cy="enumRequiredTom"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.null' | translate }}</option>
+            @for (enumRequiredFieldClass of enumRequiredFieldClassValues; track $index) {
+              <option [value]="enumRequiredFieldClass">
+                {{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+              </option>
+            }
+          </select>
+          @if (enumRequiredTomRef.invalid && (enumRequiredTomRef.dirty || enumRequiredTomRef.touched)) {
+            <div>
+              @if (enumRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_uuidTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.uuidTom">Uuid Tom</label>
+          <input type="text" class="form-control" name="uuidTom" id="field_uuidTom" data-cy="uuidTom" formControlName="uuidTom" />
+        </div>
+
+        @let uuidRequiredTomRef = editForm.get('uuidRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_uuidRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.uuidRequiredTom"
+            >Uuid Required Tom</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredTom"
+            id="field_uuidRequiredTom"
+            data-cy="uuidRequiredTom"
+            formControlName="uuidRequiredTom"
+          />
+          @if (uuidRequiredTomRef.invalid && (uuidRequiredTomRef.dirty || uuidRequiredTomRef.touched)) {
+            <div>
+              @if (uuidRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageTomRef = editForm.get('byteImageTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteImageTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageTom"
+            >Byte Image Tom</label
+          >
+          <div>
+            @if (byteImageTomRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageTomContentType')!.value + ';base64,' + byteImageTomRef.value"
+                style="max-height: 100px"
+                alt="fieldTestEntity"
+              />
+            }
+            @if (byteImageTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start">{{ editForm.get('byteImageTomContentType')!.value }}, {{ byteSize(byteImageTomRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageTom', 'byteImageTomContentType', 'file_byteImageTom')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageTom"
+              data-cy="byteImageTom"
+              (change)="setFileData($event, 'byteImageTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageTom"
+            id="field_byteImageTom"
+            data-cy="byteImageTom"
+            formControlName="byteImageTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageTomContentType"
+            id="field_byteImageTomContentType"
+            formControlName="byteImageTomContentType"
+          />
+        </div>
+
+        @let byteImageRequiredTomRef = editForm.get('byteImageRequiredTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageRequiredTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageRequiredTom"
+            >Byte Image Required Tom</label
+          >
+          <div>
+            @if (byteImageRequiredTomRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageRequiredTomContentType')!.value + ';base64,' + byteImageRequiredTomRef.value"
+                style="max-height: 100px"
+                alt="fieldTestEntity"
+              />
+            }
+            @if (byteImageRequiredTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageRequiredTomContentType')!.value }}, {{ byteSize(byteImageRequiredTomRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageRequiredTom', 'byteImageRequiredTomContentType', 'file_byteImageRequiredTom')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageRequiredTom"
+              data-cy="byteImageRequiredTom"
+              (change)="setFileData($event, 'byteImageRequiredTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Required Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredTom"
+            id="field_byteImageRequiredTom"
+            data-cy="byteImageRequiredTom"
+            formControlName="byteImageRequiredTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredTomContentType"
+            id="field_byteImageRequiredTomContentType"
+            formControlName="byteImageRequiredTomContentType"
+          />
+          @if (byteImageRequiredTomRef.invalid && (byteImageRequiredTomRef.dirty || byteImageRequiredTomRef.touched)) {
+            <div>
+              @if (byteImageRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageMinbytesTomRef = editForm.get('byteImageMinbytesTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMinbytesTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageMinbytesTom"
+            >Byte Image Minbytes Tom</label
+          >
+          <div>
+            @if (byteImageMinbytesTomRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMinbytesTomContentType')!.value + ';base64,' + byteImageMinbytesTomRef.value"
+                style="max-height: 100px"
+                alt="fieldTestEntity"
+              />
+            }
+            @if (byteImageMinbytesTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMinbytesTomContentType')!.value }}, {{ byteSize(byteImageMinbytesTomRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMinbytesTom', 'byteImageMinbytesTomContentType', 'file_byteImageMinbytesTom')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMinbytesTom"
+              data-cy="byteImageMinbytesTom"
+              (change)="setFileData($event, 'byteImageMinbytesTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Minbytes Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesTom"
+            id="field_byteImageMinbytesTom"
+            data-cy="byteImageMinbytesTom"
+            formControlName="byteImageMinbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesTomContentType"
+            id="field_byteImageMinbytesTomContentType"
+            formControlName="byteImageMinbytesTomContentType"
+          />
+          @if (byteImageMinbytesTomRef.invalid && (byteImageMinbytesTomRef.dirty || byteImageMinbytesTomRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteImageMaxbytesTomRef = editForm.get('byteImageMaxbytesTom')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMaxbytesTom"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageMaxbytesTom"
+            >Byte Image Maxbytes Tom</label
+          >
+          <div>
+            @if (byteImageMaxbytesTomRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMaxbytesTomContentType')!.value + ';base64,' + byteImageMaxbytesTomRef.value"
+                style="max-height: 100px"
+                alt="fieldTestEntity"
+              />
+            }
+            @if (byteImageMaxbytesTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMaxbytesTomContentType')!.value }}, {{ byteSize(byteImageMaxbytesTomRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMaxbytesTom', 'byteImageMaxbytesTomContentType', 'file_byteImageMaxbytesTom')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMaxbytesTom"
+              data-cy="byteImageMaxbytesTom"
+              (change)="setFileData($event, 'byteImageMaxbytesTom', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Maxbytes Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesTom"
+            id="field_byteImageMaxbytesTom"
+            data-cy="byteImageMaxbytesTom"
+            formControlName="byteImageMaxbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesTomContentType"
+            id="field_byteImageMaxbytesTomContentType"
+            formControlName="byteImageMaxbytesTomContentType"
+          />
+          @if (byteImageMaxbytesTomRef.invalid && (byteImageMaxbytesTomRef.dirty || byteImageMaxbytesTomRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyTomRef = editForm.get('byteAnyTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteAnyTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyTom"
+            >Byte Any Tom</label
+          >
+          <div>
+            @if (byteAnyTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyTomRef.value!, editForm.get('byteAnyTomContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start">{{ editForm.get('byteAnyTomContentType')!.value }}, {{ byteSize(byteAnyTomRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyTom: undefined, byteAnyTomContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyTom"
+              data-cy="byteAnyTom"
+              (change)="setFileData($event, 'byteAnyTom', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyTom"
+            id="field_byteAnyTom"
+            data-cy="byteAnyTom"
+            formControlName="byteAnyTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyTomContentType"
+            id="field_byteAnyTomContentType"
+            formControlName="byteAnyTomContentType"
+          />
+        </div>
+
+        @let byteAnyRequiredTomRef = editForm.get('byteAnyRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteAnyRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyRequiredTom"
+            >Byte Any Required Tom</label
+          >
+          <div>
+            @if (byteAnyRequiredTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyRequiredTomRef.value!, editForm.get('byteAnyRequiredTomContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyRequiredTomContentType')!.value }}, {{ byteSize(byteAnyRequiredTomRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyRequiredTom: undefined, byteAnyRequiredTomContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyRequiredTom"
+              data-cy="byteAnyRequiredTom"
+              (change)="setFileData($event, 'byteAnyRequiredTom', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Required Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredTom"
+            id="field_byteAnyRequiredTom"
+            data-cy="byteAnyRequiredTom"
+            formControlName="byteAnyRequiredTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredTomContentType"
+            id="field_byteAnyRequiredTomContentType"
+            formControlName="byteAnyRequiredTomContentType"
+          />
+          @if (byteAnyRequiredTomRef.invalid && (byteAnyRequiredTomRef.dirty || byteAnyRequiredTomRef.touched)) {
+            <div>
+              @if (byteAnyRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteAnyMinbytesTomRef = editForm.get('byteAnyMinbytesTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteAnyMinbytesTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyMinbytesTom"
+            >Byte Any Minbytes Tom</label
+          >
+          <div>
+            @if (byteAnyMinbytesTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMinbytesTomRef.value!, editForm.get('byteAnyMinbytesTomContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMinbytesTomContentType')!.value }}, {{ byteSize(byteAnyMinbytesTomRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMinbytesTom: undefined, byteAnyMinbytesTomContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMinbytesTom"
+              data-cy="byteAnyMinbytesTom"
+              (change)="setFileData($event, 'byteAnyMinbytesTom', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Minbytes Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesTom"
+            id="field_byteAnyMinbytesTom"
+            data-cy="byteAnyMinbytesTom"
+            formControlName="byteAnyMinbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesTomContentType"
+            id="field_byteAnyMinbytesTomContentType"
+            formControlName="byteAnyMinbytesTomContentType"
+          />
+          @if (byteAnyMinbytesTomRef.invalid && (byteAnyMinbytesTomRef.dirty || byteAnyMinbytesTomRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyMaxbytesTomRef = editForm.get('byteAnyMaxbytesTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteAnyMaxbytesTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyMaxbytesTom"
+            >Byte Any Maxbytes Tom</label
+          >
+          <div>
+            @if (byteAnyMaxbytesTomRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMaxbytesTomRef.value!, editForm.get('byteAnyMaxbytesTomContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMaxbytesTomContentType')!.value }}, {{ byteSize(byteAnyMaxbytesTomRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMaxbytesTom: undefined, byteAnyMaxbytesTomContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesTom"
+              data-cy="byteAnyMaxbytesTom"
+              (change)="setFileData($event, 'byteAnyMaxbytesTom', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Maxbytes Tom"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesTom"
+            id="field_byteAnyMaxbytesTom"
+            data-cy="byteAnyMaxbytesTom"
+            formControlName="byteAnyMaxbytesTom"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesTomContentType"
+            id="field_byteAnyMaxbytesTomContentType"
+            formControlName="byteAnyMaxbytesTomContentType"
+          />
+          @if (byteAnyMaxbytesTomRef.invalid && (byteAnyMaxbytesTomRef.dirty || byteAnyMaxbytesTomRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_byteTextTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteTextTom"
+            >Byte Text Tom</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextTom"
+            id="field_byteTextTom"
+            data-cy="byteTextTom"
+            formControlName="byteTextTom"
+          ></textarea>
+        </div>
+
+        @let byteTextRequiredTomRef = editForm.get('byteTextRequiredTom')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteTextRequiredTom" jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteTextRequiredTom"
+            >Byte Text Required Tom</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredTom"
+            id="field_byteTextRequiredTom"
+            data-cy="byteTextRequiredTom"
+            formControlName="byteTextRequiredTom"
+          ></textarea>
+          @if (byteTextRequiredTomRef.invalid && (byteTextRequiredTomRef.dirty || byteTextRequiredTomRef.touched)) {
+            <div>
+              @if (byteTextRequiredTomRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

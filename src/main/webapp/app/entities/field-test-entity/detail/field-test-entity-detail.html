@@ -1,0 +1,330 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fieldTestEntity(); as fieldTestEntityRef) {
+      <div>
+        <h2 data-cy="fieldTestEntityDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.detail.title">Field Test Entity</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringTom">String Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.stringTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringRequiredTom">String Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.stringRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringMinlengthTom">String Minlength Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.stringMinlengthTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringMaxlengthTom">String Maxlength Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.stringMaxlengthTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringPatternTom">String Pattern Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.stringPatternTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.numberPatternTom">Number Pattern Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.numberPatternTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.numberPatternRequiredTom">Number Pattern Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.numberPatternRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerTom">Integer Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.integerTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerRequiredTom">Integer Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.integerRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerMinTom">Integer Min Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.integerMinTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerMaxTom">Integer Max Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.integerMaxTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longTom">Long Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.longTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longRequiredTom">Long Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.longRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longMinTom">Long Min Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.longMinTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longMaxTom">Long Max Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.longMaxTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatTom">Float Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.floatTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatRequiredTom">Float Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.floatRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatMinTom">Float Min Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.floatMinTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatMaxTom">Float Max Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.floatMaxTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleRequiredTom">Double Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.doubleRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleMinTom">Double Min Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.doubleMinTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleMaxTom">Double Max Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.doubleMaxTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalRequiredTom">Big Decimal Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.bigDecimalRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalMinTom">Big Decimal Min Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.bigDecimalMinTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalMaxTom">Big Decimal Max Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.bigDecimalMaxTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localDateTom">Local Date Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.localDateTom | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localDateRequiredTom">Local Date Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.localDateRequiredTom | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.instantTom">Instant Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.instantTom | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.instantRequiredTom">Instant Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.instantRequiredTom | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.zonedDateTimeTom">Zoned Date Time Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.zonedDateTimeTom | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.zonedDateTimeRequiredTom">Zoned Date Time Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.zonedDateTimeRequiredTom | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localTimeTom">Local Time Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.localTimeTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localTimeRequiredTom">Local Time Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.localTimeRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.durationTom">Duration Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.durationTom | duration }} ({{ fieldTestEntityRef.durationTom }})</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.durationRequiredTom">Duration Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.durationRequiredTom | duration }} ({{ fieldTestEntityRef.durationRequiredTom }})</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.booleanTom">Boolean Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.booleanTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.booleanRequiredTom">Boolean Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.booleanRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.enumTom">Enum Tom</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestEntityRef.enumTom ?? 'null')">{{
+              { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                fieldTestEntityRef.enumTom ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.enumRequiredTom">Enum Required Tom</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestEntityRef.enumRequiredTom ?? 'null')">{{
+              { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                fieldTestEntityRef.enumRequiredTom ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.uuidTom">Uuid Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.uuidTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.uuidRequiredTom">Uuid Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.uuidRequiredTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageTom">Byte Image Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteImageTom) {
+              <div>
+                <a (click)="openFile(fieldTestEntityRef.byteImageTom, fieldTestEntityRef.byteImageTomContentType)">
+                  <img
+                    [src]="'data:' + fieldTestEntityRef.byteImageTomContentType + ';base64,' + fieldTestEntityRef.byteImageTom"
+                    style="max-width: 100%"
+                    alt="fieldTestEntity"
+                  />
+                </a>
+                {{ fieldTestEntityRef.byteImageTomContentType }}, {{ byteSize(fieldTestEntityRef.byteImageTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageRequiredTom">Byte Image Required Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteImageRequiredTom) {
+              <div>
+                <a (click)="openFile(fieldTestEntityRef.byteImageRequiredTom, fieldTestEntityRef.byteImageRequiredTomContentType)">
+                  <img
+                    [src]="
+                      'data:' + fieldTestEntityRef.byteImageRequiredTomContentType + ';base64,' + fieldTestEntityRef.byteImageRequiredTom
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestEntity"
+                  />
+                </a>
+                {{ fieldTestEntityRef.byteImageRequiredTomContentType }}, {{ byteSize(fieldTestEntityRef.byteImageRequiredTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageMinbytesTom">Byte Image Minbytes Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteImageMinbytesTom) {
+              <div>
+                <a (click)="openFile(fieldTestEntityRef.byteImageMinbytesTom, fieldTestEntityRef.byteImageMinbytesTomContentType)">
+                  <img
+                    [src]="
+                      'data:' + fieldTestEntityRef.byteImageMinbytesTomContentType + ';base64,' + fieldTestEntityRef.byteImageMinbytesTom
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestEntity"
+                  />
+                </a>
+                {{ fieldTestEntityRef.byteImageMinbytesTomContentType }}, {{ byteSize(fieldTestEntityRef.byteImageMinbytesTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageMaxbytesTom">Byte Image Maxbytes Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteImageMaxbytesTom) {
+              <div>
+                <a (click)="openFile(fieldTestEntityRef.byteImageMaxbytesTom, fieldTestEntityRef.byteImageMaxbytesTomContentType)">
+                  <img
+                    [src]="
+                      'data:' + fieldTestEntityRef.byteImageMaxbytesTomContentType + ';base64,' + fieldTestEntityRef.byteImageMaxbytesTom
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestEntity"
+                  />
+                </a>
+                {{ fieldTestEntityRef.byteImageMaxbytesTomContentType }}, {{ byteSize(fieldTestEntityRef.byteImageMaxbytesTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyTom">Byte Any Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteAnyTom) {
+              <div>
+                <a
+                  (click)="openFile(fieldTestEntityRef.byteAnyTom, fieldTestEntityRef.byteAnyTomContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestEntityRef.byteAnyTomContentType }}, {{ byteSize(fieldTestEntityRef.byteAnyTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyRequiredTom">Byte Any Required Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteAnyRequiredTom) {
+              <div>
+                <a
+                  (click)="openFile(fieldTestEntityRef.byteAnyRequiredTom, fieldTestEntityRef.byteAnyRequiredTomContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestEntityRef.byteAnyRequiredTomContentType }}, {{ byteSize(fieldTestEntityRef.byteAnyRequiredTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyMinbytesTom">Byte Any Minbytes Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteAnyMinbytesTom) {
+              <div>
+                <a
+                  (click)="openFile(fieldTestEntityRef.byteAnyMinbytesTom, fieldTestEntityRef.byteAnyMinbytesTomContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestEntityRef.byteAnyMinbytesTomContentType }}, {{ byteSize(fieldTestEntityRef.byteAnyMinbytesTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyMaxbytesTom">Byte Any Maxbytes Tom</span></dt>
+          <dd>
+            @if (fieldTestEntityRef.byteAnyMaxbytesTom) {
+              <div>
+                <a
+                  (click)="openFile(fieldTestEntityRef.byteAnyMaxbytesTom, fieldTestEntityRef.byteAnyMaxbytesTomContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestEntityRef.byteAnyMaxbytesTomContentType }}, {{ byteSize(fieldTestEntityRef.byteAnyMaxbytesTom) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteTextTom">Byte Text Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.byteTextTom }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteTextRequiredTom">Byte Text Required Tom</span></dt>
+          <dd>
+            <span>{{ fieldTestEntityRef.byteTextRequiredTom }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/field-test-entity', fieldTestEntityRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

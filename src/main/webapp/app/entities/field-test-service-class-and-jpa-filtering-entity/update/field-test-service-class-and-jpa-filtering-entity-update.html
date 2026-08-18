@@ -1,0 +1,1521 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-service-class-and-jpa-filtering-entity-heading"
+        data-cy="FieldTestServiceClassAndJpaFilteringEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Service Class And Jpa Filtering Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringBob"
+            >String Bob</label
+          >
+          <input type="text" class="form-control" name="stringBob" id="field_stringBob" data-cy="stringBob" formControlName="stringBob" />
+        </div>
+
+        @let stringRequiredBobRef = editForm.get('stringRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringRequiredBob"
+            >String Required Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredBob"
+            id="field_stringRequiredBob"
+            data-cy="stringRequiredBob"
+            formControlName="stringRequiredBob"
+          />
+          @if (stringRequiredBobRef.invalid && (stringRequiredBobRef.dirty || stringRequiredBobRef.touched)) {
+            <div>
+              @if (stringRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMinlengthBobRef = editForm.get('stringMinlengthBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMinlengthBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringMinlengthBob"
+            >String Minlength Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthBob"
+            id="field_stringMinlengthBob"
+            data-cy="stringMinlengthBob"
+            formControlName="stringMinlengthBob"
+          />
+          @if (stringMinlengthBobRef.invalid && (stringMinlengthBobRef.dirty || stringMinlengthBobRef.touched)) {
+            <div>
+              @if (stringMinlengthBobRef.errors?.minlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: '0' }"
+                  >This field is required to be at least 0 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMaxlengthBobRef = editForm.get('stringMaxlengthBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMaxlengthBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringMaxlengthBob"
+            >String Maxlength Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthBob"
+            id="field_stringMaxlengthBob"
+            data-cy="stringMaxlengthBob"
+            formControlName="stringMaxlengthBob"
+          />
+          @if (stringMaxlengthBobRef.invalid && (stringMaxlengthBobRef.dirty || stringMaxlengthBobRef.touched)) {
+            <div>
+              @if (stringMaxlengthBobRef.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >This field cannot be longer than 20 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringPatternBobRef = editForm.get('stringPatternBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringPatternBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.stringPatternBob"
+            >String Pattern Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternBob"
+            id="field_stringPatternBob"
+            data-cy="stringPatternBob"
+            formControlName="stringPatternBob"
+          />
+          @if (stringPatternBobRef.invalid && (stringPatternBobRef.dirty || stringPatternBobRef.touched)) {
+            <div>
+              @if (stringPatternBobRef.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'String Pattern Bob' }"
+                  >This field should follow pattern for String Pattern Bob.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerBob"
+            >Integer Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerBob"
+            id="field_integerBob"
+            data-cy="integerBob"
+            formControlName="integerBob"
+          />
+        </div>
+
+        @let integerRequiredBobRef = editForm.get('integerRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerRequiredBob"
+            >Integer Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredBob"
+            id="field_integerRequiredBob"
+            data-cy="integerRequiredBob"
+            formControlName="integerRequiredBob"
+          />
+          @if (integerRequiredBobRef.invalid && (integerRequiredBobRef.dirty || integerRequiredBobRef.touched)) {
+            <div>
+              @if (integerRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!integerRequiredBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMinBobRef = editForm.get('integerMinBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMinBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerMinBob"
+            >Integer Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinBob"
+            id="field_integerMinBob"
+            data-cy="integerMinBob"
+            formControlName="integerMinBob"
+          />
+          @if (integerMinBobRef.invalid && (integerMinBobRef.dirty || integerMinBobRef.touched)) {
+            <div>
+              @if (integerMinBobRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMinBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMaxBobRef = editForm.get('integerMaxBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMaxBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.integerMaxBob"
+            >Integer Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxBob"
+            id="field_integerMaxBob"
+            data-cy="integerMaxBob"
+            formControlName="integerMaxBob"
+          />
+          @if (integerMaxBobRef.invalid && (integerMaxBobRef.dirty || integerMaxBobRef.touched)) {
+            <div>
+              @if (integerMaxBobRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMaxBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longBob"
+            >Long Bob</label
+          >
+          <input type="number" class="form-control" name="longBob" id="field_longBob" data-cy="longBob" formControlName="longBob" />
+        </div>
+
+        @let longRequiredBobRef = editForm.get('longRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longRequiredBob"
+            >Long Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredBob"
+            id="field_longRequiredBob"
+            data-cy="longRequiredBob"
+            formControlName="longRequiredBob"
+          />
+          @if (longRequiredBobRef.invalid && (longRequiredBobRef.dirty || longRequiredBobRef.touched)) {
+            <div>
+              @if (longRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!longRequiredBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMinBobRef = editForm.get('longMinBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longMinBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longMinBob"
+            >Long Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinBob"
+            id="field_longMinBob"
+            data-cy="longMinBob"
+            formControlName="longMinBob"
+          />
+          @if (longMinBobRef.invalid && (longMinBobRef.dirty || longMinBobRef.touched)) {
+            <div>
+              @if (longMinBobRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMinBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMaxBobRef = editForm.get('longMaxBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longMaxBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.longMaxBob"
+            >Long Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxBob"
+            id="field_longMaxBob"
+            data-cy="longMaxBob"
+            formControlName="longMaxBob"
+          />
+          @if (longMaxBobRef.invalid && (longMaxBobRef.dirty || longMaxBobRef.touched)) {
+            <div>
+              @if (longMaxBobRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMaxBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatBob"
+            >Float Bob</label
+          >
+          <input type="number" class="form-control" name="floatBob" id="field_floatBob" data-cy="floatBob" formControlName="floatBob" />
+        </div>
+
+        @let floatRequiredBobRef = editForm.get('floatRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatRequiredBob"
+            >Float Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredBob"
+            id="field_floatRequiredBob"
+            data-cy="floatRequiredBob"
+            formControlName="floatRequiredBob"
+          />
+          @if (floatRequiredBobRef.invalid && (floatRequiredBobRef.dirty || floatRequiredBobRef.touched)) {
+            <div>
+              @if (floatRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!floatRequiredBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMinBobRef = editForm.get('floatMinBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatMinBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatMinBob"
+            >Float Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinBob"
+            id="field_floatMinBob"
+            data-cy="floatMinBob"
+            formControlName="floatMinBob"
+          />
+          @if (floatMinBobRef.invalid && (floatMinBobRef.dirty || floatMinBobRef.touched)) {
+            <div>
+              @if (floatMinBobRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMinBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMaxBobRef = editForm.get('floatMaxBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatMaxBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.floatMaxBob"
+            >Float Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxBob"
+            id="field_floatMaxBob"
+            data-cy="floatMaxBob"
+            formControlName="floatMaxBob"
+          />
+          @if (floatMaxBobRef.invalid && (floatMaxBobRef.dirty || floatMaxBobRef.touched)) {
+            <div>
+              @if (floatMaxBobRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMaxBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleRequiredBobRef = editForm.get('doubleRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.doubleRequiredBob"
+            >Double Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredBob"
+            id="field_doubleRequiredBob"
+            data-cy="doubleRequiredBob"
+            formControlName="doubleRequiredBob"
+          />
+          @if (doubleRequiredBobRef.invalid && (doubleRequiredBobRef.dirty || doubleRequiredBobRef.touched)) {
+            <div>
+              @if (doubleRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!doubleRequiredBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMinBobRef = editForm.get('doubleMinBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleMinBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.doubleMinBob"
+            >Double Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinBob"
+            id="field_doubleMinBob"
+            data-cy="doubleMinBob"
+            formControlName="doubleMinBob"
+          />
+          @if (doubleMinBobRef.invalid && (doubleMinBobRef.dirty || doubleMinBobRef.touched)) {
+            <div>
+              @if (doubleMinBobRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMinBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMaxBobRef = editForm.get('doubleMaxBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleMaxBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.doubleMaxBob"
+            >Double Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxBob"
+            id="field_doubleMaxBob"
+            data-cy="doubleMaxBob"
+            formControlName="doubleMaxBob"
+          />
+          @if (doubleMaxBobRef.invalid && (doubleMaxBobRef.dirty || doubleMaxBobRef.touched)) {
+            <div>
+              @if (doubleMaxBobRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMaxBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalRequiredBobRef = editForm.get('bigDecimalRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalRequiredBob"
+            >Big Decimal Required Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredBob"
+            id="field_bigDecimalRequiredBob"
+            data-cy="bigDecimalRequiredBob"
+            formControlName="bigDecimalRequiredBob"
+          />
+          @if (bigDecimalRequiredBobRef.invalid && (bigDecimalRequiredBobRef.dirty || bigDecimalRequiredBobRef.touched)) {
+            <div>
+              @if (bigDecimalRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!bigDecimalRequiredBobRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMinBobRef = editForm.get('bigDecimalMinBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMinBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMinBob"
+            >Big Decimal Min Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinBob"
+            id="field_bigDecimalMinBob"
+            data-cy="bigDecimalMinBob"
+            formControlName="bigDecimalMinBob"
+          />
+          @if (bigDecimalMinBobRef.invalid && (bigDecimalMinBobRef.dirty || bigDecimalMinBobRef.touched)) {
+            <div>
+              @if (bigDecimalMinBobRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMinBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMaxBobRef = editForm.get('bigDecimalMaxBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMaxBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.bigDecimalMaxBob"
+            >Big Decimal Max Bob</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxBob"
+            id="field_bigDecimalMaxBob"
+            data-cy="bigDecimalMaxBob"
+            formControlName="bigDecimalMaxBob"
+          />
+          @if (bigDecimalMaxBobRef.invalid && (bigDecimalMaxBobRef.dirty || bigDecimalMaxBobRef.touched)) {
+            <div>
+              @if (bigDecimalMaxBobRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMaxBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localDateBob"
+            >Local Date Bob</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateBob"
+              data-cy="localDateBob"
+              type="text"
+              class="form-control"
+              name="localDateBob"
+              ngbDatepicker
+              #localDateBobDp="ngbDatepicker"
+              formControlName="localDateBob"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateBobDp.toggle()"><fa-icon icon="calendar-alt" /></button>
+          </div>
+        </div>
+
+        @let localDateRequiredBobRef = editForm.get('localDateRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localDateRequiredBob"
+            >Local Date Required Bob</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredBob"
+              data-cy="localDateRequiredBob"
+              type="text"
+              class="form-control"
+              name="localDateRequiredBob"
+              ngbDatepicker
+              #localDateRequiredBobDp="ngbDatepicker"
+              formControlName="localDateRequiredBob"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredBobDp.toggle()">
+              <fa-icon icon="calendar-alt" />
+            </button>
+          </div>
+          @if (localDateRequiredBobRef.invalid && (localDateRequiredBobRef.dirty || localDateRequiredBobRef.touched)) {
+            <div>
+              @if (localDateRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_instantBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.instantBob"
+            >Instant Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantBob"
+              data-cy="instantBob"
+              type="datetime-local"
+              class="form-control"
+              name="instantBob"
+              formControlName="instantBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let instanteRequiredBobRef = editForm.get('instanteRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_instanteRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.instanteRequiredBob"
+            >Instante Required Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredBob"
+              data-cy="instanteRequiredBob"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredBob"
+              formControlName="instanteRequiredBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (instanteRequiredBobRef.invalid && (instanteRequiredBobRef.dirty || instanteRequiredBobRef.touched)) {
+            <div>
+              @if (instanteRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!instanteRequiredBobRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeBob"
+            >Zoned Date Time Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeBob"
+              data-cy="zonedDateTimeBob"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeBob"
+              formControlName="zonedDateTimeBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let zonedDateTimeRequiredBobRef = editForm.get('zonedDateTimeRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.zonedDateTimeRequiredBob"
+            >Zoned Date Time Required Bob</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredBob"
+              data-cy="zonedDateTimeRequiredBob"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredBob"
+              formControlName="zonedDateTimeRequiredBob"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (zonedDateTimeRequiredBobRef.invalid && (zonedDateTimeRequiredBobRef.dirty || zonedDateTimeRequiredBobRef.touched)) {
+            <div>
+              @if (zonedDateTimeRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!zonedDateTimeRequiredBobRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localTimeBob"
+            >Local Time Bob</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeBob"
+            id="field_localTimeBob"
+            data-cy="localTimeBob"
+            formControlName="localTimeBob"
+          />
+        </div>
+
+        @let localTimeRequiredBobRef = editForm.get('localTimeRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.localTimeRequiredBob"
+            >Local Time Required Bob</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeRequiredBob"
+            id="field_localTimeRequiredBob"
+            data-cy="localTimeRequiredBob"
+            formControlName="localTimeRequiredBob"
+          />
+          @if (localTimeRequiredBobRef.invalid && (localTimeRequiredBobRef.dirty || localTimeRequiredBobRef.touched)) {
+            <div>
+              @if (localTimeRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_durationBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.durationBob"
+            >Duration Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationBob"
+            id="field_durationBob"
+            data-cy="durationBob"
+            formControlName="durationBob"
+          />
+        </div>
+
+        @let durationRequiredBobRef = editForm.get('durationRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_durationRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.durationRequiredBob"
+            >Duration Required Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredBob"
+            id="field_durationRequiredBob"
+            data-cy="durationRequiredBob"
+            formControlName="durationRequiredBob"
+          />
+          @if (durationRequiredBobRef.invalid && (durationRequiredBobRef.dirty || durationRequiredBobRef.touched)) {
+            <div>
+              @if (durationRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!durationRequiredBobRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_booleanBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.booleanBob"
+            >Boolean Bob</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanBob"
+            id="field_booleanBob"
+            data-cy="booleanBob"
+            formControlName="booleanBob"
+          />
+        </div>
+
+        @let booleanRequiredBobRef = editForm.get('booleanRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_booleanRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.booleanRequiredBob"
+            >Boolean Required Bob</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredBob"
+            id="field_booleanRequiredBob"
+            data-cy="booleanRequiredBob"
+            formControlName="booleanRequiredBob"
+          />
+          @if (booleanRequiredBobRef.invalid && (booleanRequiredBobRef.dirty || booleanRequiredBobRef.touched)) {
+            <div>
+              @if (booleanRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_enumBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.enumBob"
+            >Enum Bob</label
+          >
+          <select class="form-control" name="enumBob" formControlName="enumBob" id="field_enumBob" data-cy="enumBob">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.null' | translate }}</option>
+            @for (enumFieldClass of enumFieldClassValues; track $index) {
+              <option [value]="enumFieldClass">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.' + enumFieldClass | translate }}</option>
+            }
+          </select>
+        </div>
+
+        @let enumRequiredBobRef = editForm.get('enumRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_enumRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.enumRequiredBob"
+            >Enum Required Bob</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredBob"
+            formControlName="enumRequiredBob"
+            id="field_enumRequiredBob"
+            data-cy="enumRequiredBob"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.null' | translate }}</option>
+            @for (enumRequiredFieldClass of enumRequiredFieldClassValues; track $index) {
+              <option [value]="enumRequiredFieldClass">
+                {{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+              </option>
+            }
+          </select>
+          @if (enumRequiredBobRef.invalid && (enumRequiredBobRef.dirty || enumRequiredBobRef.touched)) {
+            <div>
+              @if (enumRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_uuidBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.uuidBob"
+            >Uuid Bob</label
+          >
+          <input type="text" class="form-control" name="uuidBob" id="field_uuidBob" data-cy="uuidBob" formControlName="uuidBob" />
+        </div>
+
+        @let uuidRequiredBobRef = editForm.get('uuidRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_uuidRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.uuidRequiredBob"
+            >Uuid Required Bob</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredBob"
+            id="field_uuidRequiredBob"
+            data-cy="uuidRequiredBob"
+            formControlName="uuidRequiredBob"
+          />
+          @if (uuidRequiredBobRef.invalid && (uuidRequiredBobRef.dirty || uuidRequiredBobRef.touched)) {
+            <div>
+              @if (uuidRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageBobRef = editForm.get('byteImageBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageBob"
+            >Byte Image Bob</label
+          >
+          <div>
+            @if (byteImageBobRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageBobContentType')!.value + ';base64,' + byteImageBobRef.value"
+                style="max-height: 100px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity"
+              />
+            }
+            @if (byteImageBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start">{{ editForm.get('byteImageBobContentType')!.value }}, {{ byteSize(byteImageBobRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageBob', 'byteImageBobContentType', 'file_byteImageBob')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageBob"
+              data-cy="byteImageBob"
+              (change)="setFileData($event, 'byteImageBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageBob"
+            id="field_byteImageBob"
+            data-cy="byteImageBob"
+            formControlName="byteImageBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageBobContentType"
+            id="field_byteImageBobContentType"
+            formControlName="byteImageBobContentType"
+          />
+        </div>
+
+        @let byteImageRequiredBobRef = editForm.get('byteImageRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageRequiredBob"
+            >Byte Image Required Bob</label
+          >
+          <div>
+            @if (byteImageRequiredBobRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageRequiredBobContentType')!.value + ';base64,' + byteImageRequiredBobRef.value"
+                style="max-height: 100px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity"
+              />
+            }
+            @if (byteImageRequiredBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageRequiredBobContentType')!.value }}, {{ byteSize(byteImageRequiredBobRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageRequiredBob', 'byteImageRequiredBobContentType', 'file_byteImageRequiredBob')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageRequiredBob"
+              data-cy="byteImageRequiredBob"
+              (change)="setFileData($event, 'byteImageRequiredBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Required Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredBob"
+            id="field_byteImageRequiredBob"
+            data-cy="byteImageRequiredBob"
+            formControlName="byteImageRequiredBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredBobContentType"
+            id="field_byteImageRequiredBobContentType"
+            formControlName="byteImageRequiredBobContentType"
+          />
+          @if (byteImageRequiredBobRef.invalid && (byteImageRequiredBobRef.dirty || byteImageRequiredBobRef.touched)) {
+            <div>
+              @if (byteImageRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageMinbytesBobRef = editForm.get('byteImageMinbytesBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMinbytesBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageMinbytesBob"
+            >Byte Image Minbytes Bob</label
+          >
+          <div>
+            @if (byteImageMinbytesBobRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMinbytesBobContentType')!.value + ';base64,' + byteImageMinbytesBobRef.value"
+                style="max-height: 100px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity"
+              />
+            }
+            @if (byteImageMinbytesBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMinbytesBobContentType')!.value }}, {{ byteSize(byteImageMinbytesBobRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMinbytesBob', 'byteImageMinbytesBobContentType', 'file_byteImageMinbytesBob')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMinbytesBob"
+              data-cy="byteImageMinbytesBob"
+              (change)="setFileData($event, 'byteImageMinbytesBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Minbytes Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesBob"
+            id="field_byteImageMinbytesBob"
+            data-cy="byteImageMinbytesBob"
+            formControlName="byteImageMinbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesBobContentType"
+            id="field_byteImageMinbytesBobContentType"
+            formControlName="byteImageMinbytesBobContentType"
+          />
+          @if (byteImageMinbytesBobRef.invalid && (byteImageMinbytesBobRef.dirty || byteImageMinbytesBobRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteImageMaxbytesBobRef = editForm.get('byteImageMaxbytesBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMaxbytesBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteImageMaxbytesBob"
+            >Byte Image Maxbytes Bob</label
+          >
+          <div>
+            @if (byteImageMaxbytesBobRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMaxbytesBobContentType')!.value + ';base64,' + byteImageMaxbytesBobRef.value"
+                style="max-height: 100px"
+                alt="fieldTestServiceClassAndJpaFilteringEntity"
+              />
+            }
+            @if (byteImageMaxbytesBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMaxbytesBobContentType')!.value }}, {{ byteSize(byteImageMaxbytesBobRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMaxbytesBob', 'byteImageMaxbytesBobContentType', 'file_byteImageMaxbytesBob')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMaxbytesBob"
+              data-cy="byteImageMaxbytesBob"
+              (change)="setFileData($event, 'byteImageMaxbytesBob', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Maxbytes Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesBob"
+            id="field_byteImageMaxbytesBob"
+            data-cy="byteImageMaxbytesBob"
+            formControlName="byteImageMaxbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesBobContentType"
+            id="field_byteImageMaxbytesBobContentType"
+            formControlName="byteImageMaxbytesBobContentType"
+          />
+          @if (byteImageMaxbytesBobRef.invalid && (byteImageMaxbytesBobRef.dirty || byteImageMaxbytesBobRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyBobRef = editForm.get('byteAnyBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyBob"
+            >Byte Any Bob</label
+          >
+          <div>
+            @if (byteAnyBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyBobRef.value!, editForm.get('byteAnyBobContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start">{{ editForm.get('byteAnyBobContentType')!.value }}, {{ byteSize(byteAnyBobRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyBob: undefined, byteAnyBobContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyBob"
+              data-cy="byteAnyBob"
+              (change)="setFileData($event, 'byteAnyBob', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyBob"
+            id="field_byteAnyBob"
+            data-cy="byteAnyBob"
+            formControlName="byteAnyBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyBobContentType"
+            id="field_byteAnyBobContentType"
+            formControlName="byteAnyBobContentType"
+          />
+        </div>
+
+        @let byteAnyRequiredBobRef = editForm.get('byteAnyRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyRequiredBob"
+            >Byte Any Required Bob</label
+          >
+          <div>
+            @if (byteAnyRequiredBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyRequiredBobRef.value!, editForm.get('byteAnyRequiredBobContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyRequiredBobContentType')!.value }}, {{ byteSize(byteAnyRequiredBobRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyRequiredBob: undefined, byteAnyRequiredBobContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyRequiredBob"
+              data-cy="byteAnyRequiredBob"
+              (change)="setFileData($event, 'byteAnyRequiredBob', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Required Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredBob"
+            id="field_byteAnyRequiredBob"
+            data-cy="byteAnyRequiredBob"
+            formControlName="byteAnyRequiredBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredBobContentType"
+            id="field_byteAnyRequiredBobContentType"
+            formControlName="byteAnyRequiredBobContentType"
+          />
+          @if (byteAnyRequiredBobRef.invalid && (byteAnyRequiredBobRef.dirty || byteAnyRequiredBobRef.touched)) {
+            <div>
+              @if (byteAnyRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteAnyMinbytesBobRef = editForm.get('byteAnyMinbytesBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMinbytesBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMinbytesBob"
+            >Byte Any Minbytes Bob</label
+          >
+          <div>
+            @if (byteAnyMinbytesBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMinbytesBobRef.value!, editForm.get('byteAnyMinbytesBobContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMinbytesBobContentType')!.value }}, {{ byteSize(byteAnyMinbytesBobRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMinbytesBob: undefined, byteAnyMinbytesBobContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMinbytesBob"
+              data-cy="byteAnyMinbytesBob"
+              (change)="setFileData($event, 'byteAnyMinbytesBob', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Minbytes Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesBob"
+            id="field_byteAnyMinbytesBob"
+            data-cy="byteAnyMinbytesBob"
+            formControlName="byteAnyMinbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesBobContentType"
+            id="field_byteAnyMinbytesBobContentType"
+            formControlName="byteAnyMinbytesBobContentType"
+          />
+          @if (byteAnyMinbytesBobRef.invalid && (byteAnyMinbytesBobRef.dirty || byteAnyMinbytesBobRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyMaxbytesBobRef = editForm.get('byteAnyMaxbytesBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMaxbytesBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteAnyMaxbytesBob"
+            >Byte Any Maxbytes Bob</label
+          >
+          <div>
+            @if (byteAnyMaxbytesBobRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMaxbytesBobRef.value!, editForm.get('byteAnyMaxbytesBobContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMaxbytesBobContentType')!.value }}, {{ byteSize(byteAnyMaxbytesBobRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMaxbytesBob: undefined, byteAnyMaxbytesBobContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesBob"
+              data-cy="byteAnyMaxbytesBob"
+              (change)="setFileData($event, 'byteAnyMaxbytesBob', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Maxbytes Bob"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesBob"
+            id="field_byteAnyMaxbytesBob"
+            data-cy="byteAnyMaxbytesBob"
+            formControlName="byteAnyMaxbytesBob"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesBobContentType"
+            id="field_byteAnyMaxbytesBobContentType"
+            formControlName="byteAnyMaxbytesBobContentType"
+          />
+          @if (byteAnyMaxbytesBobRef.invalid && (byteAnyMaxbytesBobRef.dirty || byteAnyMaxbytesBobRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteTextBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteTextBob"
+            >Byte Text Bob</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextBob"
+            id="field_byteTextBob"
+            data-cy="byteTextBob"
+            formControlName="byteTextBob"
+          ></textarea>
+        </div>
+
+        @let byteTextRequiredBobRef = editForm.get('byteTextRequiredBob')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteTextRequiredBob"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceClassAndJpaFilteringEntity.byteTextRequiredBob"
+            >Byte Text Required Bob</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredBob"
+            id="field_byteTextRequiredBob"
+            data-cy="byteTextRequiredBob"
+            formControlName="byteTextRequiredBob"
+          ></textarea>
+          @if (byteTextRequiredBobRef.invalid && (byteTextRequiredBobRef.dirty || byteTextRequiredBobRef.touched)) {
+            <div>
+              @if (byteTextRequiredBobRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

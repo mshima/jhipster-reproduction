@@ -1,0 +1,120 @@
+<div>
+  <h2 id="page-heading" data-cy="EntityWithPaginationAndDTOHeading">
+    <span jhiTranslate="sampleWebfluxPsqlApp.entityWithPaginationAndDTO.home.title">Entity With Pagination And DTOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.entityWithPaginationAndDTO.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-entity-with-pagination-and-dto"
+        [routerLink]="['/entity-with-pagination-and-dto/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.entityWithPaginationAndDTO.home.createLabel"
+          >Create a new Entity With Pagination And DTO</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (entityWithPaginationAndDTOS().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sampleWebfluxPsqlApp.entityWithPaginationAndDTO.home.notFound">No Entity With Pagination And DTOS found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lea">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.entityWithPaginationAndDTO.lea">Lea</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (entityWithPaginationAndDTO of entityWithPaginationAndDTOS(); track trackId(entityWithPaginationAndDTO)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/entity-with-pagination-and-dto', entityWithPaginationAndDTO.id, 'view']">{{
+                  entityWithPaginationAndDTO.id
+                }}</a>
+              </td>
+              <td>{{ entityWithPaginationAndDTO.lea }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/entity-with-pagination-and-dto', entityWithPaginationAndDTO.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/entity-with-pagination-and-dto', entityWithPaginationAndDTO.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button
+                    type="submit"
+                    (click)="delete(entityWithPaginationAndDTO)"
+                    class="btn btn-danger btn-sm"
+                    data-cy="entityDeleteButton"
+                  >
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+  @if (entityWithPaginationAndDTOS().length > 0) {
+    <div>
+      <div class="d-flex justify-content-center">
+        <jhi-item-count [params]="{ page: page(), totalItems: totalItems(), itemsPerPage: itemsPerPage() }" />
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <ngb-pagination
+          [collectionSize]="totalItems()"
+          [page]="page()"
+          [pageSize]="itemsPerPage()"
+          [maxSize]="5"
+          [rotate]="true"
+          [boundaryLinks]="true"
+          (pageChange)="navigateToPage($event)"
+        />
+      </div>
+    </div>
+  }
+</div>

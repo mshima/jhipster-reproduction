@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (entityWithDTO(); as entityWithDTORef) {
+      <div>
+        <h2 data-cy="entityWithDTODetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.entityWithDTO.detail.title">Entity With DTO</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ entityWithDTORef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.entityWithDTO.emma">Emma</span></dt>
+          <dd>
+            <span>{{ entityWithDTORef.emma }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/entity-with-dto', entityWithDTORef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,17 @@
+{
+  "sampleWebfluxPsqlApp": {
+    "testRootLabel": {
+      "home": {
+        "title": "Labels",
+        "refreshListLabel": "Actualiser la liste",
+        "notFound": "Aucun Label trouvé"
+      },
+      "detail": {
+        "title": "Label"
+      },
+      "id": "ID",
+      "labelName": "Label Name",
+      "operation": "Operation"
+    }
+  }
+}

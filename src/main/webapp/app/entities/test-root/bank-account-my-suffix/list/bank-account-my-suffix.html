@@ -1,0 +1,214 @@
+<div>
+  <h2 id="page-heading" data-cy="BankAccountHeading">
+    <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.home.title">Bank Accounts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-bank-account-my-suffix"
+        [routerLink]="['/bank-account-my-suffix/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.home.createLabel">Create a new Bank Account</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (bankAccounts().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.home.notFound">No Bank Accounts found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="name">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.name">Name</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="guid">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.guid">Guid</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bankNumber">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.bankNumber">Bank Number</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="agencyNumber">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.agencyNumber">Agency Number</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastOperationDuration">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.lastOperationDuration">Last Operation Duration</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="meanOperationDuration">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.meanOperationDuration">Mean Operation Duration</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="meanQueueDuration">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.meanQueueDuration">Mean Queue Duration</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="balance">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.balance">Balance</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="openingDay">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.openingDay">Opening Day</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="lastOperationDate">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.lastOperationDate">Last Operation Date</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="active">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.active">Active</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="accountType">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.accountType">Account Type</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="attachment">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.attachment">Attachment</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="description">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.description">Description</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="user.login">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.user">User</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (bankAccount of bankAccounts(); track trackId(bankAccount)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/bank-account-my-suffix', bankAccount.id, 'view']">{{ bankAccount.id }}</a>
+              </td>
+              <td>{{ bankAccount.name }}</td>
+              <td>{{ bankAccount.guid }}</td>
+              <td>{{ bankAccount.bankNumber }}</td>
+              <td>{{ bankAccount.agencyNumber }}</td>
+              <td>{{ bankAccount.lastOperationDuration }}</td>
+              <td>{{ bankAccount.meanOperationDuration }}</td>
+              <td title="{{ bankAccount.meanQueueDuration }}">{{ bankAccount.meanQueueDuration | duration }}</td>
+              <td>{{ bankAccount.balance }}</td>
+              <td>{{ bankAccount.openingDay | formatMediumDate }}</td>
+              <td>{{ bankAccount.lastOperationDate | formatMediumDatetime }}</td>
+              <td>{{ bankAccount.active }}</td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.BankAccountType.' + (bankAccount.accountType ?? 'null')">
+                {{ { null: '', CHECKING: 'CHECKING', SAVINGS: 'SAVINGS', LOAN: 'LOAN' }[bankAccount.accountType ?? 'null'] }}
+              </td>
+              <td>
+                @if (bankAccount.attachment) {
+                  <a (click)="openFile(bankAccount.attachment, bankAccount.attachmentContentType)" jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span>{{ bankAccount.attachmentContentType }}, {{ byteSize(bankAccount.attachment) }}</span>
+                }
+              </td>
+              <td>{{ bankAccount.description }}</td>
+              <td>
+                {{ bankAccount.user?.login }}
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/bank-account-my-suffix', bankAccount.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/bank-account-my-suffix', bankAccount.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(bankAccount)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

@@ -1,0 +1,494 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fieldTestMapstructAndServiceClassEntity(); as fieldTestMapstructAndServiceClassEntityRef) {
+      <div>
+        <h2 data-cy="fieldTestMapstructAndServiceClassEntityDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.detail.title"
+            >Field Test Mapstruct And Service Class Entity</span
+          >
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringEva">String Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.stringEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringRequiredEva">String Required Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.stringRequiredEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringMinlengthEva">String Minlength Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.stringMinlengthEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringMaxlengthEva">String Maxlength Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.stringMaxlengthEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringPatternEva">String Pattern Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.stringPatternEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerEva">Integer Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.integerEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerRequiredEva">Integer Required Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.integerRequiredEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerMinEva">Integer Min Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.integerMinEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerMaxEva">Integer Max Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.integerMaxEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longEva">Long Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.longEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longRequiredEva">Long Required Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.longRequiredEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longMinEva">Long Min Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.longMinEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longMaxEva">Long Max Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.longMaxEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatEva">Float Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.floatEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatRequiredEva">Float Required Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.floatRequiredEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatMinEva">Float Min Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.floatMinEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatMaxEva">Float Max Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.floatMaxEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleRequiredEva">Double Required Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.doubleRequiredEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleMinEva">Double Min Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.doubleMinEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleMaxEva">Double Max Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.doubleMaxEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalRequiredEva"
+              >Big Decimal Required Eva</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.bigDecimalRequiredEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalMinEva">Big Decimal Min Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.bigDecimalMinEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalMaxEva">Big Decimal Max Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.bigDecimalMaxEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localDateEva">Local Date Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.localDateEva | formatMediumDate }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localDateRequiredEva"
+              >Local Date Required Eva</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.localDateRequiredEva | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.instantEva">Instant Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.instantEva | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.instanteRequiredEva"
+              >Instante Required Eva</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.instanteRequiredEva | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.zonedDateTimeEva">Zoned Date Time Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.zonedDateTimeEva | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.zonedDateTimeRequiredEva"
+              >Zoned Date Time Required Eva</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.zonedDateTimeRequiredEva | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localTimeEva">Local Time Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.localTimeEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localTimeRequiredEva"
+              >Local Time Required Eva</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.localTimeRequiredEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.durationEva">Duration Eva</span></dt>
+          <dd>
+            <span
+              >{{ fieldTestMapstructAndServiceClassEntityRef.durationEva | duration }} ({{
+                fieldTestMapstructAndServiceClassEntityRef.durationEva
+              }})</span
+            >
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.durationRequiredEva"
+              >Duration Required Eva</span
+            >
+          </dt>
+          <dd>
+            <span
+              >{{ fieldTestMapstructAndServiceClassEntityRef.durationRequiredEva | duration }} ({{
+                fieldTestMapstructAndServiceClassEntityRef.durationRequiredEva
+              }})</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.booleanEva">Boolean Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.booleanEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.booleanRequiredEva">Boolean Required Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.booleanRequiredEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.enumEva">Enum Eva</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestMapstructAndServiceClassEntityRef.enumEva ?? 'null')"
+              >{{
+                { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                  fieldTestMapstructAndServiceClassEntityRef.enumEva ?? 'null'
+                ]
+              }}</span
+            >
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.enumRequiredEva">Enum Required Eva</span>
+          </dt>
+          <dd>
+            <span
+              [jhiTranslate]="
+                'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestMapstructAndServiceClassEntityRef.enumRequiredEva ?? 'null')
+              "
+              >{{
+                { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                  fieldTestMapstructAndServiceClassEntityRef.enumRequiredEva ?? 'null'
+                ]
+              }}</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.uuidEva">Uuid Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.uuidEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.uuidRequiredEva">Uuid Required Eva</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.uuidRequiredEva }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageEva">Byte Image Eva</span></dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteImageEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageEvaContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageEvaContentType +
+                      ';base64,' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageEva
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestMapstructAndServiceClassEntity"
+                  />
+                </a>
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteImageEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteImageEva) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva"
+              >Byte Image Required Eva</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteImageRequiredEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageRequiredEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageRequiredEvaContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageRequiredEvaContentType +
+                      ';base64,' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageRequiredEva
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestMapstructAndServiceClassEntity"
+                  />
+                </a>
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteImageRequiredEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteImageRequiredEva) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva"
+              >Byte Image Minbytes Eva</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteImageMinbytesEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMinbytesEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMinbytesEvaContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMinbytesEvaContentType +
+                      ';base64,' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMinbytesEva
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestMapstructAndServiceClassEntity"
+                  />
+                </a>
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteImageMinbytesEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteImageMinbytesEva) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva"
+              >Byte Image Maxbytes Eva</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteImageMaxbytesEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMaxbytesEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMaxbytesEvaContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMaxbytesEvaContentType +
+                      ';base64,' +
+                      fieldTestMapstructAndServiceClassEntityRef.byteImageMaxbytesEva
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestMapstructAndServiceClassEntity"
+                  />
+                </a>
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteImageMaxbytesEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteImageMaxbytesEva) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyEva">Byte Any Eva</span></dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteAnyEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyEvaContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteAnyEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteAnyEva) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva"
+              >Byte Any Required Eva</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteAnyRequiredEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyRequiredEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyRequiredEvaContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteAnyRequiredEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteAnyRequiredEva) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva"
+              >Byte Any Minbytes Eva</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteAnyMinbytesEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyMinbytesEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyMinbytesEvaContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteAnyMinbytesEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteAnyMinbytesEva) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva"
+              >Byte Any Maxbytes Eva</span
+            >
+          </dt>
+          <dd>
+            @if (fieldTestMapstructAndServiceClassEntityRef.byteAnyMaxbytesEva) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyMaxbytesEva,
+                      fieldTestMapstructAndServiceClassEntityRef.byteAnyMaxbytesEvaContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestMapstructAndServiceClassEntityRef.byteAnyMaxbytesEvaContentType }},
+                {{ byteSize(fieldTestMapstructAndServiceClassEntityRef.byteAnyMaxbytesEva) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteTextEva">Byte Text Eva</span></dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.byteTextEva }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteTextRequiredEva"
+              >Byte Text Required Eva</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestMapstructAndServiceClassEntityRef.byteTextRequiredEva }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/field-test-mapstruct-and-service-class-entity', fieldTestMapstructAndServiceClassEntityRef.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

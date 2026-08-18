@@ -1,0 +1,1483 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-pagination-entity-heading"
+        data-cy="FieldTestPaginationEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Pagination Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_stringAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringAlice"
+            >String Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringAlice"
+            id="field_stringAlice"
+            data-cy="stringAlice"
+            formControlName="stringAlice"
+          />
+        </div>
+
+        @let stringRequiredAliceRef = editForm.get('stringRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringRequiredAlice"
+            >String Required Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredAlice"
+            id="field_stringRequiredAlice"
+            data-cy="stringRequiredAlice"
+            formControlName="stringRequiredAlice"
+          />
+          @if (stringRequiredAliceRef.invalid && (stringRequiredAliceRef.dirty || stringRequiredAliceRef.touched)) {
+            <div>
+              @if (stringRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMinlengthAliceRef = editForm.get('stringMinlengthAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMinlengthAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringMinlengthAlice"
+            >String Minlength Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthAlice"
+            id="field_stringMinlengthAlice"
+            data-cy="stringMinlengthAlice"
+            formControlName="stringMinlengthAlice"
+          />
+          @if (stringMinlengthAliceRef.invalid && (stringMinlengthAliceRef.dirty || stringMinlengthAliceRef.touched)) {
+            <div>
+              @if (stringMinlengthAliceRef.errors?.minlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: '0' }"
+                  >This field is required to be at least 0 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMaxlengthAliceRef = editForm.get('stringMaxlengthAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMaxlengthAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringMaxlengthAlice"
+            >String Maxlength Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthAlice"
+            id="field_stringMaxlengthAlice"
+            data-cy="stringMaxlengthAlice"
+            formControlName="stringMaxlengthAlice"
+          />
+          @if (stringMaxlengthAliceRef.invalid && (stringMaxlengthAliceRef.dirty || stringMaxlengthAliceRef.touched)) {
+            <div>
+              @if (stringMaxlengthAliceRef.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >This field cannot be longer than 20 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringPatternAliceRef = editForm.get('stringPatternAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringPatternAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringPatternAlice"
+            >String Pattern Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternAlice"
+            id="field_stringPatternAlice"
+            data-cy="stringPatternAlice"
+            formControlName="stringPatternAlice"
+          />
+          @if (stringPatternAliceRef.invalid && (stringPatternAliceRef.dirty || stringPatternAliceRef.touched)) {
+            <div>
+              @if (stringPatternAliceRef.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'String Pattern Alice' }"
+                  >This field should follow pattern for String Pattern Alice.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_integerAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerAlice"
+            >Integer Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerAlice"
+            id="field_integerAlice"
+            data-cy="integerAlice"
+            formControlName="integerAlice"
+          />
+        </div>
+
+        @let integerRequiredAliceRef = editForm.get('integerRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerRequiredAlice"
+            >Integer Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredAlice"
+            id="field_integerRequiredAlice"
+            data-cy="integerRequiredAlice"
+            formControlName="integerRequiredAlice"
+          />
+          @if (integerRequiredAliceRef.invalid && (integerRequiredAliceRef.dirty || integerRequiredAliceRef.touched)) {
+            <div>
+              @if (integerRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!integerRequiredAliceRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMinAliceRef = editForm.get('integerMinAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMinAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerMinAlice"
+            >Integer Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinAlice"
+            id="field_integerMinAlice"
+            data-cy="integerMinAlice"
+            formControlName="integerMinAlice"
+          />
+          @if (integerMinAliceRef.invalid && (integerMinAliceRef.dirty || integerMinAliceRef.touched)) {
+            <div>
+              @if (integerMinAliceRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMinAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMaxAliceRef = editForm.get('integerMaxAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMaxAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerMaxAlice"
+            >Integer Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxAlice"
+            id="field_integerMaxAlice"
+            data-cy="integerMaxAlice"
+            formControlName="integerMaxAlice"
+          />
+          @if (integerMaxAliceRef.invalid && (integerMaxAliceRef.dirty || integerMaxAliceRef.touched)) {
+            <div>
+              @if (integerMaxAliceRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMaxAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_longAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longAlice"
+            >Long Alice</label
+          >
+          <input type="number" class="form-control" name="longAlice" id="field_longAlice" data-cy="longAlice" formControlName="longAlice" />
+        </div>
+
+        @let longRequiredAliceRef = editForm.get('longRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longRequiredAlice"
+            >Long Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredAlice"
+            id="field_longRequiredAlice"
+            data-cy="longRequiredAlice"
+            formControlName="longRequiredAlice"
+          />
+          @if (longRequiredAliceRef.invalid && (longRequiredAliceRef.dirty || longRequiredAliceRef.touched)) {
+            <div>
+              @if (longRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!longRequiredAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMinAliceRef = editForm.get('longMinAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_longMinAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longMinAlice"
+            >Long Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinAlice"
+            id="field_longMinAlice"
+            data-cy="longMinAlice"
+            formControlName="longMinAlice"
+          />
+          @if (longMinAliceRef.invalid && (longMinAliceRef.dirty || longMinAliceRef.touched)) {
+            <div>
+              @if (longMinAliceRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMinAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMaxAliceRef = editForm.get('longMaxAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_longMaxAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longMaxAlice"
+            >Long Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxAlice"
+            id="field_longMaxAlice"
+            data-cy="longMaxAlice"
+            formControlName="longMaxAlice"
+          />
+          @if (longMaxAliceRef.invalid && (longMaxAliceRef.dirty || longMaxAliceRef.touched)) {
+            <div>
+              @if (longMaxAliceRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMaxAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_floatAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatAlice"
+            >Float Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatAlice"
+            id="field_floatAlice"
+            data-cy="floatAlice"
+            formControlName="floatAlice"
+          />
+        </div>
+
+        @let floatRequiredAliceRef = editForm.get('floatRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatRequiredAlice"
+            >Float Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredAlice"
+            id="field_floatRequiredAlice"
+            data-cy="floatRequiredAlice"
+            formControlName="floatRequiredAlice"
+          />
+          @if (floatRequiredAliceRef.invalid && (floatRequiredAliceRef.dirty || floatRequiredAliceRef.touched)) {
+            <div>
+              @if (floatRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!floatRequiredAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMinAliceRef = editForm.get('floatMinAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_floatMinAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatMinAlice"
+            >Float Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinAlice"
+            id="field_floatMinAlice"
+            data-cy="floatMinAlice"
+            formControlName="floatMinAlice"
+          />
+          @if (floatMinAliceRef.invalid && (floatMinAliceRef.dirty || floatMinAliceRef.touched)) {
+            <div>
+              @if (floatMinAliceRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMinAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMaxAliceRef = editForm.get('floatMaxAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_floatMaxAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatMaxAlice"
+            >Float Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxAlice"
+            id="field_floatMaxAlice"
+            data-cy="floatMaxAlice"
+            formControlName="floatMaxAlice"
+          />
+          @if (floatMaxAliceRef.invalid && (floatMaxAliceRef.dirty || floatMaxAliceRef.touched)) {
+            <div>
+              @if (floatMaxAliceRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMaxAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleRequiredAliceRef = editForm.get('doubleRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.doubleRequiredAlice"
+            >Double Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredAlice"
+            id="field_doubleRequiredAlice"
+            data-cy="doubleRequiredAlice"
+            formControlName="doubleRequiredAlice"
+          />
+          @if (doubleRequiredAliceRef.invalid && (doubleRequiredAliceRef.dirty || doubleRequiredAliceRef.touched)) {
+            <div>
+              @if (doubleRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!doubleRequiredAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMinAliceRef = editForm.get('doubleMinAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_doubleMinAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.doubleMinAlice"
+            >Double Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinAlice"
+            id="field_doubleMinAlice"
+            data-cy="doubleMinAlice"
+            formControlName="doubleMinAlice"
+          />
+          @if (doubleMinAliceRef.invalid && (doubleMinAliceRef.dirty || doubleMinAliceRef.touched)) {
+            <div>
+              @if (doubleMinAliceRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMinAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMaxAliceRef = editForm.get('doubleMaxAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_doubleMaxAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.doubleMaxAlice"
+            >Double Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxAlice"
+            id="field_doubleMaxAlice"
+            data-cy="doubleMaxAlice"
+            formControlName="doubleMaxAlice"
+          />
+          @if (doubleMaxAliceRef.invalid && (doubleMaxAliceRef.dirty || doubleMaxAliceRef.touched)) {
+            <div>
+              @if (doubleMaxAliceRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMaxAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalRequiredAliceRef = editForm.get('bigDecimalRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.bigDecimalRequiredAlice"
+            >Big Decimal Required Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredAlice"
+            id="field_bigDecimalRequiredAlice"
+            data-cy="bigDecimalRequiredAlice"
+            formControlName="bigDecimalRequiredAlice"
+          />
+          @if (bigDecimalRequiredAliceRef.invalid && (bigDecimalRequiredAliceRef.dirty || bigDecimalRequiredAliceRef.touched)) {
+            <div>
+              @if (bigDecimalRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!bigDecimalRequiredAliceRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMinAliceRef = editForm.get('bigDecimalMinAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMinAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.bigDecimalMinAlice"
+            >Big Decimal Min Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinAlice"
+            id="field_bigDecimalMinAlice"
+            data-cy="bigDecimalMinAlice"
+            formControlName="bigDecimalMinAlice"
+          />
+          @if (bigDecimalMinAliceRef.invalid && (bigDecimalMinAliceRef.dirty || bigDecimalMinAliceRef.touched)) {
+            <div>
+              @if (bigDecimalMinAliceRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMinAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMaxAliceRef = editForm.get('bigDecimalMaxAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMaxAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.bigDecimalMaxAlice"
+            >Big Decimal Max Alice</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxAlice"
+            id="field_bigDecimalMaxAlice"
+            data-cy="bigDecimalMaxAlice"
+            formControlName="bigDecimalMaxAlice"
+          />
+          @if (bigDecimalMaxAliceRef.invalid && (bigDecimalMaxAliceRef.dirty || bigDecimalMaxAliceRef.touched)) {
+            <div>
+              @if (bigDecimalMaxAliceRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMaxAliceRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_localDateAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localDateAlice"
+            >Local Date Alice</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateAlice"
+              data-cy="localDateAlice"
+              type="text"
+              class="form-control"
+              name="localDateAlice"
+              ngbDatepicker
+              #localDateAliceDp="ngbDatepicker"
+              formControlName="localDateAlice"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateAliceDp.toggle()"><fa-icon icon="calendar-alt" /></button>
+          </div>
+        </div>
+
+        @let localDateRequiredAliceRef = editForm.get('localDateRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localDateRequiredAlice"
+            >Local Date Required Alice</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredAlice"
+              data-cy="localDateRequiredAlice"
+              type="text"
+              class="form-control"
+              name="localDateRequiredAlice"
+              ngbDatepicker
+              #localDateRequiredAliceDp="ngbDatepicker"
+              formControlName="localDateRequiredAlice"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredAliceDp.toggle()">
+              <fa-icon icon="calendar-alt" />
+            </button>
+          </div>
+          @if (localDateRequiredAliceRef.invalid && (localDateRequiredAliceRef.dirty || localDateRequiredAliceRef.touched)) {
+            <div>
+              @if (localDateRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_instantAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.instantAlice"
+            >Instant Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantAlice"
+              data-cy="instantAlice"
+              type="datetime-local"
+              class="form-control"
+              name="instantAlice"
+              formControlName="instantAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let instanteRequiredAliceRef = editForm.get('instanteRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_instanteRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.instanteRequiredAlice"
+            >Instante Required Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredAlice"
+              data-cy="instanteRequiredAlice"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredAlice"
+              formControlName="instanteRequiredAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (instanteRequiredAliceRef.invalid && (instanteRequiredAliceRef.dirty || instanteRequiredAliceRef.touched)) {
+            <div>
+              @if (instanteRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!instanteRequiredAliceRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.zonedDateTimeAlice"
+            >Zoned Date Time Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeAlice"
+              data-cy="zonedDateTimeAlice"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeAlice"
+              formControlName="zonedDateTimeAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let zonedDateTimeRequiredAliceRef = editForm.get('zonedDateTimeRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.zonedDateTimeRequiredAlice"
+            >Zoned Date Time Required Alice</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredAlice"
+              data-cy="zonedDateTimeRequiredAlice"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredAlice"
+              formControlName="zonedDateTimeRequiredAlice"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (zonedDateTimeRequiredAliceRef.invalid && (zonedDateTimeRequiredAliceRef.dirty || zonedDateTimeRequiredAliceRef.touched)) {
+            <div>
+              @if (zonedDateTimeRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!zonedDateTimeRequiredAliceRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_localTimeAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localTimeAlice"
+            >Local Time Alice</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeAlice"
+            id="field_localTimeAlice"
+            data-cy="localTimeAlice"
+            formControlName="localTimeAlice"
+          />
+        </div>
+
+        @let localTimeRequiredAliceRef = editForm.get('localTimeRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localTimeRequiredAlice"
+            >Local Time Required Alice</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeRequiredAlice"
+            id="field_localTimeRequiredAlice"
+            data-cy="localTimeRequiredAlice"
+            formControlName="localTimeRequiredAlice"
+          />
+          @if (localTimeRequiredAliceRef.invalid && (localTimeRequiredAliceRef.dirty || localTimeRequiredAliceRef.touched)) {
+            <div>
+              @if (localTimeRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_durationAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.durationAlice"
+            >Duration Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationAlice"
+            id="field_durationAlice"
+            data-cy="durationAlice"
+            formControlName="durationAlice"
+          />
+        </div>
+
+        @let durationRequiredAliceRef = editForm.get('durationRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_durationRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.durationRequiredAlice"
+            >Duration Required Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredAlice"
+            id="field_durationRequiredAlice"
+            data-cy="durationRequiredAlice"
+            formControlName="durationRequiredAlice"
+          />
+          @if (durationRequiredAliceRef.invalid && (durationRequiredAliceRef.dirty || durationRequiredAliceRef.touched)) {
+            <div>
+              @if (durationRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!durationRequiredAliceRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_booleanAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.booleanAlice"
+            >Boolean Alice</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanAlice"
+            id="field_booleanAlice"
+            data-cy="booleanAlice"
+            formControlName="booleanAlice"
+          />
+        </div>
+
+        @let booleanRequiredAliceRef = editForm.get('booleanRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_booleanRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.booleanRequiredAlice"
+            >Boolean Required Alice</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredAlice"
+            id="field_booleanRequiredAlice"
+            data-cy="booleanRequiredAlice"
+            formControlName="booleanRequiredAlice"
+          />
+          @if (booleanRequiredAliceRef.invalid && (booleanRequiredAliceRef.dirty || booleanRequiredAliceRef.touched)) {
+            <div>
+              @if (booleanRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_enumAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.enumAlice"
+            >Enum Alice</label
+          >
+          <select class="form-control" name="enumAlice" formControlName="enumAlice" id="field_enumAlice" data-cy="enumAlice">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.null' | translate }}</option>
+            @for (enumFieldClass of enumFieldClassValues; track $index) {
+              <option [value]="enumFieldClass">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.' + enumFieldClass | translate }}</option>
+            }
+          </select>
+        </div>
+
+        @let enumRequiredAliceRef = editForm.get('enumRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_enumRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.enumRequiredAlice"
+            >Enum Required Alice</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredAlice"
+            formControlName="enumRequiredAlice"
+            id="field_enumRequiredAlice"
+            data-cy="enumRequiredAlice"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.null' | translate }}</option>
+            @for (enumRequiredFieldClass of enumRequiredFieldClassValues; track $index) {
+              <option [value]="enumRequiredFieldClass">
+                {{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+              </option>
+            }
+          </select>
+          @if (enumRequiredAliceRef.invalid && (enumRequiredAliceRef.dirty || enumRequiredAliceRef.touched)) {
+            <div>
+              @if (enumRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_uuidAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.uuidAlice"
+            >Uuid Alice</label
+          >
+          <input type="text" class="form-control" name="uuidAlice" id="field_uuidAlice" data-cy="uuidAlice" formControlName="uuidAlice" />
+        </div>
+
+        @let uuidRequiredAliceRef = editForm.get('uuidRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_uuidRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.uuidRequiredAlice"
+            >Uuid Required Alice</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredAlice"
+            id="field_uuidRequiredAlice"
+            data-cy="uuidRequiredAlice"
+            formControlName="uuidRequiredAlice"
+          />
+          @if (uuidRequiredAliceRef.invalid && (uuidRequiredAliceRef.dirty || uuidRequiredAliceRef.touched)) {
+            <div>
+              @if (uuidRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageAliceRef = editForm.get('byteImageAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteImageAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageAlice"
+            >Byte Image Alice</label
+          >
+          <div>
+            @if (byteImageAliceRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageAliceContentType')!.value + ';base64,' + byteImageAliceRef.value"
+                style="max-height: 100px"
+                alt="fieldTestPaginationEntity"
+              />
+            }
+            @if (byteImageAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageAliceContentType')!.value }}, {{ byteSize(byteImageAliceRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageAlice', 'byteImageAliceContentType', 'file_byteImageAlice')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageAlice"
+              data-cy="byteImageAlice"
+              (change)="setFileData($event, 'byteImageAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageAlice"
+            id="field_byteImageAlice"
+            data-cy="byteImageAlice"
+            formControlName="byteImageAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageAliceContentType"
+            id="field_byteImageAliceContentType"
+            formControlName="byteImageAliceContentType"
+          />
+        </div>
+
+        @let byteImageRequiredAliceRef = editForm.get('byteImageRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageRequiredAlice"
+            >Byte Image Required Alice</label
+          >
+          <div>
+            @if (byteImageRequiredAliceRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageRequiredAliceContentType')!.value + ';base64,' + byteImageRequiredAliceRef.value"
+                style="max-height: 100px"
+                alt="fieldTestPaginationEntity"
+              />
+            }
+            @if (byteImageRequiredAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageRequiredAliceContentType')!.value }}, {{ byteSize(byteImageRequiredAliceRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageRequiredAlice', 'byteImageRequiredAliceContentType', 'file_byteImageRequiredAlice')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageRequiredAlice"
+              data-cy="byteImageRequiredAlice"
+              (change)="setFileData($event, 'byteImageRequiredAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Required Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredAlice"
+            id="field_byteImageRequiredAlice"
+            data-cy="byteImageRequiredAlice"
+            formControlName="byteImageRequiredAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredAliceContentType"
+            id="field_byteImageRequiredAliceContentType"
+            formControlName="byteImageRequiredAliceContentType"
+          />
+          @if (byteImageRequiredAliceRef.invalid && (byteImageRequiredAliceRef.dirty || byteImageRequiredAliceRef.touched)) {
+            <div>
+              @if (byteImageRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageMinbytesAliceRef = editForm.get('byteImageMinbytesAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMinbytesAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageMinbytesAlice"
+            >Byte Image Minbytes Alice</label
+          >
+          <div>
+            @if (byteImageMinbytesAliceRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMinbytesAliceContentType')!.value + ';base64,' + byteImageMinbytesAliceRef.value"
+                style="max-height: 100px"
+                alt="fieldTestPaginationEntity"
+              />
+            }
+            @if (byteImageMinbytesAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMinbytesAliceContentType')!.value }}, {{ byteSize(byteImageMinbytesAliceRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMinbytesAlice', 'byteImageMinbytesAliceContentType', 'file_byteImageMinbytesAlice')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMinbytesAlice"
+              data-cy="byteImageMinbytesAlice"
+              (change)="setFileData($event, 'byteImageMinbytesAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Minbytes Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesAlice"
+            id="field_byteImageMinbytesAlice"
+            data-cy="byteImageMinbytesAlice"
+            formControlName="byteImageMinbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesAliceContentType"
+            id="field_byteImageMinbytesAliceContentType"
+            formControlName="byteImageMinbytesAliceContentType"
+          />
+          @if (byteImageMinbytesAliceRef.invalid && (byteImageMinbytesAliceRef.dirty || byteImageMinbytesAliceRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteImageMaxbytesAliceRef = editForm.get('byteImageMaxbytesAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMaxbytesAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageMaxbytesAlice"
+            >Byte Image Maxbytes Alice</label
+          >
+          <div>
+            @if (byteImageMaxbytesAliceRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMaxbytesAliceContentType')!.value + ';base64,' + byteImageMaxbytesAliceRef.value"
+                style="max-height: 100px"
+                alt="fieldTestPaginationEntity"
+              />
+            }
+            @if (byteImageMaxbytesAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMaxbytesAliceContentType')!.value }}, {{ byteSize(byteImageMaxbytesAliceRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMaxbytesAlice', 'byteImageMaxbytesAliceContentType', 'file_byteImageMaxbytesAlice')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMaxbytesAlice"
+              data-cy="byteImageMaxbytesAlice"
+              (change)="setFileData($event, 'byteImageMaxbytesAlice', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Maxbytes Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesAlice"
+            id="field_byteImageMaxbytesAlice"
+            data-cy="byteImageMaxbytesAlice"
+            formControlName="byteImageMaxbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesAliceContentType"
+            id="field_byteImageMaxbytesAliceContentType"
+            formControlName="byteImageMaxbytesAliceContentType"
+          />
+          @if (byteImageMaxbytesAliceRef.invalid && (byteImageMaxbytesAliceRef.dirty || byteImageMaxbytesAliceRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyAliceRef = editForm.get('byteAnyAlice')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_byteAnyAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyAlice"
+            >Byte Any Alice</label
+          >
+          <div>
+            @if (byteAnyAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyAliceRef.value!, editForm.get('byteAnyAliceContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start">{{ editForm.get('byteAnyAliceContentType')!.value }}, {{ byteSize(byteAnyAliceRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyAlice: undefined, byteAnyAliceContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyAlice"
+              data-cy="byteAnyAlice"
+              (change)="setFileData($event, 'byteAnyAlice', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyAlice"
+            id="field_byteAnyAlice"
+            data-cy="byteAnyAlice"
+            formControlName="byteAnyAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyAliceContentType"
+            id="field_byteAnyAliceContentType"
+            formControlName="byteAnyAliceContentType"
+          />
+        </div>
+
+        @let byteAnyRequiredAliceRef = editForm.get('byteAnyRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyRequiredAlice"
+            >Byte Any Required Alice</label
+          >
+          <div>
+            @if (byteAnyRequiredAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyRequiredAliceRef.value!, editForm.get('byteAnyRequiredAliceContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyRequiredAliceContentType')!.value }}, {{ byteSize(byteAnyRequiredAliceRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyRequiredAlice: undefined, byteAnyRequiredAliceContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyRequiredAlice"
+              data-cy="byteAnyRequiredAlice"
+              (change)="setFileData($event, 'byteAnyRequiredAlice', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Required Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredAlice"
+            id="field_byteAnyRequiredAlice"
+            data-cy="byteAnyRequiredAlice"
+            formControlName="byteAnyRequiredAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredAliceContentType"
+            id="field_byteAnyRequiredAliceContentType"
+            formControlName="byteAnyRequiredAliceContentType"
+          />
+          @if (byteAnyRequiredAliceRef.invalid && (byteAnyRequiredAliceRef.dirty || byteAnyRequiredAliceRef.touched)) {
+            <div>
+              @if (byteAnyRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteAnyMinbytesAliceRef = editForm.get('byteAnyMinbytesAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMinbytesAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyMinbytesAlice"
+            >Byte Any Minbytes Alice</label
+          >
+          <div>
+            @if (byteAnyMinbytesAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMinbytesAliceRef.value!, editForm.get('byteAnyMinbytesAliceContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMinbytesAliceContentType')!.value }}, {{ byteSize(byteAnyMinbytesAliceRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMinbytesAlice: undefined, byteAnyMinbytesAliceContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMinbytesAlice"
+              data-cy="byteAnyMinbytesAlice"
+              (change)="setFileData($event, 'byteAnyMinbytesAlice', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Minbytes Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesAlice"
+            id="field_byteAnyMinbytesAlice"
+            data-cy="byteAnyMinbytesAlice"
+            formControlName="byteAnyMinbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesAliceContentType"
+            id="field_byteAnyMinbytesAliceContentType"
+            formControlName="byteAnyMinbytesAliceContentType"
+          />
+          @if (byteAnyMinbytesAliceRef.invalid && (byteAnyMinbytesAliceRef.dirty || byteAnyMinbytesAliceRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyMaxbytesAliceRef = editForm.get('byteAnyMaxbytesAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMaxbytesAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyMaxbytesAlice"
+            >Byte Any Maxbytes Alice</label
+          >
+          <div>
+            @if (byteAnyMaxbytesAliceRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMaxbytesAliceRef.value!, editForm.get('byteAnyMaxbytesAliceContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMaxbytesAliceContentType')!.value }}, {{ byteSize(byteAnyMaxbytesAliceRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMaxbytesAlice: undefined, byteAnyMaxbytesAliceContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesAlice"
+              data-cy="byteAnyMaxbytesAlice"
+              (change)="setFileData($event, 'byteAnyMaxbytesAlice', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Maxbytes Alice"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesAlice"
+            id="field_byteAnyMaxbytesAlice"
+            data-cy="byteAnyMaxbytesAlice"
+            formControlName="byteAnyMaxbytesAlice"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesAliceContentType"
+            id="field_byteAnyMaxbytesAliceContentType"
+            formControlName="byteAnyMaxbytesAliceContentType"
+          />
+          @if (byteAnyMaxbytesAliceRef.invalid && (byteAnyMaxbytesAliceRef.dirty || byteAnyMaxbytesAliceRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_byteTextAlice" jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteTextAlice"
+            >Byte Text Alice</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextAlice"
+            id="field_byteTextAlice"
+            data-cy="byteTextAlice"
+            formControlName="byteTextAlice"
+          ></textarea>
+        </div>
+
+        @let byteTextRequiredAliceRef = editForm.get('byteTextRequiredAlice')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteTextRequiredAlice"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteTextRequiredAlice"
+            >Byte Text Required Alice</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredAlice"
+            id="field_byteTextRequiredAlice"
+            data-cy="byteTextRequiredAlice"
+            formControlName="byteTextRequiredAlice"
+          ></textarea>
+          @if (byteTextRequiredAliceRef.invalid && (byteTextRequiredAliceRef.dirty || byteTextRequiredAliceRef.touched)) {
+            <div>
+              @if (byteTextRequiredAliceRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

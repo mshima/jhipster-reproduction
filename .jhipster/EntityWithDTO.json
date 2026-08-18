@@ -1,0 +1,20 @@
+{
+  "annotations": {
+    "changelogDate": "20160806123735"
+  },
+  "changelogDate": "20160806123735",
+  "dto": "mapstruct",
+  "entityTableName": "entity_with_dto",
+  "fields": [
+    {
+      "fieldName": "emma",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "name": "EntityWithDTO",
+  "pagination": "no",
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "no"
+}

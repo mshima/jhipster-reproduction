@@ -1,0 +1,582 @@
+<div>
+  <h2 id="page-heading" data-cy="FieldTestEntityHeading">
+    <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.home.title">Field Test Entities</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-field-test-entity"
+        [routerLink]="['/field-test-entity/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.home.createLabel">Create a new Field Test Entity</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (fieldTestEntities().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.home.notFound">No Field Test Entities found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringTom">String Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringRequiredTom">String Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringMinlengthTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringMinlengthTom">String Minlength Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringMaxlengthTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringMaxlengthTom">String Maxlength Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="stringPatternTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.stringPatternTom">String Pattern Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="numberPatternTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.numberPatternTom">Number Pattern Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="numberPatternRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.numberPatternRequiredTom">Number Pattern Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerTom">Integer Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerRequiredTom">Integer Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerMinTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerMinTom">Integer Min Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="integerMaxTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.integerMaxTom">Integer Max Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longTom">Long Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longRequiredTom">Long Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longMinTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longMinTom">Long Min Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="longMaxTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.longMaxTom">Long Max Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatTom">Float Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatRequiredTom">Float Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatMinTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatMinTom">Float Min Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="floatMaxTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.floatMaxTom">Float Max Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="doubleRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleRequiredTom">Double Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="doubleMinTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleMinTom">Double Min Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="doubleMaxTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.doubleMaxTom">Double Max Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bigDecimalRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalRequiredTom">Big Decimal Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bigDecimalMinTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalMinTom">Big Decimal Min Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="bigDecimalMaxTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.bigDecimalMaxTom">Big Decimal Max Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localDateTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localDateTom">Local Date Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localDateRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localDateRequiredTom">Local Date Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="instantTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.instantTom">Instant Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="instantRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.instantRequiredTom">Instant Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="zonedDateTimeTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.zonedDateTimeTom">Zoned Date Time Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="zonedDateTimeRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.zonedDateTimeRequiredTom">Zoned Date Time Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localTimeTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localTimeTom">Local Time Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="localTimeRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.localTimeRequiredTom">Local Time Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="durationTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.durationTom">Duration Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="durationRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.durationRequiredTom">Duration Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="booleanTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.booleanTom">Boolean Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="booleanRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.booleanRequiredTom">Boolean Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="enumTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.enumTom">Enum Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="enumRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.enumRequiredTom">Enum Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="uuidTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.uuidTom">Uuid Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="uuidRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.uuidRequiredTom">Uuid Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageTom">Byte Image Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageRequiredTom">Byte Image Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageMinbytesTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageMinbytesTom">Byte Image Minbytes Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteImageMaxbytesTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteImageMaxbytesTom">Byte Image Maxbytes Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyTom">Byte Any Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyRequiredTom">Byte Any Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyMinbytesTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyMinbytesTom">Byte Any Minbytes Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteAnyMaxbytesTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteAnyMaxbytesTom">Byte Any Maxbytes Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteTextTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteTextTom">Byte Text Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="byteTextRequiredTom">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEntity.byteTextRequiredTom">Byte Text Required Tom</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (fieldTestEntity of fieldTestEntities(); track trackId(fieldTestEntity)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/field-test-entity', fieldTestEntity.id, 'view']">{{ fieldTestEntity.id }}</a>
+              </td>
+              <td>{{ fieldTestEntity.stringTom }}</td>
+              <td>{{ fieldTestEntity.stringRequiredTom }}</td>
+              <td>{{ fieldTestEntity.stringMinlengthTom }}</td>
+              <td>{{ fieldTestEntity.stringMaxlengthTom }}</td>
+              <td>{{ fieldTestEntity.stringPatternTom }}</td>
+              <td>{{ fieldTestEntity.numberPatternTom }}</td>
+              <td>{{ fieldTestEntity.numberPatternRequiredTom }}</td>
+              <td>{{ fieldTestEntity.integerTom }}</td>
+              <td>{{ fieldTestEntity.integerRequiredTom }}</td>
+              <td>{{ fieldTestEntity.integerMinTom }}</td>
+              <td>{{ fieldTestEntity.integerMaxTom }}</td>
+              <td>{{ fieldTestEntity.longTom }}</td>
+              <td>{{ fieldTestEntity.longRequiredTom }}</td>
+              <td>{{ fieldTestEntity.longMinTom }}</td>
+              <td>{{ fieldTestEntity.longMaxTom }}</td>
+              <td>{{ fieldTestEntity.floatTom }}</td>
+              <td>{{ fieldTestEntity.floatRequiredTom }}</td>
+              <td>{{ fieldTestEntity.floatMinTom }}</td>
+              <td>{{ fieldTestEntity.floatMaxTom }}</td>
+              <td>{{ fieldTestEntity.doubleRequiredTom }}</td>
+              <td>{{ fieldTestEntity.doubleMinTom }}</td>
+              <td>{{ fieldTestEntity.doubleMaxTom }}</td>
+              <td>{{ fieldTestEntity.bigDecimalRequiredTom }}</td>
+              <td>{{ fieldTestEntity.bigDecimalMinTom }}</td>
+              <td>{{ fieldTestEntity.bigDecimalMaxTom }}</td>
+              <td>{{ fieldTestEntity.localDateTom | formatMediumDate }}</td>
+              <td>{{ fieldTestEntity.localDateRequiredTom | formatMediumDate }}</td>
+              <td>{{ fieldTestEntity.instantTom | formatMediumDatetime }}</td>
+              <td>{{ fieldTestEntity.instantRequiredTom | formatMediumDatetime }}</td>
+              <td>{{ fieldTestEntity.zonedDateTimeTom | formatMediumDatetime }}</td>
+              <td>{{ fieldTestEntity.zonedDateTimeRequiredTom | formatMediumDatetime }}</td>
+              <td>{{ fieldTestEntity.localTimeTom }}</td>
+              <td>{{ fieldTestEntity.localTimeRequiredTom }}</td>
+              <td title="{{ fieldTestEntity.durationTom }}">{{ fieldTestEntity.durationTom | duration }}</td>
+              <td title="{{ fieldTestEntity.durationRequiredTom }}">{{ fieldTestEntity.durationRequiredTom | duration }}</td>
+              <td>{{ fieldTestEntity.booleanTom }}</td>
+              <td>{{ fieldTestEntity.booleanRequiredTom }}</td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestEntity.enumTom ?? 'null')">
+                {{
+                  { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                    fieldTestEntity.enumTom ?? 'null'
+                  ]
+                }}
+              </td>
+              <td [jhiTranslate]="'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestEntity.enumRequiredTom ?? 'null')">
+                {{
+                  { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                    fieldTestEntity.enumRequiredTom ?? 'null'
+                  ]
+                }}
+              </td>
+              <td>{{ fieldTestEntity.uuidTom }}</td>
+              <td>{{ fieldTestEntity.uuidRequiredTom }}</td>
+              <td>
+                @if (fieldTestEntity.byteImageTom) {
+                  <a (click)="openFile(fieldTestEntity.byteImageTom, fieldTestEntity.byteImageTomContentType)">
+                    <img
+                      [src]="'data:' + fieldTestEntity.byteImageTomContentType + ';base64,' + fieldTestEntity.byteImageTom"
+                      style="max-height: 30px"
+                      alt="fieldTestEntity"
+                    />
+                  </a>
+                  <span>{{ fieldTestEntity.byteImageTomContentType }}, {{ byteSize(fieldTestEntity.byteImageTom) }}</span>
+                }
+              </td>
+              <td>
+                @if (fieldTestEntity.byteImageRequiredTom) {
+                  <a (click)="openFile(fieldTestEntity.byteImageRequiredTom, fieldTestEntity.byteImageRequiredTomContentType)">
+                    <img
+                      [src]="'data:' + fieldTestEntity.byteImageRequiredTomContentType + ';base64,' + fieldTestEntity.byteImageRequiredTom"
+                      style="max-height: 30px"
+                      alt="fieldTestEntity"
+                    />
+                  </a>
+                  <span>{{ fieldTestEntity.byteImageRequiredTomContentType }}, {{ byteSize(fieldTestEntity.byteImageRequiredTom) }}</span>
+                }
+              </td>
+              <td>
+                @if (fieldTestEntity.byteImageMinbytesTom) {
+                  <a (click)="openFile(fieldTestEntity.byteImageMinbytesTom, fieldTestEntity.byteImageMinbytesTomContentType)">
+                    <img
+                      [src]="'data:' + fieldTestEntity.byteImageMinbytesTomContentType + ';base64,' + fieldTestEntity.byteImageMinbytesTom"
+                      style="max-height: 30px"
+                      alt="fieldTestEntity"
+                    />
+                  </a>
+                  <span>{{ fieldTestEntity.byteImageMinbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteImageMinbytesTom) }}</span>
+                }
+              </td>
+              <td>
+                @if (fieldTestEntity.byteImageMaxbytesTom) {
+                  <a (click)="openFile(fieldTestEntity.byteImageMaxbytesTom, fieldTestEntity.byteImageMaxbytesTomContentType)">
+                    <img
+                      [src]="'data:' + fieldTestEntity.byteImageMaxbytesTomContentType + ';base64,' + fieldTestEntity.byteImageMaxbytesTom"
+                      style="max-height: 30px"
+                      alt="fieldTestEntity"
+                    />
+                  </a>
+                  <span>{{ fieldTestEntity.byteImageMaxbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteImageMaxbytesTom) }}</span>
+                }
+              </td>
+              <td>
+                @if (fieldTestEntity.byteAnyTom) {
+                  <a (click)="openFile(fieldTestEntity.byteAnyTom, fieldTestEntity.byteAnyTomContentType)" jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span>{{ fieldTestEntity.byteAnyTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyTom) }}</span>
+                }
+              </td>
+              <td>
+                @if (fieldTestEntity.byteAnyRequiredTom) {
+                  <a
+                    (click)="openFile(fieldTestEntity.byteAnyRequiredTom, fieldTestEntity.byteAnyRequiredTomContentType)"
+                    jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span>{{ fieldTestEntity.byteAnyRequiredTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyRequiredTom) }}</span>
+                }
+              </td>
+              <td>
+                @if (fieldTestEntity.byteAnyMinbytesTom) {
+                  <a
+                    (click)="openFile(fieldTestEntity.byteAnyMinbytesTom, fieldTestEntity.byteAnyMinbytesTomContentType)"
+                    jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span>{{ fieldTestEntity.byteAnyMinbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyMinbytesTom) }}</span>
+                }
+              </td>
+              <td>
+                @if (fieldTestEntity.byteAnyMaxbytesTom) {
+                  <a
+                    (click)="openFile(fieldTestEntity.byteAnyMaxbytesTom, fieldTestEntity.byteAnyMaxbytesTomContentType)"
+                    jhiTranslate="entity.action.open"
+                    >Open</a
+                  >
+                  <span>{{ fieldTestEntity.byteAnyMaxbytesTomContentType }}, {{ byteSize(fieldTestEntity.byteAnyMaxbytesTom) }}</span>
+                }
+              </td>
+              <td>{{ fieldTestEntity.byteTextTom }}</td>
+              <td>{{ fieldTestEntity.byteTextRequiredTom }}</td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/field-test-entity', fieldTestEntity.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/field-test-entity', fieldTestEntity.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(fieldTestEntity)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

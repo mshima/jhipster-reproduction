@@ -1,0 +1,1512 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-field-test-mapstruct-and-service-class-entity-heading"
+        data-cy="FieldTestMapstructAndServiceClassEntityCreateUpdateHeading"
+        jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.home.createOrEditLabel"
+      >
+        Create or edit a Field Test Mapstruct And Service Class Entity
+      </h2>
+
+      <div>
+        <jhi-alert-error />
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="global.field.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringEva"
+            >String Eva</label
+          >
+          <input type="text" class="form-control" name="stringEva" id="field_stringEva" data-cy="stringEva" formControlName="stringEva" />
+        </div>
+
+        @let stringRequiredEvaRef = editForm.get('stringRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringRequiredEva"
+            >String Required Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringRequiredEva"
+            id="field_stringRequiredEva"
+            data-cy="stringRequiredEva"
+            formControlName="stringRequiredEva"
+          />
+          @if (stringRequiredEvaRef.invalid && (stringRequiredEvaRef.dirty || stringRequiredEvaRef.touched)) {
+            <div>
+              @if (stringRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMinlengthEvaRef = editForm.get('stringMinlengthEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMinlengthEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringMinlengthEva"
+            >String Minlength Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMinlengthEva"
+            id="field_stringMinlengthEva"
+            data-cy="stringMinlengthEva"
+            formControlName="stringMinlengthEva"
+          />
+          @if (stringMinlengthEvaRef.invalid && (stringMinlengthEvaRef.dirty || stringMinlengthEvaRef.touched)) {
+            <div>
+              @if (stringMinlengthEvaRef.errors?.minlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.minlength" [translateValues]="{ min: '0' }"
+                  >This field is required to be at least 0 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringMaxlengthEvaRef = editForm.get('stringMaxlengthEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringMaxlengthEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringMaxlengthEva"
+            >String Maxlength Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringMaxlengthEva"
+            id="field_stringMaxlengthEva"
+            data-cy="stringMaxlengthEva"
+            formControlName="stringMaxlengthEva"
+          />
+          @if (stringMaxlengthEvaRef.invalid && (stringMaxlengthEvaRef.dirty || stringMaxlengthEvaRef.touched)) {
+            <div>
+              @if (stringMaxlengthEvaRef.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '20' }"
+                  >This field cannot be longer than 20 characters.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let stringPatternEvaRef = editForm.get('stringPatternEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_stringPatternEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.stringPatternEva"
+            >String Pattern Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="stringPatternEva"
+            id="field_stringPatternEva"
+            data-cy="stringPatternEva"
+            formControlName="stringPatternEva"
+          />
+          @if (stringPatternEvaRef.invalid && (stringPatternEvaRef.dirty || stringPatternEvaRef.touched)) {
+            <div>
+              @if (stringPatternEvaRef.errors?.pattern) {
+                <small
+                  class="form-text text-danger"
+                  jhiTranslate="entity.validation.pattern"
+                  [translateValues]="{ pattern: 'String Pattern Eva' }"
+                  >This field should follow pattern for String Pattern Eva.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerEva"
+            >Integer Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerEva"
+            id="field_integerEva"
+            data-cy="integerEva"
+            formControlName="integerEva"
+          />
+        </div>
+
+        @let integerRequiredEvaRef = editForm.get('integerRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerRequiredEva"
+            >Integer Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerRequiredEva"
+            id="field_integerRequiredEva"
+            data-cy="integerRequiredEva"
+            formControlName="integerRequiredEva"
+          />
+          @if (integerRequiredEvaRef.invalid && (integerRequiredEvaRef.dirty || integerRequiredEvaRef.touched)) {
+            <div>
+              @if (integerRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!integerRequiredEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMinEvaRef = editForm.get('integerMinEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMinEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerMinEva"
+            >Integer Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMinEva"
+            id="field_integerMinEva"
+            data-cy="integerMinEva"
+            formControlName="integerMinEva"
+          />
+          @if (integerMinEvaRef.invalid && (integerMinEvaRef.dirty || integerMinEvaRef.touched)) {
+            <div>
+              @if (integerMinEvaRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMinEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let integerMaxEvaRef = editForm.get('integerMaxEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_integerMaxEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.integerMaxEva"
+            >Integer Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="integerMaxEva"
+            id="field_integerMaxEva"
+            data-cy="integerMaxEva"
+            formControlName="integerMaxEva"
+          />
+          @if (integerMaxEvaRef.invalid && (integerMaxEvaRef.dirty || integerMaxEvaRef.touched)) {
+            <div>
+              @if (integerMaxEvaRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!integerMaxEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_longEva" jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longEva"
+            >Long Eva</label
+          >
+          <input type="number" class="form-control" name="longEva" id="field_longEva" data-cy="longEva" formControlName="longEva" />
+        </div>
+
+        @let longRequiredEvaRef = editForm.get('longRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longRequiredEva"
+            >Long Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longRequiredEva"
+            id="field_longRequiredEva"
+            data-cy="longRequiredEva"
+            formControlName="longRequiredEva"
+          />
+          @if (longRequiredEvaRef.invalid && (longRequiredEvaRef.dirty || longRequiredEvaRef.touched)) {
+            <div>
+              @if (longRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!longRequiredEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMinEvaRef = editForm.get('longMinEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longMinEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longMinEva"
+            >Long Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMinEva"
+            id="field_longMinEva"
+            data-cy="longMinEva"
+            formControlName="longMinEva"
+          />
+          @if (longMinEvaRef.invalid && (longMinEvaRef.dirty || longMinEvaRef.touched)) {
+            <div>
+              @if (longMinEvaRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMinEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let longMaxEvaRef = editForm.get('longMaxEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_longMaxEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.longMaxEva"
+            >Long Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="longMaxEva"
+            id="field_longMaxEva"
+            data-cy="longMaxEva"
+            formControlName="longMaxEva"
+          />
+          @if (longMaxEvaRef.invalid && (longMaxEvaRef.dirty || longMaxEvaRef.touched)) {
+            <div>
+              @if (longMaxEvaRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!longMaxEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatEva"
+            >Float Eva</label
+          >
+          <input type="number" class="form-control" name="floatEva" id="field_floatEva" data-cy="floatEva" formControlName="floatEva" />
+        </div>
+
+        @let floatRequiredEvaRef = editForm.get('floatRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatRequiredEva"
+            >Float Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatRequiredEva"
+            id="field_floatRequiredEva"
+            data-cy="floatRequiredEva"
+            formControlName="floatRequiredEva"
+          />
+          @if (floatRequiredEvaRef.invalid && (floatRequiredEvaRef.dirty || floatRequiredEvaRef.touched)) {
+            <div>
+              @if (floatRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!floatRequiredEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMinEvaRef = editForm.get('floatMinEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatMinEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatMinEva"
+            >Float Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMinEva"
+            id="field_floatMinEva"
+            data-cy="floatMinEva"
+            formControlName="floatMinEva"
+          />
+          @if (floatMinEvaRef.invalid && (floatMinEvaRef.dirty || floatMinEvaRef.touched)) {
+            <div>
+              @if (floatMinEvaRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMinEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let floatMaxEvaRef = editForm.get('floatMaxEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_floatMaxEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.floatMaxEva"
+            >Float Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="floatMaxEva"
+            id="field_floatMaxEva"
+            data-cy="floatMaxEva"
+            formControlName="floatMaxEva"
+          />
+          @if (floatMaxEvaRef.invalid && (floatMaxEvaRef.dirty || floatMaxEvaRef.touched)) {
+            <div>
+              @if (floatMaxEvaRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!floatMaxEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleRequiredEvaRef = editForm.get('doubleRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleRequiredEva"
+            >Double Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleRequiredEva"
+            id="field_doubleRequiredEva"
+            data-cy="doubleRequiredEva"
+            formControlName="doubleRequiredEva"
+          />
+          @if (doubleRequiredEvaRef.invalid && (doubleRequiredEvaRef.dirty || doubleRequiredEvaRef.touched)) {
+            <div>
+              @if (doubleRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!doubleRequiredEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMinEvaRef = editForm.get('doubleMinEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleMinEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleMinEva"
+            >Double Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMinEva"
+            id="field_doubleMinEva"
+            data-cy="doubleMinEva"
+            formControlName="doubleMinEva"
+          />
+          @if (doubleMinEvaRef.invalid && (doubleMinEvaRef.dirty || doubleMinEvaRef.touched)) {
+            <div>
+              @if (doubleMinEvaRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMinEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let doubleMaxEvaRef = editForm.get('doubleMaxEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_doubleMaxEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.doubleMaxEva"
+            >Double Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="doubleMaxEva"
+            id="field_doubleMaxEva"
+            data-cy="doubleMaxEva"
+            formControlName="doubleMaxEva"
+          />
+          @if (doubleMaxEvaRef.invalid && (doubleMaxEvaRef.dirty || doubleMaxEvaRef.touched)) {
+            <div>
+              @if (doubleMaxEvaRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!doubleMaxEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalRequiredEvaRef = editForm.get('bigDecimalRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalRequiredEva"
+            >Big Decimal Required Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalRequiredEva"
+            id="field_bigDecimalRequiredEva"
+            data-cy="bigDecimalRequiredEva"
+            formControlName="bigDecimalRequiredEva"
+          />
+          @if (bigDecimalRequiredEvaRef.invalid && (bigDecimalRequiredEvaRef.dirty || bigDecimalRequiredEvaRef.touched)) {
+            <div>
+              @if (bigDecimalRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!bigDecimalRequiredEvaRef.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMinEvaRef = editForm.get('bigDecimalMinEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMinEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalMinEva"
+            >Big Decimal Min Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMinEva"
+            id="field_bigDecimalMinEva"
+            data-cy="bigDecimalMinEva"
+            formControlName="bigDecimalMinEva"
+          />
+          @if (bigDecimalMinEvaRef.invalid && (bigDecimalMinEvaRef.dirty || bigDecimalMinEvaRef.touched)) {
+            <div>
+              @if (bigDecimalMinEvaRef.errors?.min) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.min" [translateValues]="{ min: '0' }"
+                  >This field should be at least 0.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMinEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let bigDecimalMaxEvaRef = editForm.get('bigDecimalMaxEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_bigDecimalMaxEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.bigDecimalMaxEva"
+            >Big Decimal Max Eva</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="bigDecimalMaxEva"
+            id="field_bigDecimalMaxEva"
+            data-cy="bigDecimalMaxEva"
+            formControlName="bigDecimalMaxEva"
+          />
+          @if (bigDecimalMaxEvaRef.invalid && (bigDecimalMaxEvaRef.dirty || bigDecimalMaxEvaRef.touched)) {
+            <div>
+              @if (bigDecimalMaxEvaRef.errors?.max) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.max" [translateValues]="{ max: '100' }"
+                  >This field cannot be more than 100.</small
+                >
+              }
+              <small class="form-text text-danger" [hidden]="!bigDecimalMaxEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localDateEva"
+            >Local Date Eva</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateEva"
+              data-cy="localDateEva"
+              type="text"
+              class="form-control"
+              name="localDateEva"
+              ngbDatepicker
+              #localDateEvaDp="ngbDatepicker"
+              formControlName="localDateEva"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateEvaDp.toggle()"><fa-icon icon="calendar-alt" /></button>
+          </div>
+        </div>
+
+        @let localDateRequiredEvaRef = editForm.get('localDateRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localDateRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localDateRequiredEva"
+            >Local Date Required Eva</label
+          >
+          <div class="input-group">
+            <input
+              id="field_localDateRequiredEva"
+              data-cy="localDateRequiredEva"
+              type="text"
+              class="form-control"
+              name="localDateRequiredEva"
+              ngbDatepicker
+              #localDateRequiredEvaDp="ngbDatepicker"
+              formControlName="localDateRequiredEva"
+            />
+            <button type="button" class="btn btn-secondary" (click)="localDateRequiredEvaDp.toggle()">
+              <fa-icon icon="calendar-alt" />
+            </button>
+          </div>
+          @if (localDateRequiredEvaRef.invalid && (localDateRequiredEvaRef.dirty || localDateRequiredEvaRef.touched)) {
+            <div>
+              @if (localDateRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_instantEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.instantEva"
+            >Instant Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instantEva"
+              data-cy="instantEva"
+              type="datetime-local"
+              class="form-control"
+              name="instantEva"
+              formControlName="instantEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let instanteRequiredEvaRef = editForm.get('instanteRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_instanteRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.instanteRequiredEva"
+            >Instante Required Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_instanteRequiredEva"
+              data-cy="instanteRequiredEva"
+              type="datetime-local"
+              class="form-control"
+              name="instanteRequiredEva"
+              formControlName="instanteRequiredEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (instanteRequiredEvaRef.invalid && (instanteRequiredEvaRef.dirty || instanteRequiredEvaRef.touched)) {
+            <div>
+              @if (instanteRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!instanteRequiredEvaRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.zonedDateTimeEva"
+            >Zoned Date Time Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeEva"
+              data-cy="zonedDateTimeEva"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeEva"
+              formControlName="zonedDateTimeEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        @let zonedDateTimeRequiredEvaRef = editForm.get('zonedDateTimeRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_zonedDateTimeRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.zonedDateTimeRequiredEva"
+            >Zoned Date Time Required Eva</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_zonedDateTimeRequiredEva"
+              data-cy="zonedDateTimeRequiredEva"
+              type="datetime-local"
+              class="form-control"
+              name="zonedDateTimeRequiredEva"
+              formControlName="zonedDateTimeRequiredEva"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          @if (zonedDateTimeRequiredEvaRef.invalid && (zonedDateTimeRequiredEvaRef.dirty || zonedDateTimeRequiredEvaRef.touched)) {
+            <div>
+              @if (zonedDateTimeRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!zonedDateTimeRequiredEvaRef.errors?.datetimelocal"
+                jhiTranslate="entity.validation.datetimelocal"
+                >This field should be a date and time.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localTimeEva"
+            >Local Time Eva</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeEva"
+            id="field_localTimeEva"
+            data-cy="localTimeEva"
+            formControlName="localTimeEva"
+          />
+        </div>
+
+        @let localTimeRequiredEvaRef = editForm.get('localTimeRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_localTimeRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.localTimeRequiredEva"
+            >Local Time Required Eva</label
+          >
+          <input
+            type="time"
+            class="form-control"
+            name="localTimeRequiredEva"
+            id="field_localTimeRequiredEva"
+            data-cy="localTimeRequiredEva"
+            formControlName="localTimeRequiredEva"
+          />
+          @if (localTimeRequiredEvaRef.invalid && (localTimeRequiredEvaRef.dirty || localTimeRequiredEvaRef.touched)) {
+            <div>
+              @if (localTimeRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_durationEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.durationEva"
+            >Duration Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationEva"
+            id="field_durationEva"
+            data-cy="durationEva"
+            formControlName="durationEva"
+          />
+        </div>
+
+        @let durationRequiredEvaRef = editForm.get('durationRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_durationRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.durationRequiredEva"
+            >Duration Required Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="durationRequiredEva"
+            id="field_durationRequiredEva"
+            data-cy="durationRequiredEva"
+            formControlName="durationRequiredEva"
+          />
+          @if (durationRequiredEvaRef.invalid && (durationRequiredEvaRef.dirty || durationRequiredEvaRef.touched)) {
+            <div>
+              @if (durationRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+              <small class="form-text text-danger" [hidden]="!durationRequiredEvaRef.errors?.number" jhiTranslate="entity.validation.number"
+                >This field should be a number.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_booleanEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.booleanEva"
+            >Boolean Eva</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanEva"
+            id="field_booleanEva"
+            data-cy="booleanEva"
+            formControlName="booleanEva"
+          />
+        </div>
+
+        @let booleanRequiredEvaRef = editForm.get('booleanRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_booleanRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.booleanRequiredEva"
+            >Boolean Required Eva</label
+          >
+          <input
+            type="checkbox"
+            class="form-check"
+            name="booleanRequiredEva"
+            id="field_booleanRequiredEva"
+            data-cy="booleanRequiredEva"
+            formControlName="booleanRequiredEva"
+          />
+          @if (booleanRequiredEvaRef.invalid && (booleanRequiredEvaRef.dirty || booleanRequiredEvaRef.touched)) {
+            <div>
+              @if (booleanRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_enumEva" jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.enumEva"
+            >Enum Eva</label
+          >
+          <select class="form-control" name="enumEva" formControlName="enumEva" id="field_enumEva" data-cy="enumEva">
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.null' | translate }}</option>
+            @for (enumFieldClass of enumFieldClassValues; track $index) {
+              <option [value]="enumFieldClass">{{ 'sampleWebfluxPsqlApp.EnumFieldClass.' + enumFieldClass | translate }}</option>
+            }
+          </select>
+        </div>
+
+        @let enumRequiredEvaRef = editForm.get('enumRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_enumRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.enumRequiredEva"
+            >Enum Required Eva</label
+          >
+          <select
+            class="form-control"
+            name="enumRequiredEva"
+            formControlName="enumRequiredEva"
+            id="field_enumRequiredEva"
+            data-cy="enumRequiredEva"
+          >
+            <option [ngValue]="null">{{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.null' | translate }}</option>
+            @for (enumRequiredFieldClass of enumRequiredFieldClassValues; track $index) {
+              <option [value]="enumRequiredFieldClass">
+                {{ 'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + enumRequiredFieldClass | translate }}
+              </option>
+            }
+          </select>
+          @if (enumRequiredEvaRef.invalid && (enumRequiredEvaRef.dirty || enumRequiredEvaRef.touched)) {
+            <div>
+              @if (enumRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_uuidEva" jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.uuidEva"
+            >Uuid Eva</label
+          >
+          <input type="text" class="form-control" name="uuidEva" id="field_uuidEva" data-cy="uuidEva" formControlName="uuidEva" />
+        </div>
+
+        @let uuidRequiredEvaRef = editForm.get('uuidRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_uuidRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.uuidRequiredEva"
+            >Uuid Required Eva</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="uuidRequiredEva"
+            id="field_uuidRequiredEva"
+            data-cy="uuidRequiredEva"
+            formControlName="uuidRequiredEva"
+          />
+          @if (uuidRequiredEvaRef.invalid && (uuidRequiredEvaRef.dirty || uuidRequiredEvaRef.touched)) {
+            <div>
+              @if (uuidRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageEvaRef = editForm.get('byteImageEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageEva"
+            >Byte Image Eva</label
+          >
+          <div>
+            @if (byteImageEvaRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageEvaContentType')!.value + ';base64,' + byteImageEvaRef.value"
+                style="max-height: 100px"
+                alt="fieldTestMapstructAndServiceClassEntity"
+              />
+            }
+            @if (byteImageEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start">{{ editForm.get('byteImageEvaContentType')!.value }}, {{ byteSize(byteImageEvaRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageEva', 'byteImageEvaContentType', 'file_byteImageEva')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageEva"
+              data-cy="byteImageEva"
+              (change)="setFileData($event, 'byteImageEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageEva"
+            id="field_byteImageEva"
+            data-cy="byteImageEva"
+            formControlName="byteImageEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageEvaContentType"
+            id="field_byteImageEvaContentType"
+            formControlName="byteImageEvaContentType"
+          />
+        </div>
+
+        @let byteImageRequiredEvaRef = editForm.get('byteImageRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageRequiredEva"
+            >Byte Image Required Eva</label
+          >
+          <div>
+            @if (byteImageRequiredEvaRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageRequiredEvaContentType')!.value + ';base64,' + byteImageRequiredEvaRef.value"
+                style="max-height: 100px"
+                alt="fieldTestMapstructAndServiceClassEntity"
+              />
+            }
+            @if (byteImageRequiredEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageRequiredEvaContentType')!.value }}, {{ byteSize(byteImageRequiredEvaRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageRequiredEva', 'byteImageRequiredEvaContentType', 'file_byteImageRequiredEva')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageRequiredEva"
+              data-cy="byteImageRequiredEva"
+              (change)="setFileData($event, 'byteImageRequiredEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Required Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredEva"
+            id="field_byteImageRequiredEva"
+            data-cy="byteImageRequiredEva"
+            formControlName="byteImageRequiredEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageRequiredEvaContentType"
+            id="field_byteImageRequiredEvaContentType"
+            formControlName="byteImageRequiredEvaContentType"
+          />
+          @if (byteImageRequiredEvaRef.invalid && (byteImageRequiredEvaRef.dirty || byteImageRequiredEvaRef.touched)) {
+            <div>
+              @if (byteImageRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteImageMinbytesEvaRef = editForm.get('byteImageMinbytesEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMinbytesEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageMinbytesEva"
+            >Byte Image Minbytes Eva</label
+          >
+          <div>
+            @if (byteImageMinbytesEvaRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMinbytesEvaContentType')!.value + ';base64,' + byteImageMinbytesEvaRef.value"
+                style="max-height: 100px"
+                alt="fieldTestMapstructAndServiceClassEntity"
+              />
+            }
+            @if (byteImageMinbytesEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMinbytesEvaContentType')!.value }}, {{ byteSize(byteImageMinbytesEvaRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMinbytesEva', 'byteImageMinbytesEvaContentType', 'file_byteImageMinbytesEva')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMinbytesEva"
+              data-cy="byteImageMinbytesEva"
+              (change)="setFileData($event, 'byteImageMinbytesEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Minbytes Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesEva"
+            id="field_byteImageMinbytesEva"
+            data-cy="byteImageMinbytesEva"
+            formControlName="byteImageMinbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMinbytesEvaContentType"
+            id="field_byteImageMinbytesEvaContentType"
+            formControlName="byteImageMinbytesEvaContentType"
+          />
+          @if (byteImageMinbytesEvaRef.invalid && (byteImageMinbytesEvaRef.dirty || byteImageMinbytesEvaRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteImageMaxbytesEvaRef = editForm.get('byteImageMaxbytesEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteImageMaxbytesEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteImageMaxbytesEva"
+            >Byte Image Maxbytes Eva</label
+          >
+          <div>
+            @if (byteImageMaxbytesEvaRef.value) {
+              <img
+                [src]="'data:' + editForm.get('byteImageMaxbytesEvaContentType')!.value + ';base64,' + byteImageMaxbytesEvaRef.value"
+                style="max-height: 100px"
+                alt="fieldTestMapstructAndServiceClassEntity"
+              />
+            }
+            @if (byteImageMaxbytesEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <span class="pull-start"
+                  >{{ editForm.get('byteImageMaxbytesEvaContentType')!.value }}, {{ byteSize(byteImageMaxbytesEvaRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="clearInputImage('byteImageMaxbytesEva', 'byteImageMaxbytesEvaContentType', 'file_byteImageMaxbytesEva')"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteImageMaxbytesEva"
+              data-cy="byteImageMaxbytesEva"
+              (change)="setFileData($event, 'byteImageMaxbytesEva', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+              aria-label="Byte Image Maxbytes Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesEva"
+            id="field_byteImageMaxbytesEva"
+            data-cy="byteImageMaxbytesEva"
+            formControlName="byteImageMaxbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteImageMaxbytesEvaContentType"
+            id="field_byteImageMaxbytesEvaContentType"
+            formControlName="byteImageMaxbytesEvaContentType"
+          />
+          @if (byteImageMaxbytesEvaRef.invalid && (byteImageMaxbytesEvaRef.dirty || byteImageMaxbytesEvaRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyEvaRef = editForm.get('byteAnyEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyEva"
+            >Byte Any Eva</label
+          >
+          <div>
+            @if (byteAnyEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyEvaRef.value!, editForm.get('byteAnyEvaContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start">{{ editForm.get('byteAnyEvaContentType')!.value }}, {{ byteSize(byteAnyEvaRef.value!) }}</span>
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyEva: undefined, byteAnyEvaContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyEva"
+              data-cy="byteAnyEva"
+              (change)="setFileData($event, 'byteAnyEva', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyEva"
+            id="field_byteAnyEva"
+            data-cy="byteAnyEva"
+            formControlName="byteAnyEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyEvaContentType"
+            id="field_byteAnyEvaContentType"
+            formControlName="byteAnyEvaContentType"
+          />
+        </div>
+
+        @let byteAnyRequiredEvaRef = editForm.get('byteAnyRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyRequiredEva"
+            >Byte Any Required Eva</label
+          >
+          <div>
+            @if (byteAnyRequiredEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyRequiredEvaRef.value!, editForm.get('byteAnyRequiredEvaContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyRequiredEvaContentType')!.value }}, {{ byteSize(byteAnyRequiredEvaRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyRequiredEva: undefined, byteAnyRequiredEvaContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyRequiredEva"
+              data-cy="byteAnyRequiredEva"
+              (change)="setFileData($event, 'byteAnyRequiredEva', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Required Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredEva"
+            id="field_byteAnyRequiredEva"
+            data-cy="byteAnyRequiredEva"
+            formControlName="byteAnyRequiredEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyRequiredEvaContentType"
+            id="field_byteAnyRequiredEvaContentType"
+            formControlName="byteAnyRequiredEvaContentType"
+          />
+          @if (byteAnyRequiredEvaRef.invalid && (byteAnyRequiredEvaRef.dirty || byteAnyRequiredEvaRef.touched)) {
+            <div>
+              @if (byteAnyRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+
+        @let byteAnyMinbytesEvaRef = editForm.get('byteAnyMinbytesEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMinbytesEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyMinbytesEva"
+            >Byte Any Minbytes Eva</label
+          >
+          <div>
+            @if (byteAnyMinbytesEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMinbytesEvaRef.value!, editForm.get('byteAnyMinbytesEvaContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMinbytesEvaContentType')!.value }}, {{ byteSize(byteAnyMinbytesEvaRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMinbytesEva: undefined, byteAnyMinbytesEvaContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMinbytesEva"
+              data-cy="byteAnyMinbytesEva"
+              (change)="setFileData($event, 'byteAnyMinbytesEva', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Minbytes Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesEva"
+            id="field_byteAnyMinbytesEva"
+            data-cy="byteAnyMinbytesEva"
+            formControlName="byteAnyMinbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMinbytesEvaContentType"
+            id="field_byteAnyMinbytesEvaContentType"
+            formControlName="byteAnyMinbytesEvaContentType"
+          />
+          @if (byteAnyMinbytesEvaRef.invalid && (byteAnyMinbytesEvaRef.dirty || byteAnyMinbytesEvaRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        @let byteAnyMaxbytesEvaRef = editForm.get('byteAnyMaxbytesEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteAnyMaxbytesEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteAnyMaxbytesEva"
+            >Byte Any Maxbytes Eva</label
+          >
+          <div>
+            @if (byteAnyMaxbytesEvaRef.value) {
+              <div class="form-text text-danger clearfix">
+                <a
+                  class="pull-start"
+                  (click)="openFile(byteAnyMaxbytesEvaRef.value!, editForm.get('byteAnyMaxbytesEvaContentType')!.value!)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                ><br />
+                <span class="pull-start"
+                  >{{ editForm.get('byteAnyMaxbytesEvaContentType')!.value }}, {{ byteSize(byteAnyMaxbytesEvaRef.value!) }}</span
+                >
+                <button
+                  type="button"
+                  (click)="editForm.patchValue({ byteAnyMaxbytesEva: undefined, byteAnyMaxbytesEvaContentType: undefined })"
+                  class="btn btn-secondary btn-xs pull-end"
+                >
+                  <fa-icon icon="times" />
+                </button>
+              </div>
+            }
+            <input
+              type="file"
+              id="file_byteAnyMaxbytesEva"
+              data-cy="byteAnyMaxbytesEva"
+              (change)="setFileData($event, 'byteAnyMaxbytesEva', false)"
+              jhiTranslate="entity.action.addblob"
+              aria-label="Byte Any Maxbytes Eva"
+            />
+          </div>
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesEva"
+            id="field_byteAnyMaxbytesEva"
+            data-cy="byteAnyMaxbytesEva"
+            formControlName="byteAnyMaxbytesEva"
+          />
+          <input
+            type="hidden"
+            class="form-control"
+            name="byteAnyMaxbytesEvaContentType"
+            id="field_byteAnyMaxbytesEvaContentType"
+            formControlName="byteAnyMaxbytesEvaContentType"
+          />
+          @if (byteAnyMaxbytesEvaRef.invalid && (byteAnyMaxbytesEvaRef.dirty || byteAnyMaxbytesEvaRef.touched)) {
+            <div></div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteTextEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteTextEva"
+            >Byte Text Eva</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextEva"
+            id="field_byteTextEva"
+            data-cy="byteTextEva"
+            formControlName="byteTextEva"
+          ></textarea>
+        </div>
+
+        @let byteTextRequiredEvaRef = editForm.get('byteTextRequiredEva')!;
+        <div class="mb-3">
+          <label
+            class="form-label"
+            for="field_byteTextRequiredEva"
+            jhiTranslate="sampleWebfluxPsqlApp.fieldTestMapstructAndServiceClassEntity.byteTextRequiredEva"
+            >Byte Text Required Eva</label
+          >
+          <textarea
+            class="form-control"
+            name="byteTextRequiredEva"
+            id="field_byteTextRequiredEva"
+            data-cy="byteTextRequiredEva"
+            formControlName="byteTextRequiredEva"
+          ></textarea>
+          @if (byteTextRequiredEvaRef.invalid && (byteTextRequiredEvaRef.dirty || byteTextRequiredEvaRef.touched)) {
+            <div>
+              @if (byteTextRequiredEvaRef.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">This field is required.</small>
+              }
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban" />&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving()"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save" />&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

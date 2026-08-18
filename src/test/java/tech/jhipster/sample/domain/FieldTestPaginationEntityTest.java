@@ -1,0 +1,24 @@
+package tech.jhipster.sample.domain;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static tech.jhipster.sample.domain.FieldTestPaginationEntityTestSamples.*;
+
+import org.junit.jupiter.api.Test;
+import tech.jhipster.sample.web.rest.TestUtil;
+
+class FieldTestPaginationEntityTest {
+
+    @Test
+    void equalsVerifier() throws Exception {
+        TestUtil.equalsVerifier(FieldTestPaginationEntity.class);
+        FieldTestPaginationEntity fieldTestPaginationEntity1 = getFieldTestPaginationEntitySample1();
+        FieldTestPaginationEntity fieldTestPaginationEntity2 = new FieldTestPaginationEntity();
+        assertThat(fieldTestPaginationEntity1).isNotEqualTo(fieldTestPaginationEntity2);
+
+        fieldTestPaginationEntity2.setId(fieldTestPaginationEntity1.getId());
+        assertThat(fieldTestPaginationEntity1).isEqualTo(fieldTestPaginationEntity2);
+
+        fieldTestPaginationEntity2 = getFieldTestPaginationEntitySample2();
+        assertThat(fieldTestPaginationEntity1).isNotEqualTo(fieldTestPaginationEntity2);
+    }
+}

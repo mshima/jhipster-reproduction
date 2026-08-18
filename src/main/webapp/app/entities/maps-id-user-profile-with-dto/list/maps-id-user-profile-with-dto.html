@@ -1,0 +1,110 @@
+<div>
+  <h2 id="page-heading" data-cy="MapsIdUserProfileWithDTOHeading">
+    <span jhiTranslate="sampleWebfluxPsqlApp.mapsIdUserProfileWithDTO.home.title">Maps Id User Profile With DTOS</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading()">
+        <fa-icon icon="sync" [animation]="isLoading() ? 'spin' : undefined" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.mapsIdUserProfileWithDTO.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-maps-id-user-profile-with-dto"
+        [routerLink]="['/maps-id-user-profile-with-dto/new']"
+      >
+        <fa-icon icon="plus" />
+        <span jhiTranslate="sampleWebfluxPsqlApp.mapsIdUserProfileWithDTO.home.createLabel"
+          >Create a new Maps Id User Profile With DTO</span
+        >
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error />
+
+  <jhi-alert />
+
+  @if (mapsIdUserProfileWithDTOS().length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="sampleWebfluxPsqlApp.mapsIdUserProfileWithDTO.home.notFound">No Maps Id User Profile With DTOS found</span>
+    </div>
+  } @else {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [(sortState)]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="global.field.id">ID</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="dateOfBirth">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.mapsIdUserProfileWithDTO.dateOfBirth">Date Of Birth</span>
+
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="user.login">
+              <div class="d-flex">
+                <span jhiTranslate="sampleWebfluxPsqlApp.mapsIdUserProfileWithDTO.user">User</span>
+                <fa-icon class="p-1" icon="sort" />
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (mapsIdUserProfileWithDTO of mapsIdUserProfileWithDTOS(); track trackId(mapsIdUserProfileWithDTO)) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/maps-id-user-profile-with-dto', mapsIdUserProfileWithDTO.id, 'view']">{{
+                  mapsIdUserProfileWithDTO.id
+                }}</a>
+              </td>
+              <td>{{ mapsIdUserProfileWithDTO.dateOfBirth | formatMediumDatetime }}</td>
+              <td>
+                {{ mapsIdUserProfileWithDTO.user?.login }}
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a
+                    [routerLink]="['/maps-id-user-profile-with-dto', mapsIdUserProfileWithDTO.id, 'view']"
+                    class="btn btn-info btn-sm"
+                    data-cy="entityDetailsButton"
+                  >
+                    <fa-icon icon="eye" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                  </a>
+
+                  <a
+                    [routerLink]="['/maps-id-user-profile-with-dto', mapsIdUserProfileWithDTO.id, 'edit']"
+                    class="btn btn-primary btn-sm"
+                    data-cy="entityEditButton"
+                  >
+                    <fa-icon icon="pencil-alt" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                  </a>
+
+                  <button
+                    type="submit"
+                    (click)="delete(mapsIdUserProfileWithDTO)"
+                    class="btn btn-danger btn-sm"
+                    data-cy="entityDeleteButton"
+                  >
+                    <fa-icon icon="times" />
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

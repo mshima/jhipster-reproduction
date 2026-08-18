@@ -1,0 +1,405 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fieldTestServiceImplEntity(); as fieldTestServiceImplEntityRef) {
+      <div>
+        <h2 data-cy="fieldTestServiceImplEntityDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.detail.title">Field Test Service Impl Entity</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.stringMika">String Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.stringMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.stringRequiredMika">String Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.stringRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.stringMinlengthMika">String Minlength Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.stringMinlengthMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.stringMaxlengthMika">String Maxlength Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.stringMaxlengthMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.stringPatternMika">String Pattern Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.stringPatternMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.integerMika">Integer Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.integerMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.integerRequiredMika">Integer Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.integerRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.integerMinMika">Integer Min Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.integerMinMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.integerMaxMika">Integer Max Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.integerMaxMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.longMika">Long Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.longMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.longRequiredMika">Long Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.longRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.longMinMika">Long Min Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.longMinMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.longMaxMika">Long Max Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.longMaxMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.floatMika">Float Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.floatMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.floatRequiredMika">Float Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.floatRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.floatMinMika">Float Min Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.floatMinMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.floatMaxMika">Float Max Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.floatMaxMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.doubleRequiredMika">Double Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.doubleRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.doubleMinMika">Double Min Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.doubleMinMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.doubleMaxMika">Double Max Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.doubleMaxMika }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.bigDecimalRequiredMika">Big Decimal Required Mika</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.bigDecimalRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.bigDecimalMinMika">Big Decimal Min Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.bigDecimalMinMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.bigDecimalMaxMika">Big Decimal Max Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.bigDecimalMaxMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.localDateMika">Local Date Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.localDateMika | formatMediumDate }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.localDateRequiredMika">Local Date Required Mika</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.localDateRequiredMika | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.instantMika">Instant Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.instantMika | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.instanteRequiredMika">Instante Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.instanteRequiredMika | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.zonedDateTimeMika">Zoned Date Time Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.zonedDateTimeMika | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.zonedDateTimeRequiredMika"
+              >Zoned Date Time Required Mika</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.zonedDateTimeRequiredMika | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.localTimeMika">Local Time Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.localTimeMika }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.localTimeRequiredMika">Local Time Required Mika</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.localTimeRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.durationMika">Duration Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.durationMika | duration }} ({{ fieldTestServiceImplEntityRef.durationMika }})</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.durationRequiredMika">Duration Required Mika</span></dt>
+          <dd>
+            <span
+              >{{ fieldTestServiceImplEntityRef.durationRequiredMika | duration }} ({{
+                fieldTestServiceImplEntityRef.durationRequiredMika
+              }})</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.booleanMika">Boolean Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.booleanMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.booleanRequiredMika">Boolean Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.booleanRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.enumMika">Enum Mika</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestServiceImplEntityRef.enumMika ?? 'null')">{{
+              { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                fieldTestServiceImplEntityRef.enumMika ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.enumRequiredMika">Enum Required Mika</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestServiceImplEntityRef.enumRequiredMika ?? 'null')"
+              >{{
+                { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                  fieldTestServiceImplEntityRef.enumRequiredMika ?? 'null'
+                ]
+              }}</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.uuidMika">Uuid Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.uuidMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.uuidRequiredMika">Uuid Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.uuidRequiredMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteImageMika">Byte Image Mika</span></dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteImageMika) {
+              <div>
+                <a (click)="openFile(fieldTestServiceImplEntityRef.byteImageMika, fieldTestServiceImplEntityRef.byteImageMikaContentType)">
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceImplEntityRef.byteImageMikaContentType +
+                      ';base64,' +
+                      fieldTestServiceImplEntityRef.byteImageMika
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceImplEntity"
+                  />
+                </a>
+                {{ fieldTestServiceImplEntityRef.byteImageMikaContentType }}, {{ byteSize(fieldTestServiceImplEntityRef.byteImageMika) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteImageRequiredMika">Byte Image Required Mika</span>
+          </dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteImageRequiredMika) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceImplEntityRef.byteImageRequiredMika,
+                      fieldTestServiceImplEntityRef.byteImageRequiredMikaContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceImplEntityRef.byteImageRequiredMikaContentType +
+                      ';base64,' +
+                      fieldTestServiceImplEntityRef.byteImageRequiredMika
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceImplEntity"
+                  />
+                </a>
+                {{ fieldTestServiceImplEntityRef.byteImageRequiredMikaContentType }},
+                {{ byteSize(fieldTestServiceImplEntityRef.byteImageRequiredMika) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteImageMinbytesMika">Byte Image Minbytes Mika</span>
+          </dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteImageMinbytesMika) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceImplEntityRef.byteImageMinbytesMika,
+                      fieldTestServiceImplEntityRef.byteImageMinbytesMikaContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceImplEntityRef.byteImageMinbytesMikaContentType +
+                      ';base64,' +
+                      fieldTestServiceImplEntityRef.byteImageMinbytesMika
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceImplEntity"
+                  />
+                </a>
+                {{ fieldTestServiceImplEntityRef.byteImageMinbytesMikaContentType }},
+                {{ byteSize(fieldTestServiceImplEntityRef.byteImageMinbytesMika) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteImageMaxbytesMika">Byte Image Maxbytes Mika</span>
+          </dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteImageMaxbytesMika) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceImplEntityRef.byteImageMaxbytesMika,
+                      fieldTestServiceImplEntityRef.byteImageMaxbytesMikaContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestServiceImplEntityRef.byteImageMaxbytesMikaContentType +
+                      ';base64,' +
+                      fieldTestServiceImplEntityRef.byteImageMaxbytesMika
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestServiceImplEntity"
+                  />
+                </a>
+                {{ fieldTestServiceImplEntityRef.byteImageMaxbytesMikaContentType }},
+                {{ byteSize(fieldTestServiceImplEntityRef.byteImageMaxbytesMika) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteAnyMika">Byte Any Mika</span></dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteAnyMika) {
+              <div>
+                <a
+                  (click)="openFile(fieldTestServiceImplEntityRef.byteAnyMika, fieldTestServiceImplEntityRef.byteAnyMikaContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceImplEntityRef.byteAnyMikaContentType }}, {{ byteSize(fieldTestServiceImplEntityRef.byteAnyMika) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteAnyRequiredMika">Byte Any Required Mika</span></dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteAnyRequiredMika) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceImplEntityRef.byteAnyRequiredMika,
+                      fieldTestServiceImplEntityRef.byteAnyRequiredMikaContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceImplEntityRef.byteAnyRequiredMikaContentType }},
+                {{ byteSize(fieldTestServiceImplEntityRef.byteAnyRequiredMika) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteAnyMinbytesMika">Byte Any Minbytes Mika</span></dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteAnyMinbytesMika) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceImplEntityRef.byteAnyMinbytesMika,
+                      fieldTestServiceImplEntityRef.byteAnyMinbytesMikaContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceImplEntityRef.byteAnyMinbytesMikaContentType }},
+                {{ byteSize(fieldTestServiceImplEntityRef.byteAnyMinbytesMika) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteAnyMaxbytesMika">Byte Any Maxbytes Mika</span></dt>
+          <dd>
+            @if (fieldTestServiceImplEntityRef.byteAnyMaxbytesMika) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestServiceImplEntityRef.byteAnyMaxbytesMika,
+                      fieldTestServiceImplEntityRef.byteAnyMaxbytesMikaContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestServiceImplEntityRef.byteAnyMaxbytesMikaContentType }},
+                {{ byteSize(fieldTestServiceImplEntityRef.byteAnyMaxbytesMika) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteTextMika">Byte Text Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.byteTextMika }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestServiceImplEntity.byteTextRequiredMika">Byte Text Required Mika</span></dt>
+          <dd>
+            <span>{{ fieldTestServiceImplEntityRef.byteTextRequiredMika }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/field-test-service-impl-entity', fieldTestServiceImplEntityRef.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

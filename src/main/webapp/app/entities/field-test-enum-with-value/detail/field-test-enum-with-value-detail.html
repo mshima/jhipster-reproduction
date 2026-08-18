@@ -1,0 +1,62 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fieldTestEnumWithValue(); as fieldTestEnumWithValueRef) {
+      <div>
+        <h2 data-cy="fieldTestEnumWithValueDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.detail.title">Field Test Enum With Value</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fieldTestEnumWithValueRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldA">My Field A</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumA.' + (fieldTestEnumWithValueRef.myFieldA ?? 'null')">{{
+              { null: '', AAA: 'AAA', BBB: 'BBB' }[fieldTestEnumWithValueRef.myFieldA ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldB">My Field B</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumB.' + (fieldTestEnumWithValueRef.myFieldB ?? 'null')">{{
+              { null: '', AAA: 'aaa_aaa', BBB: 'BBB' }[fieldTestEnumWithValueRef.myFieldB ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldC">My Field C</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumC.' + (fieldTestEnumWithValueRef.myFieldC ?? 'null')">{{
+              { null: '', AAA: 'aaa_aaa', BBB: 'b and b' }[fieldTestEnumWithValueRef.myFieldC ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldD">My Field D</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumD.' + (fieldTestEnumWithValueRef.myFieldD ?? 'null')">{{
+              { null: '', AAA: 'AAA', BBB: 'BBB' }[fieldTestEnumWithValueRef.myFieldD ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestEnumWithValue.myFieldE">My Field E</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.MyEnumE.' + (fieldTestEnumWithValueRef.myFieldE ?? 'null')">{{
+              { null: '', AAA: 'aaa_aaa', BBB: 'BBB' }[fieldTestEnumWithValueRef.myFieldE ?? 'null']
+            }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/field-test-enum-with-value', fieldTestEnumWithValueRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

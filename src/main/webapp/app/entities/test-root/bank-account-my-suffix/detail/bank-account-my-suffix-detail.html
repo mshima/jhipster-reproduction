@@ -1,0 +1,101 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (bankAccount(); as bankAccountRef) {
+      <div>
+        <h2 data-cy="bankAccountDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.detail.title">Bank Account</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.name">Name</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.name }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.guid">Guid</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.guid }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.bankNumber">Bank Number</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.bankNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.agencyNumber">Agency Number</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.agencyNumber }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.lastOperationDuration">Last Operation Duration</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.lastOperationDuration }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.meanOperationDuration">Mean Operation Duration</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.meanOperationDuration }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.meanQueueDuration">Mean Queue Duration</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.meanQueueDuration | duration }} ({{ bankAccountRef.meanQueueDuration }})</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.balance">Balance</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.balance }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.openingDay">Opening Day</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.openingDay | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.lastOperationDate">Last Operation Date</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.lastOperationDate | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.active">Active</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.active }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.accountType">Account Type</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.BankAccountType.' + (bankAccountRef.accountType ?? 'null')">{{
+              { null: '', CHECKING: 'CHECKING', SAVINGS: 'SAVINGS', LOAN: 'LOAN' }[bankAccountRef.accountType ?? 'null']
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.attachment">Attachment</span></dt>
+          <dd>
+            @if (bankAccountRef.attachment) {
+              <div>
+                <a (click)="openFile(bankAccountRef.attachment, bankAccountRef.attachmentContentType)" jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ bankAccountRef.attachmentContentType }}, {{ byteSize(bankAccountRef.attachment) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.description">Description</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.description }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.testRootBankAccount.user">User</span></dt>
+          <dd>
+            <span>{{ bankAccountRef.user?.login }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button type="button" [routerLink]="['/bank-account-my-suffix', bankAccountRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

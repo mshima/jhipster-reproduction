@@ -1,0 +1,405 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (fieldTestPaginationEntity(); as fieldTestPaginationEntityRef) {
+      <div>
+        <h2 data-cy="fieldTestPaginationEntityDetailsHeading">
+          <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.detail.title">Field Test Pagination Entity</span>
+        </h2>
+
+        <hr />
+
+        <jhi-alert-error />
+
+        <jhi-alert />
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringAlice">String Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.stringAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringRequiredAlice">String Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.stringRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringMinlengthAlice">String Minlength Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.stringMinlengthAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringMaxlengthAlice">String Maxlength Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.stringMaxlengthAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.stringPatternAlice">String Pattern Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.stringPatternAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerAlice">Integer Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.integerAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerRequiredAlice">Integer Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.integerRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerMinAlice">Integer Min Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.integerMinAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.integerMaxAlice">Integer Max Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.integerMaxAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longAlice">Long Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.longAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longRequiredAlice">Long Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.longRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longMinAlice">Long Min Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.longMinAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.longMaxAlice">Long Max Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.longMaxAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatAlice">Float Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.floatAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatRequiredAlice">Float Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.floatRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatMinAlice">Float Min Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.floatMinAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.floatMaxAlice">Float Max Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.floatMaxAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.doubleRequiredAlice">Double Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.doubleRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.doubleMinAlice">Double Min Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.doubleMinAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.doubleMaxAlice">Double Max Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.doubleMaxAlice }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.bigDecimalRequiredAlice">Big Decimal Required Alice</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.bigDecimalRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.bigDecimalMinAlice">Big Decimal Min Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.bigDecimalMinAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.bigDecimalMaxAlice">Big Decimal Max Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.bigDecimalMaxAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localDateAlice">Local Date Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.localDateAlice | formatMediumDate }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localDateRequiredAlice">Local Date Required Alice</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.localDateRequiredAlice | formatMediumDate }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.instantAlice">Instant Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.instantAlice | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.instanteRequiredAlice">Instante Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.instanteRequiredAlice | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.zonedDateTimeAlice">Zoned Date Time Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.zonedDateTimeAlice | formatMediumDatetime }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.zonedDateTimeRequiredAlice"
+              >Zoned Date Time Required Alice</span
+            >
+          </dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.zonedDateTimeRequiredAlice | formatMediumDatetime }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localTimeAlice">Local Time Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.localTimeAlice }}</span>
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.localTimeRequiredAlice">Local Time Required Alice</span>
+          </dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.localTimeRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.durationAlice">Duration Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.durationAlice | duration }} ({{ fieldTestPaginationEntityRef.durationAlice }})</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.durationRequiredAlice">Duration Required Alice</span></dt>
+          <dd>
+            <span
+              >{{ fieldTestPaginationEntityRef.durationRequiredAlice | duration }} ({{
+                fieldTestPaginationEntityRef.durationRequiredAlice
+              }})</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.booleanAlice">Boolean Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.booleanAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.booleanRequiredAlice">Boolean Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.booleanRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.enumAlice">Enum Alice</span></dt>
+          <dd>
+            <span [jhiTranslate]="'sampleWebfluxPsqlApp.EnumFieldClass.' + (fieldTestPaginationEntityRef.enumAlice ?? 'null')">{{
+              { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                fieldTestPaginationEntityRef.enumAlice ?? 'null'
+              ]
+            }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.enumRequiredAlice">Enum Required Alice</span></dt>
+          <dd>
+            <span
+              [jhiTranslate]="'sampleWebfluxPsqlApp.EnumRequiredFieldClass.' + (fieldTestPaginationEntityRef.enumRequiredAlice ?? 'null')"
+              >{{
+                { null: '', ENUM_VALUE_1: 'ENUM_VALUE_1', ENUM_VALUE_2: 'ENUM_VALUE_2', ENUM_VALUE_3: 'ENUM_VALUE_3' }[
+                  fieldTestPaginationEntityRef.enumRequiredAlice ?? 'null'
+                ]
+              }}</span
+            >
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.uuidAlice">Uuid Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.uuidAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.uuidRequiredAlice">Uuid Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.uuidRequiredAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageAlice">Byte Image Alice</span></dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteImageAlice) {
+              <div>
+                <a (click)="openFile(fieldTestPaginationEntityRef.byteImageAlice, fieldTestPaginationEntityRef.byteImageAliceContentType)">
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestPaginationEntityRef.byteImageAliceContentType +
+                      ';base64,' +
+                      fieldTestPaginationEntityRef.byteImageAlice
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestPaginationEntity"
+                  />
+                </a>
+                {{ fieldTestPaginationEntityRef.byteImageAliceContentType }}, {{ byteSize(fieldTestPaginationEntityRef.byteImageAlice) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageRequiredAlice">Byte Image Required Alice</span>
+          </dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteImageRequiredAlice) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestPaginationEntityRef.byteImageRequiredAlice,
+                      fieldTestPaginationEntityRef.byteImageRequiredAliceContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestPaginationEntityRef.byteImageRequiredAliceContentType +
+                      ';base64,' +
+                      fieldTestPaginationEntityRef.byteImageRequiredAlice
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestPaginationEntity"
+                  />
+                </a>
+                {{ fieldTestPaginationEntityRef.byteImageRequiredAliceContentType }},
+                {{ byteSize(fieldTestPaginationEntityRef.byteImageRequiredAlice) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageMinbytesAlice">Byte Image Minbytes Alice</span>
+          </dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteImageMinbytesAlice) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestPaginationEntityRef.byteImageMinbytesAlice,
+                      fieldTestPaginationEntityRef.byteImageMinbytesAliceContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestPaginationEntityRef.byteImageMinbytesAliceContentType +
+                      ';base64,' +
+                      fieldTestPaginationEntityRef.byteImageMinbytesAlice
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestPaginationEntity"
+                  />
+                </a>
+                {{ fieldTestPaginationEntityRef.byteImageMinbytesAliceContentType }},
+                {{ byteSize(fieldTestPaginationEntityRef.byteImageMinbytesAlice) }}
+              </div>
+            }
+          </dd>
+          <dt>
+            <span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteImageMaxbytesAlice">Byte Image Maxbytes Alice</span>
+          </dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteImageMaxbytesAlice) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestPaginationEntityRef.byteImageMaxbytesAlice,
+                      fieldTestPaginationEntityRef.byteImageMaxbytesAliceContentType
+                    )
+                  "
+                >
+                  <img
+                    [src]="
+                      'data:' +
+                      fieldTestPaginationEntityRef.byteImageMaxbytesAliceContentType +
+                      ';base64,' +
+                      fieldTestPaginationEntityRef.byteImageMaxbytesAlice
+                    "
+                    style="max-width: 100%"
+                    alt="fieldTestPaginationEntity"
+                  />
+                </a>
+                {{ fieldTestPaginationEntityRef.byteImageMaxbytesAliceContentType }},
+                {{ byteSize(fieldTestPaginationEntityRef.byteImageMaxbytesAlice) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyAlice">Byte Any Alice</span></dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteAnyAlice) {
+              <div>
+                <a
+                  (click)="openFile(fieldTestPaginationEntityRef.byteAnyAlice, fieldTestPaginationEntityRef.byteAnyAliceContentType)"
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestPaginationEntityRef.byteAnyAliceContentType }}, {{ byteSize(fieldTestPaginationEntityRef.byteAnyAlice) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyRequiredAlice">Byte Any Required Alice</span></dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteAnyRequiredAlice) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestPaginationEntityRef.byteAnyRequiredAlice,
+                      fieldTestPaginationEntityRef.byteAnyRequiredAliceContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestPaginationEntityRef.byteAnyRequiredAliceContentType }},
+                {{ byteSize(fieldTestPaginationEntityRef.byteAnyRequiredAlice) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyMinbytesAlice">Byte Any Minbytes Alice</span></dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteAnyMinbytesAlice) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestPaginationEntityRef.byteAnyMinbytesAlice,
+                      fieldTestPaginationEntityRef.byteAnyMinbytesAliceContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestPaginationEntityRef.byteAnyMinbytesAliceContentType }},
+                {{ byteSize(fieldTestPaginationEntityRef.byteAnyMinbytesAlice) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteAnyMaxbytesAlice">Byte Any Maxbytes Alice</span></dt>
+          <dd>
+            @if (fieldTestPaginationEntityRef.byteAnyMaxbytesAlice) {
+              <div>
+                <a
+                  (click)="
+                    openFile(
+                      fieldTestPaginationEntityRef.byteAnyMaxbytesAlice,
+                      fieldTestPaginationEntityRef.byteAnyMaxbytesAliceContentType
+                    )
+                  "
+                  jhiTranslate="entity.action.open"
+                  >Open</a
+                >
+                {{ fieldTestPaginationEntityRef.byteAnyMaxbytesAliceContentType }},
+                {{ byteSize(fieldTestPaginationEntityRef.byteAnyMaxbytesAlice) }}
+              </div>
+            }
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteTextAlice">Byte Text Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.byteTextAlice }}</span>
+          </dd>
+          <dt><span jhiTranslate="sampleWebfluxPsqlApp.fieldTestPaginationEntity.byteTextRequiredAlice">Byte Text Required Alice</span></dt>
+          <dd>
+            <span>{{ fieldTestPaginationEntityRef.byteTextRequiredAlice }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left" />&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+        </button>
+
+        <button
+          type="button"
+          [routerLink]="['/field-test-pagination-entity', fieldTestPaginationEntityRef.id, 'edit']"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="pencil-alt" />&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>
