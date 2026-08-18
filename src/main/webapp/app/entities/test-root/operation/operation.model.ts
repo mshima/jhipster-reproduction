@@ -1,4 +1,5 @@
 import dayjs from 'dayjs/esm';
+
 import { IBankAccountMySuffix } from 'app/entities/test-root/bank-account-my-suffix/bank-account-my-suffix.model';
 import { ILabel } from 'app/entities/test-root/label/label.model';
 

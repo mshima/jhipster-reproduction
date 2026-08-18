@@ -1,7 +1,5 @@
 package tech.jhipster.sample.repository.search;
 
-import static org.springframework.data.elasticsearch.client.elc.QueryBuilders.queryStringQuery;
-
 import co.elastic.clients.elasticsearch._types.query_dsl.QueryStringQuery;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate;
@@ -9,7 +7,6 @@ import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository;
 import reactor.core.publisher.Flux;
 import tech.jhipster.sample.domain.User;
-import tech.jhipster.sample.repository.UserRepository;
 
 /**
  * Spring Data Elasticsearch repository for the User entity.

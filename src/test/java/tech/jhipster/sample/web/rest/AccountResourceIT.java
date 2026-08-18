@@ -26,12 +26,10 @@ import tech.jhipster.sample.config.Constants;
 import tech.jhipster.sample.domain.User;
 import tech.jhipster.sample.repository.AuthorityRepository;
 import tech.jhipster.sample.repository.UserRepository;
-import tech.jhipster.sample.repository.search.UserSearchRepository;
 import tech.jhipster.sample.security.AuthoritiesConstants;
 import tech.jhipster.sample.service.UserService;
 import tech.jhipster.sample.service.dto.AdminUserDTO;
 import tech.jhipster.sample.service.dto.PasswordChangeDTO;
-import tech.jhipster.sample.service.dto.UserDTO;
 import tech.jhipster.sample.web.rest.vm.KeyAndPasswordVM;
 import tech.jhipster.sample.web.rest.vm.ManagedUserVM;
 

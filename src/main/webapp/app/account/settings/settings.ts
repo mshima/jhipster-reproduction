@@ -1,12 +1,13 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
-import { TranslateService, TranslatePipe } from '@ngx-translate/core';
-import { FindLanguageFromKeyPipe, TranslateDirective } from 'app/shared/language';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { AlertError } from 'app/shared/alert/alert-error';
-import { AccountService } from 'app/core/auth/account.service';
-import { Account } from 'app/core/auth/account.model';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+
 import { LANGUAGES } from 'app/config/language.constants';
+import { Account } from 'app/core/auth/account.model';
+import { AccountService } from 'app/core/auth/account.service';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { FindLanguageFromKeyPipe, TranslateDirective } from 'app/shared/language';
 
 const initialAccount: Account = {} as Account;
 

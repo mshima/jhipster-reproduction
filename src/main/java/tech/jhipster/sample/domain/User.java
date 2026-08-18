@@ -13,7 +13,6 @@ import java.util.Locale;
 import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.FieldType;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 import tech.jhipster.sample.config.Constants;

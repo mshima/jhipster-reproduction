@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap/modal';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
-import { AlertError } from 'app/shared/alert/alert-error';
-import { IUserManagement } from '../user-management.model';
-import { UserManagementService } from '../service/user-management.service';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap/modal';
+
 import { ITEM_DELETED_EVENT } from 'app/config/navigation.constants';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
+import { UserManagementService } from '../service/user-management.service';
+import { IUserManagement } from '../user-management.model';
 
 @Component({
   templateUrl: './user-management-delete-dialog.html',

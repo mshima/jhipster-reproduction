@@ -1,5 +1,6 @@
 import { EnvironmentProviders, Provider, inject, provideAppInitializer } from '@angular/core';
-import { MissingTranslationHandler, TranslateLoader, TranslateService, provideTranslateService } from '@ngx-translate/core';
+
+import { MissingTranslationHandler, TranslateService, provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { missingTranslationHandler } from 'app/config/translation.config';

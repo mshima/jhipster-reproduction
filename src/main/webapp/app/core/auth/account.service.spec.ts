@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 
 import { TranslateService, provideTranslateService } from '@ngx-translate/core';
 
-import { Authority } from 'app/shared/jhipster/constants';
 import { Account } from 'app/core/auth/account.model';
 import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
+import { Authority } from 'app/shared/jhipster/constants';
 
 import { AccountService } from './account.service';
 

@@ -1,14 +1,14 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 
 import { DATE_FORMAT } from 'app/config/input.constants';
 import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
 import {
-  sampleWithRequiredData,
+  sampleWithFullData,
   sampleWithNewData,
   sampleWithPartialData,
-  sampleWithFullData,
+  sampleWithRequiredData,
 } from '../bank-account-my-suffix.test-samples';
 
 import { BankAccountMySuffixService, RestBankAccountMySuffix } from './bank-account-my-suffix.service';

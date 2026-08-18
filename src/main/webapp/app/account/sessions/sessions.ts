@@ -1,11 +1,12 @@
-import { Component, inject, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { Component, OnInit, inject } from '@angular/core';
 
-import { TranslateDirective } from 'app/shared/language';
+import { Account } from 'app/core/auth/account.model';
 import { AccountService } from 'app/core/auth/account.service';
+import { TranslateDirective } from 'app/shared/language';
+
 import { Session } from './session.model';
 import { SessionsService } from './sessions.service';
-import { Account } from 'app/core/auth/account.model';
 
 @Component({
   selector: 'jhi-sessions',

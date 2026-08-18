@@ -1,7 +1,9 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { signal, WritableSignal } from '@angular/core';
-import { inject, TestBed } from '@angular/core/testing';
-import { TranslateService, MissingTranslationHandler, provideTranslateService } from '@ngx-translate/core';
+import { WritableSignal, signal } from '@angular/core';
+import { TestBed } from '@angular/core/testing';
+
+import { MissingTranslationHandler, TranslateService, provideTranslateService } from '@ngx-translate/core';
+
 import { missingTranslationHandler } from '../../config/translation.config';
 
 import { AlertModel, AlertService } from './alert.service';

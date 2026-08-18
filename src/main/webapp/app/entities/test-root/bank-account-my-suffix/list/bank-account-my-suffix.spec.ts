@@ -1,13 +1,13 @@
 import { MockInstance, afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute, convertToParamMap } from '@angular/router';
 
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { faEye, faPencilAlt, faPlus, faSearch, faSort, faSortDown, faSortUp, faSync, faTimes } from '@fortawesome/free-solid-svg-icons';
-import { provideTranslateService } from '@ngx-translate/core';
-import { of, Subject } from 'rxjs';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
+import { provideTranslateService } from '@ngx-translate/core';
+import { Subject, of } from 'rxjs';
 
 import { sampleWithRequiredData } from '../bank-account-my-suffix.test-samples';
 import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';

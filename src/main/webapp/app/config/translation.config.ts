@@ -1,4 +1,4 @@
-import { MissingTranslationHandler, MissingTranslationHandlerParams, TranslateLoader } from '@ngx-translate/core';
+import { MissingTranslationHandler, MissingTranslationHandlerParams } from '@ngx-translate/core';
 
 export const translationNotFoundMessage = 'translation-not-found';
 

@@ -1,9 +1,9 @@
 import { Routes } from '@angular/router';
 
-import { errorRoute } from './layouts/error/error.route';
+import { userRouteAccessService } from 'app/core/auth/user-route-access.service';
 import { Authority } from 'app/shared/jhipster/constants';
 
-import { userRouteAccessService } from 'app/core/auth/user-route-access.service';
+import { errorRoute } from './layouts/error/error.route';
 
 const routes: Routes = [
   {

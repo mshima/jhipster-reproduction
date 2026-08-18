@@ -1,24 +1,26 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { finalize, map, Observable } from 'rxjs';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
-import { TranslatePipe } from '@ngx-translate/core';
 import { NgbInputDatepicker } from '@ng-bootstrap/ng-bootstrap/datepicker';
-import { AlertError } from 'app/shared/alert/alert-error';
-import { ReactiveFormsModule } from '@angular/forms';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Observable, finalize, map } from 'rxjs';
 
-import { BankAccountMySuffixFormService, BankAccountMySuffixFormGroup } from './bank-account-my-suffix-form.service';
+import { DataUtils, FileLoadError } from 'app/core/util/data-util.service';
+import { EventManager, EventWithContent } from 'app/core/util/event-manager.service';
+import { BankAccountType } from 'app/entities/enumerations/bank-account-type.model';
+import { UserService } from 'app/entities/user/service/user.service';
+import { IUser } from 'app/entities/user/user.model';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
+
 import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
 import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';
+
+import { BankAccountMySuffixFormGroup, BankAccountMySuffixFormService } from './bank-account-my-suffix-form.service';
 import { AlertErrorModel } from 'app/shared/alert/alert-error.model';
-import { EventManager, EventWithContent } from 'app/core/util/event-manager.service';
-import { DataUtils, FileLoadError } from 'app/core/util/data-util.service';
-import { IUser } from 'app/entities/user/user.model';
-import { UserService } from 'app/entities/user/service/user.service';
-import { BankAccountType } from 'app/entities/enumerations/bank-account-type.model';
 
 @Component({
   selector: 'jhi-bank-account-my-suffix-update',

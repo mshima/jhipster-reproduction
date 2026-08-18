@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 
-import { userRouteAccessService } from 'app/core/auth/user-route-access.service';
-import OperationResolve from './route/operation-routing-resolve.service';
 import { ASC } from 'app/config/navigation.constants';
+import { userRouteAccessService } from 'app/core/auth/user-route-access.service';
+
+import OperationResolve from './route/operation-routing-resolve.service';
 
 const operationRoute: Routes = [
   {

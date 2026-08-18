@@ -16,10 +16,8 @@ import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTest
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import reactor.core.publisher.Mono;
 import tech.jhipster.sample.IntegrationTest;
 import tech.jhipster.sample.config.Constants;
-import tech.jhipster.sample.domain.Authority;
 import tech.jhipster.sample.domain.User;
 import tech.jhipster.sample.repository.AuthorityRepository;
 import tech.jhipster.sample.repository.EntityManager;

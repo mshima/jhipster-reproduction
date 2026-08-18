@@ -1,22 +1,22 @@
-import { Component, computed, effect, inject, OnInit, signal, WritableSignal, untracked } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
-import { ActivatedRoute, Data, ParamMap, Router, RouterLink } from '@angular/router';
-import { combineLatest, filter, Subscription, tap } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
-
-import { AlertError } from 'app/shared/alert/alert-error';
-import { Alert } from 'app/shared/alert/alert';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
-import { TranslatePipe } from '@ngx-translate/core';
-import { sortStateSignal, SortDirective, SortByDirective, type SortState, SortService } from 'app/shared/sort';
-import { DurationPipe, FormatMediumDatetimePipe, FormatMediumDatePipe } from 'app/shared/date';
+import { Component, OnInit, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
-import { SORT, ITEM_DELETED_EVENT, DEFAULT_SORT_DATA } from 'app/config/navigation.constants';
-import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';
-import { BankAccountMySuffixDeleteDialog } from '../delete/bank-account-my-suffix-delete-dialog';
+import { ActivatedRoute, Data, ParamMap, Router, RouterLink } from '@angular/router';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Subscription, combineLatest, filter, tap } from 'rxjs';
+
+import { DEFAULT_SORT_DATA, ITEM_DELETED_EVENT, SORT } from 'app/config/navigation.constants';
 import { DataUtils } from 'app/core/util/data-util.service';
+import { Alert } from 'app/shared/alert/alert';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { DurationPipe, FormatMediumDatePipe, FormatMediumDatetimePipe } from 'app/shared/date';
+import { TranslateDirective } from 'app/shared/language';
+import { SortByDirective, SortDirective, SortService, type SortState, sortStateSignal } from 'app/shared/sort';
+import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
+import { BankAccountMySuffixDeleteDialog } from '../delete/bank-account-my-suffix-delete-dialog';
+import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';
 
 @Component({
   selector: 'jhi-bank-account-my-suffix',

@@ -1,6 +1,7 @@
 import { Route } from '@angular/router';
 
 import { userRouteAccessService } from 'app/core/auth/user-route-access.service';
+
 import Password from './password';
 
 const passwordRoute: Route = {

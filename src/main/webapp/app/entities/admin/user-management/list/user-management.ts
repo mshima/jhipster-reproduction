@@ -1,23 +1,24 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { RouterLink, ActivatedRoute, Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
-import { HttpResponse, HttpHeaders } from '@angular/common/http';
-import { combineLatest } from 'rxjs';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
+import { HttpHeaders, HttpResponse } from '@angular/common/http';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AlertError } from 'app/shared/alert/alert-error';
-import { Alert } from 'app/shared/alert/alert';
-import { TranslateDirective } from 'app/shared/language';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
 import { NgbPagination } from '@ng-bootstrap/ng-bootstrap/pagination';
-import { SortDirective, SortByDirective, sortStateSignal, SortService, SortState } from 'app/shared/sort';
-import { ITEMS_PER_PAGE, PAGE_HEADER, TOTAL_COUNT_RESPONSE_HEADER } from 'app/config/pagination.constants';
+import { combineLatest } from 'rxjs';
+
 import { SORT } from 'app/config/navigation.constants';
-import { ItemCount } from 'app/shared/pagination';
+import { ITEMS_PER_PAGE, PAGE_HEADER, TOTAL_COUNT_RESPONSE_HEADER } from 'app/config/pagination.constants';
 import { AccountService } from 'app/core/auth/account.service';
+import { Alert } from 'app/shared/alert/alert';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
+import { ItemCount } from 'app/shared/pagination';
+import { SortByDirective, SortDirective, SortService, SortState, sortStateSignal } from 'app/shared/sort';
+import { UserManagementDeleteDialog } from '../delete/user-management-delete-dialog';
 import { UserManagementService } from '../service/user-management.service';
 import { IUserManagement } from '../user-management.model';
-import { UserManagementDeleteDialog } from '../delete/user-management-delete-dialog';
 
 @Component({
   selector: 'jhi-user-mgmt',

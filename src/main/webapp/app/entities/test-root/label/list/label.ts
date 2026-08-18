@@ -1,23 +1,21 @@
-import { Component, computed, effect, inject, OnInit, signal, WritableSignal, untracked } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
 import { HttpHeaders } from '@angular/common/http';
-import { ActivatedRoute, Data, ParamMap, Router, RouterLink } from '@angular/router';
-import { combineLatest, Subscription, tap } from 'rxjs';
-
-import { AlertError } from 'app/shared/alert/alert-error';
-import { Alert } from 'app/shared/alert/alert';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
-import { TranslatePipe } from '@ngx-translate/core';
-import { sortStateSignal, SortDirective, SortByDirective, type SortState, SortService } from 'app/shared/sort';
-import { DurationPipe, FormatMediumDatetimePipe, FormatMediumDatePipe } from 'app/shared/date';
-import { NgbPagination } from '@ng-bootstrap/ng-bootstrap/pagination';
-import { ItemCount } from 'app/shared/pagination';
+import { Component, OnInit, effect, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ILabel } from '../label.model';
+import { ActivatedRoute, Data, ParamMap, Router, RouterLink } from '@angular/router';
 
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { NgbPagination } from '@ng-bootstrap/ng-bootstrap/pagination';
+import { TranslatePipe } from '@ngx-translate/core';
+import { Subscription, combineLatest, tap } from 'rxjs';
+
+import { DEFAULT_SORT_DATA, SORT } from 'app/config/navigation.constants';
 import { ITEMS_PER_PAGE, PAGE_HEADER, TOTAL_COUNT_RESPONSE_HEADER } from 'app/config/pagination.constants';
-import { SORT, DEFAULT_SORT_DATA } from 'app/config/navigation.constants';
+import { Alert } from 'app/shared/alert/alert';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
+import { ItemCount } from 'app/shared/pagination';
+import { SortByDirective, SortDirective, SortService, type SortState, sortStateSignal } from 'app/shared/sort';
+import { ILabel } from '../label.model';
 import { LabelService } from '../service/label.service';
 
 @Component({

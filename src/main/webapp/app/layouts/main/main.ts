@@ -1,10 +1,11 @@
-import { Component, inject, OnInit, DOCUMENT, RendererFactory2, Renderer2 } from '@angular/core';
-import { RouterOutlet, Router } from '@angular/router';
-import { TranslateService, LangChangeEvent } from '@ngx-translate/core';
+import { Component, DOCUMENT, OnInit, Renderer2, RendererFactory2, inject } from '@angular/core';
+import { Router, RouterOutlet } from '@angular/router';
+
+import { LangChangeEvent, TranslateService } from '@ngx-translate/core';
 import dayjs from 'dayjs/esm';
 
-import { AccountService } from 'app/core/auth/account.service';
 import { AppPageTitleStrategy } from 'app/app-page-title-strategy';
+import { AccountService } from 'app/core/auth/account.service';
 import Footer from '../footer/footer';
 import PageRibbon from '../profiles/page-ribbon';
 

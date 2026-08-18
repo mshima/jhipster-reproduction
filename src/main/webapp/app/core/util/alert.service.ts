@@ -1,5 +1,6 @@
-import { inject, SecurityContext, Service, signal, Signal, WritableSignal } from '@angular/core';
+import { SecurityContext, Service, Signal, WritableSignal, inject, signal } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
+
 import { TranslateService } from '@ngx-translate/core';
 
 import { translationNotFoundMessage } from 'app/config/translation.config';

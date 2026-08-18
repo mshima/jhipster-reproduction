@@ -1,8 +1,8 @@
-import { computed, inject, Service, signal } from '@angular/core';
 import { HttpClient, HttpResponse, httpResource } from '@angular/common/http';
-import { asapScheduler, catchError, map, Observable, scheduled } from 'rxjs';
+import { Service, computed, inject, signal } from '@angular/core';
 
 import dayjs from 'dayjs/esm';
+import { Observable, asapScheduler, catchError, map, scheduled } from 'rxjs';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
 import { createRequestOption } from 'app/core/request/request-util';

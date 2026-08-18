@@ -1,10 +1,10 @@
 import { Component, OnInit, inject, signal } from '@angular/core';
-import { combineLatest } from 'rxjs';
-import { TranslateDirective } from 'app/shared/language';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { MetricsService } from './metrics.service';
-import { MetricsModel, Thread } from './metrics.model';
+import { combineLatest } from 'rxjs';
+
+import { TranslateDirective } from 'app/shared/language';
+
 import { JvmMemory } from './blocks/jvm-memory/jvm-memory';
 import { JvmThreads } from './blocks/jvm-threads/jvm-threads';
 import { MetricsCache } from './blocks/metrics-cache/metrics-cache';
@@ -13,6 +13,8 @@ import { MetricsEndpointsRequests } from './blocks/metrics-endpoints-requests/me
 import { MetricsGarbageCollector } from './blocks/metrics-garbagecollector/metrics-garbagecollector';
 import { MetricsRequest } from './blocks/metrics-request/metrics-request';
 import { MetricsSystem } from './blocks/metrics-system/metrics-system';
+import { MetricsModel, Thread } from './metrics.model';
+import { MetricsService } from './metrics.service';
 
 @Component({
   selector: 'jhi-metrics',

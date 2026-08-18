@@ -1,5 +1,6 @@
 import { Service } from '@angular/core';
-import { filter, Observable, Observer, share, Subscription } from 'rxjs';
+
+import { Observable, Observer, Subscription, filter, share } from 'rxjs';
 
 export class EventWithContent<T> {
   constructor(

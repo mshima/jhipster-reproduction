@@ -1,11 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { of } from 'rxjs';
 
+import { Log, LoggersResponse } from './log.model';
 import Logs from './logs';
 import { LogsService } from './logs.service';
-import { Log, LoggersResponse } from './log.model';
 
 describe('Logs', () => {
   let comp: Logs;

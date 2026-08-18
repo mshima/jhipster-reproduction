@@ -1,4 +1,5 @@
 import { Service } from '@angular/core';
+
 import { getPageNumberFromLinkHeader, parseLinkHeader } from 'app/shared/jhipster/link-header';
 
 /**

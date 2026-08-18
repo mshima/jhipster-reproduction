@@ -1,9 +1,9 @@
-import { Component, input } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { TranslateDirective } from 'app/shared/language';
+import { Component, input } from '@angular/core';
 
 import { Databases } from 'app/admin/metrics/metrics.model';
 import { filterNaN } from 'app/core/util/operators';
+import { TranslateDirective } from 'app/shared/language';
 
 @Component({
   selector: 'jhi-metrics-datasource',

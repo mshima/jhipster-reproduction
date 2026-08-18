@@ -1,10 +1,6 @@
 package tech.jhipster.sample.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 import java.util.UUID;
-import org.junit.jupiter.api.Test;
-import tech.jhipster.sample.web.rest.TestUtil;
 
 public class AuthorityTestSamples {
 

@@ -3,17 +3,18 @@ import { HttpResponse } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
-import { provideTranslateService } from '@ngx-translate/core';
-import { of, Subject, from } from 'rxjs';
 
-import { OperationFormService } from './operation-form.service';
-import { OperationService } from '../service/operation.service';
-import { IOperation } from '../operation.model';
+import { provideTranslateService } from '@ngx-translate/core';
+import { Subject, from, of } from 'rxjs';
+
 import { IBankAccountMySuffix } from 'app/entities/test-root/bank-account-my-suffix/bank-account-my-suffix.model';
 import { BankAccountMySuffixService } from 'app/entities/test-root/bank-account-my-suffix/service/bank-account-my-suffix.service';
 import { ILabel } from 'app/entities/test-root/label/label.model';
 import { LabelService } from 'app/entities/test-root/label/service/label.service';
+import { IOperation } from '../operation.model';
+import { OperationService } from '../service/operation.service';
 
+import { OperationFormService } from './operation-form.service';
 import { OperationUpdate } from './operation-update';
 
 describe('Operation Management Update Component', () => {

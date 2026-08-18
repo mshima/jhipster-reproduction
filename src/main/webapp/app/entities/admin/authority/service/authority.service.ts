@@ -1,5 +1,6 @@
-import { computed, inject, Service, signal } from '@angular/core';
 import { HttpClient, HttpResponse, httpResource } from '@angular/common/http';
+import { Service, computed, inject, signal } from '@angular/core';
+
 import { Observable } from 'rxjs';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';

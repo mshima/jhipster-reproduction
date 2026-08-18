@@ -1,12 +1,13 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { provideTranslateService } from '@ngx-translate/core';
 import { of, throwError } from 'rxjs';
 
 import Health from './health';
-import { HealthService } from './health.service';
 import { HealthModel } from './health.model';
+import { HealthService } from './health.service';
 
 describe('Health', () => {
   let comp: Health;

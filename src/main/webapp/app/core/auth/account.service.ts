@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Service, signal } from '@angular/core';
+import { Service, inject, signal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { TranslateService } from '@ngx-translate/core';
-import { catchError, Observable, of, shareReplay, tap } from 'rxjs';
+import { Observable, catchError, of, shareReplay, tap } from 'rxjs';
 
 import { Account } from 'app/core/auth/account.model';
 import { StateStorageService } from 'app/core/auth/state-storage.service';

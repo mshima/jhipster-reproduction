@@ -1,6 +1,5 @@
 package tech.jhipster.sample.service;
 
-import java.util.List;
 import org.springframework.data.domain.Pageable;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

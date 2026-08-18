@@ -1,9 +1,10 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
+
+import { ApplicationConfigService } from 'app/core/config/application-config.service';
 
 import { PasswordResetFinishService } from './password-reset-finish.service';
-import { ApplicationConfigService } from 'app/core/config/application-config.service';
 
 describe('PasswordResetFinish Service', () => {
   let service: PasswordResetFinishService;

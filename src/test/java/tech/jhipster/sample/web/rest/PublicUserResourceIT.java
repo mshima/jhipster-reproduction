@@ -1,6 +1,5 @@
 package tech.jhipster.sample.web.rest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.*;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.csrf;
 
@@ -13,15 +12,11 @@ import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTest
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import reactor.core.publisher.Mono;
 import tech.jhipster.sample.IntegrationTest;
-import tech.jhipster.sample.config.Constants;
 import tech.jhipster.sample.domain.User;
-import tech.jhipster.sample.repository.EntityManager;
 import tech.jhipster.sample.repository.UserRepository;
 import tech.jhipster.sample.repository.search.UserSearchRepository;
 import tech.jhipster.sample.security.AuthoritiesConstants;
-import tech.jhipster.sample.service.dto.UserDTO;
 
 /**
  * Integration tests for the {@link PublicUserResource} REST controller.

@@ -1,9 +1,11 @@
-import { inject, Service } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable, shareReplay } from 'rxjs';
+import { Service, inject } from '@angular/core';
+
+import { Observable, map, shareReplay } from 'rxjs';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
-import { ProfileInfo, InfoResponse } from './profile-info.model';
+
+import { InfoResponse, ProfileInfo } from './profile-info.model';
 
 @Service()
 export class ProfileService {
@@ -20,7 +22,7 @@ export class ProfileService {
 
     this.profileInfo$ = this.http.get<InfoResponse>(this.infoUrl).pipe(
       map((response: InfoResponse) => {
-        const activeProfiles = response.activeProfiles;
+        const { activeProfiles } = response;
         const profileInfo: ProfileInfo = {
           activeProfiles,
           inProduction: activeProfiles?.includes('prod'),

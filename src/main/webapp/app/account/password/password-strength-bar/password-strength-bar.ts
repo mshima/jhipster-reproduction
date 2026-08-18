@@ -1,4 +1,5 @@
 import { Component, ElementRef, Renderer2, effect, inject, input } from '@angular/core';
+
 import { TranslateDirective } from 'app/shared/language';
 
 @Component({

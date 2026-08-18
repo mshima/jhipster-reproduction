@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
-import { TranslateDirective } from 'app/shared/language';
 import { AccountService } from 'app/core/auth/account.service';
+import { TranslateDirective } from 'app/shared/language';
 
 @Component({
   selector: 'jhi-home',

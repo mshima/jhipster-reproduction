@@ -1,4 +1,4 @@
-import { entityTableSelector, entityDetailsButtonSelector, entityDetailsBackButtonSelector } from '../../support/entity';
+import { entityDetailsBackButtonSelector, entityDetailsButtonSelector, entityTableSelector } from '../../support/entity';
 
 describe('Label e2e test', () => {
   const labelPageUrl = '/label';

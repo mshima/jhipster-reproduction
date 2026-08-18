@@ -1,6 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-import { convertToParamMap, ParamMap, Params } from '@angular/router';
-import { FilterOptions, FilterOption } from './filter.model';
+import { ParamMap, Params, convertToParamMap } from '@angular/router';
+
+import { FilterOption, FilterOptions } from './filter.model';
 
 describe('FilterModel Tests', () => {
   describe('FilterOption', () => {

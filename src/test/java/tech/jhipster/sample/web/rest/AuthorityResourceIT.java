@@ -5,7 +5,6 @@ import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.csrf;
 import static tech.jhipster.sample.domain.AuthorityAsserts.*;
-import static tech.jhipster.sample.web.rest.TestUtil.createUpdateProxyForBean;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.time.Duration;

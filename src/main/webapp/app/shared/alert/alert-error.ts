@@ -1,13 +1,15 @@
-import { Component, inject, OnDestroy, signal } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Subscription } from 'rxjs';
+import { Component, OnDestroy, inject, signal } from '@angular/core';
+
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap/alert';
 import { TranslateService } from '@ngx-translate/core';
+import { Subscription } from 'rxjs';
 
-import { AlertErrorModel } from './alert-error.model';
 import { AlertModel, AlertService } from 'app/core/util/alert.service';
 import { EventManager, EventWithContent } from 'app/core/util/event-manager.service';
 import { getMessageFromHeaders } from 'app/shared/jhipster/headers';
+
+import { AlertErrorModel } from './alert-error.model';
 
 @Component({
   selector: 'jhi-alert-error',

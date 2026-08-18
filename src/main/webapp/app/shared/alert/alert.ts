@@ -1,7 +1,8 @@
-import { Component, inject, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, inject } from '@angular/core';
+
 import { NgbAlert } from '@ng-bootstrap/ng-bootstrap/alert';
 
-import { AlertService, AlertModel } from 'app/core/util/alert.service';
+import { AlertModel, AlertService } from 'app/core/util/alert.service';
 
 @Component({
   selector: 'jhi-alert',

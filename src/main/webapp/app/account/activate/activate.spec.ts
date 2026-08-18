@@ -1,11 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { TestBed, inject } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+
 import { provideTranslateService } from '@ngx-translate/core';
 import { of, throwError } from 'rxjs';
 
-import { ActivateService } from './activate.service';
 import Activate from './activate';
+import { ActivateService } from './activate.service';
 
 describe('Activate', () => {
   let comp: Activate;
