@@ -1,42 +1,31 @@
 package com.okta.developer.notification.config;
 
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.DisposableBean;
-import org.springframework.beans.factory.InitializingBean;
-import org.testcontainers.containers.JdbcDatabaseContainer;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
+import org.springframework.test.context.DynamicPropertyRegistry;
+import org.springframework.test.context.DynamicPropertySource;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.containers.output.Slf4jLogConsumer;
+import org.testcontainers.junit.jupiter.Container;
 
-public class DatabaseTestcontainer implements SqlTestContainer, InitializingBean, DisposableBean {
+public interface DatabaseTestcontainer {
+    @Container
+    @ServiceConnection
+    MySQLContainer<?> databaseContainer = (MySQLContainer) new MySQLContainer<>("mysql:26.7.0")
+        .withDatabaseName("notification")
+        .withConfigurationOverride("conf/mysql")
+        .withLogConsumer(new Slf4jLogConsumer(LoggerFactory.getLogger(DatabaseTestcontainer.class)))
+        .withReuse(true);
 
-    private static final Logger LOG = LoggerFactory.getLogger(DatabaseTestcontainer.class);
-
-    private MySQLContainer<?> databaseContainer;
-
-    @Override
-    public void destroy() {
-        if (null != databaseContainer && databaseContainer.isRunning()) {
-            databaseContainer.stop();
-        }
-    }
-
-    @Override
-    public void afterPropertiesSet() {
-        if (null == databaseContainer) {
-            databaseContainer = (MySQLContainer) new MySQLContainer<>("mysql:26.7.0")
-                .withDatabaseName("notification")
-                .withConfigurationOverride("conf/mysql")
-                .withLogConsumer(new Slf4jLogConsumer(LOG))
-                .withReuse(true);
-        }
-        if (!databaseContainer.isRunning()) {
-            databaseContainer.start();
-        }
-    }
-
-    @Override
-    public JdbcDatabaseContainer<?> getTestContainer() {
-        return databaseContainer;
+    @DynamicPropertySource
+    static void registerProperties(DynamicPropertyRegistry registry) {
+        registry.add(
+            "spring.liquibase.url",
+            () ->
+                databaseContainer.getJdbcUrl() +
+                "?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&createDatabaseIfNotExist=true"
+        );
+        registry.add("spring.liquibase.user", databaseContainer::getUsername);
+        registry.add("spring.liquibase.password", databaseContainer::getPassword);
     }
 }

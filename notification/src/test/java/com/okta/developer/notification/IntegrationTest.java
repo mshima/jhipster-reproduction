@@ -1,7 +1,7 @@
 package com.okta.developer.notification;
 
 import com.okta.developer.notification.config.AsyncSyncConfiguration;
-import com.okta.developer.notification.config.EmbeddedSQL;
+import com.okta.developer.notification.config.DatabaseTestcontainer;
 import com.okta.developer.notification.config.JacksonConfiguration;
 import com.okta.developer.notification.config.TestSecurityConfiguration;
 import java.lang.annotation.ElementType;
@@ -9,6 +9,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.testcontainers.context.ImportTestcontainers;
 
 /**
  * Base composite annotation for integration tests.
@@ -18,7 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest(
     classes = { NotificationApp.class, JacksonConfiguration.class, AsyncSyncConfiguration.class, TestSecurityConfiguration.class }
 )
-@EmbeddedSQL
+@ImportTestcontainers(DatabaseTestcontainer.class)
 public @interface IntegrationTest {
     // 5s is Spring's default https://github.com/spring-projects/spring-framework/blob/main/spring-test/src/main/java/org/springframework/test/web/reactive/server/DefaultWebTestClient.java#L106
     String DEFAULT_TIMEOUT = "PT5S";
