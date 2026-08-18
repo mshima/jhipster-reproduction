@@ -1,0 +1,119 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+
+import { createTestingPinia } from '@pinia/testing';
+import axios from 'axios';
+
+import { type AccountStore, useStore } from '@/store';
+
+import AccountService from './account.service';
+
+const resetStore = (store: AccountStore) => {
+  store.logout();
+  store.authenticate(null);
+  store.profilesLoaded = false;
+  store.activeProfiles = '';
+  store.ribbonOnProfiles = '';
+};
+
+const axiosStub = {
+  get: vi.spyOn(axios, 'get'),
+  post: vi.spyOn(axios, 'post'),
+};
+
+createTestingPinia({ stubActions: false });
+const store = useStore();
+
+describe('Account Service test suite', () => {
+  let accountService: AccountService;
+
+  beforeEach(() => {
+    localStorage.clear();
+
+    axiosStub.get.mockReset();
+    resetStore(store);
+  });
+
+  it('should init service and do not retrieve account', async () => {
+    axiosStub.get.mockImplementation((...args: any[]) => {
+      if (args[0] === 'management/info') {
+        return Promise.resolve({ status: 200, data: { 'display-ribbon-on-profiles': 'dev', activeProfiles: ['dev', 'test'] } });
+      }
+      return Promise.resolve({});
+    });
+
+    accountService = new AccountService(store);
+    await accountService.update();
+
+    expect(store.logon).toBeNull();
+    expect(accountService.authenticated).toBe(false);
+    expect(store.account).toBeNull();
+    expect(axiosStub.get).toHaveBeenCalledWith('management/info');
+    expect(store.activeProfiles[0]).toBe('dev');
+    expect(store.activeProfiles[1]).toBe('test');
+    expect(store.ribbonOnProfiles).toBe('dev');
+  });
+
+  it('should init service and retrieve profiles if already logged in before but no account found', async () => {
+    axiosStub.get.mockResolvedValue({});
+    accountService = new AccountService(store);
+    await accountService.update();
+
+    expect(store.logon).toBeNull();
+    expect(accountService.authenticated).toBe(false);
+    expect(store.account).toBeNull();
+    expect(axiosStub.get).toHaveBeenCalledWith('management/info');
+  });
+
+  it('should init service and retrieve profiles if already logged in before but exception occurred and should be logged out', async () => {
+    axiosStub.get.mockImplementation((...args: any[]) => {
+      if (args[0] === 'api/account') return Promise.reject(new Error());
+      return Promise.resolve({});
+    });
+    accountService = new AccountService(store);
+    await accountService.update();
+
+    expect(accountService.authenticated).toBe(false);
+    expect(store.account).toBeNull();
+    expect(axiosStub.get).toHaveBeenCalledWith('management/info');
+  });
+
+  it('should init service and check for authority after retrieving account but getAccount failed', async () => {
+    axiosStub.get.mockRejectedValue(new Error());
+    accountService = new AccountService(store);
+    await accountService.update();
+
+    return accountService.hasAnyAuthorityAndCheckAuth('USER').then((value: boolean) => {
+      expect(value).toBe(false);
+    });
+  });
+
+  it('should init service and check for authority after retrieving account', async () => {
+    axiosStub.get.mockResolvedValue({ status: 200, data: { authorities: ['USER'], langKey: 'en', login: 'ADMIN' } });
+    accountService = new AccountService(store);
+    await accountService.update();
+
+    return accountService.hasAnyAuthorityAndCheckAuth('USER').then((value: boolean) => {
+      expect(value).toBe(true);
+    });
+  });
+
+  it('should init service as not authenticated and not return any authorities admin and not retrieve account', async () => {
+    axiosStub.get.mockRejectedValue(new Error());
+    accountService = new AccountService(store);
+    await accountService.update();
+
+    return accountService.hasAnyAuthorityAndCheckAuth('ADMIN').then((value: boolean) => {
+      expect(value).toBe(false);
+    });
+  });
+
+  it('should init service as not authenticated and not return authority user', async () => {
+    axiosStub.get.mockRejectedValue(new Error());
+    accountService = new AccountService(store);
+    await accountService.update();
+
+    return accountService.hasAnyAuthorityAndCheckAuth('USER').then((value: boolean) => {
+      expect(value).toBe(false);
+    });
+  });
+});
