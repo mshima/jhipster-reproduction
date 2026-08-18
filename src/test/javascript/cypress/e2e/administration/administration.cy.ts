@@ -1,13 +1,4 @@
 import {
-  entityConfirmDeleteButtonSelector,
-  entityCreateCancelButtonSelector,
-  entityCreateSaveButtonSelector,
-  entityDeleteButtonSelector,
-  entityDetailsBackButtonSelector,
-  entityDetailsButtonSelector,
-  entityEditButtonSelector,
-} from 'support/entity';
-import {
   metricsPageHeadingSelector,
   healthPageHeadingSelector,
   logsPageHeadingSelector,
