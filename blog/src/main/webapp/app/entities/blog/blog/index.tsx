@@ -4,9 +4,9 @@ import { Route } from 'react-router';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import Blog from './blog';
-import BlogDeleteDialog from './blog-delete-dialog';
 import BlogDetail from './blog-detail';
 import BlogUpdate from './blog-update';
+import BlogDeleteDialog from './blog-delete-dialog';
 
 const BlogRoutes = () => (
   <ErrorBoundaryRoutes>

@@ -1,12 +1,11 @@
+import axios from 'axios';
 import { describe, expect, it, vi } from 'vitest';
 
 import { configureStore } from '@reduxjs/toolkit';
-import axios from 'axios';
 
-import { IProduct, defaultValue } from 'app/shared/model/store/product.model';
+import reducer, { createEntity, deleteEntity, getEntities, getEntity, updateEntity, partialUpdateEntity, reset } from './product.reducer';
 import { EntityState } from 'app/shared/reducers/reducer.utils';
-
-import reducer, { createEntity, deleteEntity, getEntities, getEntity, partialUpdateEntity, reset, updateEntity } from './product.reducer';
+import { IProduct, defaultValue } from 'app/shared/model/store/product.model';
 
 describe('Entities reducer tests', () => {
   const initialState: EntityState<IProduct> = {

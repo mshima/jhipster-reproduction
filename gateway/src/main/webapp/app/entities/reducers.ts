@@ -1,5 +1,5 @@
-import product from 'app/entities/store/product/product.reducer';
 import userData from 'app/entities/user-data/user-data.reducer';
+import product from 'app/entities/store/product/product.reducer';
 /* jhipster-needle-add-reducer-import - JHipster will add reducer here */
 
 const entitiesReducers = {

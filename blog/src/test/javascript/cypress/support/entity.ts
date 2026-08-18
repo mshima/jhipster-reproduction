@@ -55,8 +55,9 @@ Cypress.Commands.add('setFieldSelectToLastOfEntity', (fieldName: string) => {
         cy.get(`[data-cy="${fieldName}"]`).select(lastElement);
         cy.get(`[data-cy="${fieldName}"]`).type('{downarrow}');
       });
+    } else {
+      return cy.get(`[data-cy="${fieldName}"]`).type('{downarrow}');
     }
-    return cy.get(`[data-cy="${fieldName}"]`).type('{downarrow}');
   });
 });
 

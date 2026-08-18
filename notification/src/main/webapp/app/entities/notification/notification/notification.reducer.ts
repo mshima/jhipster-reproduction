@@ -1,10 +1,9 @@
-import { createAsyncThunk, isFulfilled, isPending } from '@reduxjs/toolkit';
 import axios from 'axios';
-
-import { INotification, defaultValue } from 'app/shared/model/notification/notification.model';
-import { EntityState, IQueryParams, createEntitySlice, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
-import { cleanEntity } from 'app/shared/util/entity-utils';
+import { createAsyncThunk, isFulfilled, isPending } from '@reduxjs/toolkit';
 import { ASC } from 'app/shared/util/pagination.constants';
+import { cleanEntity } from 'app/shared/util/entity-utils';
+import { IQueryParams, createEntitySlice, EntityState, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
+import { INotification, defaultValue } from 'app/shared/model/notification/notification.model';
 
 const initialState: EntityState<INotification> = {
   loading: false,

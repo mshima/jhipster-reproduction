@@ -1,13 +1,12 @@
+import axios from 'axios';
 import { describe, expect, it, vi } from 'vitest';
 
 import { configureStore } from '@reduxjs/toolkit';
-import axios from 'axios';
-
 import { getPageNumberFromLinkHeader } from 'app/shared/jhipster/link-header';
-import { IPost, defaultValue } from 'app/shared/model/blog/post.model';
-import { EntityState } from 'app/shared/reducers/reducer.utils';
 
-import reducer, { createEntity, deleteEntity, getEntities, getEntity, partialUpdateEntity, reset, updateEntity } from './post.reducer';
+import reducer, { createEntity, deleteEntity, getEntities, getEntity, updateEntity, partialUpdateEntity, reset } from './post.reducer';
+import { EntityState } from 'app/shared/reducers/reducer.utils';
+import { IPost, defaultValue } from 'app/shared/model/blog/post.model';
 
 describe('Entities reducer tests', () => {
   const initialState: EntityState<IPost> = {

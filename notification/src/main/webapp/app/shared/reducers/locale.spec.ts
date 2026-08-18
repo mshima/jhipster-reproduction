@@ -1,9 +1,8 @@
+import axios from 'axios';
 import { describe, expect, it, vi } from 'vitest';
 import { TranslatorContext } from 'react-jhipster';
 
-import axios from 'axios';
-
-import locale, { addTranslationSourcePrefix, loaded, setLocale, updateLocale } from 'app/shared/reducers/locale';
+import locale, { setLocale, updateLocale, loaded, addTranslationSourcePrefix } from 'app/shared/reducers/locale';
 
 const defaultLocale = 'en';
 const dispatch = vi.fn();

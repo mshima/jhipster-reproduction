@@ -1,14 +1,16 @@
 import React from 'react';
 import { Route } from 'react-router';
 
+import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
+
 import { ReducersMapObject, combineReducers } from '@reduxjs/toolkit';
 
 import getStore from 'app/config/store';
-import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import entitiesReducers from './reducers';
-import Product from './store/product';
+
 import UserData from './user-data';
+import Product from './store/product';
 /* jhipster-needle-add-route-import - JHipster will add routes here */
 
 export default () => {

@@ -1,16 +1,19 @@
 import React, { useEffect } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
-import { Translate, ValidatedField, ValidatedForm, translate } from 'react-jhipster';
 import { Link, useNavigate, useParams } from 'react-router';
-
+import { Button, Row, Col, FormText } from 'react-bootstrap';
+import { isNumber, Translate, translate, ValidatedField, ValidatedForm } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntities as getBlogs } from 'app/entities/blog/blog/blog.reducer';
-import { getEntities as getTags } from 'app/entities/blog/tag/tag.reducer';
+import { convertDateTimeFromServer, convertDateTimeToServer, displayDefaultDateTime } from 'app/shared/util/date-utils';
 import { mapIdList } from 'app/shared/util/entity-utils';
+import { useAppDispatch, useAppSelector } from 'app/config/store';
 
-import { createEntity, getEntity, updateEntity } from './post.reducer';
+import { IBlog } from 'app/shared/model/blog/blog.model';
+import { getEntities as getBlogs } from 'app/entities/blog/blog/blog.reducer';
+import { ITag } from 'app/shared/model/blog/tag.model';
+import { getEntities as getTags } from 'app/entities/blog/tag/tag.reducer';
+import { IPost } from 'app/shared/model/blog/post.model';
+import { getEntity, updateEntity, createEntity, reset } from './post.reducer';
 
 export const PostUpdate = () => {
   const dispatch = useAppDispatch();

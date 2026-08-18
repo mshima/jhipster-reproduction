@@ -1,8 +1,7 @@
 import React from 'react';
+
 import { Route } from 'react-router';
-
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
-
 import Docs from './docs/docs';
 
 const AdministrationRoutes = () => (

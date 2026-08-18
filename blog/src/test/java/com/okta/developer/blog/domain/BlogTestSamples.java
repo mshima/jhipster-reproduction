@@ -1,8 +1,12 @@
 package com.okta.developer.blog.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.okta.developer.blog.web.rest.TestUtil;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
+import org.junit.jupiter.api.Test;
 
 public class BlogTestSamples {
 

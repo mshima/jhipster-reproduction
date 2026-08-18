@@ -1,8 +1,12 @@
 package com.okta.developer.notification.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import com.okta.developer.notification.web.rest.TestUtil;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.atomic.AtomicLong;
+import org.junit.jupiter.api.Test;
 
 public class NotificationEntityTestSamples {
 
