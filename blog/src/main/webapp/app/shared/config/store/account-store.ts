@@ -1,0 +1,59 @@
+import { computed, ref } from 'vue';
+
+import { defineStore } from 'pinia';
+
+export const useAccountStore = defineStore('main', () => {
+  const userIdentity = ref(null);
+  const logon = ref(null);
+  const profilesLoaded = ref(false);
+  const activeProfiles = ref('');
+  const ribbonOnProfiles = ref('');
+
+  const account = computed(() => userIdentity.value);
+  const authenticated = computed(() => !!userIdentity.value);
+
+  function authenticate(promise) {
+    logon.value = promise;
+  }
+
+  function setAuthentication(identity) {
+    userIdentity.value = identity;
+    logon.value = null;
+  }
+
+  function logout() {
+    userIdentity.value = null;
+    logon.value = null;
+  }
+
+  function setProfilesLoaded() {
+    profilesLoaded.value = true;
+  }
+
+  function setActiveProfiles(profile) {
+    activeProfiles.value = profile;
+  }
+
+  function setRibbonOnProfiles(ribbon) {
+    ribbonOnProfiles.value = ribbon;
+  }
+
+  return {
+    // State
+    userIdentity,
+    logon,
+    profilesLoaded,
+    activeProfiles,
+    ribbonOnProfiles,
+    // Getters
+    account,
+    authenticated,
+    // Actions
+    authenticate,
+    setAuthentication,
+    logout,
+    setProfilesLoaded,
+    setActiveProfiles,
+    setRibbonOnProfiles,
+  };
+});
