@@ -1,4 +1,5 @@
 import { Service } from '@angular/core';
+
 import { SortState } from './sort-state';
 
 @Service()

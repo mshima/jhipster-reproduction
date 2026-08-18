@@ -1,22 +1,22 @@
-import { Component, inject, signal, OnInit, effect } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { TranslateService } from '@ngx-translate/core';
 
-import { StateStorageService } from 'app/core/auth/state-storage.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbCollapse } from '@ng-bootstrap/ng-bootstrap/collapse';
 import { NgbDropdown, NgbDropdownMenu, NgbDropdownToggle } from '@ng-bootstrap/ng-bootstrap/dropdown';
-import HasAnyAuthorityDirective from 'app/shared/auth/has-any-authority.directive';
-import { LANGUAGES } from 'app/config/language.constants';
-import ActiveMenuDirective from './active-menu.directive';
-import FindLanguageFromKeyPipe from 'app/shared/language/find-language-from-key.pipe';
-import { TranslateDirective } from 'app/shared/language';
-import { Account } from 'app/core/auth/account.model';
-import { AccountService } from 'app/core/auth/account.service';
-import { LoginService } from 'app/login/login.service';
-import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { TranslateService } from '@ngx-translate/core';
 import { environment } from 'environments/environment';
-import NavbarItem from './navbar-item.model';
+
+import { LANGUAGES } from 'app/config/language.constants';
+import { AccountService } from 'app/core/auth/account.service';
+import { StateStorageService } from 'app/core/auth/state-storage.service';
+import { ProfileService } from 'app/layouts/profiles/profile.service';
+import { LoginService } from 'app/login/login.service';
+import HasAnyAuthorityDirective from 'app/shared/auth/has-any-authority.directive';
+import { TranslateDirective } from 'app/shared/language';
+import FindLanguageFromKeyPipe from 'app/shared/language/find-language-from-key.pipe';
+
+import ActiveMenuDirective from './active-menu.directive';
 
 @Component({
   selector: 'jhi-navbar',

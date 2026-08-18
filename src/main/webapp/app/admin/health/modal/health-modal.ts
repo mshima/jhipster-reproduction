@@ -1,9 +1,10 @@
-import { Component, inject } from '@angular/core';
 import { KeyValuePipe } from '@angular/common';
+import { Component, inject } from '@angular/core';
+
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap/modal';
 
 import { TranslateDirective } from 'app/shared/language';
-import { HealthKey, HealthDetails } from '../health.model';
+import { HealthDetails, HealthKey } from '../health.model';
 
 @Component({
   selector: 'jhi-health-modal',

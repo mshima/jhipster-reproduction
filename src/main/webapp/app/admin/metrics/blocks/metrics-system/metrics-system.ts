@@ -1,7 +1,8 @@
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { DecimalPipe, DatePipe } from '@angular/common';
 
 import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap/progressbar';
+
 import { ProcessMetrics } from 'app/admin/metrics/metrics.model';
 
 const MILLISECONDS_PER_UNIT = {

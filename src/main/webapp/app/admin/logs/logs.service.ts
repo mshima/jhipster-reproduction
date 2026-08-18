@@ -1,9 +1,11 @@
-import { inject, Service } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Service, inject } from '@angular/core';
+
 import { Observable } from 'rxjs';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
-import { LoggersResponse, Level } from './log.model';
+
+import { Level, LoggersResponse } from './log.model';
 
 @Service()
 export class LogsService {

@@ -1,5 +1,5 @@
+import { DecimalPipe, KeyValuePipe } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { KeyValuePipe, DecimalPipe } from '@angular/common';
 
 import { Services } from 'app/admin/metrics/metrics.model';
 

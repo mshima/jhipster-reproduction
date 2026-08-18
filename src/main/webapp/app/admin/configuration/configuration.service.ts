@@ -1,8 +1,10 @@
-import { inject, Service } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Service, inject } from '@angular/core';
+
+import { Observable, map } from 'rxjs';
 
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
+
 import { Bean, Beans, ConfigProps, Env, PropertySource } from './configuration.model';
 
 @Service()

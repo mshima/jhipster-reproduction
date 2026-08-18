@@ -2,13 +2,13 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { inject } from '@angular/core';
 import { ActivatedRouteSnapshot, Router } from '@angular/router';
 
-import { catchError, EMPTY, Observable, of } from 'rxjs';
+import { EMPTY, Observable, catchError, of } from 'rxjs';
 
 import { ILabel } from '../label.model';
 import { LabelService } from '../service/label.service';
 
 const labelResolve = (route: ActivatedRouteSnapshot): Observable<null | ILabel> => {
-  const id = route.params['id'];
+  const { id } = route.params;
   if (id) {
     const router = inject(Router);
     const service = inject(LabelService);

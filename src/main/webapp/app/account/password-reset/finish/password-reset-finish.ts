@@ -1,9 +1,11 @@
-import { Component, inject, OnInit, AfterViewInit, ElementRef, signal, viewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AfterViewInit, Component, ElementRef, OnInit, inject, signal, viewChild } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+
+import { TranslatePipe } from '@ngx-translate/core';
+
 import PasswordStrengthBar from 'app/account/password/password-strength-bar/password-strength-bar';
 import { TranslateDirective } from 'app/shared/language';
-import { TranslatePipe } from '@ngx-translate/core';
 
 import { PasswordResetFinishService } from './password-reset-finish.service';
 

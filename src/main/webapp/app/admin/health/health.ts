@@ -1,12 +1,14 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { HttpErrorResponse } from '@angular/common/http';
 import { KeyValuePipe } from '@angular/common';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, inject, signal } from '@angular/core';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
 
 import { TranslateDirective } from 'app/shared/language';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+import { HealthDetails, HealthModel, HealthStatus } from './health.model';
 import { HealthService } from './health.service';
-import { HealthModel, HealthDetails, HealthStatus } from './health.model';
 import HealthModal from './modal/health-modal';
 
 @Component({

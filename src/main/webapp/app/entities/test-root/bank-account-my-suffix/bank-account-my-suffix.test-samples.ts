@@ -1,7 +1,5 @@
 import dayjs from 'dayjs/esm';
 
-import { BankAccountType } from 'app/entities/enumerations/bank-account-type.model';
-
 import { IBankAccountMySuffix, NewBankAccountMySuffix } from './bank-account-my-suffix.model';
 
 export const sampleWithRequiredData: IBankAccountMySuffix = {

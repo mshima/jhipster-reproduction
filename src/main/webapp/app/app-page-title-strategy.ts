@@ -1,5 +1,6 @@
-import { inject, Service } from '@angular/core';
+import { Service, inject } from '@angular/core';
 import { RouterStateSnapshot, TitleStrategy } from '@angular/router';
+
 import { TranslateService } from '@ngx-translate/core';
 
 @Service()

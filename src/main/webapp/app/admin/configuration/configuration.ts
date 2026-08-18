@@ -1,12 +1,14 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { JsonPipe, KeyValuePipe } from '@angular/common';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { KeyValuePipe, JsonPipe } from '@angular/common';
-import { TranslateDirective } from 'app/shared/language';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { SortDirective, SortByDirective, sortStateSignal, SortService } from 'app/shared/sort';
-import { ConfigurationService } from './configuration.service';
+
+import { TranslateDirective } from 'app/shared/language';
+import { SortByDirective, SortDirective, SortService, sortStateSignal } from 'app/shared/sort';
+
 import { Bean, PropertySource } from './configuration.model';
+import { ConfigurationService } from './configuration.service';
 
 @Component({
   selector: 'jhi-configuration',

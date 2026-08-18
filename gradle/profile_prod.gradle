@@ -1,7 +1,7 @@
 dependencies {
     implementation "org.postgresql:postgresql"
     implementation "org.postgresql:r2dbc-postgresql"
-    testImplementation "org.testcontainers:postgresql"
+    testImplementation "org.testcontainers:testcontainers-postgresql"
     // jhipster-needle-gradle-dependency - JHipster will add additional dependencies here
 }
 

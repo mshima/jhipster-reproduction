@@ -1,11 +1,11 @@
+import eslint from '@eslint/js';
+import angular from 'angular-eslint';
 import { defineConfig } from 'eslint/config';
+import cypress from 'eslint-plugin-cypress';
 import prettier from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
-import eslint from '@eslint/js';
 // For a detailed explanation, visit: https://github.com/angular-eslint/angular-eslint/blob/main/docs/CONFIGURING_FLAT_CONFIG.md
-import angular from 'angular-eslint';
-import cypress from 'eslint-plugin-cypress';
 // jhipster-needle-eslint-add-import - JHipster will add additional import here
 
 export default defineConfig(

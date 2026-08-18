@@ -1,11 +1,13 @@
 import { Component, inject, signal } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 
-import { TranslateDirective } from 'app/shared/language';
 import { TranslatePipe } from '@ngx-translate/core';
+
 import { AccountService } from 'app/core/auth/account.service';
-import { PasswordService } from './password.service';
+import { TranslateDirective } from 'app/shared/language';
+
 import PasswordStrengthBar from './password-strength-bar/password-strength-bar';
+import { PasswordService } from './password.service';
 
 @Component({
   selector: 'jhi-password',

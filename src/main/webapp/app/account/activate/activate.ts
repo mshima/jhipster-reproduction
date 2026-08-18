@@ -1,6 +1,8 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, OnInit, inject, signal } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+
 import { mergeMap } from 'rxjs';
+
 import { TranslateDirective } from 'app/shared/language';
 
 import { ActivateService } from './activate.service';

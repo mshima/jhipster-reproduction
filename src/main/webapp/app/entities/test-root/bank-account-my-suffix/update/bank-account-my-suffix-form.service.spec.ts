@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest';
 import { TestBed } from '@angular/core/testing';
 
-import { sampleWithRequiredData, sampleWithNewData } from '../bank-account-my-suffix.test-samples';
+import { sampleWithNewData, sampleWithRequiredData } from '../bank-account-my-suffix.test-samples';
 
 import { BankAccountMySuffixFormService } from './bank-account-my-suffix-form.service';
 

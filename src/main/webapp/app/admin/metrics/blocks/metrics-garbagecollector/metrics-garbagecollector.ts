@@ -1,9 +1,10 @@
-import { Component, input } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { TranslateDirective } from 'app/shared/language';
+import { Component, input } from '@angular/core';
 
 import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap/progressbar';
+
 import { GarbageCollector } from 'app/admin/metrics/metrics.model';
+import { TranslateDirective } from 'app/shared/language';
 
 @Component({
   selector: 'jhi-metrics-garbagecollector',

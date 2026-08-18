@@ -1,12 +1,14 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
-import { finalize } from 'rxjs';
+import { SlicePipe } from '@angular/common';
+import { Component, OnInit, computed, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { finalize } from 'rxjs';
+
 import { TranslateDirective } from 'app/shared/language';
-import { FormsModule } from '@angular/forms';
-import { SlicePipe } from '@angular/common';
-import { SortDirective, SortByDirective, sortStateSignal, SortService } from 'app/shared/sort';
-import { Log, LoggersResponse, Level } from './log.model';
+import { SortByDirective, SortDirective, SortService, sortStateSignal } from 'app/shared/sort';
+
+import { Level, Log, LoggersResponse } from './log.model';
 import { LogsService } from './logs.service';
 
 @Component({

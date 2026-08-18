@@ -1,23 +1,14 @@
 package tech.jhipster.sample.repository.search;
 
-import static org.springframework.data.elasticsearch.client.elc.QueryBuilders.queryStringQuery;
-
 import co.elastic.clients.elasticsearch._types.query_dsl.QueryStringQuery;
-import java.util.List;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.elasticsearch.client.elc.NativeQuery;
 import org.springframework.data.elasticsearch.client.elc.ReactiveElasticsearchTemplate;
 import org.springframework.data.elasticsearch.core.SearchHit;
 import org.springframework.data.elasticsearch.core.query.Query;
 import org.springframework.data.elasticsearch.repository.ReactiveElasticsearchRepository;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.transaction.annotation.Isolation;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 import reactor.core.publisher.Flux;
 import tech.jhipster.sample.domain.Operation;
-import tech.jhipster.sample.repository.OperationRepository;
 
 /**
  * Spring Data Elasticsearch repository for the {@link Operation} entity.

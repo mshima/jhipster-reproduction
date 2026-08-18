@@ -1,10 +1,11 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 
-import { RegisterService } from './register.service';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
+
 import { Registration } from './register.model';
+import { RegisterService } from './register.service';
 
 describe('RegisterService Service', () => {
   let service: RegisterService;

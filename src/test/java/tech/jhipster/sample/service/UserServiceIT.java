@@ -1,11 +1,9 @@
 package tech.jhipster.sample.service;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.mockito.Mockito.any;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -18,15 +16,12 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
-import reactor.core.publisher.Mono;
 import tech.jhipster.sample.IntegrationTest;
 import tech.jhipster.sample.config.Constants;
 import tech.jhipster.sample.domain.User;
 import tech.jhipster.sample.repository.UserRepository;
 import tech.jhipster.sample.repository.search.UserSearchRepository;
-import tech.jhipster.sample.service.dto.AdminUserDTO;
 import tech.jhipster.security.RandomUtil;
 
 /**

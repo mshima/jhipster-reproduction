@@ -10,8 +10,8 @@ gatling-highcharts = "3.15.1"
 # jhipster-needle-gradle-dependency-catalog-version - JHipster will add additional versions for convention plugins here
 
 [libraries]
-jhipster-framework = { module = "tech.jhipster:jhipster-framework", version = "8.12.0" }
-springdoc-openapi-starter-webflux-api = { module = "org.springdoc:springdoc-openapi-starter-webflux-api", version = "2.8.15" }
+jhipster-framework = { module = "tech.jhipster:jhipster-framework", version = "9.1.0" }
+springdoc-openapi-starter-webflux-api = { module = "org.springdoc:springdoc-openapi-starter-webflux-api", version = "3.1.0" }
 archunit-junit5-api = { module = "com.tngtech.archunit:archunit-junit5-api", version.ref = "archunit-junit5" }
 archunit-junit5-engine = { module = "com.tngtech.archunit:archunit-junit5-engine", version.ref = "archunit-junit5" }
 mapstruct = { module = "org.mapstruct:mapstruct", version.ref = "mapstruct" }
@@ -25,5 +25,5 @@ commons-beanutils = { module = "commons-beanutils:commons-beanutils", version = 
 
 [plugins]
 gradle-git-properties = { id = "com.gorylenko.gradle-git-properties", version = "4.0.1" }
-spring-boot = { id = "org.springframework.boot", version = "3.5.15" }
+spring-boot = { id = "org.springframework.boot", version = "4.1.0" }
 # jhipster-needle-gradle-dependency-catalog-plugins - JHipster will add additional plugins versions

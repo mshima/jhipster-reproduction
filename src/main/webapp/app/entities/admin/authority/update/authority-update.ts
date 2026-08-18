@@ -1,16 +1,16 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
-import { HttpResponse } from '@angular/common/http';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { finalize, Observable } from 'rxjs';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
-import { AlertError } from 'app/shared/alert/alert-error';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Observable, finalize } from 'rxjs';
 
-import { AuthorityFormService, AuthorityFormGroup } from './authority-form.service';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
 import { IAuthority } from '../authority.model';
 import { AuthorityService } from '../service/authority.service';
+
+import { AuthorityFormGroup, AuthorityFormService } from './authority-form.service';
 
 @Component({
   selector: 'jhi-authority-update',

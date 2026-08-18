@@ -1,9 +1,10 @@
+import { DecimalPipe, KeyValuePipe } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { KeyValuePipe, DecimalPipe } from '@angular/common';
-import { TranslateDirective } from 'app/shared/language';
 
 import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap/progressbar';
+
 import { JvmMetrics } from 'app/admin/metrics/metrics.model';
+import { TranslateDirective } from 'app/shared/language';
 
 @Component({
   selector: 'jhi-jvm-memory',

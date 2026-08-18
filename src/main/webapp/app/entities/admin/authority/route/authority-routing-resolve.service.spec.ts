@@ -1,11 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
 import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRouteSnapshot, ActivatedRoute, Router, convertToParamMap } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router, convertToParamMap } from '@angular/router';
+
 import { lastValueFrom, of, throwError } from 'rxjs';
 
-import { IAuthority } from '../authority.model';
 import { AuthorityService } from '../service/authority.service';
 
 import authorityResolve from './authority-routing-resolve.service';

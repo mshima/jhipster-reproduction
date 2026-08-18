@@ -1,5 +1,5 @@
 import { Service } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 import { IAuthority, NewAuthority } from '../authority.model';
 

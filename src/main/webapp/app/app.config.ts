@@ -1,6 +1,8 @@
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { ApplicationConfig, LOCALE_ID, inject } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import {
+  NavigationError,
   Router,
   RouterFeatures,
   TitleStrategy,
@@ -8,22 +10,22 @@ import {
   withComponentInputBinding,
   withDebugTracing,
   withNavigationErrorHandler,
-  NavigationError,
 } from '@angular/router';
 import { provideServiceWorker } from '@angular/service-worker';
-import { provideHttpClient, withInterceptors } from '@angular/common/http';
+
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap/datepicker';
+import { environment } from 'environments/environment';
+
+import { authExpiredInterceptor } from 'app/core/interceptor/auth-expired.interceptor';
 import { errorHandlerInterceptor } from 'app/core/interceptor/error-handler.interceptor';
 import { notificationInterceptor } from 'app/core/interceptor/notification.interceptor';
-import { authExpiredInterceptor } from 'app/core/interceptor/auth-expired.interceptor';
 
 import './config/dayjs';
 import { provideTranslation } from 'app/shared/language/translation.provider';
-import { environment } from 'environments/environment';
-import FindLanguageFromKeyPipe from 'app/shared/language/find-language-from-key.pipe';
+
+import { AppPageTitleStrategy } from './app-page-title-strategy';
 import routes from './app.routes';
 import { NgbDateDayjsAdapter } from './config/datepicker-adapter';
-import { AppPageTitleStrategy } from './app-page-title-strategy';
 
 const routerFeatures: RouterFeatures[] = [
   withComponentInputBinding(),

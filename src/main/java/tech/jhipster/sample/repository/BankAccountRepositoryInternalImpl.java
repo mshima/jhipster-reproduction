@@ -1,27 +1,14 @@
 package tech.jhipster.sample.repository;
 
-import static org.springframework.data.relational.core.query.Criteria.where;
-
 import io.r2dbc.spi.Row;
 import io.r2dbc.spi.RowMetadata;
-import java.math.BigDecimal;
-import java.time.Duration;
-import java.time.Instant;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Optional;
-import java.util.UUID;
-import java.util.function.BiFunction;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.r2dbc.convert.R2dbcConverter;
 import org.springframework.data.r2dbc.core.R2dbcEntityOperations;
 import org.springframework.data.r2dbc.core.R2dbcEntityTemplate;
 import org.springframework.data.r2dbc.repository.support.SimpleR2dbcRepository;
-import org.springframework.data.relational.core.query.Criteria;
 import org.springframework.data.relational.core.sql.Column;
 import org.springframework.data.relational.core.sql.Comparison;
 import org.springframework.data.relational.core.sql.Condition;
@@ -37,7 +24,6 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import tech.jhipster.sample.domain.BankAccount;
 import tech.jhipster.sample.domain.criteria.BankAccountCriteria;
-import tech.jhipster.sample.domain.enumeration.BankAccountType;
 import tech.jhipster.sample.repository.rowmapper.BankAccountRowMapper;
 import tech.jhipster.sample.repository.rowmapper.ColumnConverter;
 import tech.jhipster.sample.repository.rowmapper.UserRowMapper;

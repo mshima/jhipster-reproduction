@@ -1,5 +1,6 @@
 import { HttpErrorResponse, HttpInterceptorFn } from '@angular/common/http';
 import { inject } from '@angular/core';
+
 import { tap } from 'rxjs';
 
 import { EventManager, EventWithContent } from 'app/core/util/event-manager.service';

@@ -1,8 +1,11 @@
 import { Component, input } from '@angular/core';
-import { IFilterOptions } from './filter.model';
+
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
 import { TranslatePipe } from '@ngx-translate/core';
+
+import { TranslateDirective } from 'app/shared/language';
+
+import { IFilterOptions } from './filter.model';
 
 @Component({
   selector: 'jhi-filter',

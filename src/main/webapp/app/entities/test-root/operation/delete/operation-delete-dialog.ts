@@ -1,13 +1,14 @@
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap/modal';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap/modal';
+
+import { ITEM_DELETED_EVENT } from 'app/config/navigation.constants';
 import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
 import { IOperation } from '../operation.model';
 import { OperationService } from '../service/operation.service';
-import { ITEM_DELETED_EVENT } from 'app/config/navigation.constants';
 
 @Component({
   templateUrl: './operation-delete-dialog.html',

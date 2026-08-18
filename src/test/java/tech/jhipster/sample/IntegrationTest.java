@@ -6,7 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.testcontainers.context.ImportTestcontainers;
-import tech.jhipster.sample.SampleWebfluxH2MemApp;
 import tech.jhipster.sample.config.AsyncSyncConfiguration;
 import tech.jhipster.sample.config.ElasticsearchTestConfiguration;
 import tech.jhipster.sample.config.ElasticsearchTestContainer;

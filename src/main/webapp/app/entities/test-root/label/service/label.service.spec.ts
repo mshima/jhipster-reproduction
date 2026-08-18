@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-import { provideHttpClientTesting, HttpTestingController } from '@angular/common/http/testing';
 
 import { ILabel } from '../label.model';
-import { sampleWithRequiredData, sampleWithNewData, sampleWithPartialData, sampleWithFullData } from '../label.test-samples';
+import { sampleWithFullData, sampleWithPartialData, sampleWithRequiredData } from '../label.test-samples';
 
 import { LabelService } from './label.service';
 

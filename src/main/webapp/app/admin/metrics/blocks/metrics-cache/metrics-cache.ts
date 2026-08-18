@@ -1,9 +1,9 @@
+import { DecimalPipe, KeyValuePipe } from '@angular/common';
 import { Component, input } from '@angular/core';
-import { KeyValuePipe, DecimalPipe } from '@angular/common';
-import { TranslateDirective } from 'app/shared/language';
 
 import { CacheMetrics } from 'app/admin/metrics/metrics.model';
 import { filterNaN } from 'app/core/util/operators';
+import { TranslateDirective } from 'app/shared/language';
 
 @Component({
   selector: 'jhi-metrics-cache',

@@ -1,7 +1,7 @@
 import dayjs from 'dayjs/esm';
-import { IUser } from 'app/entities/user/user.model';
-import { IOperation } from 'app/entities/test-root/operation/operation.model';
+
 import { BankAccountType } from 'app/entities/enumerations/bank-account-type.model';
+import { IUser } from 'app/entities/user/user.model';
 
 export interface IBankAccountMySuffix {
   id: number;

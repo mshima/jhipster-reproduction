@@ -71,7 +71,7 @@ describe('Main', () => {
         await router.navigateByUrl('');
 
         // THEN
-        expect(document.title).toBe(defaultPageTitle + ' translated');
+        expect(document.title).toBe(`${defaultPageTitle} translated`);
       });
 
       it('should set page title to root route pageTitle if there is no child routes', async () => {
@@ -82,7 +82,7 @@ describe('Main', () => {
         await router.navigateByUrl('');
 
         // THEN
-        expect(document.title).toBe(parentRoutePageTitle + ' translated');
+        expect(document.title).toBe(`${parentRoutePageTitle} translated`);
       });
 
       it('should set page title to child route pageTitle if child routes exist and pageTitle is set for child route', async () => {
@@ -99,7 +99,7 @@ describe('Main', () => {
         await router.navigateByUrl('home');
 
         // THEN
-        expect(document.title).toBe(childRoutePageTitle + ' translated');
+        expect(document.title).toBe(`${childRoutePageTitle} translated`);
       });
 
       it('should set page title to parent route pageTitle if child routes exists but pageTitle is not set for child route data', async () => {
@@ -116,7 +116,7 @@ describe('Main', () => {
         await router.navigateByUrl('home');
 
         // THEN
-        expect(document.title).toBe(parentRoutePageTitle + ' translated');
+        expect(document.title).toBe(`${parentRoutePageTitle} translated`);
       });
     });
 

@@ -1,10 +1,11 @@
-import { Component, inject, computed, input } from '@angular/core';
 import { DecimalPipe } from '@angular/common';
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
-import { TranslateDirective } from 'app/shared/language';
+import { Component, computed, inject, input } from '@angular/core';
 
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap/modal';
 import { NgbProgressbar } from '@ng-bootstrap/ng-bootstrap/progressbar';
+
 import { Thread, ThreadState } from 'app/admin/metrics/metrics.model';
+import { TranslateDirective } from 'app/shared/language';
 import { MetricsModalThreads } from '../metrics-modal-threads/metrics-modal-threads';
 
 @Component({

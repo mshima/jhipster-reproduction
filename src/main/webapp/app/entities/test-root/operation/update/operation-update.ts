@@ -1,20 +1,21 @@
-import { Component, inject, signal, OnInit } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
+import { Component, OnInit, inject, signal } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { finalize, map, Observable } from 'rxjs';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
-import { AlertError } from 'app/shared/alert/alert-error';
-import { ReactiveFormsModule } from '@angular/forms';
+import { Observable, finalize, map } from 'rxjs';
 
-import { OperationFormService, OperationFormGroup } from './operation-form.service';
-import { IOperation } from '../operation.model';
-import { OperationService } from '../service/operation.service';
 import { IBankAccountMySuffix } from 'app/entities/test-root/bank-account-my-suffix/bank-account-my-suffix.model';
 import { BankAccountMySuffixService } from 'app/entities/test-root/bank-account-my-suffix/service/bank-account-my-suffix.service';
 import { ILabel } from 'app/entities/test-root/label/label.model';
 import { LabelService } from 'app/entities/test-root/label/service/label.service';
+import { AlertError } from 'app/shared/alert/alert-error';
+import { TranslateDirective } from 'app/shared/language';
+import { IOperation } from '../operation.model';
+import { OperationService } from '../service/operation.service';
+
+import { OperationFormGroup, OperationFormService } from './operation-form.service';
 
 @Component({
   selector: 'jhi-operation-update',

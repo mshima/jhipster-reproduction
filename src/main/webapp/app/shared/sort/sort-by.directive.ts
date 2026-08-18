@@ -1,6 +1,7 @@
 import { Directive, contentChild, effect, inject, input } from '@angular/core';
+
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
-import { faSort, faSortDown, faSortUp, IconDefinition } from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 
 import { SortDirective } from './sort.directive';
 

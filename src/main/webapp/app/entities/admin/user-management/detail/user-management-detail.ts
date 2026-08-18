@@ -2,8 +2,8 @@ import { DatePipe } from '@angular/common';
 import { Component, input } from '@angular/core';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { TranslateDirective } from 'app/shared/language';
 
+import { TranslateDirective } from 'app/shared/language';
 import { IUserManagement } from '../user-management.model';
 
 @Component({

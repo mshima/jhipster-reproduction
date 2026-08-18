@@ -1,11 +1,12 @@
-import { Component, OnInit, AfterViewInit, ElementRef, inject, signal, viewChild } from '@angular/core';
-import { FormGroup, FormControl, Validators, ReactiveFormsModule } from '@angular/forms';
+import { AfterViewInit, Component, ElementRef, OnInit, inject, signal, viewChild } from '@angular/core';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 
-import { TranslateDirective } from 'app/shared/language';
 import { TranslatePipe } from '@ngx-translate/core';
-import { LoginService } from 'app/login/login.service';
+
 import { AccountService } from 'app/core/auth/account.service';
+import { LoginService } from 'app/login/login.service';
+import { TranslateDirective } from 'app/shared/language';
 
 @Component({
   selector: 'jhi-login',

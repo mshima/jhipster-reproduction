@@ -1,11 +1,12 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+
 import { provideTranslateService } from '@ngx-translate/core';
 import { of } from 'rxjs';
 
 import Metrics from './metrics';
-import { MetricsService } from './metrics.service';
 import { MetricsModel, Thread } from './metrics.model';
+import { MetricsService } from './metrics.service';
 
 describe('Metrics', () => {
   let comp: Metrics;

@@ -1,11 +1,10 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
 import { HttpErrorResponse } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { ActivatedRouteSnapshot, ActivatedRoute, Router, convertToParamMap } from '@angular/router';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router, convertToParamMap } from '@angular/router';
+
 import { lastValueFrom, of, throwError } from 'rxjs';
 
-import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
 import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';
 
 import bankAccountResolve from './bank-account-my-suffix-routing-resolve.service';

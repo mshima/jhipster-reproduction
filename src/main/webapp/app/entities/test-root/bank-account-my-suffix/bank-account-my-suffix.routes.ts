@@ -1,8 +1,9 @@
 import { Routes } from '@angular/router';
 
-import { userRouteAccessService } from 'app/core/auth/user-route-access.service';
-import BankAccountMySuffixResolve from './route/bank-account-my-suffix-routing-resolve.service';
 import { ASC } from 'app/config/navigation.constants';
+import { userRouteAccessService } from 'app/core/auth/user-route-access.service';
+
+import BankAccountMySuffixResolve from './route/bank-account-my-suffix-routing-resolve.service';
 
 const bankAccountRoute: Routes = [
   {

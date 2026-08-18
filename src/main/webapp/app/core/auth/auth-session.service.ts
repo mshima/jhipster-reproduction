@@ -1,9 +1,10 @@
-import { inject, Service } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Service, inject } from '@angular/core';
 
-import { ApplicationConfigService } from '../config/application-config.service';
+import { Observable, map } from 'rxjs';
+
 import { Login } from 'app/login/login.model';
+import { ApplicationConfigService } from '../config/application-config.service';
 
 @Service()
 export class AuthServerProvider {

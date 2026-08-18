@@ -1,11 +1,12 @@
 import { beforeEach, describe, expect, it } from 'vitest';
+import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { WritableSignal } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+
 import { provideTranslateService } from '@ngx-translate/core';
 
-import { EventManager } from 'app/core/util/event-manager.service';
 import { AlertModel, AlertService } from 'app/core/util/alert.service';
+import { EventManager } from 'app/core/util/event-manager.service';
 import { MESSAGE_ERROR_HEADER_NAME, MESSAGE_PARAM_HEADER_NAME } from 'app/shared/jhipster/constants';
 import { ProblemWithMessageType } from 'app/shared/jhipster/problem-details';
 

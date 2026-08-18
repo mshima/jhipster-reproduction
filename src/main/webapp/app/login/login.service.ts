@@ -1,10 +1,12 @@
-import { inject, Service } from '@angular/core';
-import { mergeMap, Observable } from 'rxjs';
+import { Service, inject } from '@angular/core';
+
+import { Observable, mergeMap } from 'rxjs';
 
 import { Account } from 'app/core/auth/account.model';
 import { AccountService } from 'app/core/auth/account.service';
 import { AuthServerProvider } from 'app/core/auth/auth-session.service';
 import { ApplicationConfigService } from 'app/core/config/application-config.service';
+
 import { Login } from './login.model';
 
 @Service()

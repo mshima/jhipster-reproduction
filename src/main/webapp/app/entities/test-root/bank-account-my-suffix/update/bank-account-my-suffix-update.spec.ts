@@ -3,15 +3,16 @@ import { HttpResponse } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ActivatedRoute } from '@angular/router';
+
 import { provideTranslateService } from '@ngx-translate/core';
-import { of, Subject, from } from 'rxjs';
+import { Subject, from, of } from 'rxjs';
+
+import { UserService } from 'app/entities/user/service/user.service';
+import { IUser } from 'app/entities/user/user.model';
+import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
+import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';
 
 import { BankAccountMySuffixFormService } from './bank-account-my-suffix-form.service';
-import { BankAccountMySuffixService } from '../service/bank-account-my-suffix.service';
-import { IBankAccountMySuffix } from '../bank-account-my-suffix.model';
-import { IUser } from 'app/entities/user/user.model';
-import { UserService } from 'app/entities/user/service/user.service';
-
 import { BankAccountMySuffixUpdate } from './bank-account-my-suffix-update';
 
 describe('BankAccountMySuffix Management Update Component', () => {

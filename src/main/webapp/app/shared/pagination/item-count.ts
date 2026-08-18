@@ -1,4 +1,5 @@
-import { Component, input, computed } from '@angular/core';
+import { Component, computed, input } from '@angular/core';
+
 import TranslateDirective from '../language/translate.directive';
 
 /**
