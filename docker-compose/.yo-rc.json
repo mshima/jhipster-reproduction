@@ -1,0 +1,13 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["gateway", "store", "blog", "notification"],
+    "clusteredDbApps": [],
+    "deploymentType": "docker-compose",
+    "directoryPath": "../",
+    "dockerRepositoryName": "hipsterslabs",
+    "gatewayType": "SpringCloudGateway",
+    "jwtSecretKey": "MDRhMDYyNWFjOTcwNTVmNmNkNTJmOWZlNjI3MjI2YzliYzM3YzkxYTc4NGFhYWMxNDY4MDlhZGY3NTc1MjI1ZmVlNWJlMzQ5NjE3OWIwNjU5OTJiNzI4ZTQwZWNkZDc5ZjM5Nw==",
+    "monitoring": "no",
+    "serviceDiscoveryType": "consul"
+  }
+}

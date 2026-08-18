@@ -1,0 +1,21 @@
+apiVersion: skaffold/v1
+kind: Config
+build:
+  artifacts:
+    - image: hipsterslabs/gateway
+      context: ../gateway
+      jib: {}
+    - image: hipsterslabs/store
+      context: ../store
+      jib: {}
+    - image: hipsterslabs/blog
+      context: ../blog
+      jib: {}
+    - image: hipsterslabs/notification
+      context: ../notification
+      jib: {}
+  tagPolicy:
+    envTemplate:
+      template: '{{.IMAGE_NAME}}:latest'
+deploy:
+  kustomize: {}

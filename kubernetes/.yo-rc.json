@@ -1,0 +1,21 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["gateway", "store", "blog", "notification"],
+    "clusteredDbApps": [],
+    "dbRandomPassword": "371fc1c0a7535ad59d799d7999ec13f203473ddffdbd30ca6a5dae600e86",
+    "deploymentType": "kubernetes",
+    "directoryPath": "../",
+    "dockerPushCommand": "docker push",
+    "dockerRepositoryName": "hipsterslabs",
+    "ingressDomain": "",
+    "ingressType": "nginx",
+    "istio": false,
+    "jwtSecretKey": "NTA0Y2FmYzNiNjM3OWViNzI0OTk1ZWM2OWZjMmJiYTY1N2Q2MWJlYjI1NmI4ZTMyMzAwYTg3ODhmODFiYzA2ODczNDU4YmY1Mzc1MjUwMTIxYWQ3YTU0ZDUxZTQxZGYzZjFiMA==",
+    "kubernetesNamespace": "default",
+    "kubernetesServiceType": "LoadBalancer",
+    "kubernetesStorageClassName": "",
+    "kubernetesUseDynamicStorage": false,
+    "monitoring": "no",
+    "serviceDiscoveryType": "consul"
+  }
+}
