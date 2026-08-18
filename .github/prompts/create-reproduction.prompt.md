@@ -51,7 +51,7 @@ gh pr view <issue_number> --repo jhipster/generator-jhipster \
 Tell the user which pull request the fix branch came from and which ref you resolved it to before
 generating anything, so a wrong `issue_number` is caught before the base branch is built. The
 resolved value goes through the rest of the workflow unchanged, including the `git rev-parse
---verify` check in step 3 and the report in step 11.
+--verify` check in step 3 and the report in step 12.
 
 ## Resolving the sample name
 
@@ -132,7 +132,30 @@ creation, the pushes, and the pull request.
    ```
 
    The base branch must end up clean, with the generated project in a commit.
-7. In the current reproduction repository, create the second branch from `generator-jhipster_<issue_number>_<sample>_base`:
+7. Still on the base branch, generate the CI/CD pipeline so that the reproduction's pull request is
+   actually built. Run it from the reproduction repository, since `ci-cd` has no `--project-folder`
+   and works on the current directory:
+
+   ```bash
+   cd <current-repository-path>
+   <repository_path>/bin/jhipster.cjs ci-cd github --defaults --force
+   git add -A && git commit -m "ci: add github workflow"
+   ```
+
+   `--defaults` answers the "What tasks/integrations do you want to include ?" checkbox, which has
+   no command line option of its own; without it the run blocks on a prompt and dies with
+   `User force closed the prompt`. Older generator refs ignore `--defaults` for that prompt. If the
+   detached upstream ref is one of them, run this single command with `fix_branch` checked out in
+   the `generator-jhipster` repository instead: the workflow is test harness rather than
+   reproduction payload, so it may come from either ref, but it must be committed on the base
+   branch so that the second branch inherits it and the payload diff stays clean.
+
+   The run may also normalise files it did not write, such as `.jhipster/*.json` entity
+   definitions. Commit whatever it touches, so that both branches start from the same state. The
+   selected pipeline is not recorded in `.yo-rc.json`, so the second generation in step 9 does not
+   regenerate `.github/workflows/`.
+
+8. In the current reproduction repository, create the second branch from `generator-jhipster_<issue_number>_<sample>_base`:
 
    ```bash
    cd <current-repository-path>
@@ -140,19 +163,17 @@ creation, the pushes, and the pull request.
    git switch -c generator-jhipster_<issue_number>_<sample>_2
    ```
 
-8. In the `generator-jhipster` repository, check out the branch containing the fix. Then execute the same command again, targeting the current reproduction repository:
+9. In the `generator-jhipster` repository, check out the branch containing the fix. Then execute the same command again, targeting the current reproduction repository:
 
    ```bash
    cd <repository_path>
    git switch <fix_branch>
    bin/jhipster.cjs generate-sample <sample> --force --skip-jhipster-dependencies --project-folder <current-repository-path>
-   bin/jhipster.cjs ci-cd github
    ```
 
    This run finds the `.yo-rc.json` committed on the base branch, reports `So we assume this is
    application regeneration`, and does **not** commit.
-   Generate the GitHub Actions workflow files as well, so the reproduction is complete and can be run in CI.
-9. Commit the second branch yourself, since step 8 leaves the difference introduced by `fix_branch`
+10. Commit the second branch yourself, since step 9 leaves the difference introduced by `fix_branch`
    uncommitted. That difference is the reproduction's payload, so it must become a commit of its own
    on top of the base commit:
 
@@ -164,7 +185,7 @@ creation, the pushes, and the pull request.
 
    Summarise the actual change in the message (for example `feat: migrate to Spring Boot 4.1.0`)
    rather than naming the branch mechanically. Never stash, reset, or clean this difference away.
-10. Push both branches to `origin` and open a pull request from the second branch into the base
+11. Push both branches to `origin` and open a pull request from the second branch into the base
     branch, so the fix's effect on the sample is reviewable as a diff:
 
     ```bash
@@ -181,6 +202,6 @@ creation, the pushes, and the pull request.
     pull request being reproduced (`jhipster/generator-jhipster#<issue_number>`) and record the
     sample used, the upstream ref and commit the base was generated from, and the fix branch and
     commit. Report the pull request URL.
-11. Report the repository path, the two created branches with their commits, the upstream ref used for the base (branch name and commit), the fix branch used (branch name and commit), the sample name actually passed, the command results, and the pull request URL. Summarise the reproduction's payload with `git diff --stat generator-jhipster_<issue_number>_<sample>_base..generator-jhipster_<issue_number>_<sample>_2`. State which branch the `generator-jhipster` repository was left on, since step 8 leaves it on `fix_branch` rather than the detached upstream ref it started from.
+12. Report the repository path, the two created branches with their commits, the upstream ref used for the base (branch name and commit), the fix branch used (branch name and commit), the sample name actually passed, the command results, and the pull request URL. Summarise the reproduction's payload with `git diff --stat generator-jhipster_<issue_number>_<sample>_base..generator-jhipster_<issue_number>_<sample>_2`. State which branch the `generator-jhipster` repository was left on, since step 9 leaves it on `fix_branch` rather than the detached upstream ref it started from.
 
 If `repository_path` is not a `generator-jhipster` repository, stop after reporting the reason and ask for the correct path. If a branch already exists, do not overwrite it; ask whether to use another issue number or clean up the existing branch.

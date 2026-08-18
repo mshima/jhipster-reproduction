@@ -46,6 +46,11 @@ that lookup does not apply or fails.
   `generator-jhipster_<issue_number>_<sample>_2`, where `<sample>` is the resolved sample name you
   passed to `generate-sample` (extension dropped for a `.jdl` sample). See the prompt's "Branch
   names" section.
+- The base branch also carries the CI/CD pipeline: before creating the second branch, run
+  `<repository_path>/bin/jhipster.cjs ci-cd github --defaults --force` from the reproduction
+  repository and commit it as `ci: add github workflow`. `--defaults` is what answers the
+  integrations checkbox, which has no option of its own; without it the command dies with
+  `User force closed the prompt`. See the prompt's step 7.
 - Leave both working trees alone if they are dirty — ask how to proceed instead of stashing,
   resetting, or discarding changes. The `generator-jhipster` tree matters too, because the
   workflow switches its branches.
