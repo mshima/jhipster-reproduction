@@ -13,9 +13,45 @@ Before running commands, collect any missing values:
 - `issue_number`: the issue or pull request number.
 - `sample`: the sample name passed to `generate-sample`. Ask for it if it was not supplied.
 - `repository_path`: the local path to the repository. Ask for it if it was not supplied. If `~/git/generator-jhipster` exists, suggest it as the default.
-- `fix_branch`: the branch containing the fix. Ask for it if it was not supplied.
+- `fix_branch`: the branch containing the fix. If it was not supplied and `issue_number` is a pull
+  request, resolve it from that pull request as described in "Resolving the fix branch". Ask for it
+  only when that lookup does not apply or fails.
 
-Do not guess a sample, issue number, or fix branch. Expand `~` and verify that the repository path exists before proceeding.
+Do not guess a sample, issue number, or fix branch. Reading the head branch of the pull request
+identified by `issue_number` is a lookup, not a guess; inferring a branch from branch names, git
+history, or the current working tree is. Expand `~` and verify that the repository path exists
+before proceeding.
+
+## Resolving the fix branch
+
+When `fix_branch` was not supplied, `issue_number` is often a pull request that carries the fix.
+Ask the pull request for its head branch instead of asking the user:
+
+```bash
+gh pr view <issue_number> --repo jhipster/generator-jhipster \
+  --json isCrossRepository,headRefName,headRepositoryOwner,state,title
+```
+
+- If the command fails because the number is an issue and not a pull request, there is nothing to
+  resolve — ask the user for the fix branch.
+- If `isCrossRepository` is `false`, the head branch lives in the generator-jhipster repository
+  itself. Fetch upstream and use `<headRefName>`, falling back to `upstream/<headRefName>` when no
+  local branch of that name exists.
+- If `isCrossRepository` is `true`, the head branch lives in a fork
+  (`<headRepositoryOwner>:<headRefName>`) and is not reachable by name. Fetch the pull request head
+  into a local branch in the generator-jhipster repository and use that branch:
+
+  ```bash
+  cd <repository_path>
+  git fetch upstream pull/<issue_number>/head:pr-<issue_number>
+  ```
+
+  `fix_branch` is then `pr-<issue_number>`.
+
+Tell the user which pull request the fix branch came from and which ref you resolved it to before
+generating anything, so a wrong `issue_number` is caught before the base branch is built. The
+resolved value goes through the rest of the workflow unchanged, including the `git rev-parse
+--verify` check in step 3 and the report in step 11.
 
 ## Resolving the sample name
 
