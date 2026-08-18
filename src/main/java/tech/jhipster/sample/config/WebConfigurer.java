@@ -1,10 +1,9 @@
 package tech.jhipster.sample.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.concurrent.TimeUnit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.web.reactive.ResourceHandlerRegistrationCustomizer;
+import org.springframework.boot.webflux.autoconfigure.ResourceHandlerRegistrationCustomizer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -20,13 +19,13 @@ import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 import org.springframework.web.reactive.config.WebFluxConfigurer;
 import org.springframework.web.reactive.result.method.HandlerMethodArgumentResolver;
 import org.springframework.web.server.WebExceptionHandler;
-import tech.jhipster.config.ApplicationProperties;
 import tech.jhipster.config.JHipsterConstants;
 import tech.jhipster.config.JHipsterProperties;
 import tech.jhipster.config.h2.H2ConfigurationHelper;
 import tech.jhipster.sample.web.rest.errors.ExceptionTranslator;
 import tech.jhipster.web.filter.reactive.CachingHttpHeadersFilter;
 import tech.jhipster.web.rest.errors.ReactiveWebExceptionHandler;
+import tools.jackson.databind.ObjectMapper;
 
 /**
  * Configuration of web application with Servlet 3.0 APIs.
