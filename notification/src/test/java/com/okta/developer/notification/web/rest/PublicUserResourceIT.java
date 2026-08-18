@@ -1,17 +1,21 @@
 package com.okta.developer.notification.web.rest;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.csrf;
 
 import com.okta.developer.notification.IntegrationTest;
+import com.okta.developer.notification.config.Constants;
 import com.okta.developer.notification.domain.UserEntity;
+import com.okta.developer.notification.repository.EntityManager;
 import com.okta.developer.notification.repository.UserRepository;
 import com.okta.developer.notification.security.AuthoritiesConstants;
+import com.okta.developer.notification.service.dto.UserRest;
 import java.util.Set;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
+import org.springframework.boot.webtestclient.autoconfigure.AutoConfigureWebTestClient;
 import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.reactive.server.WebTestClient;

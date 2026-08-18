@@ -1,12 +1,10 @@
-import { loadMoreDataWhenScrolled } from 'react-jhipster';
-
-import { createAsyncThunk, isFulfilled, isPending } from '@reduxjs/toolkit';
 import axios from 'axios';
-
+import { createAsyncThunk, isFulfilled, isPending } from '@reduxjs/toolkit';
+import { loadMoreDataWhenScrolled } from 'react-jhipster';
 import { getPageNumberFromLinkHeader } from 'app/shared/jhipster/link-header';
-import { ITag, defaultValue } from 'app/shared/model/blog/tag.model';
-import { EntityState, IQueryParams, createEntitySlice, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
 import { cleanEntity } from 'app/shared/util/entity-utils';
+import { IQueryParams, createEntitySlice, EntityState, serializeAxiosError } from 'app/shared/reducers/reducer.utils';
+import { ITag, defaultValue } from 'app/shared/model/blog/tag.model';
 
 const initialState: EntityState<ITag> = {
   loading: false,

@@ -3,8 +3,8 @@ const path = require('node:path');
 const tsconfig = require('../tsconfig.json');
 
 module.exports = {
-  mapTypescriptAliasToWebpackAlias,
   root,
+  mapTypescriptAliasToWebpackAlias,
 };
 
 const _root = path.resolve(__dirname, '..');

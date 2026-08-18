@@ -1,14 +1,18 @@
 package com.okta.developer.blog.web.rest;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.hasItem;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.okta.developer.blog.IntegrationTest;
+import com.okta.developer.blog.domain.Authority;
 import com.okta.developer.blog.domain.User;
 import com.okta.developer.blog.repository.UserRepository;
 import com.okta.developer.blog.security.AuthoritiesConstants;
+import com.okta.developer.blog.service.dto.AdminUserDTO;
 import com.okta.developer.blog.service.mapper.UserMapper;
 import jakarta.persistence.EntityManager;
 import java.util.*;
@@ -21,8 +25,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.AutoConfigureMockMvc;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
+import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Integration tests for the {@link UserResource} REST controller.

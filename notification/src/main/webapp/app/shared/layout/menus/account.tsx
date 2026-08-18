@@ -1,14 +1,11 @@
 import React from 'react';
-import { DropdownItem } from 'react-bootstrap';
-import { Translate, translate } from 'react-jhipster';
-import { useLocation, useNavigate } from 'react-router';
-
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import MenuItem from 'app/shared/layout/menus/menu-item';
+import { DropdownItem } from 'react-bootstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Translate, translate } from 'react-jhipster';
 import { getLoginUrl } from 'app/shared/util/url-utils';
-
 import { NavDropdown } from './menu-components';
+import { useLocation, useNavigate } from 'react-router';
 
 const accountMenuItemsAuthenticated = () => (
   <>

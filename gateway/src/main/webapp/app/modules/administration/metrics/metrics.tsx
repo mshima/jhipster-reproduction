@@ -3,21 +3,20 @@ import { Button, Col, Row } from 'react-bootstrap';
 import {
   CacheMetrics,
   DatasourceMetrics,
-  EndpointsRequestsMetrics,
   GarbageCollectorMetrics,
   HttpRequestMetrics,
   JvmMemory,
   JvmThreads,
+  EndpointsRequestsMetrics,
   SystemMetrics,
   Translate,
 } from 'react-jhipster';
-
-import { faSync } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
 
 import { APP_TIMESTAMP_FORMAT, APP_TWO_DIGITS_AFTER_POINT_NUMBER_FORMAT, APP_WHOLE_NUMBER_FORMAT } from 'app/config/constants';
-import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getSystemMetrics, getSystemThreadDump } from '../administration.reducer';
+import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 export const MetricsPage = () => {
   const dispatch = useAppDispatch();

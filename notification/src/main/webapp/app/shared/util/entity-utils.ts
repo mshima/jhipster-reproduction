@@ -1,5 +1,4 @@
 import { IPaginationBaseState, ISortBaseState } from 'react-jhipster';
-
 import { SORT } from 'app/shared/util/pagination.constants';
 
 /**

@@ -4,9 +4,9 @@ import { Route } from 'react-router';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import Product from './product';
-import ProductDeleteDialog from './product-delete-dialog';
 import ProductDetail from './product-detail';
 import ProductUpdate from './product-update';
+import ProductDeleteDialog from './product-delete-dialog';
 
 const ProductRoutes = () => (
   <ErrorBoundaryRoutes>

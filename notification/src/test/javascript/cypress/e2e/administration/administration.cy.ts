@@ -1,4 +1,4 @@
-import { swaggerFrameSelector, swaggerPageSelector } from '../../support/commands';
+import { swaggerPageSelector, swaggerFrameSelector } from '../../support/commands';
 
 describe('/admin', () => {
   let adminUsername;

@@ -1,16 +1,14 @@
 import './header.scss';
 
 import React, { useEffect, useRef } from 'react';
-import { Nav, Navbar } from 'react-bootstrap';
-import { Storage, Translate } from 'react-jhipster';
-
+import { Translate, Storage } from 'react-jhipster';
+import { Navbar, Nav } from 'react-bootstrap';
 import LoadingBar, { LoadingBarRef } from 'react-top-loading-bar';
 
+import { Home, Brand } from './header-components';
+import { AdminMenu, EntitiesMenu, AccountMenu, LocaleMenu } from '../menus';
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { setLocale } from 'app/shared/reducers/locale';
-import { AccountMenu, AdminMenu, EntitiesMenu, LocaleMenu } from '../menus';
-
-import { Brand, Home } from './header-components';
 
 export interface IHeaderProps {
   isAuthenticated: boolean;

@@ -1,8 +1,7 @@
-import { beforeEach, describe, expect, it } from 'vitest';
 import React from 'react';
-import { MemoryRouter } from 'react-router';
-
 import { render, waitFor } from '@testing-library/react';
+import { MemoryRouter } from 'react-router';
+import { beforeEach, describe, expect, it } from 'vitest';
 
 import { AccountMenu } from './account';
 

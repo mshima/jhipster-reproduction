@@ -1,10 +1,10 @@
-import eslint from '@eslint/js';
-import react from '@eslint-react/eslint-plugin';
 import { defineConfig } from 'eslint/config';
-import cypress from 'eslint-plugin-cypress';
 import prettier from 'eslint-plugin-prettier/recommended';
 import globals from 'globals';
 import tseslint from 'typescript-eslint';
+import eslint from '@eslint/js';
+import react from '@eslint-react/eslint-plugin';
+import cypress from 'eslint-plugin-cypress';
 // jhipster-needle-eslint-add-import - JHipster will add additional import here
 
 export default defineConfig(

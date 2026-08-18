@@ -5,18 +5,17 @@ import 'app/config/dayjs';
 import React, { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { BrowserRouter } from 'react-router';
-
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import AppRoutes from 'app/routes';
+import { getSession } from 'app/shared/reducers/authentication';
+import { getProfile } from 'app/shared/reducers/application-profile';
+import Header from 'app/shared/layout/header/header';
+import Footer from 'app/shared/layout/footer/footer';
 import { hasAnyAuthority } from 'app/shared/auth/private-route';
 import ErrorBoundary from 'app/shared/error/error-boundary';
 import { Authority } from 'app/shared/jhipster/constants';
-import Footer from 'app/shared/layout/footer/footer';
-import Header from 'app/shared/layout/header/header';
-import { getProfile } from 'app/shared/reducers/application-profile';
-import { getSession } from 'app/shared/reducers/authentication';
+import AppRoutes from 'app/routes';
 
 const baseHref = document.querySelector('base')!.getAttribute('href')!.replace(/\/$/, '');
 

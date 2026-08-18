@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
-import { Translate } from 'react-jhipster';
 import { Link, useParams } from 'react-router';
-
+import { Button, Row, Col } from 'react-bootstrap';
+import { Translate } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';

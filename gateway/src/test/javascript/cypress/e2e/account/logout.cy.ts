@@ -1,4 +1,4 @@
-import { accountMenuSelector, loginItemSelector, navbarSelector } from '../../support/commands';
+import { accountMenuSelector, navbarSelector, loginItemSelector } from '../../support/commands';
 
 describe('logout', () => {
   let username: string;

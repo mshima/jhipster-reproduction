@@ -1,14 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import { Button, Table } from 'react-bootstrap';
-import { JhiItemCount, JhiPagination, Translate, byteSize, getPaginationState, openFile } from 'react-jhipster';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
-
-import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
+import { Button, Table } from 'react-bootstrap';
+import { openFile, byteSize, Translate, getPaginationState, JhiPagination, JhiItemCount } from 'react-jhipster';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
-import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
+import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
 import { ASC, DESC, ITEMS_PER_PAGE, SORT } from 'app/shared/util/pagination.constants';
+import { overridePaginationStateWithQueryParams } from 'app/shared/util/entity-utils';
+import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 import { getEntities } from './product.reducer';
 
@@ -83,11 +81,12 @@ export const Product = () => {
 
   const getSortIconByFieldName = (fieldName: string) => {
     const sortFieldName = paginationState.sort;
-    const { order } = paginationState;
+    const order = paginationState.order;
     if (sortFieldName !== fieldName) {
       return faSort;
+    } else {
+      return order === ASC ? faSortUp : faSortDown;
     }
-    return order === ASC ? faSortUp : faSortDown;
   };
 
   return (

@@ -1,12 +1,11 @@
-import { Action, Reducer, ReducersMapObject, Store, ThunkAction, UnknownAction, combineReducers, configureStore } from '@reduxjs/toolkit';
+import { UnknownAction, configureStore, ThunkAction, Action, Store, Reducer, ReducersMapObject, combineReducers } from '@reduxjs/toolkit';
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
 
 import sharedReducers from 'app/shared/reducers';
-
 import errorMiddleware from './error-middleware';
 import loadingBarMiddleware from './loading-bar-middleware';
-import loggerMiddleware from './logger-middleware';
 import notificationMiddleware from './notification-middleware';
+import loggerMiddleware from './logger-middleware';
 
 const store = configureStore({
   reducer: sharedReducers,

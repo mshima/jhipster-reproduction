@@ -3,6 +3,7 @@ package com.okta.developer.notification.repository;
 import com.okta.developer.notification.domain.NotificationEntity;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.r2dbc.repository.Query;
+import org.springframework.data.relational.core.query.Criteria;
 import org.springframework.data.repository.reactive.ReactiveCrudRepository;
 import org.springframework.stereotype.Repository;
 import reactor.core.publisher.Flux;
