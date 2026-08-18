@@ -210,8 +210,7 @@
     },
     {
       "fieldName": "byteImageRequiredMika",
-      "fieldType": "byte[]",
-      "fieldTypeBlobContent": "image",
+      "fieldType": "ImageBlob",
       "fieldValidateRules": ["required"]
     },
     {
