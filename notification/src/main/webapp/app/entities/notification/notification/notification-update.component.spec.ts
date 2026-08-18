@@ -1,0 +1,140 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { type RouteLocation } from 'vue-router';
+
+import { type MountingOptions, shallowMount } from '@vue/test-utils';
+
+import AlertService from '@/shared/alert/alert.service';
+
+import NotificationUpdate from './notification-update.vue';
+
+type NotificationUpdateComponentType = InstanceType<typeof NotificationUpdate>;
+
+let route: Partial<RouteLocation>;
+const routerGoMock = vi.fn();
+
+vi.mock('vue-router', () => ({
+  useRoute: () => route,
+  useRouter: () => ({ go: routerGoMock }),
+}));
+
+const notificationSample = { id: 123 };
+
+describe('Component Tests', () => {
+  let mountOptions: MountingOptions<NotificationUpdateComponentType>['global'];
+  let alertService: AlertService;
+
+  describe('Notification Management Update Component', () => {
+    let comp: NotificationUpdateComponentType;
+    let notificationServiceStub: any;
+
+    beforeEach(() => {
+      route = {};
+      notificationServiceStub = {
+        retrieve: vi.fn(),
+        find: vi.fn(),
+        update: vi.fn(),
+        create: vi.fn(),
+      };
+      notificationServiceStub.retrieve.mockResolvedValueOnce([]);
+
+      alertService = new AlertService({
+        i18n: { t: vi.fn() } as any,
+        toast: {
+          create: vi.fn(),
+        } as any,
+      });
+
+      mountOptions = {
+        stubs: {
+          'font-awesome-icon': true,
+          'b-input-group': true,
+          'b-input-group-prepend': true,
+          'b-form-datepicker': true,
+          'b-form-input': true,
+        },
+        provide: {
+          alertService,
+          notificationService: () => notificationServiceStub,
+
+          userService: () => ({
+            retrieve: vi.fn().mockResolvedValue({}),
+          }),
+        },
+      };
+    });
+
+    afterEach(() => {
+      vi.resetAllMocks();
+    });
+
+    describe('save', () => {
+      it('Should call update service on save for existing entity', async () => {
+        // GIVEN
+        const wrapper = shallowMount(NotificationUpdate, { global: mountOptions });
+        comp = wrapper.vm;
+        comp.notification = notificationSample;
+        notificationServiceStub.update.mockResolvedValue(notificationSample);
+
+        // WHEN
+        comp.save();
+        await comp.$nextTick();
+
+        // THEN
+        expect(notificationServiceStub.update).toHaveBeenCalledWith(notificationSample);
+        expect(comp.isSaving).toEqual(false);
+      });
+
+      it('Should call create service on save for new entity', async () => {
+        // GIVEN
+        const entity = {};
+        notificationServiceStub.create.mockResolvedValue(entity);
+        const wrapper = shallowMount(NotificationUpdate, { global: mountOptions });
+        comp = wrapper.vm;
+        comp.notification = entity;
+
+        // WHEN
+        comp.save();
+        await comp.$nextTick();
+
+        // THEN
+        expect(notificationServiceStub.create).toHaveBeenCalledWith(entity);
+        expect(comp.isSaving).toEqual(false);
+      });
+    });
+
+    describe('Before route enter', () => {
+      it('Should retrieve data', async () => {
+        // GIVEN
+        notificationServiceStub.find.mockResolvedValue(notificationSample);
+        notificationServiceStub.retrieve.mockResolvedValue([notificationSample]);
+
+        // WHEN
+        route = {
+          params: {
+            notificationId: `${notificationSample.id}`,
+          },
+        };
+        const wrapper = shallowMount(NotificationUpdate, { global: mountOptions });
+        comp = wrapper.vm;
+        await comp.$nextTick();
+
+        // THEN
+        expect(comp.notification).toMatchObject(notificationSample);
+      });
+    });
+
+    describe('Previous state', () => {
+      it('Should go previous state', async () => {
+        notificationServiceStub.find.mockResolvedValue(notificationSample);
+        const wrapper = shallowMount(NotificationUpdate, { global: mountOptions });
+        comp = wrapper.vm;
+        await comp.$nextTick();
+
+        comp.previousState();
+        await comp.$nextTick();
+
+        expect(routerGoMock).toHaveBeenCalledWith(-1);
+      });
+    });
+  });
+});

@@ -1,0 +1,9 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
+  "compilerOptions": {
+    "sourceMap": false,
+    "target": "es2018",
+    "types": ["cypress", "node"]
+  },
+  "include": ["./../../../../cypress*.config.ts", "./**/*.ts"]
+}
