@@ -1,0 +1,202 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { HttpResponse } from '@angular/common/http';
+import { provideHttpClientTesting } from '@angular/common/http/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ActivatedRoute } from '@angular/router';
+import { provideTranslateService } from '@ngx-translate/core';
+import { of, Subject, from } from 'rxjs';
+
+import { OperationFormService } from './operation-form.service';
+import { OperationService } from '../service/operation.service';
+import { IOperation } from '../operation.model';
+import { IBankAccountMySuffix } from 'app/entities/test-root/bank-account-my-suffix/bank-account-my-suffix.model';
+import { BankAccountMySuffixService } from 'app/entities/test-root/bank-account-my-suffix/service/bank-account-my-suffix.service';
+import { ILabel } from 'app/entities/test-root/label/label.model';
+import { LabelService } from 'app/entities/test-root/label/service/label.service';
+
+import { OperationUpdate } from './operation-update';
+
+describe('Operation Management Update Component', () => {
+  let comp: OperationUpdate;
+  let fixture: ComponentFixture<OperationUpdate>;
+  let activatedRoute: ActivatedRoute;
+  let operationFormService: OperationFormService;
+  let operationService: OperationService;
+  let bankAccountService: BankAccountMySuffixService;
+  let labelService: LabelService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      providers: [
+        provideTranslateService(),
+        provideHttpClientTesting(),
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            params: from([{}]),
+          },
+        },
+      ],
+    });
+
+    fixture = TestBed.createComponent(OperationUpdate);
+    activatedRoute = TestBed.inject(ActivatedRoute);
+    operationFormService = TestBed.inject(OperationFormService);
+    operationService = TestBed.inject(OperationService);
+    bankAccountService = TestBed.inject(BankAccountMySuffixService);
+    labelService = TestBed.inject(LabelService);
+
+    comp = fixture.componentInstance;
+  });
+
+  describe('ngOnInit', () => {
+    it('should call BankAccountMySuffix query and add missing value', () => {
+      const operation: IOperation = { id: 5986 };
+      const bankAccount: IBankAccountMySuffix = { id: 22720 };
+      operation.bankAccount = bankAccount;
+
+      const bankAccountCollection: IBankAccountMySuffix[] = [{ id: 22720 }];
+      vi.spyOn(bankAccountService, 'query').mockReturnValue(of(new HttpResponse({ body: bankAccountCollection })));
+      const additionalBankAccountMySuffixes = [bankAccount];
+      const expectedCollection: IBankAccountMySuffix[] = [...additionalBankAccountMySuffixes, ...bankAccountCollection];
+      vi.spyOn(bankAccountService, 'addBankAccountMySuffixToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ operation });
+      comp.ngOnInit();
+
+      expect(bankAccountService.query).toHaveBeenCalled();
+      expect(bankAccountService.addBankAccountMySuffixToCollectionIfMissing).toHaveBeenCalledWith(
+        bankAccountCollection,
+        ...additionalBankAccountMySuffixes.map(i => expect.objectContaining(i) as typeof i),
+      );
+      expect(comp.bankAccountsSharedCollection()).toEqual(expectedCollection);
+    });
+
+    it('should call Label query and add missing value', () => {
+      const operation: IOperation = { id: 5986 };
+      const labels: ILabel[] = [{ id: 4199 }];
+      operation.labels = labels;
+
+      const labelCollection: ILabel[] = [{ id: 4199 }];
+      vi.spyOn(labelService, 'query').mockReturnValue(of(new HttpResponse({ body: labelCollection })));
+      const additionalLabels = [...labels];
+      const expectedCollection: ILabel[] = [...additionalLabels, ...labelCollection];
+      vi.spyOn(labelService, 'addLabelToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ operation });
+      comp.ngOnInit();
+
+      expect(labelService.query).toHaveBeenCalled();
+      expect(labelService.addLabelToCollectionIfMissing).toHaveBeenCalledWith(
+        labelCollection,
+        ...additionalLabels.map(i => expect.objectContaining(i) as typeof i),
+      );
+      expect(comp.labelsSharedCollection()).toEqual(expectedCollection);
+    });
+
+    it('should update editForm', () => {
+      const operation: IOperation = { id: 5986 };
+      const bankAccount: IBankAccountMySuffix = { id: 22720 };
+      operation.bankAccount = bankAccount;
+      const label: ILabel = { id: 4199 };
+      operation.labels = [label];
+
+      activatedRoute.data = of({ operation });
+      comp.ngOnInit();
+
+      expect(comp.bankAccountsSharedCollection()).toContainEqual(bankAccount);
+      expect(comp.labelsSharedCollection()).toContainEqual(label);
+      expect(comp.operation).toEqual(operation);
+    });
+  });
+
+  describe('save', () => {
+    it('should call update service on save for existing entity', () => {
+      // GIVEN
+      const saveSubject = new Subject<IOperation>();
+      const operation = { id: 13822 };
+      vi.spyOn(operationFormService, 'getOperation').mockReturnValue(operation);
+      vi.spyOn(operationService, 'update').mockReturnValue(saveSubject);
+      vi.spyOn(comp, 'previousState');
+      activatedRoute.data = of({ operation });
+      comp.ngOnInit();
+
+      // WHEN
+      comp.save();
+      expect(comp.isSaving()).toEqual(true);
+      saveSubject.next(operation);
+      saveSubject.complete();
+
+      // THEN
+      expect(operationFormService.getOperation).toHaveBeenCalled();
+      expect(comp.previousState).toHaveBeenCalled();
+      expect(operationService.update).toHaveBeenCalledWith(expect.objectContaining(operation));
+      expect(comp.isSaving()).toEqual(false);
+    });
+
+    it('should call create service on save for new entity', () => {
+      // GIVEN
+      const saveSubject = new Subject<IOperation>();
+      const operation = { id: 13822 };
+      vi.spyOn(operationFormService, 'getOperation').mockReturnValue({ id: null });
+      vi.spyOn(operationService, 'create').mockReturnValue(saveSubject);
+      vi.spyOn(comp, 'previousState');
+      activatedRoute.data = of({ operation: null });
+      comp.ngOnInit();
+
+      // WHEN
+      comp.save();
+      expect(comp.isSaving()).toEqual(true);
+      saveSubject.next(operation);
+      saveSubject.complete();
+
+      // THEN
+      expect(operationFormService.getOperation).toHaveBeenCalled();
+      expect(operationService.create).toHaveBeenCalled();
+      expect(comp.isSaving()).toEqual(false);
+      expect(comp.previousState).toHaveBeenCalled();
+    });
+
+    it('should set isSaving to false on error', () => {
+      // GIVEN
+      const saveSubject = new Subject<IOperation>();
+      const operation = { id: 13822 };
+      vi.spyOn(operationService, 'update').mockReturnValue(saveSubject);
+      vi.spyOn(comp, 'previousState');
+      activatedRoute.data = of({ operation });
+      comp.ngOnInit();
+
+      // WHEN
+      comp.save();
+      expect(comp.isSaving()).toEqual(true);
+      saveSubject.error('This is an error!');
+
+      // THEN
+      expect(operationService.update).toHaveBeenCalled();
+      expect(comp.isSaving()).toEqual(false);
+      expect(comp.previousState).not.toHaveBeenCalled();
+    });
+  });
+
+  describe('Compare relationships', () => {
+    describe('compareBankAccountMySuffix', () => {
+      it('should forward to bankAccountService', () => {
+        const entity = { id: 22720 };
+        const entity2 = { id: 22583 };
+        vi.spyOn(bankAccountService, 'compareBankAccountMySuffix');
+        comp.compareBankAccountMySuffix(entity, entity2);
+        expect(bankAccountService.compareBankAccountMySuffix).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+
+    describe('compareLabel', () => {
+      it('should forward to labelService', () => {
+        const entity = { id: 4199 };
+        const entity2 = { id: 7351 };
+        vi.spyOn(labelService, 'compareLabel');
+        comp.compareLabel(entity, entity2);
+        expect(labelService.compareLabel).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+  });
+});
