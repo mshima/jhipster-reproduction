@@ -6,7 +6,7 @@ Cypress.Commands.add('getOauth2Data', () => {
     followRedirect: false,
   }).then(response => {
     const data = {
-      url: response.headers['location'],
+      url: response.headers.location,
     };
     cy.wrap(data).as('oauth2Data');
   });
@@ -70,7 +70,7 @@ Cypress.Commands.add('auth0Login', (oauth2Data, username: string, password: stri
         followRedirect: true,
         form: true,
         body: {
-          state: state,
+          state,
           action: 'default',
           username,
           password,

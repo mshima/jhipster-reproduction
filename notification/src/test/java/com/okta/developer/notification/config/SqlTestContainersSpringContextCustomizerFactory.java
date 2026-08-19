@@ -4,7 +4,6 @@ import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.boot.test.util.TestPropertyValues;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.annotation.AnnotatedElementUtils;
@@ -12,7 +11,6 @@ import org.springframework.test.context.ContextConfigurationAttributes;
 import org.springframework.test.context.ContextCustomizer;
 import org.springframework.test.context.ContextCustomizerFactory;
 import org.springframework.test.context.MergedContextConfiguration;
-import tech.jhipster.config.JHipsterConstants;
 
 public class SqlTestContainersSpringContextCustomizerFactory implements ContextCustomizerFactory {
 
@@ -47,7 +45,7 @@ public class SqlTestContainersSpringContextCustomizerFactory implements ContextC
                     }
                     testValues = testValues.and(
                         "spring.r2dbc.url=" +
-                            prodTestcontainer.getTestContainer().getJdbcUrl().replace("jdbc", "r2dbc").replace("mariadb", "mysql") +
+                            prodTestcontainer.getTestContainer().getJdbcUrl().replace("jdbc", "r2dbc") +
                             "?useLegacyDatetimeCode=false"
                     );
                     testValues = testValues.and("spring.r2dbc.username=" + prodTestcontainer.getTestContainer().getUsername());

@@ -1,7 +1,6 @@
 package com.okta.developer.gateway.web.rest;
 
 import static com.okta.developer.gateway.domain.AuthorityAsserts.*;
-import static com.okta.developer.gateway.web.rest.TestUtil.createUpdateProxyForBean;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.hasItem;
 import static org.hamcrest.Matchers.is;

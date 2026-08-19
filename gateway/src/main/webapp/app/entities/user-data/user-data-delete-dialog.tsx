@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'react-bootstrap';
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'react-bootstrap';
 import { Translate } from 'react-jhipster';
+import { useNavigate, useParams } from 'react-router';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntity, deleteEntity } from './user-data.reducer';
+
+import { deleteEntity, getEntity } from './user-data.reducer';
 
 export const UserDataDeleteDialog = () => {
   const dispatch = useAppDispatch();

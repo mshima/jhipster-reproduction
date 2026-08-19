@@ -1,8 +1,8 @@
 import React from 'react';
+import { Dropdown, DropdownMenu, DropdownToggle, Nav } from 'react-bootstrap';
 
-import { Dropdown, DropdownToggle, DropdownMenu, Nav } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export interface INavDropdown {
   children: React.ReactNode;

@@ -1,10 +1,10 @@
 import React, { Suspense } from 'react';
 import { Route } from 'react-router';
 
+import EntitiesRoutes from 'app/entities/routes';
+import Home from 'app/modules/home/home';
 import LoginRedirect from 'app/modules/login/login-redirect';
 import Logout from 'app/modules/login/logout';
-import Home from 'app/modules/home/home';
-import EntitiesRoutes from 'app/entities/routes';
 import PrivateRoute from 'app/shared/auth/private-route';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 import PageNotFound from 'app/shared/error/page-not-found';

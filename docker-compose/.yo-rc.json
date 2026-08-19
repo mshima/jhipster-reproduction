@@ -2,9 +2,11 @@
   "generator-jhipster": {
     "adminPassword": "admin",
     "appsFolders": ["gateway", "store", "blog", "notification"],
+    "clusteredDbApps": [],
     "deploymentType": "docker-compose",
     "directoryPath": "../",
     "dockerRepositoryName": "hipsterslabs",
+    "gatewayType": "SpringCloudGateway",
     "jwtSecretKey": "N2FkNDFkMDMxODdlYTMyNjJjOTkzNzJlNmNjZjkwNGQzMzY1MjQ3OGZmZTdmZmE5YWNjY2Y3ZTM4NDMxYTM3MzY4YWI4ZTVlYjRhMmYxMmMxNDA5NTBmYjg5ZDZkNWUzMTkwNw==",
     "monitoring": "no",
     "serviceDiscoveryType": "eureka"

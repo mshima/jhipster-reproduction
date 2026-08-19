@@ -1,15 +1,15 @@
-import axios from 'axios';
 import { describe, expect, it, vi } from 'vitest';
-import { configureStore, createReducer } from '@reduxjs/toolkit';
+
+import { configureStore } from '@reduxjs/toolkit';
+import axios from 'axios';
 
 import authentication, {
-  getAccount,
-  logoutServer,
-  clearAuthentication,
-  logout,
   authError,
   clearAuth,
+  clearAuthentication,
+  getAccount,
   initialState,
+  logoutServer,
 } from 'app/shared/reducers/authentication';
 
 describe('Authentication reducer tests', () => {

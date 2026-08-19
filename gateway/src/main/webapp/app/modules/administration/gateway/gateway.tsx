@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
+import { Badge, Button, Table } from 'react-bootstrap';
 import { Translate } from 'react-jhipster';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Badge, Table, Button } from 'react-bootstrap';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
 import { getGatewayRoutes } from '../administration.reducer';
@@ -19,9 +20,9 @@ export const GatewayPage = () => {
     const spans: React.JSX.Element[] = [];
     Object.keys(instance).map(key => {
       spans.push(
-        <span key={key.toString() + 'value'}>
-          <Badge key={key.toString() + '-containerbadge'} className="fw-normal">
-            <Badge key={key.toString() + '-badge'} color="info" className="fw-normal" pill>
+        <span key={`${key.toString()}value`}>
+          <Badge key={`${key.toString()}-containerbadge`} className="fw-normal">
+            <Badge key={`${key.toString()}-badge`} color="info" className="fw-normal" pill>
               {key}
             </Badge>
             {instance[key]}
@@ -36,12 +37,10 @@ export const GatewayPage = () => {
     if (info) {
       if (info.status === 'UP') {
         return <Badge bg="success">{info.status}</Badge>;
-      } else {
-        return <Badge bg="danger">{info.status}</Badge>;
       }
-    } else {
-      return <Badge bg="warning">?</Badge>;
+      return <Badge bg="danger">{info.status}</Badge>;
     }
+    return <Badge bg="warning">?</Badge>;
   };
 
   const instanceInfo = route => {
@@ -50,7 +49,7 @@ export const GatewayPage = () => {
         <Table striped responsive>
           <tbody>
             {route.serviceInstances.map(instance => (
-              <tr key={instance.instanceInfo + '-info'}>
+              <tr key={`${instance.instanceInfo}-info`}>
                 <td>
                   <a href={instance.uri} target="_blank" rel="noopener noreferrer">
                     {instance.uri}

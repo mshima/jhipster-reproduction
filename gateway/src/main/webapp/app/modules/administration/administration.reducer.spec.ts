@@ -1,15 +1,15 @@
-import axios from 'axios';
 import { describe, expect, it, vi } from 'vitest';
 
+import axios from 'axios';
+
 import administration, {
+  getConfigurations,
+  getEnv,
   getGatewayRoutes,
+  getLoggers,
   getSystemHealth,
   getSystemMetrics,
   getSystemThreadDump,
-  getLoggers,
-  changeLogLevel,
-  getConfigurations,
-  getEnv,
   setLoggers,
 } from './administration.reducer';
 

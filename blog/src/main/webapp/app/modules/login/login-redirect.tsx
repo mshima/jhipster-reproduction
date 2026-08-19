@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import { REDIRECT_URL } from 'app/shared/util/url-utils';
+import { useEffect } from 'react';
 import { useLocation } from 'react-router';
+
+import { REDIRECT_URL } from 'app/shared/util/url-utils';
 
 export const LoginRedirect = () => {
   const pageLocation = useLocation();

@@ -1,6 +1,5 @@
 package com.okta.developer.notification;
 
-import com.okta.developer.notification.NotificationApp;
 import com.okta.developer.notification.config.AsyncSyncConfiguration;
 import com.okta.developer.notification.config.EmbeddedSQL;
 import com.okta.developer.notification.config.JacksonConfiguration;

@@ -1,13 +1,9 @@
 package com.okta.developer.notification.service.impl;
 
-import com.okta.developer.notification.domain.NotificationEntity;
 import com.okta.developer.notification.repository.NotificationRepository;
 import com.okta.developer.notification.service.NotificationService;
 import com.okta.developer.notification.service.dto.NotificationRest;
 import com.okta.developer.notification.service.mapper.NotificationMapper;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Pageable;

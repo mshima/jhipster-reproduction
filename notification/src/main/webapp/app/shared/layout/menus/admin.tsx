@@ -1,10 +1,9 @@
 import React from 'react';
-import MenuItem from 'app/shared/layout/menus/menu-item';
-import { DropdownItem } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDatabase } from '@fortawesome/free-solid-svg-icons';
-import { NavDropdown } from './menu-components';
 import { Translate, translate } from 'react-jhipster';
+
+import MenuItem from 'app/shared/layout/menus/menu-item';
+
+import { NavDropdown } from './menu-components';
 
 const adminMenuItems = () => <>{/* jhipster-needle-add-element-to-admin-menu - JHipster will add entities to the admin menu here */}</>;
 

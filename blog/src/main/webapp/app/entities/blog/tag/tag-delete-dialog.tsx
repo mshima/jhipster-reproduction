@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useLocation, useNavigate, useParams } from 'react-router';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'react-bootstrap';
+import { Button, Modal, ModalBody, ModalFooter, ModalHeader } from 'react-bootstrap';
 import { Translate } from 'react-jhipster';
+import { useNavigate, useParams } from 'react-router';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import { getEntity, deleteEntity } from './tag.reducer';
+
+import { deleteEntity, getEntity } from './tag.reducer';
 
 export const TagDeleteDialog = () => {
   const dispatch = useAppDispatch();

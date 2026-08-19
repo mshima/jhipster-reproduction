@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router';
+import React, { useEffect, useState } from 'react';
 import { Button, Table } from 'react-bootstrap';
 import { Translate, getSortState } from 'react-jhipster';
+import { Link, useLocation, useNavigate } from 'react-router';
+
+import { faSort, faSortDown, faSortUp } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSort, faSortUp, faSortDown } from '@fortawesome/free-solid-svg-icons';
-import { ASC, DESC, SORT } from 'app/shared/util/pagination.constants';
-import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils';
+
 import { useAppDispatch, useAppSelector } from 'app/config/store';
+import { overrideSortStateWithQueryParams } from 'app/shared/util/entity-utils';
+import { ASC, DESC } from 'app/shared/util/pagination.constants';
 
 import { getEntities } from './user-data.reducer';
 
@@ -55,12 +57,11 @@ export const UserData = () => {
 
   const getSortIconByFieldName = (fieldName: string) => {
     const sortFieldName = sortState.sort;
-    const order = sortState.order;
+    const { order } = sortState;
     if (sortFieldName !== fieldName) {
       return faSort;
-    } else {
-      return order === ASC ? faSortUp : faSortDown;
     }
+    return order === ASC ? faSortUp : faSortDown;
   };
 
   return (

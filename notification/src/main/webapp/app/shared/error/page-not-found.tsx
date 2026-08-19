@@ -1,6 +1,6 @@
 import React from 'react';
-import { Translate } from 'react-jhipster';
 import { Alert } from 'react-bootstrap';
+import { Translate } from 'react-jhipster';
 
 const PageNotFound = () => {
   return (

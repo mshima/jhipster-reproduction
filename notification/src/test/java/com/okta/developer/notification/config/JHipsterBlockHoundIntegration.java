@@ -18,6 +18,7 @@ public class JHipsterBlockHoundIntegration implements BlockHoundIntegration {
         builder.allowBlockingCallsInside("org.springdoc.core.service.OpenAPIService", "build");
         builder.allowBlockingCallsInside("org.springdoc.core.service.OpenAPIService", "getWebhooksClasses");
         builder.allowBlockingCallsInside("org.springdoc.core.service.AbstractRequestService", "build");
+        builder.allowBlockingCallsInside("org.mariadb.r2dbc.client.SimpleClient", "sendCommand");
         // jhipster-needle-blockhound-integration - JHipster will add additional gradle plugins here
     }
 }

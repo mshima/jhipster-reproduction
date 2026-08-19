@@ -4,9 +4,9 @@ import { Route } from 'react-router';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import Tag from './tag';
+import TagDeleteDialog from './tag-delete-dialog';
 import TagDetail from './tag-detail';
 import TagUpdate from './tag-update';
-import TagDeleteDialog from './tag-delete-dialog';
 
 const TagRoutes = () => (
   <ErrorBoundaryRoutes>

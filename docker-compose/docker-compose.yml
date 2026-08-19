@@ -10,7 +10,7 @@ services:
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/realms/jhipster
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=web_app
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=web_app
-      - SPRING_R2DBC_URL=r2dbc:mysql://gateway-mariadb:3306/gateway?useLegacyDatetimeCode=false
+      - SPRING_R2DBC_URL=r2dbc:mariadb://gateway-mariadb:3306/gateway?useLegacyDatetimeCode=false
       - SPRING_R2DBC_USERNAME=root
       - SPRING_R2DBC_PASSWORD=
       - SPRING_LIQUIBASE_URL=jdbc:mariadb://gateway-mariadb:3306/gateway?useLegacyDatetimeCode=false
@@ -163,7 +163,7 @@ services:
       - SPRING_SECURITY_OAUTH2_CLIENT_PROVIDER_OIDC_ISSUER_URI=http://keycloak:9080/realms/jhipster
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_ID=internal
       - SPRING_SECURITY_OAUTH2_CLIENT_REGISTRATION_OIDC_CLIENT_SECRET=internal
-      - SPRING_R2DBC_URL=r2dbc:mysql://notification-mariadb:3306/notification?useLegacyDatetimeCode=false
+      - SPRING_R2DBC_URL=r2dbc:mariadb://notification-mariadb:3306/notification?useLegacyDatetimeCode=false
       - SPRING_R2DBC_USERNAME=root
       - SPRING_R2DBC_PASSWORD=
       - SPRING_LIQUIBASE_URL=jdbc:mariadb://notification-mariadb:3306/notification?useLegacyDatetimeCode=false

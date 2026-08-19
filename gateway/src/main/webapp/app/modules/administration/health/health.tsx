@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Badge, Button, Col, Row, Table } from 'react-bootstrap';
 import { Translate } from 'react-jhipster';
-import { Table, Badge, Col, Row, Button } from 'react-bootstrap';
+
+import { faEye, faSync } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSync, faEye } from '@fortawesome/free-solid-svg-icons';
 
 import { useAppDispatch, useAppSelector } from 'app/config/store';
-import HealthModal from './health-modal';
 import { getSystemHealth } from '../administration.reducer';
+
+import HealthModal from './health-modal';
 
 export const HealthPage = () => {
   const [healthObject, setHealthObject] = useState({});

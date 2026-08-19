@@ -1,5 +1,6 @@
-import axios from 'axios';
 import { describe, expect, it, vi } from 'vitest';
+
+import axios from 'axios';
 
 import setupAxiosInterceptors from './axios-interceptor';
 

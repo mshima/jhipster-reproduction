@@ -1,15 +1,11 @@
 package com.okta.developer.gateway.web.rest;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.security.test.web.reactive.server.SecurityMockServerConfigurers.csrf;
 
 import com.okta.developer.gateway.IntegrationTest;
-import com.okta.developer.gateway.config.Constants;
 import com.okta.developer.gateway.domain.User;
-import com.okta.developer.gateway.repository.EntityManager;
 import com.okta.developer.gateway.repository.UserRepository;
 import com.okta.developer.gateway.security.AuthoritiesConstants;
-import com.okta.developer.gateway.service.dto.UserDTO;
 import java.util.Set;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
