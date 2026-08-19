@@ -1,0 +1,12 @@
+{
+  "generator-jhipster": {
+    "appsFolders": ["gateway", "store", "blog", "notification"],
+    "dbRandomPassword": "a6c1ef090c0c28350e6efaa132efd9f5950b8b4cfb9948f3a1755c9a6bd9",
+    "deploymentType": "kubernetes",
+    "directoryPath": "../",
+    "dockerRepositoryName": "hipsterslabs",
+    "jwtSecretKey": "ZTVlZjhkNDU3MDdiOTg3YjMwYjk5ZTVhZWY0ZWM3ZTBkY2ZjZGUwOGQyYmFmNDMxZDk1YzFlNDE0YzFmM2Q0OTM4NDNhMDM4OGI1N2IwNjk1YTA4MTNjNWM0MzdkNDhkZTNkOQ==",
+    "monitoring": "no",
+    "serviceDiscoveryType": "eureka"
+  }
+}
