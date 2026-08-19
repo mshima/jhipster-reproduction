@@ -1,7 +1,9 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { toast } from 'react-toastify';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
 import { TranslatorContext } from 'react-jhipster';
+
+import { configureStore } from '@reduxjs/toolkit';
+import { toast } from 'react-toastify';
+
 import {
   INVALID_PASSWORD_TYPE,
   MESSAGE_ALERT_HEADER_NAME,

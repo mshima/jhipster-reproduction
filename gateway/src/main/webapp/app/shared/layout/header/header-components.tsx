@@ -1,10 +1,10 @@
 import React from 'react';
-import { Translate } from 'react-jhipster';
-
 import { NavItem, NavLink, NavbarBrand } from 'react-bootstrap';
+import { Translate } from 'react-jhipster';
 import { NavLink as Link } from 'react-router';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const BrandIcon = props => (
   <div {...props} className="brand-icon">

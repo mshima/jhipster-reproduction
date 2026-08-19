@@ -1,10 +1,12 @@
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 import React from 'react';
+import { MemoryRouter } from 'react-router';
+
 import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { MemoryRouter } from 'react-router';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import initStore from 'app/config/store';
+
 import Header from './header';
 
 vi.mock('@module-federation/enhanced/runtime', () => ({

@@ -6,13 +6,11 @@ import static org.springframework.security.test.web.reactive.server.SecurityMock
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.okta.developer.gateway.IntegrationTest;
 import com.okta.developer.gateway.config.Constants;
-import com.okta.developer.gateway.domain.Authority;
 import com.okta.developer.gateway.domain.User;
 import com.okta.developer.gateway.repository.AuthorityRepository;
 import com.okta.developer.gateway.repository.EntityManager;
 import com.okta.developer.gateway.repository.UserRepository;
 import com.okta.developer.gateway.security.AuthoritiesConstants;
-import com.okta.developer.gateway.service.dto.AdminUserDTO;
 import com.okta.developer.gateway.service.mapper.UserMapper;
 import java.util.*;
 import java.util.function.Consumer;
@@ -22,7 +20,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
-import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.reactive.server.WebTestClient;
 

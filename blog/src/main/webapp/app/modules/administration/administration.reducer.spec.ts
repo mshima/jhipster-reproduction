@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import administration from './administration.reducer';
 

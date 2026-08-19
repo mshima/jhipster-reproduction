@@ -1,6 +1,5 @@
 package com.okta.developer.store;
 
-import com.okta.developer.store.StoreApp;
 import com.okta.developer.store.config.AsyncSyncConfiguration;
 import com.okta.developer.store.config.DatabaseTestcontainer;
 import com.okta.developer.store.config.JacksonConfiguration;

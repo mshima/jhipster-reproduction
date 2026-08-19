@@ -1,14 +1,16 @@
 const path = require('node:path');
-const webpack = require('webpack');
-const { merge } = require('webpack-merge');
+
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 const { hashElement } = require('folder-hash');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MergeJsonWebpackPlugin = require('merge-jsons-webpack-plugin');
-const utils = require('./utils.js');
+const webpack = require('webpack');
+const { merge } = require('webpack-merge');
+
 const environment = require('./environment');
+const utils = require('./utils.js');
 
 const getTsLoaderRule = () => {
   return [

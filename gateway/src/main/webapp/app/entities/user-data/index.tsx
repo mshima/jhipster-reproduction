@@ -4,9 +4,9 @@ import { Route } from 'react-router';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import UserData from './user-data';
+import UserDataDeleteDialog from './user-data-delete-dialog';
 import UserDataDetail from './user-data-detail';
 import UserDataUpdate from './user-data-update';
-import UserDataDeleteDialog from './user-data-delete-dialog';
 
 const UserDataRoutes = () => (
   <ErrorBoundaryRoutes>

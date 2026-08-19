@@ -4,9 +4,9 @@ import { Route } from 'react-router';
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
 
 import Notification from './notification';
+import NotificationDeleteDialog from './notification-delete-dialog';
 import NotificationDetail from './notification-detail';
 import NotificationUpdate from './notification-update';
-import NotificationDeleteDialog from './notification-delete-dialog';
 
 const NotificationRoutes = () => (
   <ErrorBoundaryRoutes>

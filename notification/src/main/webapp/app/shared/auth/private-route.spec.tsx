@@ -1,12 +1,14 @@
-import React from 'react';
-import { MemoryRouter, Route, Routes } from 'react-router';
-import { render } from '@testing-library/react';
-import { TranslatorContext } from 'react-jhipster';
-import { configureStore } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
 import { beforeAll, describe, expect, it, vi } from 'vitest';
+import React from 'react';
+import { TranslatorContext } from 'react-jhipster';
+import { MemoryRouter, Route, Routes } from 'react-router';
+
+import { configureStore } from '@reduxjs/toolkit';
+import { render } from '@testing-library/react';
+import { Provider } from 'react-redux';
 
 import { Authority } from 'app/shared/jhipster/constants';
+
 import PrivateRoute, { hasAnyAuthority } from './private-route';
 
 const TestComp = () => <div>Test</div>;

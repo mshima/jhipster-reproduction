@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Translate } from 'react-jhipster';
 
+import { useAppDispatch, useAppSelector } from 'app/config/store';
 import MenuItem from 'app/shared/layout/menus/menu-item';
 import { addTranslationSourcePrefix } from 'app/shared/reducers/locale';
-import { useAppDispatch, useAppSelector } from 'app/config/store';
 
 const EntitiesMenu = () => {
   const lastChange = useAppSelector(state => state.locale.lastChange);

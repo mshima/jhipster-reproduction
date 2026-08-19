@@ -1,6 +1,5 @@
 package com.okta.developer.gateway;
 
-import com.okta.developer.gateway.GatewayApp;
 import com.okta.developer.gateway.config.AsyncSyncConfiguration;
 import com.okta.developer.gateway.config.EmbeddedSQL;
 import com.okta.developer.gateway.config.JacksonConfiguration;

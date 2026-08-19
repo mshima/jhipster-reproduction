@@ -1,8 +1,8 @@
 import './footer.scss';
 
 import React from 'react';
-import { Translate } from 'react-jhipster';
 import { Col, Row } from 'react-bootstrap';
+import { Translate } from 'react-jhipster';
 
 const Footer = () => (
   <div className="footer page-content">

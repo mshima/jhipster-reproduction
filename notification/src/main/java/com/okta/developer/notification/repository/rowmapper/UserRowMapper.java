@@ -2,7 +2,6 @@ package com.okta.developer.notification.repository.rowmapper;
 
 import com.okta.developer.notification.domain.UserEntity;
 import io.r2dbc.spi.Row;
-import java.time.Instant;
 import java.util.function.BiFunction;
 import org.springframework.stereotype.Service;
 

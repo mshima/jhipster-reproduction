@@ -10,7 +10,6 @@ import com.okta.developer.gateway.security.AuthoritiesConstants;
 import com.okta.developer.gateway.security.SecurityUtils;
 import com.okta.developer.gateway.security.oauth2.AudienceValidator;
 import com.okta.developer.gateway.web.filter.SpaWebFilter;
-import java.net.URI;
 import java.time.Duration;
 import java.util.Arrays;
 import java.util.HashSet;

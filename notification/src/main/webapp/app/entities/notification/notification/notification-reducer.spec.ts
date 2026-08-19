@@ -1,19 +1,20 @@
-import axios from 'axios';
 import { describe, expect, it, vi } from 'vitest';
 
 import { configureStore } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+import { INotification, defaultValue } from 'app/shared/model/notification/notification.model';
+import { EntityState } from 'app/shared/reducers/reducer.utils';
 
 import reducer, {
   createEntity,
   deleteEntity,
   getEntities,
   getEntity,
-  updateEntity,
   partialUpdateEntity,
   reset,
+  updateEntity,
 } from './notification.reducer';
-import { EntityState } from 'app/shared/reducers/reducer.utils';
-import { INotification, defaultValue } from 'app/shared/model/notification/notification.model';
 
 describe('Entities reducer tests', () => {
   const initialState: EntityState<INotification> = {

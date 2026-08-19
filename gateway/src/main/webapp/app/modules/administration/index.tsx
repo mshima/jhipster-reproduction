@@ -1,13 +1,14 @@
 import React from 'react';
-
 import { Route } from 'react-router';
+
 import ErrorBoundaryRoutes from 'app/shared/error/error-boundary-routes';
-import Logs from './logs/logs';
-import Health from './health/health';
-import Metrics from './metrics/metrics';
+
 import Configuration from './configuration/configuration';
 import Docs from './docs/docs';
 import Gateway from './gateway/gateway';
+import Health from './health/health';
+import Logs from './logs/logs';
+import Metrics from './metrics/metrics';
 
 const AdministrationRoutes = () => (
   <div>

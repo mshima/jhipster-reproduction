@@ -1,6 +1,5 @@
 package com.okta.developer.blog;
 
-import com.okta.developer.blog.BlogApp;
 import com.okta.developer.blog.config.AsyncSyncConfiguration;
 import com.okta.developer.blog.config.DatabaseTestcontainer;
 import com.okta.developer.blog.config.JacksonConfiguration;

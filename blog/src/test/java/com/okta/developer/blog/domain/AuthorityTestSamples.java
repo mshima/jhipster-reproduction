@@ -1,10 +1,6 @@
 package com.okta.developer.blog.domain;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
-import com.okta.developer.blog.web.rest.TestUtil;
 import java.util.UUID;
-import org.junit.jupiter.api.Test;
 
 public class AuthorityTestSamples {
 

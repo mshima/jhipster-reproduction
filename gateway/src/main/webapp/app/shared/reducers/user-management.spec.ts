@@ -1,6 +1,7 @@
+import { describe, expect, it, vi } from 'vitest';
+
 import { configureStore } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { describe, expect, it, vi } from 'vitest';
 
 import userManagement, { getUsers } from 'app/shared/reducers/user-management';
 

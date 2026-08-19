@@ -6,13 +6,11 @@ import static org.springframework.security.test.web.reactive.server.SecurityMock
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.okta.developer.notification.IntegrationTest;
 import com.okta.developer.notification.config.Constants;
-import com.okta.developer.notification.domain.Authority;
 import com.okta.developer.notification.domain.UserEntity;
 import com.okta.developer.notification.repository.AuthorityRepository;
 import com.okta.developer.notification.repository.EntityManager;
 import com.okta.developer.notification.repository.UserRepository;
 import com.okta.developer.notification.security.AuthoritiesConstants;
-import com.okta.developer.notification.service.dto.AdminUserRest;
 import com.okta.developer.notification.service.mapper.UserMapper;
 import java.util.*;
 import java.util.function.Consumer;
@@ -22,7 +20,6 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
-import org.springframework.http.MediaType;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.reactive.server.WebTestClient;
 

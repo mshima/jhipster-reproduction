@@ -61,7 +61,7 @@ spring:
     contexts: prod
     url: jdbc:mariadb://localhost:3306/notification?useLegacyDatetimeCode=false
   r2dbc:
-    url: r2dbc:mysql://localhost:3306/notification?useLegacyDatetimeCode=false
+    url: r2dbc:mariadb://localhost:3306/notification?useLegacyDatetimeCode=false
   thymeleaf:
     cache: true
 
